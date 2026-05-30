@@ -14,7 +14,7 @@ export default function LanguageSelector({ language, setLanguage }: Props) {
   const current = languages[language] ?? languages.es;
 
   return (
-    <div className="fixed right-6 top-5 z-40">
+    <div className="fixed right-5 top-5 z-40 md:right-6">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
