@@ -38,8 +38,8 @@ export default function App() {
       />
 
       {/* Hero */}
-      <section className="relative z-10 mx-auto mt-28 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
-        <div className="flex flex-col justify-center p-2 md:p-4">
+      <section className="relative z-10 mx-auto mt-24 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
+        <div className="flex flex-col justify-center p-2 text-center md:p-4 md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="text-3xl font-black tracking-tight text-slate-950 md:text-5xl"
+            className="text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
           >
             {t.heroTitle}
           </motion.h1>
@@ -59,7 +59,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-3 max-w-lg text-xs font-medium leading-relaxed text-slate-500 md:text-base"
+            className="mx-auto mt-3 max-w-lg text-sm font-medium leading-relaxed text-slate-500 md:mx-0 md:text-base"
           >
             {t.heroText}
           </motion.p>
@@ -69,7 +69,7 @@ export default function App() {
       </section>
 
       {/* Catálogo */}
-      <main className="relative z-10 mx-auto -mt-2 flex w-full max-w-[1500px] flex-col gap-6 px-3 pb-10 md:px-6">
+      <main className="relative z-10 mx-auto mt-4 flex w-full max-w-[1500px] flex-col gap-6 px-3 pb-10 md:-mt-2 md:px-6">
         <section className="-mt-4">
           <SectionTitle eyebrow={t.monthlyEyebrow} title={t.monthlyTitle} />
           <TimelineRow

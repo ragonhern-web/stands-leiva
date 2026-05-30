@@ -12,7 +12,7 @@ export default function HeroStandPreview({ stand, language }: Props) {
   const standCopy = getStandCopy(stand, language);
 
   return (
-    <section className="relative flex min-h-[300px] w-full items-center justify-center overflow-visible md:min-h-[360px]">
+    <section className="relative hidden min-h-[300px] w-full items-center justify-center overflow-visible md:flex md:min-h-[360px]">
       <motion.div
         className="absolute h-[300px] w-[300px] rounded-full opacity-20 blur-3xl md:h-[380px] md:w-[380px]"
         animate={{ backgroundColor: stand.color }}
