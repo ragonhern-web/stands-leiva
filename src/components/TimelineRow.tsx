@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { getStandCopy } from "../data/translations";
+import { getStandCopy, getStandLabel } from "../data/translations";
 import { brand } from "../data/stands";
 import MobileSeasonCarousel from "./MobileSeasonCarousel";
 import type { Stand, Language } from "../types";
@@ -77,7 +77,7 @@ export default function TimelineRow({
                       className="mb-3 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-sm"
                       style={{ color: stand.color }}
                     >
-                      {stand.label}
+                      {getStandLabel(stand, language)}
                     </span>
 
                     {/* Nodo del timeline */}
@@ -141,7 +141,7 @@ export default function TimelineRow({
               className="mb-3 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-xs"
               style={{ color: stand.color }}
             >
-              {stand.label}
+              {getStandLabel(stand, language)}
             </span>
 
             <motion.div

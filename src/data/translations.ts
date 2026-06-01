@@ -91,6 +91,20 @@ export const copy: Record<Language, TranslationCopy> = {
   },
 };
 
+/** Abreviaturas de meses traducidas por idioma */
+export const standLabels: Record<Language, Partial<Record<string, string>>> = {
+  es: { ene: "ENE", feb: "FEB", mar: "MAR", abr: "ABR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DIC" },
+  en: { ene: "JAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC" },
+  fr: { ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC" },
+  it: { ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC" },
+  pt: { ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ" },
+};
+
+/** Devuelve la etiqueta del expositor en el idioma activo */
+export function getStandLabel(stand: { id: string; label: string }, language: Language): string {
+  return standLabels[language]?.[stand.id] ?? stand.label;
+}
+
 /** Textos de título y descripción de cada expositor por idioma */
 export const standText: Record<Language, Record<string, [string, string]>> = {
   es: {
@@ -139,10 +153,75 @@ export const standText: Record<Language, Record<string, [string, string]>> = {
     juguetes: ["Toy Display", "Generic toys with constant year-round sales."],
     toys: ["Toys Display", "New releases and exclusive imported toys."],
   },
-  // FR, IT, PT comparten los textos en español hasta que se traduzcan
-  fr: {},
-  it: {},
-  pt: {},
+  fr: {
+    ene: ["Présentoir Janvier", "Produits essentiels pour relancer les ventes après les fêtes."],
+    feb: ["Présentoir Février", "Cadeaux rapides, achats impulsifs et produits à forte rotation."],
+    mar: ["Présentoir Mars", "Jeux d'extérieur pour profiter du début du beau temps."],
+    abr: ["Présentoir Avril", "Produits printaniers, Pâques et campagnes familiales."],
+    may: ["Présentoir Mai", "Préparation de la saison chaude avec des jouets dynamiques."],
+    jun: ["Présentoir Juin", "Campagne de fin d'école et premiers achats d'été."],
+    jul: ["Présentoir Set Plage", "Les produits vedettes pour la plage, la piscine et l'été."],
+    ago: ["Présentoir Août", "Divertissement pour les voyages, vacances et après-midi d'été."],
+    sep: ["Présentoir Septembre", "Rentrée scolaire avec des produits pratiques pour enfants."],
+    oct: ["Présentoir Halloween", "Costumes, décorations et accessoires pour des campagnes visuelles."],
+    nov: ["Présentoir Novembre", "Début de campagne de Noël et produits à forte demande."],
+    dic: ["Présentoir Noël", "Cadeaux de dernière minute et meilleures ventes de décembre."],
+    balones: ["Présentoir Ballons", "Sélection complète de ballons de sport pour tous les âges."],
+    mascotas: ["Présentoir Animaux", "Jouets, accessoires et produits de soin pour animaux."],
+    eco: ["Présentoir Éco", "Produits recyclables et alternatives respectueuses de l'environnement."],
+    belleza: ["Présentoir Beauté", "Sets de maquillage, coiffure et accessoires pour enfants."],
+    cocina: ["Présentoir Cuisine", "Accessoires de cuisine colorés pour familles."],
+    desechables: ["Présentoir Jetables", "Articles pour anniversaires, fêtes et célébrations."],
+    auto: ["Présentoir Automobile", "Produits fonctionnels pour la voiture et le voyage en famille."],
+    juguetes: ["Présentoir Jouets", "Jouets génériques à vente constante toute l'année."],
+    toys: ["Présentoir Toys", "Nouveautés et jouets d'importation exclusifs."],
+  },
+  it: {
+    ene: ["Espositore Gennaio", "Prodotti essenziali per rilanciare le vendite dopo le feste."],
+    feb: ["Espositore Febbraio", "Regali veloci, acquisti d'impulso e prodotti ad alta rotazione."],
+    mar: ["Espositore Marzo", "Giochi all'aperto per l'inizio del bel tempo."],
+    abr: ["Espositore Aprile", "Prodotti primaverili, Pasqua e campagne familiari."],
+    may: ["Espositore Maggio", "Preparazione della stagione calda con giocattoli dinamici."],
+    jun: ["Espositore Giugno", "Campagna di fine scuola e primi acquisti estivi."],
+    jul: ["Espositore Set Spiaggia", "I prodotti star per spiaggia, piscina ed estate."],
+    ago: ["Espositore Agosto", "Intrattenimento per viaggi, vacanze e pomeriggi estivi."],
+    sep: ["Espositore Settembre", "Ritorno a scuola con prodotti pratici per bambini."],
+    oct: ["Espositore Halloween", "Costumi, decorazioni e accessori per campagne ad alto impatto."],
+    nov: ["Espositore Novembre", "Inizio campagna natalizia e prodotti ad alta domanda."],
+    dic: ["Espositore Natale", "Regali dell'ultimo minuto e top vendite di dicembre."],
+    balones: ["Espositore Palloni", "Selezione completa di palloni sportivi per tutte le età."],
+    mascotas: ["Espositore Animali", "Giocattoli, accessori e prodotti per la cura degli animali."],
+    eco: ["Espositore Eco", "Prodotti riciclabili e alternative rispettose dell'ambiente."],
+    belleza: ["Espositore Bellezza", "Set di trucco, acconciatura e accessori per bambini."],
+    cocina: ["Espositore Cucina", "Accessori da cucina colorati per la famiglia."],
+    desechables: ["Espositore Monouso", "Articoli per compleanni, feste e celebrazioni."],
+    auto: ["Espositore Auto", "Prodotti funzionali per auto e viaggi in famiglia."],
+    juguetes: ["Espositore Giocattoli", "Giocattoli generici a vendita costante tutto l'anno."],
+    toys: ["Espositore Toys", "Novità e giocattoli d'importazione esclusivi."],
+  },
+  pt: {
+    ene: ["Expositor Janeiro", "Produtos essenciais para reativar as vendas após as festas."],
+    feb: ["Expositor Fevereiro", "Presentes rápidos, compras por impulso e produtos de alta rotação."],
+    mar: ["Expositor Março", "Jogos ao ar livre para aproveitar o início do bom tempo."],
+    abr: ["Expositor Abril", "Produtos de primavera, Páscoa e campanhas familiares."],
+    may: ["Expositor Maio", "Preparação da temporada quente com brinquedos dinâmicos."],
+    jun: ["Expositor Junho", "Campanha de fim de aulas e primeiras compras de verão."],
+    jul: ["Expositor Set de Praia", "Os produtos estrela para praia, piscina e verão."],
+    ago: ["Expositor Agosto", "Entretenimento para viagens, férias e tardes de verão."],
+    sep: ["Expositor Setembro", "Regresso às aulas com produtos práticos para crianças."],
+    oct: ["Expositor Halloween", "Fantasias, decorações e acessórios para campanhas de impacto visual."],
+    nov: ["Expositor Novembro", "Início de campanha natalícia e produtos de alta procura."],
+    dic: ["Expositor Natal", "Presentes de última hora e mais vendidos de dezembro."],
+    balones: ["Expositor Bolas", "Seleção completa de bolas desportivas para todas as idades."],
+    mascotas: ["Expositor Animais", "Brinquedos, acessórios e produtos de cuidado para animais."],
+    eco: ["Expositor Eco", "Produtos recicláveis e alternativas respeitosas com o ambiente."],
+    belleza: ["Expositor Beleza", "Sets de maquiagem, penteado e acessórios infantis."],
+    cocina: ["Expositor Cozinha", "Acessórios de cozinha coloridos para famílias."],
+    desechables: ["Expositor Descartáveis", "Artigos para aniversários, festas e celebrações."],
+    auto: ["Expositor Automóvel", "Produtos funcionais para carro e viagem familiar."],
+    juguetes: ["Expositor Brinquedos", "Brinquedos genéricos de venda constante durante todo o ano."],
+    toys: ["Expositor Toys", "Novidades e brinquedos de importação exclusivos."],
+  },
 } as Record<Language, Record<string, [string, string]>>;
 
 /** Devuelve título y descripción del expositor en el idioma activo */

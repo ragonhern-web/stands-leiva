@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { getStandCopy } from "../data/translations";
+import { getStandCopy, getStandLabel } from "../data/translations";
 import type { Stand, Language } from "../types";
 
 interface Props {
@@ -46,7 +46,7 @@ export default function MobileSeasonCarousel({
           ←
         </button>
         <div className="min-w-0 text-center">
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{active.label}</p>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">{getStandLabel(active, language)}</p>
           <p className="truncate text-lg font-black text-slate-950">{getStandCopy(active, language).title}</p>
         </div>
         <button
@@ -79,7 +79,7 @@ export default function MobileSeasonCarousel({
                 className="mb-3 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-black shadow-sm"
                 style={{ color: stand.color }}
               >
-                {stand.label}
+                {getStandLabel(stand, language)}
               </span>
               <img
                 src={stand.image}
@@ -104,7 +104,7 @@ export default function MobileSeasonCarousel({
             }}
             className={`h-2 rounded-full transition-all ${stand.id === selectedId ? "w-7" : "w-2"}`}
             style={{ backgroundColor: stand.id === selectedId ? stand.color : "#cbd5e1" }}
-            aria-label={stand.label}
+            aria-label={getStandLabel(stand, language)}
           />
         ))}
       </div>
