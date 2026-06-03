@@ -23,6 +23,17 @@ export interface Stand {
   image: string;
   productsBase: string[];
   products: Product[];
+  // Ficha del expositor (opcional hasta que se rellene cada stand)
+  standRef?: string;
+  numRefs?: number;
+  totalUnits?: number;
+  sides?: number;
+  priceStand?: string;
+  pricePerUnit?: string;
+  tipo?: string;
+  standAlto?: number;
+  standLargo?: number;
+  standAncho?: number;
 }
 
 export interface TranslationCopy {
@@ -43,4 +54,12 @@ export interface TranslationCopy {
   alto: string;
   largo: string;
   ancho: string;
+  standRef: string;
+  standNumRefs: string;
+  standTotalUnits: string;
+  standSides: string;
+  standPrice: string;
+  standPriceUnit: string;
+  standTipo: string;
+  standDims: string;
 }

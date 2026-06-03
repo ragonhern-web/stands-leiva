@@ -34,7 +34,7 @@ export default function ProductCard({ product, t }: Props) {
         </div>
         <div>
           <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
-          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-black text-slate-700">
+          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#169b22] font-black text-white">
             {product.price}
           </div>
         </div>

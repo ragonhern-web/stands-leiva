@@ -41,19 +41,51 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </button>
 
           {/* Panel imagen — fila en móvil, columna en desktop */}
-          <aside className="relative flex max-h-[34vh] items-center justify-center overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:border-b-0 md:border-r md:p-6">
+          <aside className="relative flex max-h-[34vh] flex-col items-center justify-center overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:border-b-0 md:border-r md:p-6">
             <div
               className="absolute -left-32 top-12 h-72 w-72 rounded-full opacity-15 blur-3xl"
               style={{ backgroundColor: stand.color }}
             />
             <div className="absolute bottom-10 right-[-100px] h-64 w-64 rounded-full bg-green-200/30 blur-3xl" />
-            <div className="flex h-full w-full items-center justify-center">
+            <div className="flex w-full flex-1 items-center justify-center">
               <img
                 src={stand.image}
                 alt={standCopy.title}
-                className="relative z-10 max-h-[30vh] max-w-full object-contain drop-shadow-2xl md:max-h-[78vh]"
+                className="relative z-10 max-h-[30vh] max-w-full object-contain drop-shadow-2xl md:max-h-[55vh]"
               />
             </div>
+
+            {/* Ficha del expositor — solo desktop */}
+            {stand.standRef && (
+              <div className="relative z-10 mt-4 hidden w-full rounded-2xl border border-slate-200 bg-white/80 p-4 backdrop-blur-sm md:block">
+                <p className="mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                  Ficha expositor
+                </p>
+                <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-[11px]">
+                  {([
+                    [t.standRef,        stand.standRef],
+                    [t.standTipo,       stand.tipo],
+                    [t.standNumRefs,    stand.numRefs],
+                    [t.standTotalUnits, stand.totalUnits],
+                    [t.standSides,      stand.sides],
+                    [t.standDims,       stand.standAlto != null
+                      ? `${stand.standAlto} × ${stand.standLargo} × ${stand.standAncho} cm`
+                      : undefined],
+                    [t.standPrice,      stand.priceStand],
+                    [t.standPriceUnit,  stand.pricePerUnit],
+                  ] as [string, string | number | undefined][])
+                    .filter(([, v]) => v != null)
+                    .map(([label, value]) => (
+                      <div key={label}>
+                        <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
+                        <p className={`mt-0.5 font-black ${label === t.standPrice || label === t.standPriceUnit ? "text-[#169b22]" : "text-slate-800"}`}>
+                          {value}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
           </aside>
 
           {/* Panel productos */}

@@ -141,6 +141,19 @@ const junProducts: Product[] = junProductRefs.map((ref, i) => {
   };
 });
 
+const junStandInfo = {
+  standRef:     "99917",
+  numRefs:      20,
+  totalUnits:   338,
+  sides:        2,
+  priceStand:   "385,32 €",
+  pricePerUnit: "1,14 €",
+  tipo:         "Medio palé",
+  standAlto:    150,
+  standLargo:   80,
+  standAncho:   60,
+};
+
 function buildStands(defs: StandDef[]): Stand[] {
   return defs.map((def) => ({
     ...def,
@@ -150,6 +163,7 @@ function buildStands(defs: StandDef[]): Stand[] {
     products: def.id === "jun"
       ? junProducts
       : createProducts(def.id, def.productsBase),
+    ...(def.id === "jun" ? junStandInfo : {}),
   }));
 }
 
