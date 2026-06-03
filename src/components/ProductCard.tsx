@@ -4,11 +4,15 @@ import type { Product, TranslationCopy } from "../types";
 interface Props {
   product: Product;
   t: TranslationCopy;
+  onClick?: () => void;
 }
 
-export default function ProductCard({ product, t }: Props) {
+export default function ProductCard({ product, t, onClick }: Props) {
   return (
-    <article className="group rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl">
+    <article
+      className="group cursor-pointer rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:border-[#169b22]/40 hover:shadow-xl"
+      onClick={onClick}
+    >
       <div className="flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 p-3">
         {product.image && !product.image.startsWith("data:") ? (
           <img

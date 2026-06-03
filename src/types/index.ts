@@ -11,6 +11,7 @@ export interface Product {
   alto?: number;
   largo?: number;
   ancho?: number;
+  desc?: string;
 }
 
 export interface Stand {

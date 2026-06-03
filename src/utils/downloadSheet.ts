@@ -15,7 +15,7 @@ function standInfoRows(stand: Stand): (string | number)[][] {
   return rows;
 }
 
-export function downloadExcel(stand: Stand, title: string): void {
+export function downloadExcel(stand: Stand, _title: string): void {
   const wb = XLSX.utils.book_new();
 
   const infoSheet = XLSX.utils.aoa_to_sheet(standInfoRows(stand));

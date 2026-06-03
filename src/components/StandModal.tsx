@@ -4,7 +4,8 @@ import { useState } from "react";
 import { getStandCopy } from "../data/translations";
 import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
-import type { Stand, Language, TranslationCopy } from "../types";
+import ProductModal from "./ProductModal";
+import type { Stand, Language, TranslationCopy, Product } from "../types";
 
 interface Props {
   stand: Stand | null;
@@ -15,6 +16,7 @@ interface Props {
 
 export default function StandModal({ stand, closeModal, language, t }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   if (!stand) return null;
   const standCopy = getStandCopy(stand, language);
 
@@ -115,7 +117,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
             <div className="grid min-h-0 flex-1 grid-cols-2 gap-3 overflow-y-auto pr-3 [scrollbar-color:#169b22_#e2e8f0] [scrollbar-width:thin] lg:grid-cols-5">
               {stand.products.map((product) => (
-                <ProductCard key={product.id} product={product} t={t} />
+                <ProductCard key={product.id} product={product} t={t} onClick={() => setSelectedProduct(product)} />
               ))}
             </div>
 
@@ -156,6 +158,9 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               </div>
             </div>
           </section>
+
+          {/* Modal de detalle de producto */}
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} t={t} />
         </motion.div>
       </motion.div>
     </AnimatePresence>
