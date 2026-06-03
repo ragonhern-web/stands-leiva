@@ -28,7 +28,7 @@ export default function ProductCard({ product, t }: Props) {
       <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-[10px]">
         <div>
           <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
-          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#ffe100] font-black text-white">
+          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#ffe100] font-black text-black">
             {product.units}
           </div>
         </div>
