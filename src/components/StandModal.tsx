@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronRight, Package, X } from "lucide-react";
+import { FileSpreadsheet, FileText, Package, X } from "lucide-react";
 import { getStandCopy } from "../data/translations";
+import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
 import type { Stand, Language, TranslationCopy } from "../types";
 
@@ -116,9 +117,21 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               ))}
             </div>
 
-            <div className="mt-4 flex justify-end border-t border-slate-100 pt-4 md:mt-5">
-              <button className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] bg-[#169b22] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#087a18] md:w-auto">
-                {t.request} <ChevronRight size={20} />
+            <div className="mt-4 flex flex-col items-stretch gap-2 border-t border-slate-100 pt-4 md:mt-5 md:flex-row md:items-center md:justify-end">
+              <p className="hidden text-xs font-black uppercase tracking-[0.18em] text-slate-400 md:block">
+                {t.downloadSheet}
+              </p>
+              <button
+                onClick={() => downloadPDF(stand, standCopy.title)}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-5 py-3 font-black text-slate-700 shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md md:w-auto"
+              >
+                <FileText size={18} className="text-slate-400" /> {t.downloadPDF}
+              </button>
+              <button
+                onClick={() => downloadExcel(stand, standCopy.title)}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] bg-[#169b22] px-5 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#087a18] md:w-auto"
+              >
+                <FileSpreadsheet size={18} /> {t.downloadExcel}
               </button>
             </div>
           </section>

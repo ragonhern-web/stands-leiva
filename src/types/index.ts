@@ -50,6 +50,9 @@ export interface TranslationCopy {
   units: string;
   price: string;
   request: string;
+  downloadSheet: string;
+  downloadPDF: string;
+  downloadExcel: string;
   color: string;
   alto: string;
   largo: string;
