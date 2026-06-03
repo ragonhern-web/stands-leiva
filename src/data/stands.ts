@@ -1,5 +1,7 @@
 import type { Stand, Product } from "../types";
 
+const base = import.meta.env.BASE_URL;
+
 /** SVG de placeholder mientras no hay imágenes reales.
  *  Sustituir stand.image por "/assets/stands/expositor-{id}.png" cuando estén disponibles. */
 export const STAND_DEMO =
@@ -99,12 +101,25 @@ const allYearDefs: StandDef[] = [
   { id: "toys",       label: "TOYS",       color: colorMap.red,       title: "Expositor Toys",         desc: "Novedades y juguetes de importación exclusivos.",                      productsBase: ["Robots", "Drones", "Slime", "Ciencia"] },
 ];
 
+const junProductRefs = [60387,60390,60391,60392,60393,60395,60396,60397,60398,60399,60400,60401,60402,60403,60404,60405,60410,60411,60412,60413];
+
+const junProducts: Product[] = junProductRefs.map((ref, i) => ({
+  id: `jun-${String(i + 1).padStart(2, "0")}`,
+  name: `Ref.${ref}`,
+  image: `${base}assets/products/jun-${String(i + 1).padStart(2, "0")}.jpg`,
+  units: "",
+  price: "",
+}));
+
 function buildStands(defs: StandDef[]): Stand[] {
   return defs.map((def) => ({
     ...def,
-    // Ruta futura: `/assets/stands/expositor-${def.id}.png`
-    image: STAND_DEMO,
-    products: createProducts(def.id, def.productsBase),
+    image: def.id === "jun"
+      ? `${base}assets/stands/expositor-jun.jpg`
+      : STAND_DEMO,
+    products: def.id === "jun"
+      ? junProducts
+      : createProducts(def.id, def.productsBase),
   }));
 }
 
