@@ -10,8 +10,8 @@ export const languages: Record<Language, { flag: string; short: string; name: st
 
 export const copy: Record<Language, TranslationCopy> = {
   es: {
-    eyebrow: "Catálogo interactivo Novedades Leiva",
-    heroTitle: "Expositores listos para supermercados.",
+    eyebrow: "Showroom Virtual Novedades Leiva",
+    heroTitle: "Ready to Sell",
     heroText:
       "Selecciona una temporada o categoría, revisa los productos incluidos y prepara el pedido con unidades y precio por referencia.",
     monthlyEyebrow: "Campañas mensuales",
@@ -26,8 +26,8 @@ export const copy: Record<Language, TranslationCopy> = {
     request: "Solicitar este expositor",
   },
   en: {
-    eyebrow: "Interactive Novedades Leiva catalog",
-    heroTitle: "Displays ready for supermarkets.",
+    eyebrow: "Showroom Virtual Novedades Leiva",
+    heroTitle: "Ready to Sell",
     heroText:
       "Choose a season or category, review the included products, and prepare the order with units and price per item.",
     monthlyEyebrow: "Monthly campaigns",
@@ -42,8 +42,8 @@ export const copy: Record<Language, TranslationCopy> = {
     request: "Request this display",
   },
   fr: {
-    eyebrow: "Catalogue interactif Novedades Leiva",
-    heroTitle: "Présentoirs prêts pour les supermarchés.",
+    eyebrow: "Showroom Virtual Novedades Leiva",
+    heroTitle: "Ready to Sell",
     heroText:
       "Choisissez une saison ou une catégorie, consultez les produits inclus et préparez la commande avec les unités et le prix par article.",
     monthlyEyebrow: "Campagnes mensuelles",
@@ -58,8 +58,8 @@ export const copy: Record<Language, TranslationCopy> = {
     request: "Demander ce présentoir",
   },
   it: {
-    eyebrow: "Catalogo interattivo Novedades Leiva",
-    heroTitle: "Espositori pronti per supermercati.",
+    eyebrow: "Showroom Virtual Novedades Leiva",
+    heroTitle: "Ready to Sell",
     heroText:
       "Scegli una stagione o una categoria, consulta i prodotti inclusi e prepara l'ordine con unità e prezzo per articolo.",
     monthlyEyebrow: "Campagne mensili",
@@ -74,8 +74,8 @@ export const copy: Record<Language, TranslationCopy> = {
     request: "Richiedi questo espositore",
   },
   pt: {
-    eyebrow: "Catálogo interativo Novedades Leiva",
-    heroTitle: "Expositores prontos para supermercados.",
+    eyebrow: "Showroom Virtual Novedades Leiva",
+    heroTitle: "Ready to Sell",
     heroText:
       "Escolha uma temporada ou categoria, veja os produtos incluídos e prepare o pedido com unidades e preço por referência.",
     monthlyEyebrow: "Campanhas mensais",

@@ -40,9 +40,31 @@ export default function App() {
       {/* Hero */}
       <section className="relative z-10 mx-auto mt-24 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
         <div className="flex flex-col justify-center p-2 text-center md:p-4 md:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 flex flex-col items-center gap-2 md:items-start"
+          >
+            <p className="text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
+              Import – Export
+            </p>
+            <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2 shadow-lg shadow-slate-200/70">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#169b22] text-white shadow-inner">
+                <span className="text-xl font-black" aria-hidden="true">L</span>
+              </div>
+              <div>
+                <p className="text-base font-black leading-none tracking-tight text-[#169b22]">NOVEDADES</p>
+                <p className="text-xl font-black leading-none text-[#202020]">LEIVA</p>
+              </div>
+            </div>
+            <p className="text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
+              Desde 1996
+            </p>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
             className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400"
           >
             {t.eyebrow}
