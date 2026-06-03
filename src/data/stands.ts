@@ -115,7 +115,7 @@ function buildStands(defs: StandDef[]): Stand[] {
   return defs.map((def) => ({
     ...def,
     image: def.id === "jun"
-      ? `${base}assets/stands/expositor-jun.jpg`
+      ? `${base}assets/stands/expositor-jun.png`
       : STAND_DEMO,
     products: def.id === "jun"
       ? junProducts
