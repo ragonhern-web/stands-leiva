@@ -24,6 +24,10 @@ export const copy: Record<Language, TranslationCopy> = {
     units: "Unidades",
     price: "Precio/u",
     request: "Solicitar este expositor",
+    color: "Color",
+    alto: "Alto",
+    largo: "Largo",
+    ancho: "Ancho",
   },
   en: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -40,6 +44,10 @@ export const copy: Record<Language, TranslationCopy> = {
     units: "Units",
     price: "Price/unit",
     request: "Request this display",
+    color: "Color",
+    alto: "Height",
+    largo: "Length",
+    ancho: "Width",
   },
   fr: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -56,6 +64,10 @@ export const copy: Record<Language, TranslationCopy> = {
     units: "Unités",
     price: "Prix/unité",
     request: "Demander ce présentoir",
+    color: "Couleur",
+    alto: "Haut.",
+    largo: "Long.",
+    ancho: "Larg.",
   },
   it: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -72,6 +84,10 @@ export const copy: Record<Language, TranslationCopy> = {
     units: "Unità",
     price: "Prezzo/unità",
     request: "Richiedi questo espositore",
+    color: "Colore",
+    alto: "Altezza",
+    largo: "Lungh.",
+    ancho: "Largh.",
   },
   pt: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -88,6 +104,10 @@ export const copy: Record<Language, TranslationCopy> = {
     units: "Unidades",
     price: "Preço/unid.",
     request: "Solicitar este expositor",
+    color: "Cor",
+    alto: "Alto",
+    largo: "Comp.",
+    ancho: "Larg.",
   },
 };
 

@@ -7,6 +7,10 @@ export interface Product {
   image: string;
   units: string;
   price: string;
+  color?: string;
+  alto?: number;
+  largo?: number;
+  ancho?: number;
 }
 
 export interface Stand {
@@ -35,4 +39,8 @@ export interface TranslationCopy {
   units: string;
   price: string;
   request: string;
+  color: string;
+  alto: string;
+  largo: string;
+  ancho: string;
 }

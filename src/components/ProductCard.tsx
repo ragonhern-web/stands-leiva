@@ -39,6 +39,30 @@ export default function ProductCard({ product, t }: Props) {
           </div>
         </div>
       </div>
+
+      {(product.color || product.alto != null) && (
+        <div className="mt-2 grid grid-cols-3 gap-2 text-[10px]">
+          {(["alto", "largo", "ancho"] as const).map((dim) =>
+            product[dim] != null ? (
+              <div key={dim}>
+                <p className="font-black uppercase tracking-wider text-slate-400">{t[dim]}</p>
+                <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-black text-slate-700">
+                  {product[dim]} cm
+                </div>
+              </div>
+            ) : null
+          )}
+        </div>
+      )}
+
+      {product.color && (
+        <div className="mt-2 text-[10px]">
+          <p className="font-black uppercase tracking-wider text-slate-400">{t.color}</p>
+          <div className="mt-1 flex min-h-7 items-center justify-center rounded-lg bg-slate-50 px-1 py-1 text-center font-black leading-tight text-slate-700">
+            {product.color}
+          </div>
+        </div>
+      )}
     </article>
   );
 }

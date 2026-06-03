@@ -101,15 +101,44 @@ const allYearDefs: StandDef[] = [
   { id: "toys",       label: "TOYS",       color: colorMap.red,       title: "Expositor Toys",         desc: "Novedades y juguetes de importación exclusivos.",                      productsBase: ["Robots", "Drones", "Slime", "Ciencia"] },
 ];
 
+const junData: Record<number, { units: string; color: string; alto: number; largo: number; ancho: number }> = {
+  60390: { units: "12", color: "Varios colores surtidos", alto: 22,  largo: 3,    ancho: 13 },
+  60391: { units: "28", color: "Varios colores surtidos", alto: 46,  largo: 5,    ancho: 9  },
+  60392: { units: "20", color: "Varios colores surtidos", alto: 20,  largo: 2,    ancho: 20 },
+  60393: { units: "8",  color: "Varios colores surtidos", alto: 29,  largo: 4,    ancho: 19 },
+  60395: { units: "18", color: "Varios colores surtidos", alto: 20,  largo: 6,    ancho: 9  },
+  60396: { units: "9",  color: "Varios colores surtidos", alto: 28,  largo: 15,   ancho: 15 },
+  60397: { units: "8",  color: "Varios colores surtidos", alto: 14,  largo: 4,    ancho: 21 },
+  60398: { units: "12", color: "Varios colores surtidos", alto: 12,  largo: 12,   ancho: 25 },
+  60399: { units: "18", color: "Varios colores surtidos", alto: 11,  largo: 8,    ancho: 19 },
+  60400: { units: "8",  color: "Varios colores surtidos", alto: 25,  largo: 4,    ancho: 15 },
+  60401: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,    ancho: 20 },
+  60402: { units: "9",  color: "Solo color",              alto: 21,  largo: 4,    ancho: 10 },
+  60403: { units: "24", color: "Varios colores surtidos", alto: 38,  largo: 1.5,  ancho: 20 },
+  60404: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,    ancho: 20 },
+  60405: { units: "18", color: "Varios colores surtidos", alto: 16,  largo: 12,   ancho: 12 },
+  60410: { units: "15", color: "Varios colores surtidos", alto: 27,  largo: 6,    ancho: 6  },
+  60411: { units: "20", color: "Varios colores surtidos", alto: 25,  largo: 13,   ancho: 13 },
+  60412: { units: "12", color: "Varios colores surtidos", alto: 41,  largo: 8,    ancho: 11 },
+  60413: { units: "10", color: "Varios colores surtidos", alto: 20,  largo: 15,   ancho: 25 },
+};
+
 const junProductRefs = [60387,60390,60391,60392,60393,60395,60396,60397,60398,60399,60400,60401,60402,60403,60404,60405,60410,60411,60412,60413];
 
-const junProducts: Product[] = junProductRefs.map((ref, i) => ({
-  id: `jun-${String(i + 1).padStart(2, "0")}`,
-  name: `Ref.${ref}`,
-  image: `${base}assets/products/jun-${String(i + 1).padStart(2, "0")}.jpg`,
-  units: "",
-  price: "",
-}));
+const junProducts: Product[] = junProductRefs.map((ref, i) => {
+  const d = junData[ref];
+  return {
+    id: `jun-${String(i + 1).padStart(2, "0")}`,
+    name: `Ref.${ref}`,
+    image: `${base}assets/products/jun-${String(i + 1).padStart(2, "0")}.jpg`,
+    units: d?.units ?? "",
+    price: "",
+    color: d?.color,
+    alto:  d?.alto,
+    largo: d?.largo,
+    ancho: d?.ancho,
+  };
+});
 
 function buildStands(defs: StandDef[]): Stand[] {
   return defs.map((def) => ({
