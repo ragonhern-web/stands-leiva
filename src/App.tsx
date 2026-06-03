@@ -38,7 +38,7 @@ export default function App() {
       />
 
       {/* Hero */}
-      <section className="relative z-10 mx-auto mt-24 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
+      <section className="relative z-10 mx-auto mt-36 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
         <div className="flex flex-col justify-center p-2 text-center md:p-4 md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
