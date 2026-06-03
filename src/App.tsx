@@ -43,7 +43,7 @@ export default function App() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400"
+            className="mb-3 text-[13px] font-black uppercase tracking-[0.32em] text-slate-400"
           >
             {t.eyebrow}
           </motion.p>
@@ -51,7 +51,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="text-4xl font-black tracking-tight text-slate-950 md:text-5xl"
+            className="text-5xl font-black tracking-tight text-slate-950 md:text-6xl"
           >
             {t.heroTitle}
           </motion.h1>
@@ -59,7 +59,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mt-3 max-w-lg text-sm font-medium leading-relaxed text-slate-500 md:mx-0 md:text-base"
+            className="mx-auto mt-3 max-w-lg text-base font-medium leading-relaxed text-slate-500 md:mx-0 md:text-lg"
           >
             {t.heroText}
           </motion.p>
