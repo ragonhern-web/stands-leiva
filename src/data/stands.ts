@@ -155,16 +155,21 @@ const junStandInfo = {
 };
 
 function buildStands(defs: StandDef[]): Stand[] {
-  return defs.map((def) => ({
-    ...def,
-    image: def.id === "jun"
-      ? `${base}assets/stands/expositor-jun.png`
-      : STAND_DEMO,
-    products: def.id === "jun"
-      ? junProducts
-      : createProducts(def.id, def.productsBase),
-    ...(def.id === "jun" ? junStandInfo : {}),
-  }));
+  return defs.map((def) => {
+    const isJun = def.id === "jun";
+    const extraInfo = isJun ? junStandInfo : {};
+    const rawProducts = isJun ? junProducts : createProducts(def.id, def.productsBase);
+    const pricePerUnit = isJun ? junStandInfo.pricePerUnit : undefined;
+    const products = pricePerUnit
+      ? rawProducts.map(p => ({ ...p, price: pricePerUnit }))
+      : rawProducts;
+    return {
+      ...def,
+      image: isJun ? `${base}assets/stands/expositor-jun.png` : STAND_DEMO,
+      products,
+      ...extraInfo,
+    };
+  });
 }
 
 export const seasonalStands: Stand[] = buildStands(seasonalDefs);
