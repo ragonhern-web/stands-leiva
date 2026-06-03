@@ -102,6 +102,7 @@ const allYearDefs: StandDef[] = [
 ];
 
 const junData: Record<number, { units: string; color: string; alto: number; largo: number; ancho: number }> = {
+  60387: { units: "7",  color: "Varios colores surtidos", alto: 20,  largo: 11,   ancho: 20 },
   60390: { units: "12", color: "Varios colores surtidos", alto: 22,  largo: 3,    ancho: 13 },
   60391: { units: "28", color: "Varios colores surtidos", alto: 46,  largo: 5,    ancho: 9  },
   60392: { units: "20", color: "Varios colores surtidos", alto: 20,  largo: 2,    ancho: 20 },
