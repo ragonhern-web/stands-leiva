@@ -6,9 +6,12 @@ export const languages: Record<Language, { flag: string; short: string; name: st
   fr: { flag: "🇫🇷", short: "FR", name: "Français" },
   it: { flag: "🇮🇹", short: "IT", name: "Italiano" },
   pt: { flag: "🇵🇹", short: "PT", name: "Português" },
+  de: { flag: "🇩🇪", short: "DE", name: "Deutsch" },
+  nl: { flag: "🇳🇱", short: "NL", name: "Nederlands" },
+  pl: { flag: "🇵🇱", short: "PL", name: "Polski" },
 };
 
-export const copy: Record<Language, TranslationCopy> = {
+export const copy = {
   es: {
     eyebrow: "Showroom Virtual Novedades Leiva",
     heroTitle: "Ready to Sell",
@@ -169,7 +172,7 @@ export const copy: Record<Language, TranslationCopy> = {
     standTipo: "Tipo",
     standDims: "Dimensões",
   },
-};
+} as unknown as Record<Language, TranslationCopy>;
 
 /** Abreviaturas de meses traducidas por idioma */
 export const standLabels: Record<Language, Partial<Record<string, string>>> = {
@@ -178,6 +181,9 @@ export const standLabels: Record<Language, Partial<Record<string, string>>> = {
   fr: { ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC" },
   it: { ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC" },
   pt: { ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ" },
+  de: { ene: "JAN", feb: "FEB", mar: "MÄR", abr: "APR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEZ" },
+  nl: { ene: "JAN", feb: "FEB", mar: "MRT", abr: "APR", may: "MEI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEC" },
+  pl: { ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU" },
 };
 
 /** Devuelve la etiqueta del expositor en el idioma activo */
@@ -186,7 +192,7 @@ export function getStandLabel(stand: { id: string; label: string }, language: La
 }
 
 /** Textos de título y descripción de cada expositor por idioma */
-export const standText: Record<Language, Record<string, [string, string]>> = {
+export const standText = ({
   es: {
     ene: ["Expositor Enero", "Ideal para reactivar ventas tras las fiestas con productos esenciales."],
     feb: ["Expositor Febrero", "Regalos rápidos, detalles impulsivos y productos de alta rotación."],
@@ -302,7 +308,176 @@ export const standText: Record<Language, Record<string, [string, string]>> = {
     juguetes: ["Expositor Brinquedos", "Brinquedos genéricos de venda constante durante todo o ano."],
     toys: ["Expositor Toys", "Novidades e brinquedos de importação exclusivos."],
   },
-} as Record<Language, Record<string, [string, string]>>;
+}) as unknown as Record<Language, Record<string, [string, string]>>;
+
+// ─── Nuevos idiomas: DE, NL, PL ──────────────────────────────────────────────
+// Añadir a copy
+(copy as unknown as Record<Language, TranslationCopy>).de = {
+  eyebrow: "Virtueller Showroom Novedades Leiva",
+  heroTitle: "Ready to Sell",
+  heroText: "Wählen Sie eine Saison oder Kategorie, prüfen Sie die Produkte und bereiten Sie die Bestellung mit Stückzahl und Preis je Referenz vor.",
+  monthlyEyebrow: "Monatliche Kampagnen",
+  monthlyTitle: "Saisonale Expositeure",
+  permanentEyebrow: "Dauerkatalog",
+  permanentTitle: "Ganzjährige Expositeure",
+  references: "Referenzen",
+  included: "Enthaltene Produkte",
+  columns: "Sp.",
+  rows: "Reihen",
+  units: "Einheiten",
+  price: "Preis/Einh.",
+  request: "Diesen Expositeur anfragen",
+  downloadSheet: "Technisches Datenblatt",
+  downloadPDF: "PDF",
+  downloadExcel: "Excel",
+  color: "Farbe",
+  alto: "Höhe",
+  largo: "Länge",
+  ancho: "Breite",
+  standRef: "Expo.-Ref.",
+  standNumRefs: "Anz. Referenzen",
+  standTotalUnits: "Anz. Einheiten",
+  standSides: "Seiten",
+  standPrice: "Expositorpreis",
+  standPriceUnit: "Preis/Einheit",
+  standTipo: "Typ",
+  standDims: "Expositormaße",
+};
+(copy as unknown as Record<Language, TranslationCopy>).nl = {
+  eyebrow: "Virtuele Showroom Novedades Leiva",
+  heroTitle: "Ready to Sell",
+  heroText: "Kies een seizoen of categorie, bekijk de inbegrepen producten en bereid de bestelling voor met aantallen en prijs per referentie.",
+  monthlyEyebrow: "Maandelijkse campagnes",
+  monthlyTitle: "Seizoensexpositeurs",
+  permanentEyebrow: "Vaste catalogus",
+  permanentTitle: "Jaarrond expositeurs",
+  references: "referenties",
+  included: "Inbegrepen producten",
+  columns: "kol.",
+  rows: "rijen",
+  units: "Eenheden",
+  price: "Prijs/eenh.",
+  request: "Deze expositeur aanvragen",
+  downloadSheet: "Technisch gegevensblad",
+  downloadPDF: "PDF",
+  downloadExcel: "Excel",
+  color: "Kleur",
+  alto: "Hoogte",
+  largo: "Lengte",
+  ancho: "Breedte",
+  standRef: "Expo.-ref.",
+  standNumRefs: "Aantal referenties",
+  standTotalUnits: "Aantal eenheden",
+  standSides: "Zijden",
+  standPrice: "Prijs expositeur",
+  standPriceUnit: "Prijs/eenheid",
+  standTipo: "Type",
+  standDims: "Afmetingen",
+};
+(copy as unknown as Record<Language, TranslationCopy>).pl = {
+  eyebrow: "Wirtualny Showroom Novedades Leiva",
+  heroTitle: "Ready to Sell",
+  heroText: "Wybierz sezon lub kategorię, przejrzyj zawarte produkty i przygotuj zamówienie z ilościami i ceną za referencję.",
+  monthlyEyebrow: "Kampanie miesięczne",
+  monthlyTitle: "Ekspozytory sezonowe",
+  permanentEyebrow: "Stały katalog",
+  permanentTitle: "Ekspozytory całoroczne",
+  references: "referencji",
+  included: "Zawarte produkty",
+  columns: "kol.",
+  rows: "rzędów",
+  units: "Jednostki",
+  price: "Cena/jedn.",
+  request: "Zapytaj o ten ekspozytor",
+  downloadSheet: "Pobierz kartę techniczną",
+  downloadPDF: "PDF",
+  downloadExcel: "Excel",
+  color: "Kolor",
+  alto: "Wysokość",
+  largo: "Długość",
+  ancho: "Szerokość",
+  standRef: "Ref. ekspozytora",
+  standNumRefs: "Liczba referencji",
+  standTotalUnits: "Liczba jednostek",
+  standSides: "Strony",
+  standPrice: "Cena ekspozytora",
+  standPriceUnit: "Cena/jedn.",
+  standTipo: "Typ",
+  standDims: "Wymiary ekspozytora",
+};
+
+(standText as unknown as Record<Language, Record<string, [string, string]>>).de = {
+  ene: ["Expositeur Januar — Garten", "Wesentliche Gartenprodukte zur Belebung des Umsatzes nach den Feiertagen."],
+  feb: ["Expositeur Februar — Insekten", "Schnelle Insektenschutzmittel, Impulsartikel und Produkte mit hoher Umschlagrate."],
+  mar: ["Expositeur März — Pool", "Schwimmnudeln und Badeprodukte für Freibäder und Pools."],
+  abr: ["Expositeur April", "Frühlings-, Oster- und Familienprodukte."],
+  may: ["Expositeur Mai — Strand", "Vorbereitung auf die Sommersaison mit Strand- und Wasserspielzeug."],
+  jun: ["Expositeur Juni — Strand", "Schuljahresende und erste Sommerkäufe."],
+  jul: ["Strand-Set Expositeur", "Starprodukte für Strand, Schwimmbad und Sommer."],
+  ago: ["Expositeur August", "Unterhaltung für Reisen, Urlaub und Sommernachmittage."],
+  sep: ["Expositeur September — Schule", "Schulanfang mit praktischem Schreibwaren- und Bastelsortiment."],
+  oct: ["Halloween Expositeur", "Kostüme, Deko und Accessoires für Aktionen mit visuellem Impact."],
+  nov: ["Expositeur November — Weihnachten", "Weihnachtsdekoration, Lichter und Geschenkzubehör."],
+  dic: ["Cotillon Expositeur", "Last-Minute-Geschenke und Dezember-Bestseller."],
+  balones: ["Ball-Expositeur", "Vollständiges Sortiment an Sportbällen für alle Altersgruppen."],
+  mascotas: ["Haustier-Expositeur", "Spielzeug, Zubehör und Pflegeprodukte für Haustiere."],
+  eco: ["Eco-Expositeur", "Recycelbare Produkte und umweltfreundliche Alternativen."],
+  belleza: ["Beauty-Expositeur", "Schmink-, Frisur- und Haaraccessoires für Kinder und Jugendliche."],
+  cocina: ["Küchen-Expositeur", "Küchenhelfer in bunten Farben für Familien."],
+  desechables: ["Weihnachts-Einweg-Expositeur", "Einwegteller, Becher und Deko für Weihnachtsfeiern."],
+  auto: ["Auto-Expositeur", "Funktionelle Produkte für Auto und Familienreise."],
+  juguetes: ["Holzspielzeug-Expositeur", "Ganzjährig gefragtes didaktisches Holzspielzeug."],
+  toys: ["Toys-Expositeur", "Neuheiten und exklusiv importiertes Spielzeug."],
+  picnic: ["Picnic-Expositeur", "Einweggeschirr, Becher und Zubehör für Picknick, Feiern und Gastronomie."],
+};
+(standText as unknown as Record<Language, Record<string, [string, string]>>).nl = {
+  ene: ["Januari Expositeur — Tuin", "Essentiële tuinproducten om de verkoop na de feestdagen te stimuleren."],
+  feb: ["Februari Expositeur — Insecten", "Snelle insectenbestrijdingsproducten, impulsaankopen en hoog-roterende artikelen."],
+  mar: ["Maart Expositeur — Zwembad", "Zwemnoodles en zwembadproducten voor buiten- en zwembadgebruik."],
+  abr: ["April Expositeur", "Lente-, Paas- en gezinsproducten."],
+  may: ["Mei Expositeur — Strand", "Voorbereiding op de zomerperiode met strand- en waterspeelgoed."],
+  jun: ["Juni Expositeur — Strand", "Einde schooljaar en eerste zomerinkopen."],
+  jul: ["Strandset Expositeur", "Topproducten voor strand, zwembad en zomer."],
+  ago: ["Augustus Expositeur", "Entertainment voor reizen, vakantie en zomermiddagen."],
+  sep: ["September Expositeur — School", "Terug naar school met praktisch kantoor- en knutselmateriaal."],
+  oct: ["Halloween Expositeur", "Kostuums, decoraties en accessoires voor visueel impactvolle acties."],
+  nov: ["November Expositeur — Kerst", "Kerstdecoraties, lichtjes en cadeauaccessoires."],
+  dic: ["Cotillon Expositeur", "Last-minute cadeaus en december bestsellers."],
+  balones: ["Ballen Expositeur", "Compleet assortiment sportballen voor alle leeftijden."],
+  mascotas: ["Huisdieren Expositeur", "Speelgoed, accessoires en verzorgingsproducten voor huisdieren."],
+  eco: ["Eco Expositeur", "Recyclebare producten en milieuvriendelijke alternatieven."],
+  belleza: ["Beauty Expositeur", "Make-up, kapsels en haaraccessoires voor kinderen."],
+  cocina: ["Keuken Expositeur", "Kleurrijke keukenartikelen voor het gezin."],
+  desechables: ["Kerst Wegwerp Expositeur", "Wegwerpservies, bekers en decoratie voor kerstfeesten."],
+  auto: ["Auto Expositeur", "Functionele producten voor de auto en familiereis."],
+  juguetes: ["Houten Speelgoed Expositeur", "Het hele jaar gevraagd didactisch houten speelgoed."],
+  toys: ["Toys Expositeur", "Nieuwste releases en exclusief geïmporteerd speelgoed."],
+  picnic: ["Picnic Expositeur", "Wegwerpservies, bekers en accessoires voor picknick, feesten en horeca."],
+};
+(standText as unknown as Record<Language, Record<string, [string, string]>>).pl = {
+  ene: ["Ekspozytor Styczeń — Ogród", "Podstawowe produkty ogrodnicze do ożywienia sprzedaży po świętach."],
+  feb: ["Ekspozytor Luty — Insekty", "Środki odstraszające insekty, zakupy impulsowe i produkty o wysokiej rotacji."],
+  mar: ["Ekspozytor Marzec — Basen", "Makaron pływacki i produkty do basenu oraz na zewnątrz."],
+  abr: ["Ekspozytor Kwiecień", "Produkty wiosenne, wielkanocne i dla rodzin."],
+  may: ["Ekspozytor Maj — Plaża", "Przygotowanie na sezon letni z zabawkami plażowymi i wodnymi."],
+  jun: ["Ekspozytor Czerwiec — Plaża", "Koniec roku szkolnego i pierwsze zakupy letnie."],
+  jul: ["Ekspozytor Zestaw Plażowy", "Topowe produkty na plażę, basen i lato."],
+  ago: ["Ekspozytor Sierpień", "Rozrywka na podróże, wakacje i letnie popołudnia."],
+  sep: ["Ekspozytor Wrzesień — Szkoła", "Powrót do szkoły z praktycznym asortymentem piśmienniczym i artykułami szkolnymi."],
+  oct: ["Ekspozytor Halloween", "Kostiumy, dekoracje i akcesoria dla kampanii o dużym impakcie wizualnym."],
+  nov: ["Ekspozytor Listopad — Boże Narodzenie", "Dekoracje świąteczne, lampki i akcesoria do prezentów."],
+  dic: ["Ekspozytor Kotyliony", "Prezenty last minute i bestsellery grudnia."],
+  balones: ["Ekspozytor Piłki", "Kompletny asortyment piłek sportowych dla wszystkich grup wiekowych."],
+  mascotas: ["Ekspozytor Zwierzęta", "Zabawki, akcesoria i produkty do pielęgnacji zwierząt domowych."],
+  eco: ["Ekspozytor Eco", "Produkty do recyklingu i przyjazne środowisku alternatywy."],
+  belleza: ["Ekspozytor Uroda", "Zestawy do makijażu, fryzury i akcesoria do włosów dla dzieci."],
+  cocina: ["Ekspozytor Kuchnia", "Kolorowe akcesoria kuchenne dla rodzin."],
+  desechables: ["Ekspozytor Jednorazowe Boże Narodzenie", "Jednorazowe naczynia, kubki i dekoracje na święta Bożego Narodzenia."],
+  auto: ["Ekspozytor Samochód", "Funkcjonalne produkty do samochodu i podróży rodzinnych."],
+  juguetes: ["Ekspozytor Zabawki Drewniane", "Drewniane zabawki dydaktyczne o stałej sprzedaży przez cały rok."],
+  toys: ["Ekspozytor Toys", "Nowości i ekskluzywnie importowane zabawki."],
+  picnic: ["Ekspozytor Picnic", "Jednorazowe naczynia, kubki i akcesoria do pikników, imprez i gastronomii."],
+};
 
 /** Devuelve título y descripción del expositor en el idioma activo */
 export function getStandCopy(
