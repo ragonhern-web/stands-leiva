@@ -48,6 +48,7 @@ export interface TranslationCopy {
   references: string;
   included: string;
   columns: string;
+  rows: string;
   units: string;
   price: string;
   request: string;

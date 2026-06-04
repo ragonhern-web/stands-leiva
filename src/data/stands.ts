@@ -2,8 +2,6 @@ import type { Stand, Product } from "../types";
 
 const base = import.meta.env.BASE_URL;
 
-/** SVG de placeholder mientras no hay imágenes reales.
- *  Sustituir stand.image por "/assets/stands/expositor-{id}.png" cuando estén disponibles. */
 export const STAND_DEMO =
   "data:image/svg+xml;charset=UTF-8," +
   encodeURIComponent(`
@@ -61,16 +59,145 @@ const colorMap = {
   slate: "#6b7280",
 } as const;
 
-function createProducts(prefix: string, baseProducts: string[]): Product[] {
-  return Array.from({ length: 20 }, (_, index) => ({
-    id: `${prefix}-${index + 1}`,
-    name: `${baseProducts[index % baseProducts.length]} · Ref.${1000 + index}`,
-    // Ruta futura: `/assets/products/${prefix}-${index + 1}.png`
-    image: STAND_DEMO,
-    units: "",
-    price: "",
-  }));
-}
+// ─── Tipos auxiliares ────────────────────────────────────────────────────────
+
+type ProductRow = {
+  units: string;
+  color?: string;
+  alto?: number;
+  largo?: number;
+  ancho?: number;
+  name?: string;
+  desc?: string;
+};
+
+type StandInfo = {
+  standRef?: string;
+  numRefs?: number;
+  totalUnits?: number;
+  sides?: number;
+  priceStand?: string;
+  pricePerUnit?: string;
+  tipo?: string;
+  standAlto?: number;
+  standLargo?: number;
+  standAncho?: number;
+};
+
+type StandExtra = {
+  imagePath: string;
+  info: StandInfo;
+  refs: number[];
+  data: Record<number, ProductRow>;
+};
+
+// ─── Datos de stands con imágenes reales ─────────────────────────────────────
+
+const standExtras: Record<string, StandExtra> = {
+
+  jun: {
+    imagePath: `${base}assets/stands/expositor-jun.png`,
+    info: {
+      standRef: "99917", numRefs: 20, totalUnits: 338, sides: 2,
+      priceStand: "385,32 €", pricePerUnit: "1,14 €",
+      tipo: "Medio palé", standAlto: 150, standLargo: 80, standAncho: 60,
+    },
+    refs: [60387,60390,60391,60392,60393,60395,60396,60397,60398,60399,
+           60400,60401,60402,60403,60404,60405,60410,60411,60412,60413],
+    data: {
+      60387: { units: "7",  color: "Varios colores surtidos", alto: 20,  largo: 11,  ancho: 20 },
+      60390: { units: "12", color: "Varios colores surtidos", alto: 22,  largo: 3,   ancho: 13, desc: "Juego de burbujas en blíster con 3 botes y varitas de diferentes formas. Producto de playa/exterior en colores surtidos." },
+      60391: { units: "28", color: "Varios colores surtidos", alto: 46,  largo: 5,   ancho: 9,  desc: "Pistola de agua alargada tipo tubo/lanza, presentada en expositor. Mango superior y cuerpo largo en colores surtidos." },
+      60392: { units: "20", color: "Varios colores surtidos", alto: 20,  largo: 2,   ancho: 20, desc: "Frisbee/disco volador de plástico con diana central. Producto de juego exterior en varios colores." },
+      60393: { units: "8",  color: "Varios colores surtidos", alto: 29,  largo: 4,   ancho: 19, desc: "Juego de buceo con aros de colores para piscina. Incluye 3 aros con forma de pez para lanzar y recoger bajo el agua." },
+      60395: { units: "18", color: "Varios colores surtidos", alto: 20,  largo: 6,   ancho: 9,  desc: "Set de playa con barquito, pala, rastrillo y molde con forma de concha. Presentado en bolsa de red." },
+      60396: { units: "9",  color: "Varios colores surtidos", alto: 28,  largo: 15,  ancho: 15, desc: "Set de playa con cubo, pala, rastrillo y moldes de animales marinos. Presentado en bolsa de red." },
+      60397: { units: "8",  color: "Varios colores surtidos", alto: 14,  largo: 4,   ancho: 21, desc: "Gafas de natación infantiles en blíster, con montura de colores y lente oscura. Producto para piscina/playa." },
+      60398: { units: "12", color: "Varios colores surtidos", alto: 12,  largo: 12,  ancho: 25, desc: "Set de playa compacto con barquitos, pala, rastrillo, cuchara y moldes de animales marinos en colores vivos." },
+      60399: { units: "18", color: "Varios colores surtidos", alto: 11,  largo: 8,   ancho: 19, desc: "Camión volquete pequeño con accesorios de playa: pala, rastrillo, moldes y cucharón. Colores surtidos." },
+      60400: { units: "8",  color: "Varios colores surtidos", alto: 25,  largo: 4,   ancho: 15, desc: "Pistola de agua tipo lanzador espacial en blíster. Depósito integrado y diseño infantil de colores vivos." },
+      60401: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,   ancho: 20, desc: "Pistolas de agua con forma de delfín, presentadas en blíster con varias unidades y colores surtidos." },
+      60402: { units: "9",  color: "Solo color",              alto: 21,  largo: 4,   ancho: 10, desc: "Lanza cohetes de juguete con diseño de cohete amarillo y rojo. Producto individual para juego exterior." },
+      60403: { units: "24", color: "Varios colores surtidos", alto: 38,  largo: 1.5, ancho: 20, desc: "Salabre telescópico plegable para piscina/playa, con red y mango extensible. Disponible en colores surtidos." },
+      60404: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,   ancho: 20, desc: "Pistolas de agua pequeñas tipo nave, en blíster con tres unidades de diferentes colores." },
+      60405: { units: "18", color: "Varios colores surtidos", alto: 16,  largo: 12,  ancho: 12, desc: "Set de playa con molinillo/rueda de agua, pala, rastrillo y accesorios de arena. Colores surtidos." },
+      60410: { units: "15", color: "Varios colores surtidos", alto: 27,  largo: 6,   ancho: 6,  desc: "Pack de 4 pelotas pequeñas de plástico con diseño marmoleado/ondas. Presentadas en bolsa de red." },
+      60411: { units: "20", color: "Varios colores surtidos", alto: 25,  largo: 13,  ancho: 13, desc: "Juego de palas cesta con agujeros y pelotas pequeñas. Pensado para lanzar y recoger pelotas al aire libre." },
+      60412: { units: "12", color: "Varios colores surtidos", alto: 41,  largo: 8,   ancho: 11, desc: "Set de palas largas de playa con mangos y moldes de animales marinos. Presentado en bolsa de red." },
+      60413: { units: "10", color: "Varios colores surtidos", alto: 20,  largo: 15,  ancho: 25, desc: "Set de playa con bandeja/cangrejo grande, pala, rastrillo y accesorios de arena. Presentado en bolsa de red." },
+    },
+  },
+
+  belleza: {
+    imagePath: `${base}assets/stands/expositor-belleza.png`,
+    info: {
+      standRef: "99928", numRefs: 51, totalUnits: 346, sides: 2,
+      priceStand: "238,74 €", pricePerUnit: "0,69 €",
+      tipo: "Cuarto palé", standAlto: 152, standLargo: 42, standAncho: 60,
+    },
+    refs: [43084,43085,43086,43087,43088,43089,43090,43091,43093,43094,
+           43095,43096,43097,43098,43099,43100,43101,43102,43103,43104,
+           43105,43106,43107,43108,43109,43110,43111,43112,43113,43114,
+           43115,43116,43117,43118,43119,43120,43121,43122,43123,43124,
+           43125,43126,43127,43128,43129,43130,43131,43132,43133,43134,43135],
+    data: {
+      43084: { units: "14", color: "Varios colores surtidos", alto: 28, largo: 2,  ancho: 6,  name: "Abanico plegable",              desc: "Abanico plegable de plástico y tela en colores vivos, pensado como accesorio de mano para uso diario o eventos." },
+      43085: { units: "3",  color: "Varios colores surtidos", alto: 18, largo: 4,  ancho: 13, name: "Pinza de flor grande",           desc: "Pinza decorativa para el pelo con forma de flor tropical de cinco pétalos, acabado brillante y colores degradados." },
+      43086: { units: "3",  color: "Varios colores surtidos", alto: 16, largo: 4,  ancho: 13, name: "Pinza de flor grande",           desc: "Pinza para el pelo con flor translúcida de cinco pétalos, disponible en tonos azul, verde, rojo y rosa." },
+      43087: { units: "3",  color: "Varios colores surtidos", alto: 18, largo: 4,  ancho: 13, name: "Set de flores decorativas",      desc: "Set de clips o adornos de pelo con flores plásticas pequeñas, en colores vivos y acabado brillante." },
+      43088: { units: "3",  color: "Varios colores surtidos", alto: 18, largo: 3,  ancho: 13, name: "Pinza de flor translúcida",      desc: "Pinza decorativa con flor translúcida de pétalos finos y centro de color, disponible en varios tonos suaves." },
+      43089: { units: "8",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Gomas de pelo básicas",          desc: "Pack de gomas elásticas de pelo en tejido suave, con acabado ondulado y colores pastel o neutros." },
+      43090: { units: "9",  color: "Varios colores surtidos", alto: 15, largo: 1,  ancho: 10, name: "Gomas con adornos infantiles",   desc: "Pack de gomas de pelo con figuras decorativas infantiles tipo helado, planeta, dinosaurio y seta." },
+      43091: { units: "7",  color: "Varios colores surtidos", alto: 21, largo: 1,  ancho: 14, name: "Diadema y coleteros",            desc: "Set de diadema fina y coleteros de colores, con piezas textiles y acabado infantil para peinados sencillos." },
+      43093: { units: "4",  color: "Varios colores surtidos", alto: 15, largo: 3,  ancho: 7,  name: "Gomas con flores",               desc: "Set de gomas de pelo en tonos neutros con flores decorativas de plástico, pensado para peinados infantiles o casuales." },
+      43094: { units: "6",  color: "Varios colores surtidos", alto: 15, largo: 3,  ancho: 10, name: "Gomas y pinzas pequeñas",        desc: "Set de accesorios para el pelo con gomas textiles, trenza decorativa y mini pinzas de plástico en tonos neutros." },
+      43095: { units: "5",  color: "Varios colores surtidos", alto: 15, largo: 3,  ancho: 7,  name: "Set de gomas y pinzas",          desc: "Pack combinado de coleteros y pinzas pequeñas con formas de corazón y mariposa, en colores suaves." },
+      43096: { units: "6",  color: "Varios colores surtidos", alto: 15, largo: 3,  ancho: 7,  name: "Gomas con flor y lazo",          desc: "Set de gomas de pelo beige con flor textil, lazo decorativo y detalle tipo perla central." },
+      43097: { units: "7",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Set de clips infantiles",        desc: "Set de clips para el pelo con lazo, conejo y pinzas alargadas en tonos marrón, crema y beige." },
+      43098: { units: "7",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Clips con corazones",            desc: "Set de pinzas para el pelo con corazones decorativos y clip tipo pico de pato en tonos crema, beige y blanco." },
+      43099: { units: "5",  color: "Varios colores surtidos", alto: 10, largo: 3,  ancho: 14, name: "Coleteros de espiral",           desc: "Pack de coleteros de espiral tipo cable telefónico en colores pastel y vivos, pensados para sujetar el pelo sin marcarlo tanto." },
+      43100: { units: "5",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Coleteros de espiral bicolor",   desc: "Pack de coleteros de espiral bicolor con combinaciones llamativas como rojo, lima, amarillo, azul y morado." },
+      43101: { units: "7",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Clips de tela con cuadros",      desc: "Set de clips para el pelo con flor y lazo de tejido estampado a cuadros, en tonos rojo, blanco y negro." },
+      43102: { units: "15", color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clip de estrella estampado",     desc: "Set de clips grandes para el pelo con forma de estrella y pasador alargado, acabado estampado tipo animal print." },
+      43103: { units: "16", color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clips alargados pastel",         desc: "Set de clips alargados tipo snap en colores pastel, con borde pespunteado decorativo." },
+      43104: { units: "8",  color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clips de perro",                 desc: "Set de clips decorativos para el pelo con forma de perrito salchicha, en varios colores y estampados." },
+      43105: { units: "10", color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clips de perrito estampado",     desc: "Set de clips para el pelo con figuras de perrito en tela/plástico, con estampados infantiles tipo cuadros, cerezas y lazos." },
+      43106: { units: "7",  color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clips de lazo",                  desc: "Set de tres clips para el pelo con forma de lazo, en estampados de cuadros y motivos dulces." },
+      43107: { units: "9",  color: "Varios colores surtidos", alto: 11, largo: 2,  ancho: 7,  name: "Clips de mariposa y lazo",       desc: "Set de pinzas decorativas con mariposas y lazo negro, en colores neutros y combinaciones blanco/negro." },
+      43108: { units: "8",  color: "Varios colores surtidos", alto: 11, largo: 1,  ancho: 7,  name: "Clips de flores sonrientes",     desc: "Set de clips infantiles para el pelo con flores sonrientes, lazos y estrella, en tonos marrón, blanco y beige." },
+      43109: { units: "7",  color: "Varios colores surtidos", alto: 12, largo: 2,  ancho: 7,  name: "Set mixto de clips infantiles",  desc: "Set de accesorios para el pelo con mini pinzas, clips alargados y figuras infantiles como planeta, estrella y flor." },
+      43110: { units: "6",  color: "Varios colores surtidos", alto: 10, largo: 2,  ancho: 8,  name: "Set de accesorios infantiles",   desc: "Set de accesorios infantiles para el pelo con flor, cerezas y clips. Incluye goma trenzada y pinzas en tonos crema y marrón." },
+      43111: { units: "8",  color: "Varios colores surtidos", alto: 11, largo: 2,  ancho: 7,  name: "Set de clips decorativos negros",desc: "Set de clips decorativos para el pelo con flor, lazo y figura infantil. Diseño en tonos negros con detalles blancos." },
+      43112: { units: "10", color: "Varios colores surtidos", alto: 11, largo: 2,  ancho: 7,  name: "Set de pinzas marrones",         desc: "Set de pinzas decorativas para el pelo con flor, lazo y estrellas. Diseño en tonos marrón, beige y crema." },
+      43113: { units: "7",  color: "Varios colores surtidos", alto: 10, largo: 2,  ancho: 8,  name: "Pinzas estrella de mar",         desc: "Set de pinzas para el pelo con estrellas de mar decorativas. Diseño veraniego en colores azul y amarillo." },
+      43114: { units: "5",  color: "Varios colores surtidos", alto: 28, largo: 3,  ancho: 12, name: "Cepillo desenredante",           desc: "Cepillo desenredante de plástico con doble zona de púas, diseñado para peinar y desenredar el cabello." },
+      43115: { units: "15", color: "Varios colores surtidos", alto: 26, largo: 1,  ancho: 9,  name: "Cinta elástica textil",          desc: "Cinta o diadema elástica de tejido con acabado arrugado/brillante, disponible en varios colores y estampados." },
+      43116: { units: "4",  color: "Varios colores surtidos", alto: 22, largo: 3,  ancho: 18, name: "Diadema con perlas",             desc: "Diadema ancha forrada de tejido con perlas decorativas, disponible en varios colores surtidos." },
+      43117: { units: "5",  color: "Varios colores surtidos", alto: 22, largo: 2,  ancho: 18, name: "Diadema básica forrada",         desc: "Diadema básica forrada de tela lisa. Diseño sencillo para uso diario, disponible en varios colores." },
+      43118: { units: "5",  color: "Varios colores surtidos", alto: 22, largo: 2,  ancho: 18, name: "Diadema ancha cruzada",          desc: "Diadema ancha cruzada forrada de tejido, con diseño acolchado tipo nudo superior." },
+      43119: { units: "8",  color: "Varios colores surtidos", alto: 22, largo: 2,  ancho: 18, name: "Diadema infantil con flor",      desc: "Diadema infantil forrada de tela con flor decorativa lateral. Diseño suave en tonos pastel." },
+      43120: { units: "4",  color: "Varios colores surtidos", alto: 16, largo: 3,  ancho: 11, name: "Masajeador con espejo",          desc: "Cepillo limpiador o masajeador con espejo incorporado. Diseño plegable de plástico con púas y espejo interior." },
+      43121: { units: "7",  color: "Varios colores surtidos", alto: 10, largo: 2,  ancho: 18, name: "Diadema de tejido con nudo",     desc: "Diadema de tejido ancho con nudo central. Diseño elástico y cómodo, disponible en varios colores." },
+      43122: { units: "4",  color: "Varios colores surtidos", alto: 13, largo: 3,  ancho: 10, name: "Coleteros combinados",           desc: "Set de coleteros de espiral combinado con coletero textil fruncido. Diseño juvenil en tonos rosa y colores pastel." },
+      43123: { units: "4",  color: "Varios colores surtidos", alto: 13, largo: 3,  ancho: 10, name: "Coleteros de espiral pastel",    desc: "Set de coleteros de espiral gruesos en colores pastel como rosa, azul y lila." },
+      43124: { units: "4",  color: "Varios colores surtidos", alto: 12, largo: 3,  ancho: 10, name: "Coleteros de espiral estampados",desc: "Set de coleteros de espiral con estampados rojos y blancos tipo rayas, cuadros y lunares." },
+      43125: { units: "14", color: "Varios colores surtidos", alto: 21, largo: 1,  ancho: 8,  name: "Limas de uñas de colores",      desc: "Set de limas de uñas de colores. Incluye tres limas en tonos rosa, azul y amarillo." },
+      43126: { units: "2",  color: "Varios colores surtidos", alto: 17, largo: 7,  ancho: 15, name: "Masajeador capilar",             desc: "Masajeador capilar de plástico con púas de silicona, pensado para masajear el cuero cabelludo o aplicar productos capilares." },
+      43127: { units: "8",  color: "Varios colores surtidos", alto: 24, largo: 2,  ancho: 10, name: "Limas de uñas vivas",           desc: "Set de limas de uñas de colores vivos. Incluye tres limas en tonos morado, naranja y rosa degradado." },
+      43128: { units: "10", color: "Varios colores surtidos", alto: 22, largo: 1,  ancho: 9,  name: "Kit de pedicura",               desc: "Kit de pedicura con lima, cepillo, separador de dedos y accesorio para cuidado de pies." },
+      43129: { units: "4",  color: "Varios colores surtidos", alto: 18, largo: 4,  ancho: 12, name: "Esponjas de maquillaje",        desc: "Set de esponjas de maquillaje en espuma. Incluye esponjas de distintas formas y colores para aplicar o difuminar producto." },
+      43130: { units: "5",  color: "Varios colores surtidos", alto: 15, largo: 3,  ancho: 15, name: "Esponjas de maquillaje corazón",desc: "Set de esponjas de maquillaje de espuma con forma de corazón/semicírculo, en tonos pastel y colores surtidos." },
+      43131: { units: "3",  color: "Varios colores surtidos", alto: 13, largo: 4,  ancho: 14, name: "Set de esponjas tipo huevo",    desc: "Set de esponjas de maquillaje tipo huevo en distintos tamaños, presentadas en caja transparente con forma decorativa." },
+      43132: { units: "4",  color: "Varios colores surtidos", alto: 18, largo: 4,  ancho: 12, name: "Esponjas de maquillaje variadas",desc:"Set de esponjas de maquillaje de espuma en formas mixtas: gota, ovalada y triangular, con colores vivos surtidos." },
+      43133: { units: "7",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Esponjas redondas de limpieza", desc: "Set de esponjas redondas de espuma porosa para limpieza facial o corporal, presentadas en varios colores." },
+      43134: { units: "7",  color: "Varios colores surtidos", alto: 15, largo: 2,  ancho: 10, name: "Esponja exfoliante ovalada",    desc: "Esponja ovalada de espuma porosa con tira de sujeción, pensada para limpieza facial o corporal." },
+      43135: { units: "7",  color: "Varios colores surtidos", alto: 18, largo: 2,  ancho: 12, name: "Disco limpiador suave",         desc: "Disco limpiador facial de textura suave tipo felpa, con cinta de sujeción y acabado esponjoso." },
+    },
+  },
+
+};
+
+// ─── Stand defs (sin imágenes ni productos — lo gestiona buildStands) ─────────
 
 type StandDef = Omit<Stand, "image" | "products">;
 
@@ -101,74 +228,54 @@ const allYearDefs: StandDef[] = [
   { id: "toys",       label: "TOYS",       color: colorMap.red,       title: "Expositor Toys",         desc: "Novedades y juguetes de importación exclusivos.",                      productsBase: ["Robots", "Drones", "Slime", "Ciencia"] },
 ];
 
-const junData: Record<number, { units: string; color: string; alto: number; largo: number; ancho: number; desc?: string }> = {
-  60387: { units: "7",  color: "Varios colores surtidos", alto: 20,  largo: 11,   ancho: 20 },
-  60390: { units: "12", color: "Varios colores surtidos", alto: 22,  largo: 3,    ancho: 13, desc: "Juego de burbujas en blíster con 3 botes y varitas de diferentes formas. Producto de playa/exterior en colores surtidos." },
-  60391: { units: "28", color: "Varios colores surtidos", alto: 46,  largo: 5,    ancho: 9,  desc: "Pistola de agua alargada tipo tubo/lanza, presentada en expositor. Mango superior y cuerpo largo en colores surtidos." },
-  60392: { units: "20", color: "Varios colores surtidos", alto: 20,  largo: 2,    ancho: 20, desc: "Frisbee/disco volador de plástico con diana central. Producto de juego exterior en varios colores." },
-  60393: { units: "8",  color: "Varios colores surtidos", alto: 29,  largo: 4,    ancho: 19, desc: "Juego de buceo con aros de colores para piscina. Incluye 3 aros con forma de pez para lanzar y recoger bajo el agua." },
-  60395: { units: "18", color: "Varios colores surtidos", alto: 20,  largo: 6,    ancho: 9,  desc: "Set de playa con barquito, pala, rastrillo y molde con forma de concha. Presentado en bolsa de red." },
-  60396: { units: "9",  color: "Varios colores surtidos", alto: 28,  largo: 15,   ancho: 15, desc: "Set de playa con cubo, pala, rastrillo y moldes de animales marinos. Presentado en bolsa de red." },
-  60397: { units: "8",  color: "Varios colores surtidos", alto: 14,  largo: 4,    ancho: 21, desc: "Gafas de natación infantiles en blíster, con montura de colores y lente oscura. Producto para piscina/playa." },
-  60398: { units: "12", color: "Varios colores surtidos", alto: 12,  largo: 12,   ancho: 25, desc: "Set de playa compacto con barquitos, pala, rastrillo, cuchara y moldes de animales marinos en colores vivos." },
-  60399: { units: "18", color: "Varios colores surtidos", alto: 11,  largo: 8,    ancho: 19, desc: "Camión volquete pequeño con accesorios de playa: pala, rastrillo, moldes y cucharón. Colores surtidos." },
-  60400: { units: "8",  color: "Varios colores surtidos", alto: 25,  largo: 4,    ancho: 15, desc: "Pistola de agua tipo lanzador espacial en blíster. Depósito integrado y diseño infantil de colores vivos." },
-  60401: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,    ancho: 20, desc: "Pistolas de agua con forma de delfín, presentadas en blíster con varias unidades y colores surtidos." },
-  60402: { units: "9",  color: "Solo color",              alto: 21,  largo: 4,    ancho: 10, desc: "Lanza cohetes de juguete con diseño de cohete amarillo y rojo. Producto individual para juego exterior." },
-  60403: { units: "24", color: "Varios colores surtidos", alto: 38,  largo: 1.5,  ancho: 20, desc: "Salabre telescópico plegable para piscina/playa, con red y mango extensible. Disponible en colores surtidos." },
-  60404: { units: "7",  color: "Varios colores surtidos", alto: 30,  largo: 4,    ancho: 20, desc: "Pistolas de agua pequeñas tipo nave, en blíster con tres unidades de diferentes colores." },
-  60405: { units: "18", color: "Varios colores surtidos", alto: 16,  largo: 12,   ancho: 12, desc: "Set de playa con molinillo/rueda de agua, pala, rastrillo y accesorios de arena. Colores surtidos." },
-  60410: { units: "15", color: "Varios colores surtidos", alto: 27,  largo: 6,    ancho: 6,  desc: "Pack de 4 pelotas pequeñas de plástico con diseño marmoleado/ondas. Presentadas en bolsa de red." },
-  60411: { units: "20", color: "Varios colores surtidos", alto: 25,  largo: 13,   ancho: 13, desc: "Juego de palas cesta con agujeros y pelotas pequeñas. Pensado para lanzar y recoger pelotas al aire libre." },
-  60412: { units: "12", color: "Varios colores surtidos", alto: 41,  largo: 8,    ancho: 11, desc: "Set de palas largas de playa con mangos y moldes de animales marinos. Presentado en bolsa de red." },
-  60413: { units: "10", color: "Varios colores surtidos", alto: 20,  largo: 15,   ancho: 25, desc: "Set de playa con bandeja/cangrejo grande, pala, rastrillo y accesorios de arena. Presentado en bolsa de red." },
-};
+// ─── Construcción genérica ────────────────────────────────────────────────────
 
-const junProductRefs = [60387,60390,60391,60392,60393,60395,60396,60397,60398,60399,60400,60401,60402,60403,60404,60405,60410,60411,60412,60413];
+function buildRealProducts(id: string, extra: StandExtra): Product[] {
+  return extra.refs.map((ref, i) => {
+    const d = extra.data[ref];
+    const num = String(i + 1).padStart(2, "0");
+    return {
+      id: `${id}-${num}`,
+      name: d?.name ? `${d.name} · Ref.${ref}` : `Ref.${ref}`,
+      image: `${extra.imagePath.replace(/[^/]+\.png$/, "")}../products/${id}-${num}.jpg`
+        .replace("stands/../", ""),
+      units: d?.units ?? "",
+      price: extra.info.pricePerUnit ?? "",
+      color: d?.color,
+      alto:  d?.alto,
+      largo: d?.largo,
+      ancho: d?.ancho,
+      desc:  d?.desc,
+    };
+  });
+}
 
-const junProducts: Product[] = junProductRefs.map((ref, i) => {
-  const d = junData[ref];
-  return {
-    id: `jun-${String(i + 1).padStart(2, "0")}`,
-    name: `Ref.${ref}`,
-    image: `${base}assets/products/jun-${String(i + 1).padStart(2, "0")}.jpg`,
-    units: d?.units ?? "",
+function buildPlaceholderProducts(prefix: string, baseProducts: string[]): Product[] {
+  return Array.from({ length: 5 }, (_, index) => ({
+    id: `${prefix}-${index + 1}`,
+    name: `${baseProducts[index % baseProducts.length]} · Ref.${1000 + index}`,
+    image: STAND_DEMO,
+    units: "",
     price: "",
-    color: d?.color,
-    alto:  d?.alto,
-    largo: d?.largo,
-    ancho: d?.ancho,
-    desc:  d?.desc,
-  };
-});
-
-const junStandInfo = {
-  standRef:     "99917",
-  numRefs:      20,
-  totalUnits:   338,
-  sides:        2,
-  priceStand:   "385,32 €",
-  pricePerUnit: "1,14 €",
-  tipo:         "Medio palé",
-  standAlto:    150,
-  standLargo:   80,
-  standAncho:   60,
-};
+  }));
+}
 
 function buildStands(defs: StandDef[]): Stand[] {
   return defs.map((def) => {
-    const isJun = def.id === "jun";
-    const extraInfo = isJun ? junStandInfo : {};
-    const rawProducts = isJun ? junProducts : createProducts(def.id, def.productsBase);
-    const pricePerUnit = isJun ? junStandInfo.pricePerUnit : undefined;
-    const products = pricePerUnit
-      ? rawProducts.map(p => ({ ...p, price: pricePerUnit }))
-      : rawProducts;
+    const extra = standExtras[def.id];
+    if (!extra) {
+      return {
+        ...def,
+        image: STAND_DEMO,
+        products: buildPlaceholderProducts(def.id, def.productsBase),
+      };
+    }
+    const products = buildRealProducts(def.id, extra);
     return {
       ...def,
-      image: isJun ? `${base}assets/stands/expositor-jun.png` : STAND_DEMO,
+      image: extra.imagePath,
       products,
-      ...extraInfo,
+      ...extra.info,
     };
   });
 }

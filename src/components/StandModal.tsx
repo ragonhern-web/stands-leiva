@@ -98,7 +98,9 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             <div className="mb-4 pr-12 md:mb-5">
               <div className="mb-3 flex items-center gap-3">
                 <span className="h-4 w-4 rounded-full shadow" style={{ backgroundColor: stand.color }} />
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">{t.references}</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
+                  {stand.numRefs ?? stand.products.length} {t.references}
+                </p>
               </div>
               <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-5xl">{standCopy.title}</h2>
               <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500 md:mt-3 md:text-base">
@@ -111,7 +113,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
                 <Package size={20} className="text-slate-400" /> {t.included}
               </h3>
               <span className="hidden rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-500 md:inline-flex">
-                {t.columns}
+                5 {t.columns} × {Math.ceil(stand.products.length / 5)} {t.rows}
               </span>
             </div>
 
