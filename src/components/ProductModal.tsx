@@ -25,7 +25,7 @@ export default function ProductModal({ product, onClose, t }: Props) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
-            className="relative flex w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl md:flex-row"
+            className="relative flex w-full max-w-4xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl md:flex-row"
             onClick={e => e.stopPropagation()}
           >
             <button
@@ -36,12 +36,12 @@ export default function ProductModal({ product, onClose, t }: Props) {
             </button>
 
             {/* Imagen grande */}
-            <div className="flex items-center justify-center bg-gradient-to-br from-slate-50 to-white p-6 md:w-1/2">
+            <div className="flex items-center justify-center bg-gradient-to-br from-slate-50 to-white p-6 md:w-3/5">
               {product.image && !product.image.startsWith("data:") ? (
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="max-h-64 w-full object-contain drop-shadow-lg md:max-h-80"
+                  className="max-h-64 w-full object-contain drop-shadow-lg md:max-h-[58vh]"
                 />
               ) : (
                 <div className="flex h-64 w-full items-center justify-center rounded-2xl bg-slate-100 text-slate-300 text-5xl">
@@ -51,7 +51,7 @@ export default function ProductModal({ product, onClose, t }: Props) {
             </div>
 
             {/* Datos */}
-            <div className="flex flex-col gap-4 p-6 md:w-1/2">
+            <div className="flex flex-col gap-4 overflow-y-auto p-6 md:w-2/5">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Referencia</p>
                 <h3 className="mt-1 text-2xl font-black text-slate-900">{product.name}</h3>

@@ -33,7 +33,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           initial={{ opacity: 0, y: 28, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.96 }}
-          className="relative grid h-[92vh] w-full max-w-[1440px] overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:grid-cols-[0.30fr_0.70fr]"
+          className="relative flex max-h-[95vh] w-full max-w-[1440px] flex-col overflow-y-auto rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:grid md:h-[92vh] md:overflow-hidden md:grid-cols-[0.30fr_0.70fr]"
           onClick={(e) => e.stopPropagation()}
         >
           <button
@@ -46,7 +46,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </button>
 
           {/* Panel imagen — fila en móvil, columna en desktop */}
-          <aside className="relative flex max-h-[34vh] flex-col items-center justify-center overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:border-b-0 md:border-r md:p-6">
+          <aside className="relative flex flex-col items-center justify-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:overflow-hidden md:border-b-0 md:border-r md:p-6">
             <div
               className="absolute -left-32 top-12 h-72 w-72 rounded-full opacity-15 blur-3xl"
               style={{ backgroundColor: stand.color }}
@@ -56,7 +56,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               <img
                 src={stand.image}
                 alt={standCopy.title}
-                className="relative z-10 max-h-[30vh] max-w-full object-contain drop-shadow-2xl md:max-h-[55vh]"
+                className="relative z-10 w-full max-w-[220px] object-contain drop-shadow-2xl md:max-h-[55vh] md:max-w-full"
               />
             </div>
 
@@ -94,7 +94,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </aside>
 
           {/* Panel productos */}
-          <section className="flex min-h-0 flex-col overflow-hidden p-4 md:p-8">
+          <section className="flex flex-col p-4 md:min-h-0 md:overflow-hidden md:p-8">
             <div className="mb-4 pr-12 md:mb-5">
               <div className="mb-3 flex items-center gap-3">
                 <span className="h-4 w-4 rounded-full shadow" style={{ backgroundColor: stand.color }} />
@@ -117,7 +117,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               </span>
             </div>
 
-            <div className="grid min-h-0 flex-1 grid-cols-2 gap-3 overflow-y-auto pr-3 [scrollbar-color:#169b22_#e2e8f0] [scrollbar-width:thin] lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 pr-1 md:min-h-0 md:flex-1 md:overflow-y-auto md:pr-3 md:[scrollbar-color:#169b22_#e2e8f0] md:[scrollbar-width:thin] lg:grid-cols-5">
               {stand.products.map((product) => (
                 <ProductCard key={product.id} product={product} t={t} onClick={() => setSelectedProduct(product)} />
               ))}
