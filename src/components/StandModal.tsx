@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, FileSpreadsheet, FileText, Package, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getStandCopy } from "../data/translations";
 import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
@@ -17,12 +17,6 @@ interface Props {
 export default function StandModal({ stand, closeModal, language, t }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  // Bloquear scroll del body mientras el modal está abierto
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
-  }, []);
 
   if (!stand) return null;
   const standCopy = getStandCopy(stand, language);
@@ -82,7 +76,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
             {/* Ficha del expositor — solo desktop */}
             {stand.standRef && (
-              <div className="relative z-10 mt-4 hidden w-full rounded-2xl border border-slate-200 bg-white/80 p-4 backdrop-blur-sm md:block">
+              <div className="relative z-10 mt-4 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 backdrop-blur-sm">
                 <p className="mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                   Ficha expositor
                 </p>
