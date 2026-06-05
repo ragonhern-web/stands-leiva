@@ -78,12 +78,15 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </div>
 
           {/* Panel imagen */}
-          <aside className="relative flex flex-col items-center justify-center overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:border-b-0 md:border-r md:p-6">
-            <div
-              className="absolute -left-32 top-12 h-72 w-72 rounded-full opacity-15 blur-3xl"
-              style={{ backgroundColor: stand.color }}
-            />
-            <div className="absolute bottom-10 right-[-100px] h-64 w-64 rounded-full bg-green-200/30 blur-3xl" />
+          <aside className="relative flex flex-col items-center justify-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:border-b-0 md:border-r md:p-6">
+            {/* Blobs decorativos contenidos para no causar overflow */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+              <div
+                className="absolute -left-32 top-12 h-72 w-72 rounded-full opacity-15 blur-3xl"
+                style={{ backgroundColor: stand.color }}
+              />
+              <div className="absolute bottom-10 right-[-100px] h-64 w-64 rounded-full bg-green-200/30 blur-3xl" />
+            </div>
             <div className="flex w-full flex-1 items-center justify-center">
               <img
                 src={stand.image}
