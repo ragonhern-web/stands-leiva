@@ -65,6 +65,18 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             <X size={22} />
           </button>
 
+          {/* Título — solo móvil, encima de la imagen */}
+          <div className="px-4 pt-3 pb-2 md:hidden">
+            <div className="mb-2 flex items-center gap-2">
+              <span className="h-3.5 w-3.5 rounded-full shadow" style={{ backgroundColor: stand.color }} />
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
+                {stand.numRefs ?? stand.products.length} {t.references}
+              </p>
+            </div>
+            <h2 className="text-2xl font-black tracking-tight text-slate-950">{standCopy.title}</h2>
+            <p className="mt-1.5 text-sm font-medium leading-relaxed text-slate-500">{standCopy.desc}</p>
+          </div>
+
           {/* Panel imagen */}
           <aside className="relative flex flex-col items-center justify-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:overflow-hidden md:border-b-0 md:border-r md:p-6">
             <div
@@ -115,15 +127,16 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
           {/* Panel productos */}
           <section className="flex flex-col p-4 md:min-h-0 md:overflow-hidden md:p-8">
-            <div className="mb-4 md:mb-5">
+            {/* Título — solo desktop */}
+            <div className="mb-4 hidden md:block md:mb-5">
               <div className="mb-3 flex items-center gap-3">
                 <span className="h-4 w-4 rounded-full shadow" style={{ backgroundColor: stand.color }} />
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
                   {stand.numRefs ?? stand.products.length} {t.references}
                 </p>
               </div>
-              <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-5xl">{standCopy.title}</h2>
-              <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500 md:mt-3 md:text-base">
+              <h2 className="text-5xl font-black tracking-tight text-slate-950">{standCopy.title}</h2>
+              <p className="mt-3 max-w-3xl text-base font-medium leading-relaxed text-slate-500">
                 {standCopy.desc}
               </p>
             </div>
