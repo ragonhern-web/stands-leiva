@@ -32,10 +32,12 @@ export default function App() {
 
       {/* Fondos decorativos */}
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,1),rgba(247,255,247,0.9)_42%,rgba(248,250,252,1)_76%)]" />
-      <div
-        className="pointer-events-none fixed left-1/2 top-20 h-72 w-[720px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ backgroundColor: heroAccent }}
-      />
+      <div className="pointer-events-none fixed inset-x-0 top-20 overflow-hidden">
+        <div
+          className="mx-auto h-72 w-[720px] rounded-full opacity-20 blur-3xl"
+          style={{ backgroundColor: heroAccent }}
+        />
+      </div>
 
       {/* Hero */}
       <section className="relative z-10 mx-auto mt-36 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
