@@ -40,7 +40,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           initial={{ opacity: 0, y: 28, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.96 }}
-          className="relative flex max-h-[95vh] w-full max-w-[1440px] flex-col overflow-y-auto rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:grid md:h-[92vh] md:overflow-hidden md:grid-cols-[0.30fr_0.70fr]"
+          className="relative flex max-h-[95vh] w-full max-w-[1440px] flex-col overflow-x-hidden overflow-y-auto rounded-[2rem] border border-slate-200 bg-white shadow-2xl md:grid md:h-[92vh] md:overflow-hidden md:grid-cols-[0.30fr_0.70fr]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Barra cierre fija en móvil */}
@@ -78,7 +78,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </div>
 
           {/* Panel imagen */}
-          <aside className="relative flex flex-col items-center justify-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:overflow-hidden md:border-b-0 md:border-r md:p-6">
+          <aside className="relative flex flex-col items-center justify-center overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 md:max-h-none md:justify-start md:border-b-0 md:border-r md:p-6">
             <div
               className="absolute -left-32 top-12 h-72 w-72 rounded-full opacity-15 blur-3xl"
               style={{ backgroundColor: stand.color }}
