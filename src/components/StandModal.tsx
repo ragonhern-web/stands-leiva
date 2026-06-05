@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, FileSpreadsheet, FileText, Package, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getStandCopy } from "../data/translations";
 import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
@@ -18,6 +18,12 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  // Resetear producto seleccionado al cambiar de stand
+  useEffect(() => {
+    setSelectedProduct(null);
+    setMenuOpen(false);
+  }, [stand?.id]);
+
   if (!stand) return null;
   const standCopy = getStandCopy(stand, language);
 
@@ -28,7 +34,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 p-3 backdrop-blur-md"
-        onClick={closeModal}
+        onClick={() => { if (!selectedProduct) closeModal(); }}
       >
         <motion.div
           initial={{ opacity: 0, y: 28, scale: 0.96 }}
