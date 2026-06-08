@@ -6,6 +6,6 @@ import tailwindcss from '@tailwindcss/vite'
 const REPO_NAME = 'stands-leiva'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? `/${REPO_NAME}/` : '/',
+  base: process.env.DEPLOY_TARGET === 'github-pages' ? `/${REPO_NAME}/` : '/',
   plugins: [react(), tailwindcss()],
 })
