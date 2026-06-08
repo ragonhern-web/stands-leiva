@@ -17,14 +17,17 @@ function standInfoRows(stand: Stand): (string | number)[][] {
 
 export function downloadExcel(stand: Stand, _title: string): void {
   const wb = XLSX.utils.book_new();
+  const origin = window.location.origin;
 
   const infoSheet = XLSX.utils.aoa_to_sheet(standInfoRows(stand));
   infoSheet["!cols"] = [{ wch: 22 }, { wch: 30 }];
   XLSX.utils.book_append_sheet(wb, infoSheet, "Ficha expositor");
 
-  const productHeaders = ["Referencia", "Color", "Alto (cm)", "Largo (cm)", "Ancho (cm)", "Unidades", "Precio/u"];
+  const productHeaders = ["Nº Ref", "Referencia", "Foto", "Color", "Alto (cm)", "Largo (cm)", "Ancho (cm)", "Unidades", "Precio/u"];
   const productRows = stand.products.map(p => [
+    p.id,
     p.name,
+    "Ver foto",
     p.color  ?? "",
     p.alto   ?? "",
     p.largo  ?? "",
@@ -33,18 +36,24 @@ export function downloadExcel(stand: Stand, _title: string): void {
     p.price  ?? "",
   ]);
   const productsSheet = XLSX.utils.aoa_to_sheet([productHeaders, ...productRows]);
-  productsSheet["!cols"] = [{ wch: 16 }, { wch: 26 }, { wch: 10 }, { wch: 11 }, { wch: 11 }, { wch: 10 }, { wch: 10 }];
+
+  // Añadir hipervínculo en la columna "Foto" (columna C = índice 2)
+  stand.products.forEach((p, i) => {
+    const cellRef = XLSX.utils.encode_cell({ r: i + 1, c: 2 });
+    if (productsSheet[cellRef]) {
+      productsSheet[cellRef].l = { Target: `${origin}${p.image}`, Tooltip: p.name };
+    }
+  });
+
+  productsSheet["!cols"] = [{ wch: 14 }, { wch: 28 }, { wch: 10 }, { wch: 22 }, { wch: 10 }, { wch: 11 }, { wch: 11 }, { wch: 10 }, { wch: 10 }];
   XLSX.utils.book_append_sheet(wb, productsSheet, "Productos");
 
   XLSX.writeFile(wb, `ficha-tecnica-${stand.id}.xlsx`);
 }
 
 export function downloadPDF(stand: Stand, title: string): void {
+  const origin = window.location.origin;
   const infoRows = standInfoRows(stand).slice(1);
-  const productRows = stand.products.map(p => [
-    p.name, p.color ?? "—", `${p.alto ?? "—"} cm`, `${p.largo ?? "—"} cm`,
-    `${p.ancho ?? "—"} cm`, p.units ?? "—", p.price ?? "—",
-  ]);
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
 <title>Ficha técnica – ${title}</title>
@@ -52,25 +61,42 @@ export function downloadPDF(stand: Stand, title: string): void {
   body { font-family: Arial, sans-serif; padding: 32px; color: #202020; }
   h1 { color: #169b22; font-size: 22px; margin-bottom: 4px; }
   h2 { font-size: 14px; color: #555; margin: 24px 0 8px; }
-  table { border-collapse: collapse; width: 100%; font-size: 12px; }
-  th { background: #169b22; color: white; padding: 6px 10px; text-align: left; }
-  td { border-bottom: 1px solid #e2e8f0; padding: 5px 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 11px; }
+  th { background: #169b22; color: white; padding: 6px 10px; text-align: left; white-space: nowrap; }
+  td { border-bottom: 1px solid #e2e8f0; padding: 6px 8px; vertical-align: middle; }
   tr:nth-child(even) td { background: #f8fafc; }
   .price { color: #169b22; font-weight: bold; }
+  .ref  { font-size: 10px; color: #888; font-family: monospace; }
+  .photo { width: 58px; height: 58px; object-fit: contain; display: block; }
   @media print { body { padding: 16px; } }
 </style></head><body>
 <h1>${title}</h1>
 <h2>Ficha del expositor</h2>
 <table>${infoRows.map(([k, v]) => `<tr><td><b>${k}</b></td><td class="${String(k).includes("Precio") ? "price" : ""}">${v}</td></tr>`).join("")}</table>
 <h2>Productos incluidos</h2>
-<table><thead><tr>${["Referencia","Color","Alto","Largo","Ancho","Unidades","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
-<tbody>${productRows.map(r => `<tr>${r.map((c, i) => `<td${i === 6 ? ' class="price"' : ""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>
+<table>
+  <thead><tr>${["Foto","Nº Ref","Referencia","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
+  <tbody>${stand.products.map(p => `<tr>
+    <td><img src="${origin}${p.image}" class="photo" alt="${p.name}" /></td>
+    <td class="ref">${p.id}</td>
+    <td>${p.name}</td>
+    <td>${p.color ?? "—"}</td>
+    <td>${p.alto ? p.alto + " cm" : "—"}</td>
+    <td>${p.largo ? p.largo + " cm" : "—"}</td>
+    <td>${p.ancho ? p.ancho + " cm" : "—"}</td>
+    <td>${p.units ?? "—"}</td>
+    <td class="price">${p.price ?? "—"}</td>
+  </tr>`).join("")}</tbody>
+</table>
 </body></html>`;
 
-  const win = window.open("", "_blank");
-  if (!win) return;
-  win.document.write(html);
-  win.document.close();
-  win.focus();
-  setTimeout(() => { win.print(); }, 400);
+  const iframe = document.createElement("iframe");
+  iframe.style.cssText = "position:fixed;width:0;height:0;border:0;opacity:0;";
+  iframe.srcdoc = html;
+  document.body.appendChild(iframe);
+  iframe.addEventListener("load", () => {
+    iframe.contentWindow!.focus();
+    iframe.contentWindow!.print();
+    setTimeout(() => document.body.removeChild(iframe), 1500);
+  });
 }
