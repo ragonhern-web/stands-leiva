@@ -6,7 +6,7 @@ export default function Logo() {
         <img
           src="/assets/logo.png"
           alt="Novedades Leiva S.L."
-          className="h-10 w-10 object-contain"
+          className="h-10 w-10 object-contain mix-blend-multiply"
         />
         <div className="flex flex-col leading-none">
           <p className="text-[9px] font-black uppercase tracking-[0.28em] text-slate-400">Desde</p>
