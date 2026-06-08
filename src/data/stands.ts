@@ -450,7 +450,7 @@ const standExtras: Record<string, StandExtra> = {
 
   balones: {
     imagePath: `${base}assets/stands/expositor-balones.png`,
-    info: { numRefs: 1, totalUnits: 40, sides: 2, tipo: "Box palé dispensador", standAlto: 145, standLargo: 42, standAncho: 60 },
+    info: { standRef: "60388", numRefs: 1, totalUnits: 40, sides: 2, tipo: "Box palé dispensador de cartón", pricePerUnit: "2,50 €", priceStand: "100,00 €", standAlto: 145, standLargo: 42, standAncho: 60 },
     refs: [60388],
     data: {
       60388: { units: "40", color: "Varios colores surtidos", name: "Balón de cuero sintético", desc: "Balón de cuero sintético en caja dispensadora. 40 unidades surtidas. Incluye expositor dispensador de cartón." },
