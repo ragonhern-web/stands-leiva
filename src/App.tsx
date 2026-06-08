@@ -101,6 +101,7 @@ export default function App() {
           <TimelineRow
             stands={comingSoonStands}
             type="year"
+            comingSoon
             selectedId=""
             setSelectedId={() => {}}
             openModal={() => {}}

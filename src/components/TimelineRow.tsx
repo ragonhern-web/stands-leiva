@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Clock } from "lucide-react";
 import { getStandCopy, getStandLabel } from "../data/translations";
 import { brand } from "../data/stands";
 import MobileSeasonCarousel from "./MobileSeasonCarousel";
@@ -7,6 +8,7 @@ import type { Stand, Language } from "../types";
 interface Props {
   stands: Stand[];
   type: "season" | "year";
+  comingSoon?: boolean;
   selectedId: string;
   setSelectedId: (id: string) => void;
   openModal: (stand: Stand) => void;
@@ -17,6 +19,7 @@ interface Props {
 export default function TimelineRow({
   stands,
   type,
+  comingSoon = false,
   selectedId,
   setSelectedId,
   openModal,
@@ -122,7 +125,7 @@ export default function TimelineRow({
     );
   }
 
-  // Expositores todo el año: grid 2 columnas en móvil, 9 en desktop
+  // Expositores todo el año / próximamente: grid 2 columnas en móvil, 9 en desktop
   return (
     <div className="grid grid-cols-2 gap-3 md:grid-cols-9">
       {stands.map((stand) => {
@@ -133,10 +136,22 @@ export default function TimelineRow({
           <button
             key={stand.id}
             type="button"
-            onMouseEnter={() => handleEnter(stand)}
-            onClick={() => openModal(stand)}
-            className="group relative flex min-w-0 flex-col items-center rounded-[1.5rem] border border-slate-200 bg-white/90 px-2 py-4 shadow-xl shadow-slate-300/35 transition hover:-translate-y-2 hover:shadow-2xl"
+            onMouseEnter={() => !comingSoon && handleEnter(stand)}
+            onClick={() => !comingSoon && openModal(stand)}
+            className={`group relative flex min-w-0 flex-col items-center rounded-[1.5rem] border border-slate-200 bg-white/90 px-2 py-4 shadow-xl shadow-slate-300/35 transition ${comingSoon ? "cursor-default" : "hover:-translate-y-2 hover:shadow-2xl"}`}
           >
+            {/* Overlay "Próximamente" */}
+            {comingSoon && (
+              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 rounded-[1.5rem] bg-slate-950/55 backdrop-blur-[3px]">
+                <div className="flex items-center justify-center rounded-full bg-white/15 p-2.5 ring-1 ring-white/25">
+                  <Clock size={18} className="text-white" />
+                </div>
+                <span className="text-[9px] font-black uppercase tracking-[0.22em] text-white/90">
+                  Próximamente
+                </span>
+              </div>
+            )}
+
             <span
               className="mb-3 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-xs"
               style={{ color: stand.color }}
