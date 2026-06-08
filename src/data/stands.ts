@@ -324,7 +324,7 @@ const standExtras: Record<string, StandExtra> = {
 
   sep: {
     imagePath: `${base}assets/stands/expositor-oct.png`,
-    info: { numRefs: 1, totalUnits: 18, tipo: "Caja expositora", standAlto: 34, standLargo: 48, standAncho: 40 },
+    info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Caja expositora de cartón", pricePerUnit: "1,00 €", priceStand: "18,00 €", standAlto: 34, standLargo: 48, standAncho: 40 },
     refs: [2062],
     data: {
       2062: { units: "18", color: "Naranja y negro", alto: 14, largo: 16, ancho: 16, name: "Cubo calabaza Halloween", desc: "Cubo de plástico con forma de calabaza para Halloween. Naranja y negro. 18 unidades por caja expositora." },
