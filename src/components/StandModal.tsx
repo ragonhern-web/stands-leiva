@@ -184,7 +184,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
                       </button>
                       <div className="h-px bg-slate-100" />
                       <button
-                        onClick={() => { downloadExcel(stand, standCopy.title); setMenuOpen(false); }}
+                        onClick={() => { downloadExcel(stand, standCopy.title).then(() => setMenuOpen(false)); }}
                         className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
                       >
                         <FileSpreadsheet size={18} className="shrink-0" />

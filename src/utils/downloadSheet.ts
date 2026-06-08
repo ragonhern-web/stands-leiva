@@ -1,66 +1,157 @@
-import * as XLSX from "xlsx";
 import type { Stand } from "../types";
 
-function standInfoRows(stand: Stand): (string | number)[][] {
-  const rows: (string | number)[][] = [["Campo", "Valor"]];
-  if (stand.standRef)    rows.push(["Ref. stand",       stand.standRef]);
-  if (stand.tipo)        rows.push(["Tipo",              stand.tipo]);
-  if (stand.numRefs)     rows.push(["Nº referencias",    stand.numRefs]);
-  if (stand.totalUnits)  rows.push(["Nº unidades",       stand.totalUnits]);
-  if (stand.sides)       rows.push(["Lados",             stand.sides]);
-  if (stand.priceStand)  rows.push(["Precio expositor",  stand.priceStand]);
-  if (stand.pricePerUnit)rows.push(["Precio unidad",     stand.pricePerUnit]);
+function standInfoRows(stand: Stand): [string, string | number][] {
+  const rows: [string, string | number][] = [];
+  if (stand.standRef)     rows.push(["Ref. stand",        stand.standRef]);
+  if (stand.tipo)         rows.push(["Tipo",               stand.tipo]);
+  if (stand.numRefs)      rows.push(["Nº referencias",     stand.numRefs]);
+  if (stand.totalUnits)   rows.push(["Nº unidades",        stand.totalUnits]);
+  if (stand.sides)        rows.push(["Lados",              stand.sides]);
+  if (stand.priceStand)   rows.push(["Precio expositor",   stand.priceStand]);
+  if (stand.pricePerUnit) rows.push(["Precio unidad",      stand.pricePerUnit]);
   if (stand.standAlto != null)
     rows.push(["Medidas expositor", `${stand.standAlto} × ${stand.standLargo} × ${stand.standAncho} cm`]);
   return rows;
 }
 
-export function downloadExcel(stand: Stand, _title: string): void {
-  const wb = XLSX.utils.book_new();
+async function fetchImageBuffer(url: string): Promise<ArrayBuffer | null> {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.arrayBuffer();
+  } catch {
+    return null;
+  }
+}
+
+export async function downloadExcel(stand: Stand, _title: string): Promise<void> {
   const origin = window.location.origin;
+  const ExcelJS = (await import("exceljs")).default;
+  const wb = new ExcelJS.Workbook();
 
-  const infoSheet = XLSX.utils.aoa_to_sheet(standInfoRows(stand));
-  infoSheet["!cols"] = [{ wch: 22 }, { wch: 30 }];
-  XLSX.utils.book_append_sheet(wb, infoSheet, "Ficha expositor");
+  // ── Hoja 1: Ficha expositor ──────────────────────────────────────────────
+  const infoSheet = wb.addWorksheet("Ficha expositor");
 
-  const productHeaders = ["Nº Ref", "Referencia", "Foto", "Color", "Alto (cm)", "Largo (cm)", "Ancho (cm)", "Unidades", "Precio/u"];
-  const productRows = stand.products.map(p => [
-    p.id,
-    p.name,
-    "Ver foto",
-    p.color  ?? "",
-    p.alto   ?? "",
-    p.largo  ?? "",
-    p.ancho  ?? "",
-    p.units  ?? "",
-    p.price  ?? "",
-  ]);
-  const productsSheet = XLSX.utils.aoa_to_sheet([productHeaders, ...productRows]);
+  infoSheet.getColumn(1).width = 24;
+  infoSheet.getColumn(2).width = 32;
+  infoSheet.getColumn(3).width = 4;  // separador
+  infoSheet.getColumn(4).width = 30; // columna imagen
 
-  // Añadir hipervínculo en la columna "Foto" (columna C = índice 2)
-  stand.products.forEach((p, i) => {
-    const cellRef = XLSX.utils.encode_cell({ r: i + 1, c: 2 });
-    if (productsSheet[cellRef]) {
-      productsSheet[cellRef].l = { Target: `${origin}${p.image}`, Tooltip: p.name };
-    }
+  const green = "FF169b22";
+
+  // Cabecera
+  const headerRow = infoSheet.addRow(["Campo", "Valor"]);
+  headerRow.eachCell((cell, col) => {
+    if (col > 2) return;
+    cell.fill   = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
+    cell.font   = { bold: true, color: { argb: "FFFFFFFF" }, size: 11 };
+    cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
   });
 
-  productsSheet["!cols"] = [{ wch: 14 }, { wch: 28 }, { wch: 10 }, { wch: 22 }, { wch: 10 }, { wch: 11 }, { wch: 11 }, { wch: 10 }, { wch: 10 }];
-  XLSX.utils.book_append_sheet(wb, productsSheet, "Productos");
+  // Filas de datos
+  standInfoRows(stand).forEach(([label, value]) => {
+    const row = infoSheet.addRow([label, String(value)]);
+    row.getCell(1).font = { bold: true, color: { argb: "FF475569" }, size: 10 };
+    row.getCell(2).font = { size: 10 };
+    if (label.includes("Precio")) {
+      row.getCell(2).font = { bold: true, color: { argb: green }, size: 10 };
+    }
+    row.eachCell((cell, col) => {
+      if (col > 2) return;
+      cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
+    });
+  });
 
-  XLSX.writeFile(wb, `ficha-tecnica-${stand.id}.xlsx`);
+  // Imagen del stand (columna D, fila 1)
+  const standImgUrl = `${origin}${stand.image}`;
+  const standImgBuf = await fetchImageBuffer(standImgUrl);
+  if (standImgBuf) {
+    const imgId = wb.addImage({ buffer: standImgBuf, extension: "png" });
+    infoSheet.addImage(imgId, {
+      tl: { col: 3, row: 0 },
+      ext: { width: 200, height: 280 },
+    });
+    // Altura de filas para que quede bien
+    for (let r = 1; r <= 10; r++) infoSheet.getRow(r).height = 28;
+  }
+
+  // ── Hoja 2: Productos ────────────────────────────────────────────────────
+  const prodSheet = wb.addWorksheet("Productos");
+
+  const prodCols = [
+    { header: "Nº Ref",      width: 16 },
+    { header: "Referencia",  width: 30 },
+    { header: "Foto",        width: 12 },
+    { header: "Color",       width: 24 },
+    { header: "Alto (cm)",   width: 11 },
+    { header: "Largo (cm)",  width: 12 },
+    { header: "Ancho (cm)",  width: 12 },
+    { header: "Unidades",    width: 11 },
+    { header: "Precio/u",    width: 11 },
+  ];
+  prodSheet.columns = prodCols.map(c => ({ header: c.header, width: c.width }));
+
+  const prodHeader = prodSheet.getRow(1);
+  prodHeader.eachCell(cell => {
+    cell.fill  = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
+    cell.font  = { bold: true, color: { argb: "FFFFFFFF" }, size: 10 };
+    cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
+  });
+
+  stand.products.forEach((p, i) => {
+    const row = prodSheet.addRow([
+      p.id,
+      p.name,
+      "Ver foto",
+      p.color  ?? "",
+      p.alto   ?? "",
+      p.largo  ?? "",
+      p.ancho  ?? "",
+      p.units  ?? "",
+      p.price  ?? "",
+    ]);
+    // Hipervínculo en "Ver foto"
+    const fotoCell = row.getCell(3);
+    fotoCell.value = { text: "Ver foto", hyperlink: `${origin}${p.image}` };
+    fotoCell.font  = { color: { argb: "FF2563eb" }, underline: true, size: 10 };
+    // Color alternante
+    if (i % 2 === 1) {
+      row.eachCell(cell => {
+        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFf8fafc" } };
+      });
+    }
+    // Precio en verde
+    const priceCell = row.getCell(9);
+    priceCell.font = { bold: true, color: { argb: green }, size: 10 };
+  });
+
+  // ── Descarga ─────────────────────────────────────────────────────────────
+  const buffer = await wb.xlsx.writeBuffer();
+  const blob = new Blob([buffer], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `ficha-tecnica-${stand.id}.xlsx`;
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 export function downloadPDF(stand: Stand, title: string): void {
   const origin = window.location.origin;
-  const infoRows = standInfoRows(stand).slice(1);
+  const infoRows = standInfoRows(stand);
+  const standImgUrl = `${origin}${stand.image}`;
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
 <title>Ficha técnica – ${title}</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 32px; color: #202020; }
-  h1 { color: #169b22; font-size: 22px; margin-bottom: 4px; }
-  h2 { font-size: 14px; color: #555; margin: 24px 0 8px; }
+  h1 { color: #169b22; font-size: 22px; margin-bottom: 16px; }
+  h2 { font-size: 13px; color: #555; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .info-section { display: flex; gap: 28px; align-items: flex-start; }
+  .info-table { flex: 1; min-width: 0; }
+  .stand-img { width: 180px; flex-shrink: 0; object-fit: contain; border-radius: 8px; background: #f8fafc; padding: 8px; }
   table { border-collapse: collapse; width: 100%; font-size: 11px; }
   th { background: #169b22; color: white; padding: 6px 10px; text-align: left; white-space: nowrap; }
   td { border-bottom: 1px solid #e2e8f0; padding: 6px 8px; vertical-align: middle; }
@@ -72,7 +163,12 @@ export function downloadPDF(stand: Stand, title: string): void {
 </style></head><body>
 <h1>${title}</h1>
 <h2>Ficha del expositor</h2>
-<table>${infoRows.map(([k, v]) => `<tr><td><b>${k}</b></td><td class="${String(k).includes("Precio") ? "price" : ""}">${v}</td></tr>`).join("")}</table>
+<div class="info-section">
+  <div class="info-table">
+    <table>${infoRows.map(([k, v]) => `<tr><td><b>${k}</b></td><td class="${String(k).includes("Precio") ? "price" : ""}">${v}</td></tr>`).join("")}</table>
+  </div>
+  <img src="${standImgUrl}" class="stand-img" alt="${title}" />
+</div>
 <h2>Productos incluidos</h2>
 <table>
   <thead><tr>${["Foto","Nº Ref","Referencia","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
