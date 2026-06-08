@@ -250,7 +250,7 @@ const standExtras: Record<string, StandExtra> = {
 
   abr: {
     imagePath: `${base}assets/stands/expositor-mar.png`,
-    info: { standRef: "98685", numRefs: 1, tipo: "Caja expositora de cartón", pricePerUnit: "0,99 €", standAlto: 6, standLargo: 6, standAncho: 150 },
+    info: { standRef: "98685", numRefs: 1, tipo: "Cuarto palé", pricePerUnit: "0,99 €", standAlto: 6, standLargo: 6, standAncho: 150 },
     refs: [98685],
     data: {
       98685: { units: "—", color: "Varios colores surtidos", name: "Churros de flotación de espuma", desc: "Churros de flotación de espuma de polietileno. 150 × 6 cm. Incluye caja expositora de cartón. Varios colores surtidos." },
@@ -324,7 +324,7 @@ const standExtras: Record<string, StandExtra> = {
 
   sep: {
     imagePath: `${base}assets/stands/expositor-oct.png`,
-    info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Caja expositora de cartón", pricePerUnit: "1,00 €", priceStand: "18,00 €", standAlto: 34, standLargo: 48, standAncho: 40 },
+    info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Cuarto palé", pricePerUnit: "1,00 €", priceStand: "18,00 €", standAlto: 34, standLargo: 48, standAncho: 40 },
     refs: [2062],
     data: {
       2062: { units: "18", color: "Naranja y negro", alto: 14, largo: 16, ancho: 16, name: "Cubo calabaza Halloween", desc: "Cubo de plástico con forma de calabaza para Halloween. Naranja y negro. 18 unidades por caja expositora." },
@@ -450,7 +450,7 @@ const standExtras: Record<string, StandExtra> = {
 
   balones: {
     imagePath: `${base}assets/stands/expositor-balones.png`,
-    info: { standRef: "60388", numRefs: 1, totalUnits: 40, sides: 2, tipo: "Box palé dispensador de cartón", pricePerUnit: "2,50 €", priceStand: "100,00 €", standAlto: 145, standLargo: 42, standAncho: 60 },
+    info: { standRef: "60388", numRefs: 1, totalUnits: 40, sides: 2, tipo: "Cuarto palé", pricePerUnit: "2,50 €", priceStand: "100,00 €", standAlto: 145, standLargo: 42, standAncho: 60 },
     refs: [60388],
     data: {
       60388: { units: "40", color: "Varios colores surtidos", name: "Balón de cuero sintético", desc: "Balón de cuero sintético en caja dispensadora. 40 unidades surtidas. Incluye expositor dispensador de cartón." },
