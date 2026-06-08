@@ -153,11 +153,17 @@ export default function TimelineRow({
             )}
 
             <span
-              className="mb-3 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-xs"
+              className="relative z-30 mb-1 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-xs"
               style={{ color: stand.color }}
             >
               {getStandLabel(stand, language)}
             </span>
+
+            {comingSoon && (
+              <p className="relative z-30 mb-2 px-2 text-center text-[11px] font-black leading-tight text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] md:text-xs">
+                {standCopy.title}
+              </p>
+            )}
 
             <motion.div
               animate={{ scale: active ? 1.16 : 1, y: active ? -8 : 0, opacity: active ? 1 : 0.84 }}
