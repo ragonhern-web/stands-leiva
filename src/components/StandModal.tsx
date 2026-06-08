@@ -67,6 +67,11 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
           {/* Título — solo móvil, encima de la imagen */}
           <div className="px-4 pt-3 pb-2 md:hidden">
+            {["ene","feb","mar","ago","oct","nov","mascotas","cocina"].includes(stand.id) && (
+              <span className="mb-2 inline-flex items-center rounded-full bg-[#169b22] px-3 py-1 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm whitespace-nowrap">
+                Stand Giratorio 360°
+              </span>
+            )}
             <div className="mb-2 flex items-center gap-2">
               <span className="h-3.5 w-3.5 rounded-full shadow" style={{ backgroundColor: stand.color }} />
               <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
@@ -89,7 +94,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             </div>
             <div className="relative flex w-full flex-1 items-center justify-center">
               {["ene","feb","mar","ago","oct","nov","mascotas","cocina"].includes(stand.id) && (
-                <span className="absolute top-0 left-1/2 z-20 -translate-x-1/2 rounded-full bg-[#169b22] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-md">
+                <span className="absolute top-0 left-1/2 z-20 hidden -translate-x-1/2 whitespace-nowrap rounded-full bg-[#169b22] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-md md:inline-flex">
                   Stand Giratorio 360°
                 </span>
               )}

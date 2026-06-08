@@ -14,9 +14,9 @@ import type { Language, Stand } from "./types";
 
 export default function App() {
   const [selectedStand, setSelectedStand] = useState<Stand | null>(null);
-  const [activeSeason, setActiveSeason] = useState("jul");
+  const [activeSeason, setActiveSeason] = useState("ene");
   const [activeAllYear, setActiveAllYear] = useState("balones");
-  const [previewStand, setPreviewStand] = useState<Stand>(seasonalStands[6]);
+  const [previewStand, setPreviewStand] = useState<Stand>(seasonalStands[0]);
   const [language, setLanguage] = useState<Language>("es");
 
   const t = copy[language] ?? copy.es;
