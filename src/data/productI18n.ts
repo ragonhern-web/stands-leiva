@@ -1486,6 +1486,1760 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Feestzak (feestset)",
     pl: "Torebka imprezowa (zestaw imprezowy)"
   },
+
+  // ── ABRIL (8 productos) ──────────────────────────────────────────
+
+  "abr-01": {
+    es: "Set de palas largas de playa con mango de madera y piezas de plástico/madera, acompañado de moldes marinos.",
+    en: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    fr: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    it: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    pt: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    de: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    nl: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
+    pl: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds."
+  },
+  "abr-02": {
+    es: "Set de playa de colección natural con cubo, pala, rastrillo, molino y moldes marinos. Presentado en bolsa de red.",
+    en: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    fr: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    it: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    pt: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    de: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    nl: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
+    pl: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag."
+  },
+  "abr-03": {
+    es: "Camión volquete de colección natural con accesorios de playa: pala, rastrillo y moldes marinos.",
+    en: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    fr: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    it: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    pt: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    de: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    nl: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
+    pl: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds."
+  },
+  "abr-04": {
+    es: "Carretilla de playa con accesorios de arena de colección natural: pala, rastrillo y moldes marinos.",
+    en: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    fr: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    it: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    pt: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    de: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    nl: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
+    pl: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds."
+  },
+  "abr-05": {
+    es: "Regadera infantil con forma de dinosaurio y accesorios de playa de colección natural.",
+    en: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    fr: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    it: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    pt: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    de: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    nl: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
+    pl: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection."
+  },
+  "abr-06": {
+    es: "Set de playa con cubo, pala, rastrillo y moldes de animales marinos de colección natural.",
+    en: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    fr: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    it: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    pt: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    de: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    nl: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
+    pl: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection."
+  },
+  "abr-07": {
+    es: "Juego de bolos infantil de colección natural, con bolos y bola en colores suaves surtidos.",
+    en: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    fr: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    it: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    pt: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    de: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    nl: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
+    pl: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted."
+  },
+  "abr-08": {
+    es: "Set de palas de playa de madera con pelota. Diseño clásico tipo beach ball para juego exterior.",
+    en: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    fr: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    it: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    pt: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    de: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    nl: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
+    pl: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior."
+  },
+
+  // ── AUTOS (27 productos) ──────────────────────────────────────────
+
+  "auto-01": {
+    es: "Ambientador líquido para coche colgante",
+    en: "Hanging liquid car air freshener",
+    fr: "Désodorisant liquide suspendu pour voiture",
+    it: "Deodorante liquido per auto da appendere",
+    pt: "Ambientador líquido pendente para carro",
+    de: "Hängender Flüssig-Autoduft",
+    nl: "Hangende vloeibare autoverfrisser",
+    pl: "Wiszący płynny odświeżacz do samochodu"
+  },
+  "auto-02": {
+    es: "Estuche rígido para gafas de plástico (textura tela)",
+    en: "Rigid plastic glasses case (fabric texture)",
+    fr: "Rigid plastic glasses case (fabric texture)",
+    it: "Rigid plastic glasses case (fabric texture)",
+    pt: "Rigid plastic glasses case (fabric texture)",
+    de: "Rigid plastic glasses case (fabric texture)",
+    nl: "Rigid plastic glasses case (fabric texture)",
+    pl: "Rigid plastic glasses case (fabric texture)"
+  },
+  "auto-03": {
+    es: "Tapones para válvulas de neumáticos (metal)",
+    en: "Tyre valve caps (metal)",
+    fr: "Tyre valve caps (metal)",
+    it: "Tyre valve caps (metal)",
+    pt: "Tyre valve caps (metal)",
+    de: "Tyre valve caps (metal)",
+    nl: "Tyre valve caps (metal)",
+    pl: "Tyre valve caps (metal)"
+  },
+  "auto-04": {
+    es: "Espejo retrovisor de punto ciego de plástico",
+    en: "Plastic blind-spot rear-view mirror",
+    fr: "Plastique blind-spot rear-view mirror",
+    it: "Plastica blind-spot rear-view mirror",
+    pt: "Plástico blind-spot rear-view mirror",
+    de: "Kunststoff blind-spot rear-view mirror",
+    nl: "Plastic blind-spot rear-view mirror",
+    pl: "Plastik blind-spot rear-view mirror"
+  },
+  "auto-05": {
+    es: "Cargador USB de coche (2 entradas)",
+    en: "USB car charger (2 ports)",
+    fr: "Chargeur USB voiture (2 ports)",
+    it: "Caricatore USB auto (2 porte)",
+    pt: "Carregador USB para carro (2 portas)",
+    de: "USB-Autoladegerät (2 Anschlüsse)",
+    nl: "USB-autolader (2 poorten)",
+    pl: "Ładowarka USB samochodowa (2 porty)"
+  },
+  "auto-06": {
+    es: "Cable cargador USB trenzado (3 salidas)",
+    en: "Braided USB charging cable (3 outputs)",
+    fr: "Braided USB charging cable (3 outputs)",
+    it: "Braided USB charging cable (3 outputs)",
+    pt: "Braided USB charging cable (3 outputs)",
+    de: "Braided USB charging cable (3 outputs)",
+    nl: "Braided USB charging cable (3 outputs)",
+    pl: "Braided USB charging cable (3 outputs)"
+  },
+  "auto-07": {
+    es: "Cenicero de plástico para coche",
+    en: "Plastic car ashtray",
+    fr: "Cendrier de voiture en plastique",
+    it: "Posacenere auto in plastica",
+    pt: "Cinzeiro de carro em plástico",
+    de: "Auto-Aschenbecher aus Kunststoff",
+    nl: "Plastic auto-asbak",
+    pl: "Plastikowa popielniczka samochodowa"
+  },
+  "auto-08": {
+    es: "Esponja doble acción para lavado de coches",
+    en: "Dual-action car wash sponge",
+    fr: "Dual-action car wash sponge",
+    it: "Dual-action car wash sponge",
+    pt: "Dual-action car wash sponge",
+    de: "Dual-action car wash sponge",
+    nl: "Dual-action car wash sponge",
+    pl: "Dual-action car wash sponge"
+  },
+  "auto-09": {
+    es: "Set de viaje: Almohada hinchable, antifaz y tapones",
+    en: "Travel set: inflatable pillow, eye mask and earplugs",
+    fr: "Travel set: inflatable pillow, eye mask and earplugs",
+    it: "Travel set: inflatable pillow, eye mask and earplugs",
+    pt: "Travel set: inflatable pillow, eye mask and earplugs",
+    de: "Travel set: inflatable pillow, eye mask and earplugs",
+    nl: "Travel set: inflatable pillow, eye mask and earplugs",
+    pl: "Travel set: inflatable pillow, eye mask and earplugs"
+  },
+  "auto-10": {
+    es: "Lápiz reparador de arañazos (Barniz transparente)",
+    en: "Scratch repair pen (clear varnish)",
+    fr: "Scratch repair pen (clear varnish)",
+    it: "Scratch repair pen (clear varnish)",
+    pt: "Scratch repair pen (clear varnish)",
+    de: "Scratch repair pen (clear varnish)",
+    nl: "Scratch repair pen (clear varnish)",
+    pl: "Scratch repair pen (clear varnish)"
+  },
+  "auto-11": {
+    es: "Funda para motos de plástico",
+    en: "Plastic motorcycle cover",
+    fr: "Plastique motorcycle cover",
+    it: "Plastica motorcycle cover",
+    pt: "Plástico motorcycle cover",
+    de: "Kunststoff motorcycle cover",
+    nl: "Plastic motorcycle cover",
+    pl: "Plastik motorcycle cover"
+  },
+  "auto-12": {
+    es: "Poncho impermeable reutilizable con capucha",
+    en: "Poncho impermeable reutilizable con capucha",
+    fr: "Poncho impermeable reutilizable con capucha",
+    it: "Poncho impermeable reutilizable con capucha",
+    pt: "Poncho impermeable reutilizable con capucha",
+    de: "Poncho impermeable reutilizable con capucha",
+    nl: "Poncho impermeable reutilizable con capucha",
+    pl: "Poncho impermeable reutilizable con capucha"
+  },
+  "auto-13": {
+    es: "Soporte móvil para auto (360º)",
+    en: "Mobile phone car holder (360º)",
+    fr: "Mobile phone car holder (360º)",
+    it: "Mobile phone car holder (360º)",
+    pt: "Mobile phone car holder (360º)",
+    de: "Mobile phone car holder (360º)",
+    nl: "Mobile phone car holder (360º)",
+    pl: "Mobile phone car holder (360º)"
+  },
+  "auto-14": {
+    es: "Red elástica para equipaje",
+    en: "Elastic luggage net",
+    fr: "Elastic luggage net",
+    it: "Elastic luggage net",
+    pt: "Elastic luggage net",
+    de: "Elastic luggage net",
+    nl: "Elastic luggage net",
+    pl: "Elastic luggage net"
+  },
+  "auto-15": {
+    es: "Pulpo elástico con ganchos",
+    en: "Elastic bungee cord with hooks",
+    fr: "Elastic bungee cord with hooks",
+    it: "Elastic bungee cord with hooks",
+    pt: "Elastic bungee cord with hooks",
+    de: "Elastic bungee cord with hooks",
+    nl: "Elastic bungee cord with hooks",
+    pl: "Elastic bungee cord with hooks"
+  },
+  "auto-16": {
+    es: "Guantes de tejido con puntos antideslizantes",
+    en: "Fabric gloves with non-slip dots",
+    fr: "Tissu gloves with non-slip dots",
+    it: "Tessuto gloves with non-slip dots",
+    pt: "Tecido gloves with non-slip dots",
+    de: "Stoff gloves with non-slip dots",
+    nl: "Stof gloves with non-slip dots",
+    pl: "Tkanina gloves with non-slip dots"
+  },
+  "auto-17": {
+    es: "Martillo de seguridad con funda de plástico",
+    en: "Safety hammer with plastic cover",
+    fr: "Safety hammer with plastic cover",
+    it: "Safety hammer with plastic cover",
+    pt: "Safety hammer with plastic cover",
+    de: "Safety hammer with plastic cover",
+    nl: "Safety hammer with plastic cover",
+    pl: "Safety hammer with plastic cover"
+  },
+  "auto-18": {
+    es: "Gamuza sintética húmeda en bote",
+    en: "Wet synthetic chamois in tub",
+    fr: "Wet synthetic chamois in tub",
+    it: "Wet synthetic chamois in tub",
+    pt: "Wet synthetic chamois in tub",
+    de: "Wet synthetic chamois in tub",
+    nl: "Wet synthetic chamois in tub",
+    pl: "Wet synthetic chamois in tub"
+  },
+  "auto-19": {
+    es: "Ambientador pulverizador en spray",
+    en: "Spray air freshener",
+    fr: "Désodorisant en spray",
+    it: "Deodorante spray",
+    pt: "Ambientador em spray",
+    de: "Spray-Lufterfrischer",
+    nl: "Spray luchtverfrisser",
+    pl: "Odświeżacz w sprayu"
+  },
+  "auto-20": {
+    es: "Cepillo de ventilación auto doble función",
+    en: "Dual-function car vent brush",
+    fr: "Dual-function car vent brush",
+    it: "Dual-function car vent brush",
+    pt: "Dual-function car vent brush",
+    de: "Dual-function car vent brush",
+    nl: "Dual-function car vent brush",
+    pl: "Dual-function car vent brush"
+  },
+  "auto-21": {
+    es: "Parasol de ventanilla",
+    en: "Window sunshade",
+    fr: "Pare-soleil de fenêtre",
+    it: "Parasole per finestrino",
+    pt: "Para-sol de janela",
+    de: "Fenster-Sonnenschutz",
+    nl: "Raamzonnescherm",
+    pl: "Osłona przeciwsłoneczna na szybę"
+  },
+  "auto-22": {
+    es: "Bayeta de microfibra",
+    en: "Cloth de microfibre",
+    fr: "Cloth de microfibre",
+    it: "Cloth de microfibre",
+    pt: "Cloth de microfibre",
+    de: "Cloth de microfibre",
+    nl: "Cloth de microfibre",
+    pl: "Cloth de microfibre"
+  },
+  "auto-23": {
+    es: "Bayeta de microfibra especial cristales",
+    en: "Cloth de microfibre especial glass",
+    fr: "Cloth de microfibre especial glass",
+    it: "Cloth de microfibre especial glass",
+    pt: "Cloth de microfibre especial glass",
+    de: "Cloth de microfibre especial glass",
+    nl: "Cloth de microfibre especial glass",
+    pl: "Cloth de microfibre especial glass"
+  },
+  "auto-24": {
+    es: "Parasol frontal metalizado",
+    en: "Metallic front sunshade",
+    fr: "Pare-soleil frontal métallisé",
+    it: "Parasole frontale metallizzato",
+    pt: "Para-sol frontal metalizado",
+    de: "Metallisierter Front-Sonnenschutz",
+    nl: "Metalen voorruit zonnescherm",
+    pl: "Metalizowana osłona na przednią szybę"
+  },
+  "auto-25": {
+    es: "Mopa de rizo para auto",
+    en: "Terry car mop",
+    fr: "Terry car mop",
+    it: "Terry car mop",
+    pt: "Terry car mop",
+    de: "Terry car mop",
+    nl: "Terry car mop",
+    pl: "Terry car mop"
+  },
+  "auto-26": {
+    es: "Esponja de doble acción (lisa/ondulada)",
+    en: "Dual-action sponge (smooth/wavy)",
+    fr: "Dual-action sponge (smooth/wavy)",
+    it: "Dual-action sponge (smooth/wavy)",
+    pt: "Dual-action sponge (smooth/wavy)",
+    de: "Dual-action sponge (smooth/wavy)",
+    nl: "Dual-action sponge (smooth/wavy)",
+    pl: "Dual-action sponge (smooth/wavy)"
+  },
+  "auto-27": {
+    es: "Manopla de microfibra de rizo",
+    en: "Terry microfibre mitt",
+    fr: "Terry microfibre mitt",
+    it: "Terry microfibre mitt",
+    pt: "Terry microfibre mitt",
+    de: "Terry microfibre mitt",
+    nl: "Terry microfibre mitt",
+    pl: "Terry microfibre mitt"
+  },
+
+  // ── BALONES (1 productos) ──────────────────────────────────────────
+
+  "balones-01": {
+    es: "Balón de cuero sintético (incluye expositor dispensador)",
+    en: "Synthetic leather ball (includes dispenser display)",
+    fr: "Ballon en cuir synthétique (présentoir distributeur inclus)",
+    it: "Pallone in pelle sintetica (include espositore dispenser)",
+    pt: "Bola de couro sintético (inclui expositor dispensador)",
+    de: "Ball aus Kunstleder (inkl. Spenderdisplay)",
+    nl: "Bal van synthetisch leer (inclusief dispenserdisplay)",
+    pl: "Piłka ze skóry syntetycznej (z ekspozytorem dozującym)"
+  },
+
+  // ── BELLEZA (51 productos) ──────────────────────────────────────────
+
+  "belleza-01": {
+    es: "Abanico plegable",
+    en: "Folding fan",
+    fr: "Éventail pliable",
+    it: "Ventaglio pieghevole",
+    pt: "Leque dobrável",
+    de: "Klappfächer",
+    nl: "Opvouwbare waaier",
+    pl: "Składany wachlarz"
+  },
+  "belleza-02": {
+    es: "Pinza de flor grande",
+    en: "Large flower hair claw",
+    fr: "Large flower hair claw",
+    it: "Large flower hair claw",
+    pt: "Large flower hair claw",
+    de: "Large flower hair claw",
+    nl: "Large flower hair claw",
+    pl: "Large flower hair claw"
+  },
+  "belleza-03": {
+    es: "Pinza de flor grande",
+    en: "Large flower hair claw",
+    fr: "Large flower hair claw",
+    it: "Large flower hair claw",
+    pt: "Large flower hair claw",
+    de: "Large flower hair claw",
+    nl: "Large flower hair claw",
+    pl: "Large flower hair claw"
+  },
+  "belleza-04": {
+    es: "Set de flores decorativas",
+    en: "Decorative flower set",
+    fr: "Decorative flower set",
+    it: "Decorative flower set",
+    pt: "Decorative flower set",
+    de: "Decorative flower set",
+    nl: "Decorative flower set",
+    pl: "Decorative flower set"
+  },
+  "belleza-05": {
+    es: "Pinza de flor translúcida",
+    en: "Translucent flower hair claw",
+    fr: "Translucent flower hair claw",
+    it: "Translucent flower hair claw",
+    pt: "Translucent flower hair claw",
+    de: "Translucent flower hair claw",
+    nl: "Translucent flower hair claw",
+    pl: "Translucent flower hair claw"
+  },
+  "belleza-06": {
+    es: "Gomas de pelo básicas",
+    en: "Basic hair elastics",
+    fr: "Basic hair elastics",
+    it: "Basic hair elastics",
+    pt: "Basic hair elastics",
+    de: "Basic hair elastics",
+    nl: "Basic hair elastics",
+    pl: "Basic hair elastics"
+  },
+  "belleza-07": {
+    es: "Gomas con adornos infantiles",
+    en: "Elastics with children’s decorations",
+    fr: "Elastics with children’s decorations",
+    it: "Elastics with children’s decorations",
+    pt: "Elastics with children’s decorations",
+    de: "Elastics with children’s decorations",
+    nl: "Elastics with children’s decorations",
+    pl: "Elastics with children’s decorations"
+  },
+  "belleza-08": {
+    es: "Diadema y coleteros",
+    en: "Headband and hair ties",
+    fr: "Headband and hair ties",
+    it: "Headband and hair ties",
+    pt: "Headband and hair ties",
+    de: "Headband and hair ties",
+    nl: "Headband and hair ties",
+    pl: "Headband and hair ties"
+  },
+  "belleza-09": {
+    es: "Gomas con flores",
+    en: "Elastics with flowers",
+    fr: "Elastics with flowers",
+    it: "Elastics with flowers",
+    pt: "Elastics with flowers",
+    de: "Elastics with flowers",
+    nl: "Elastics with flowers",
+    pl: "Elastics with flowers"
+  },
+  "belleza-10": {
+    es: "Gomas y pinzas pequeñas",
+    en: "Elastics and small clips",
+    fr: "Elastics and small clips",
+    it: "Elastics and small clips",
+    pt: "Elastics and small clips",
+    de: "Elastics and small clips",
+    nl: "Elastics and small clips",
+    pl: "Elastics and small clips"
+  },
+  "belleza-11": {
+    es: "Set de gomas y pinzas",
+    en: "Set de gomas y clips",
+    fr: "Set de gomas y clips",
+    it: "Set de gomas y clips",
+    pt: "Set de gomas y clips",
+    de: "Set de gomas y clips",
+    nl: "Set de gomas y clips",
+    pl: "Set de gomas y clips"
+  },
+  "belleza-12": {
+    es: "Gomas con flor y lazo",
+    en: "Elastics with flower and bow",
+    fr: "Elastics with flower and bow",
+    it: "Elastics with flower and bow",
+    pt: "Elastics with flower and bow",
+    de: "Elastics with flower and bow",
+    nl: "Elastics with flower and bow",
+    pl: "Elastics with flower and bow"
+  },
+  "belleza-13": {
+    es: "Set de clips infantiles",
+    en: "Children’s clip set",
+    fr: "Children’s clip set",
+    it: "Children’s clip set",
+    pt: "Children’s clip set",
+    de: "Children’s clip set",
+    nl: "Children’s clip set",
+    pl: "Children’s clip set"
+  },
+  "belleza-14": {
+    es: "Clips con corazones",
+    en: "Clips with hearts",
+    fr: "Clips with hearts",
+    it: "Clips with hearts",
+    pt: "Clips with hearts",
+    de: "Clips with hearts",
+    nl: "Clips with hearts",
+    pl: "Clips with hearts"
+  },
+  "belleza-15": {
+    es: "Coleteros de espiral",
+    en: "Spiral hair ties",
+    fr: "Spiral hair ties",
+    it: "Spiral hair ties",
+    pt: "Spiral hair ties",
+    de: "Spiral hair ties",
+    nl: "Spiral hair ties",
+    pl: "Spiral hair ties"
+  },
+  "belleza-16": {
+    es: "Coleteros de espiral bicolor",
+    en: "Two-colour spiral hair ties",
+    fr: "Two-colour spiral hair ties",
+    it: "Two-colour spiral hair ties",
+    pt: "Two-colour spiral hair ties",
+    de: "Two-colour spiral hair ties",
+    nl: "Two-colour spiral hair ties",
+    pl: "Two-colour spiral hair ties"
+  },
+  "belleza-17": {
+    es: "Clips de tela con cuadros",
+    en: "Check fabric clips",
+    fr: "Check fabric clips",
+    it: "Check fabric clips",
+    pt: "Check fabric clips",
+    de: "Check fabric clips",
+    nl: "Check fabric clips",
+    pl: "Check fabric clips"
+  },
+  "belleza-18": {
+    es: "Clip de estrella estampado",
+    en: "Printed star clip",
+    fr: "Printed star clip",
+    it: "Printed star clip",
+    pt: "Printed star clip",
+    de: "Printed star clip",
+    nl: "Printed star clip",
+    pl: "Printed star clip"
+  },
+  "belleza-19": {
+    es: "Clips alargados pastel",
+    en: "Long pastel clips",
+    fr: "Long pastel clips",
+    it: "Long pastel clips",
+    pt: "Long pastel clips",
+    de: "Long pastel clips",
+    nl: "Long pastel clips",
+    pl: "Long pastel clips"
+  },
+  "belleza-20": {
+    es: "Clips de perro",
+    en: "Dog clips",
+    fr: "Dog clips",
+    it: "Dog clips",
+    pt: "Dog clips",
+    de: "Dog clips",
+    nl: "Dog clips",
+    pl: "Dog clips"
+  },
+  "belleza-21": {
+    es: "Clips de perrito estampado",
+    en: "Printed puppy clips",
+    fr: "Printed puppy clips",
+    it: "Printed puppy clips",
+    pt: "Printed puppy clips",
+    de: "Printed puppy clips",
+    nl: "Printed puppy clips",
+    pl: "Printed puppy clips"
+  },
+  "belleza-22": {
+    es: "Clips de lazo",
+    en: "Bow clips",
+    fr: "Bow clips",
+    it: "Bow clips",
+    pt: "Bow clips",
+    de: "Bow clips",
+    nl: "Bow clips",
+    pl: "Bow clips"
+  },
+  "belleza-23": {
+    es: "Clips de mariposa y lazo",
+    en: "Clips de butterfly y bow",
+    fr: "Clips de butterfly y bow",
+    it: "Clips de butterfly y bow",
+    pt: "Clips de butterfly y bow",
+    de: "Clips de butterfly y bow",
+    nl: "Clips de butterfly y bow",
+    pl: "Clips de butterfly y bow"
+  },
+  "belleza-24": {
+    es: "Clips de flores sonrientes",
+    en: "Smiling flower clips",
+    fr: "Smiling flower clips",
+    it: "Smiling flower clips",
+    pt: "Smiling flower clips",
+    de: "Smiling flower clips",
+    nl: "Smiling flower clips",
+    pl: "Smiling flower clips"
+  },
+  "belleza-25": {
+    es: "Set mixto de clips infantiles",
+    en: "Mixed children’s clips set",
+    fr: "Mixte children’s clips set",
+    it: "Misto children’s clips set",
+    pt: "Misto children’s clips set",
+    de: "Gemischt children’s clips set",
+    nl: "Gemengd children’s clips set",
+    pl: "Mieszany children’s clips set"
+  },
+  "belleza-26": {
+    es: "Set de accesorios infantiles",
+    en: "Children’s accessory set",
+    fr: "Children’s accessory set",
+    it: "Children’s accessory set",
+    pt: "Children’s accessory set",
+    de: "Children’s accessory set",
+    nl: "Children’s accessory set",
+    pl: "Children’s accessory set"
+  },
+  "belleza-27": {
+    es: "Set de clips decorativos negros",
+    en: "Set de clips decorative negros",
+    fr: "Set de clips decorative negros",
+    it: "Set de clips decorative negros",
+    pt: "Set de clips decorative negros",
+    de: "Set de clips decorative negros",
+    nl: "Set de clips decorative negros",
+    pl: "Set de clips decorative negros"
+  },
+  "belleza-28": {
+    es: "Set de pinzas marrones",
+    en: "Set de clips marrones",
+    fr: "Set de clips marrones",
+    it: "Set de clips marrones",
+    pt: "Set de clips marrones",
+    de: "Set de clips marrones",
+    nl: "Set de clips marrones",
+    pl: "Set de clips marrones"
+  },
+  "belleza-29": {
+    es: "Pinzas estrella de mar",
+    en: "Starfish hair clips",
+    fr: "Starfish hair clips",
+    it: "Starfish hair clips",
+    pt: "Starfish hair clips",
+    de: "Starfish hair clips",
+    nl: "Starfish hair clips",
+    pl: "Starfish hair clips"
+  },
+  "belleza-30": {
+    es: "Cepillo desenredante",
+    en: "Detangling brush",
+    fr: "Detangling brush",
+    it: "Detangling brush",
+    pt: "Detangling brush",
+    de: "Detangling brush",
+    nl: "Detangling brush",
+    pl: "Detangling brush"
+  },
+  "belleza-31": {
+    es: "Cinta elástica textil",
+    en: "Cinta elástica textil",
+    fr: "Cinta elástica textil",
+    it: "Cinta elástica textil",
+    pt: "Cinta elástica textil",
+    de: "Cinta elástica textil",
+    nl: "Cinta elástica textil",
+    pl: "Cinta elástica textil"
+  },
+  "belleza-32": {
+    es: "Diadema con perlas",
+    en: "Headband with pearls",
+    fr: "Headband with pearls",
+    it: "Headband with pearls",
+    pt: "Headband with pearls",
+    de: "Headband with pearls",
+    nl: "Headband with pearls",
+    pl: "Headband with pearls"
+  },
+  "belleza-33": {
+    es: "Diadema básica forrada",
+    en: "Basic covered headband",
+    fr: "Basic covered headband",
+    it: "Basic covered headband",
+    pt: "Basic covered headband",
+    de: "Basic covered headband",
+    nl: "Basic covered headband",
+    pl: "Basic covered headband"
+  },
+  "belleza-34": {
+    es: "Diadema ancha cruzada",
+    en: "Wide crossed headband",
+    fr: "Wide crossed headband",
+    it: "Wide crossed headband",
+    pt: "Wide crossed headband",
+    de: "Wide crossed headband",
+    nl: "Wide crossed headband",
+    pl: "Wide crossed headband"
+  },
+  "belleza-35": {
+    es: "Diadema infantil con flor",
+    en: "Children’s headband with flower",
+    fr: "Children’s headband with flower",
+    it: "Children’s headband with flower",
+    pt: "Children’s headband with flower",
+    de: "Children’s headband with flower",
+    nl: "Children’s headband with flower",
+    pl: "Children’s headband with flower"
+  },
+  "belleza-36": {
+    es: "Masajeador con espejo",
+    en: "Massager with mirror",
+    fr: "Massager with mirror",
+    it: "Massager with mirror",
+    pt: "Massager with mirror",
+    de: "Massager with mirror",
+    nl: "Massager with mirror",
+    pl: "Massager with mirror"
+  },
+  "belleza-37": {
+    es: "Diadema de tejido con nudo",
+    en: "Fabric knotted headband",
+    fr: "Tissu knotted headband",
+    it: "Tessuto knotted headband",
+    pt: "Tecido knotted headband",
+    de: "Stoff knotted headband",
+    nl: "Stof knotted headband",
+    pl: "Tkanina knotted headband"
+  },
+  "belleza-38": {
+    es: "Coleteros combinados",
+    en: "Mixed hair ties",
+    fr: "Mixte hair ties",
+    it: "Misto hair ties",
+    pt: "Misto hair ties",
+    de: "Gemischt hair ties",
+    nl: "Gemengd hair ties",
+    pl: "Mieszany hair ties"
+  },
+  "belleza-39": {
+    es: "Coleteros de espiral pastel",
+    en: "Pastel spiral hair ties",
+    fr: "Pastel spiral hair ties",
+    it: "Pastel spiral hair ties",
+    pt: "Pastel spiral hair ties",
+    de: "Pastel spiral hair ties",
+    nl: "Pastel spiral hair ties",
+    pl: "Pastel spiral hair ties"
+  },
+  "belleza-40": {
+    es: "Coleteros de espiral estampados",
+    en: "Printed spiral hair ties",
+    fr: "Printed spiral hair ties",
+    it: "Printed spiral hair ties",
+    pt: "Printed spiral hair ties",
+    de: "Printed spiral hair ties",
+    nl: "Printed spiral hair ties",
+    pl: "Printed spiral hair ties"
+  },
+  "belleza-41": {
+    es: "Limas de uñas de colores",
+    en: "Coloured nail files",
+    fr: "Coloured nail files",
+    it: "Coloured nail files",
+    pt: "Coloured nail files",
+    de: "Coloured nail files",
+    nl: "Coloured nail files",
+    pl: "Coloured nail files"
+  },
+  "belleza-42": {
+    es: "Masajeador capilar",
+    en: "Scalp massager",
+    fr: "Scalp massager",
+    it: "Scalp massager",
+    pt: "Scalp massager",
+    de: "Scalp massager",
+    nl: "Scalp massager",
+    pl: "Scalp massager"
+  },
+  "belleza-43": {
+    es: "Limas de uñas vivas",
+    en: "Bright nail files",
+    fr: "Bright nail files",
+    it: "Bright nail files",
+    pt: "Bright nail files",
+    de: "Bright nail files",
+    nl: "Bright nail files",
+    pl: "Bright nail files"
+  },
+  "belleza-44": {
+    es: "Kit de pedicura",
+    en: "Pedicure kit",
+    fr: "Pedicure kit",
+    it: "Pedicure kit",
+    pt: "Pedicure kit",
+    de: "Pedicure kit",
+    nl: "Pedicure kit",
+    pl: "Pedicure kit"
+  },
+  "belleza-45": {
+    es: "Esponjas de maquillaje",
+    en: "Makeup sponges",
+    fr: "Makeup sponges",
+    it: "Makeup sponges",
+    pt: "Makeup sponges",
+    de: "Makeup sponges",
+    nl: "Makeup sponges",
+    pl: "Makeup sponges"
+  },
+  "belleza-46": {
+    es: "Esponjas de maquillaje corazón",
+    en: "Heart makeup sponges",
+    fr: "Heart makeup sponges",
+    it: "Heart makeup sponges",
+    pt: "Heart makeup sponges",
+    de: "Heart makeup sponges",
+    nl: "Heart makeup sponges",
+    pl: "Heart makeup sponges"
+  },
+  "belleza-47": {
+    es: "Set de esponjas tipo huevo",
+    en: "Egg-shaped sponge set",
+    fr: "Egg-shaped sponge set",
+    it: "Egg-shaped sponge set",
+    pt: "Egg-shaped sponge set",
+    de: "Egg-shaped sponge set",
+    nl: "Egg-shaped sponge set",
+    pl: "Egg-shaped sponge set"
+  },
+  "belleza-48": {
+    es: "Esponjas de maquillaje variadas",
+    en: "Mixed makeup sponges",
+    fr: "Mixte makeup sponges",
+    it: "Misto makeup sponges",
+    pt: "Misto makeup sponges",
+    de: "Gemischt makeup sponges",
+    nl: "Gemengd makeup sponges",
+    pl: "Mieszany makeup sponges"
+  },
+  "belleza-49": {
+    es: "Esponjas redondas de limpieza",
+    en: "Round cleaning sponges",
+    fr: "Round cleaning sponges",
+    it: "Round cleaning sponges",
+    pt: "Round cleaning sponges",
+    de: "Round cleaning sponges",
+    nl: "Round cleaning sponges",
+    pl: "Round cleaning sponges"
+  },
+  "belleza-50": {
+    es: "Esponja exfoliante ovalada",
+    en: "Oval exfoliating sponge",
+    fr: "Oval exfoliating sponge",
+    it: "Oval exfoliating sponge",
+    pt: "Oval exfoliating sponge",
+    de: "Oval exfoliating sponge",
+    nl: "Oval exfoliating sponge",
+    pl: "Oval exfoliating sponge"
+  },
+  "belleza-51": {
+    es: "Disco limpiador suave",
+    en: "Soft cleansing pad",
+    fr: "Soft cleansing pad",
+    it: "Soft cleansing pad",
+    pt: "Soft cleansing pad",
+    de: "Soft cleansing pad",
+    nl: "Soft cleansing pad",
+    pl: "Soft cleansing pad"
+  },
+
+  // ── COCINA (30 productos) ──────────────────────────────────────────
+
+  "cocina-01": {
+    es: "Sartén pequeña / mini sartén con mango de madera",
+    en: "Small pan / mini pan with wooden handle",
+    fr: "Small pan / mini pan with wooden handle",
+    it: "Small pan / mini pan with wooden handle",
+    pt: "Small pan / mini pan with wooden handle",
+    de: "Small pan / mini pan with wooden handle",
+    nl: "Small pan / mini pan with wooden handle",
+    pl: "Small pan / mini pan with wooden handle"
+  },
+  "cocina-02": {
+    es: "Espátula / utensilio de cocina con mango de madera",
+    en: "Spatula / kitchen utensil with wooden handle",
+    fr: "Spatula / kitchen utensil with wooden handle",
+    it: "Spatula / kitchen utensil with wooden handle",
+    pt: "Spatula / kitchen utensil with wooden handle",
+    de: "Spatula / kitchen utensil with wooden handle",
+    nl: "Spatula / kitchen utensil with wooden handle",
+    pl: "Spatula / kitchen utensil with wooden handle"
+  },
+  "cocina-03": {
+    es: "Cuchara / cucharón con mango de madera",
+    en: "Spoon/ladle with wooden handle",
+    fr: "Spoon/ladle with wooden handle",
+    it: "Spoon/ladle with wooden handle",
+    pt: "Spoon/ladle with wooden handle",
+    de: "Spoon/ladle with wooden handle",
+    nl: "Spoon/ladle with wooden handle",
+    pl: "Spoon/ladle with wooden handle"
+  },
+  "cocina-04": {
+    es: "Batidor de varillas con mango de madera",
+    en: "Whisk with wooden handle",
+    fr: "Whisk with wooden handle",
+    it: "Whisk with wooden handle",
+    pt: "Whisk with wooden handle",
+    de: "Whisk with wooden handle",
+    nl: "Whisk with wooden handle",
+    pl: "Whisk with wooden handle"
+  },
+  "cocina-05": {
+    es: "Pincel de cocina con mango de madera",
+    en: "Kitchen brush with wooden handle",
+    fr: "Cuisine brush with wooden handle",
+    it: "Cucina brush with wooden handle",
+    pt: "Cozinha brush with wooden handle",
+    de: "Küche brush with wooden handle",
+    nl: "Keuken brush with wooden handle",
+    pl: "Kuchnia brush with wooden handle"
+  },
+  "cocina-06": {
+    es: "Espátula ranurada con mango de madera",
+    en: "Slotted spatula with wooden handle",
+    fr: "Slotted spatula with wooden handle",
+    it: "Slotted spatula with wooden handle",
+    pt: "Slotted spatula with wooden handle",
+    de: "Slotted spatula with wooden handle",
+    nl: "Slotted spatula with wooden handle",
+    pl: "Slotted spatula with wooden handle"
+  },
+  "cocina-07": {
+    es: "Set pelador y cuchillo",
+    en: "Peeler and knife set",
+    fr: "Peeler and knife set",
+    it: "Peeler and knife set",
+    pt: "Peeler and knife set",
+    de: "Peeler and knife set",
+    nl: "Peeler and knife set",
+    pl: "Peeler and knife set"
+  },
+  "cocina-08": {
+    es: "Cortador de pizza",
+    en: "Pizza cutter",
+    fr: "Coupe-pizza",
+    it: "Tagliapizza",
+    pt: "Cortador de pizza",
+    de: "Pizzaschneider",
+    nl: "Pizzasnijder",
+    pl: "Nóż do pizzy"
+  },
+  "cocina-09": {
+    es: "Rallador manual",
+    en: "Manual grater",
+    fr: "Râpe manuelle",
+    it: "Grattugia manuale",
+    pt: "Ralador manual",
+    de: "Manuelle Reibe",
+    nl: "Handrasp",
+    pl: "Ręczna tarka"
+  },
+  "cocina-10": {
+    es: "Espátula metálica",
+    en: "Metal spatula",
+    fr: "Métal spatula",
+    it: "Metallo spatula",
+    pt: "Metal spatula",
+    de: "Metall spatula",
+    nl: "Metaal spatula",
+    pl: "Metal spatula"
+  },
+  "cocina-11": {
+    es: "Pinzas de cocina",
+    en: "Kitchen tongs",
+    fr: "Cuisine tongs",
+    it: "Cucina tongs",
+    pt: "Cozinha tongs",
+    de: "Küche tongs",
+    nl: "Keuken tongs",
+    pl: "Kuchnia tongs"
+  },
+  "cocina-12": {
+    es: "Abrelatas manual",
+    en: "Manual can opener",
+    fr: "Ouvre-boîte manuel",
+    it: "Apriscatole manuale",
+    pt: "Abre-latas manual",
+    de: "Manueller Dosenöffner",
+    nl: "Handmatige blikopener",
+    pl: "Ręczny otwieracz do puszek"
+  },
+  "cocina-13": {
+    es: "Salvamanteles / soporte metálico rectangular",
+    en: "Trivet / rectangular metal stand",
+    fr: "Trivet / rectangular metal stand",
+    it: "Trivet / rectangular metal stand",
+    pt: "Trivet / rectangular metal stand",
+    de: "Trivet / rectangular metal stand",
+    nl: "Trivet / rectangular metal stand",
+    pl: "Trivet / rectangular metal stand"
+  },
+  "cocina-14": {
+    es: "Aceitera spray 100 ml",
+    en: "100 ml oil spray bottle",
+    fr: "100 ml oil spray bottle",
+    it: "100 ml oil spray bottle",
+    pt: "100 ml oil spray bottle",
+    de: "100 ml oil spray bottle",
+    nl: "100 ml oil spray bottle",
+    pl: "100 ml oil spray bottle"
+  },
+  "cocina-15": {
+    es: "Aceitera 500 ml con vertedor",
+    en: "500 ml oil bottle with pourer",
+    fr: "500 ml oil bottle with pourer",
+    it: "500 ml oil bottle with pourer",
+    pt: "500 ml oil bottle with pourer",
+    de: "500 ml oil bottle with pourer",
+    nl: "500 ml oil bottle with pourer",
+    pl: "500 ml oil bottle with pourer"
+  },
+  "cocina-16": {
+    es: "Cesta / colador metálico rectangular",
+    en: "Rectangular metal basket/strainer",
+    fr: "Rectangular metal basket/strainer",
+    it: "Rectangular metal basket/strainer",
+    pt: "Rectangular metal basket/strainer",
+    de: "Rectangular metal basket/strainer",
+    nl: "Rectangular metal basket/strainer",
+    pl: "Rectangular metal basket/strainer"
+  },
+  "cocina-17": {
+    es: "Sacacorchos",
+    en: "Corkscrew",
+    fr: "Tire-bouchon",
+    it: "Cavatappi",
+    pt: "Saca-rolhas",
+    de: "Korkenzieher",
+    nl: "Kurkentrekker",
+    pl: "Korkociąg"
+  },
+  "cocina-18": {
+    es: "Tijeras de cocina",
+    en: "Kitchen scissors",
+    fr: "Ciseaux de cuisine",
+    it: "Forbici da cucina",
+    pt: "Tesoura de cozinha",
+    de: "Küchenschere",
+    nl: "Keukenschaar",
+    pl: "Nożyczki kuchenne"
+  },
+  "cocina-19": {
+    es: "Tijeras multiusos de cocina",
+    en: "Multipurpose kitchen scissors",
+    fr: "Multipurpose kitchen scissors",
+    it: "Multipurpose kitchen scissors",
+    pt: "Multipurpose kitchen scissors",
+    de: "Multipurpose kitchen scissors",
+    nl: "Multipurpose kitchen scissors",
+    pl: "Multipurpose kitchen scissors"
+  },
+  "cocina-20": {
+    es: "Prensador / machacador manual",
+    en: "Manual masher/press",
+    fr: "Manual masher/press",
+    it: "Manual masher/press",
+    pt: "Manual masher/press",
+    de: "Manual masher/press",
+    nl: "Manual masher/press",
+    pl: "Manual masher/press"
+  },
+  "cocina-21": {
+    es: "Set de manoplas/agarradores de cocina",
+    en: "Set of oven mitts/pot holders",
+    fr: "Set of oven mitts/pot holders",
+    it: "Set of oven mitts/pot holders",
+    pt: "Set of oven mitts/pot holders",
+    de: "Set of oven mitts/pot holders",
+    nl: "Set of oven mitts/pot holders",
+    pl: "Set of oven mitts/pot holders"
+  },
+  "cocina-22": {
+    es: "Colador araña / espumadera de alambre",
+    en: "Spider strainer / wire skimmer",
+    fr: "Spider strainer / wire skimmer",
+    it: "Spider strainer / wire skimmer",
+    pt: "Spider strainer / wire skimmer",
+    de: "Spider strainer / wire skimmer",
+    nl: "Spider strainer / wire skimmer",
+    pl: "Spider strainer / wire skimmer"
+  },
+  "cocina-23": {
+    es: "Rascador / limpiador con cuchilla",
+    en: "Scraper/cleaner with blade",
+    fr: "Scraper/cleaner with blade",
+    it: "Scraper/cleaner with blade",
+    pt: "Scraper/cleaner with blade",
+    de: "Scraper/cleaner with blade",
+    nl: "Scraper/cleaner with blade",
+    pl: "Scraper/cleaner with blade"
+  },
+  "cocina-24": {
+    es: "Set de 4 cuchillos de cocina",
+    en: "Set of 4 kitchen knives",
+    fr: "Set of 4 kitchen knives",
+    it: "Set of 4 kitchen knives",
+    pt: "Set of 4 kitchen knives",
+    de: "Set of 4 kitchen knives",
+    nl: "Set of 4 kitchen knives",
+    pl: "Set of 4 kitchen knives"
+  },
+  "cocina-25": {
+    es: "Colador/tamiz circular",
+    en: "Round strainer/sieve",
+    fr: "Round strainer/sieve",
+    it: "Round strainer/sieve",
+    pt: "Round strainer/sieve",
+    de: "Round strainer/sieve",
+    nl: "Round strainer/sieve",
+    pl: "Round strainer/sieve"
+  },
+  "cocina-26": {
+    es: "Set cuchillo y afilador/chaira",
+    en: "Knife and sharpening steel set",
+    fr: "Knife and sharpening steel set",
+    it: "Knife and sharpening steel set",
+    pt: "Knife and sharpening steel set",
+    de: "Knife and sharpening steel set",
+    nl: "Knife and sharpening steel set",
+    pl: "Knife and sharpening steel set"
+  },
+  "cocina-27": {
+    es: "Cuchillo de pan 32 cm",
+    en: "32 cm bread knife",
+    fr: "32 cm bread knife",
+    it: "32 cm bread knife",
+    pt: "32 cm bread knife",
+    de: "32 cm bread knife",
+    nl: "32 cm bread knife",
+    pl: "32 cm bread knife"
+  },
+  "cocina-28": {
+    es: "Cuchillo de cocina 40 cm",
+    en: "40 cm kitchen knife",
+    fr: "40 cm kitchen knife",
+    it: "40 cm kitchen knife",
+    pt: "40 cm kitchen knife",
+    de: "40 cm kitchen knife",
+    nl: "40 cm kitchen knife",
+    pl: "40 cm kitchen knife"
+  },
+  "cocina-29": {
+    es: "Set de 2 aceiteras/vinagreras de cristal",
+    en: "Set of 2 glass oil/vinegar bottles",
+    fr: "Set of 2 glass oil/vinegar bottles",
+    it: "Set of 2 glass oil/vinegar bottles",
+    pt: "Set of 2 glass oil/vinegar bottles",
+    de: "Set of 2 glass oil/vinegar bottles",
+    nl: "Set of 2 glass oil/vinegar bottles",
+    pl: "Set of 2 glass oil/vinegar bottles"
+  },
+  "cocina-30": {
+    es: "Tabla de corte",
+    en: "Cutting board",
+    fr: "Planche à découper",
+    it: "Tagliere",
+    pt: "Tábua de corte",
+    de: "Schneidebrett",
+    nl: "Snijplank",
+    pl: "Deska do krojenia"
+  },
+
+  // ── DESECHABLES (10 productos) ──────────────────────────────────────────
+
+  "desechables-01": {
+    es: "Bandeja rectangular navideña Leiva Picnic con dibujo de corona, lazo rojo, ramas y cascabeles. Formato de 8 unidades.",
+    en: "Christmas rectangular tray Leiva Picnic con drawing de wreath, mesh bow, branches y bells. Pack of 8 units.",
+    fr: "Plateau rectangulaire de Noël Leiva Picnic con drawing de couronne, mesh bow, branches y grelots. Format de 8 unitéés.",
+    it: "Vassoio rettangolare natalizio Leiva Picnic con drawing de ghirlanda, mesh bow, branches y campanelli. Formato da 8 unitàà.",
+    pt: "Bandeja retangular de Natal Leiva Picnic con drawing de coroa, mesh bow, branches y sinos. Formato de 8 unidades.",
+    de: "Rechteckiges Weihnachtstablett Leiva Picnic con drawing de Kranz, mesh bow, branches y Glöckchen. Format mit 8 Einheiten.",
+    nl: "Rechthoekig kerstdienblad Leiva Picnic con drawing de krans, mesh bow, branches y belletjes. Formaat van 8 eenheden.",
+    pl: "Prostokątna taca świąteczna Leiva Picnic con drawing de wieniec, mesh bow, branches y dzwoneczki. Format 8 sztuk."
+  },
+  "desechables-02": {
+    es: "Plato redondo pequeño de plástico con decoración navideña de corona, acebo, lazo rojo, piñas y cascabeles. Formato de 18 unidades.",
+    en: "Small round plate de plastic con Christmas decoration de wreath, holly, mesh bow, pine cones y bells. Pack of 18 units.",
+    fr: "Petite assiette ronde de plastic con Décoration de Noël de couronne, houx, mesh bow, pommes de pin y grelots. Format de 18 unitéés.",
+    it: "Piatto rotondo piccolo de plastic con Decorazione natalizia de ghirlanda, agrifoglio, mesh bow, pigne y campanelli. Formato da 18 unitàà.",
+    pt: "Prato redondo pequeno de plastic con Decoração natalícia de coroa, azevinho, mesh bow, pinhas y sinos. Formato de 18 unidades.",
+    de: "Kleiner runder Teller de plastic con Weihnachtsdekoration de Kranz, Stechpalme, mesh bow, Tannenzapfen y Glöckchen. Format mit 18 Einheiten.",
+    nl: "Klein rond bord de plastic con Kerstdecoratie de krans, hulst, mesh bow, dennenappels y belletjes. Formaat van 18 eenheden.",
+    pl: "Mały okrągły talerz de plastic con Dekoracja świąteczna de wieniec, ostrokrzew, mesh bow, szyszki y dzwoneczki. Format 18 sztuk."
+  },
+  "desechables-03": {
+    es: "Plato redondo grande de plástico con decoración navideña de corona, acebo, lazo rojo, piñas y cascabeles. Formato de 12 unidades.",
+    en: "Large round plate de plastic con Christmas decoration de wreath, holly, mesh bow, pine cones y bells. Pack of 12 units.",
+    fr: "Grande assiette ronde de plastic con Décoration de Noël de couronne, houx, mesh bow, pommes de pin y grelots. Format de 12 unitéés.",
+    it: "Piatto rotondo grande de plastic con Decorazione natalizia de ghirlanda, agrifoglio, mesh bow, pigne y campanelli. Formato da 12 unitàà.",
+    pt: "Prato redondo grande de plastic con Decoração natalícia de coroa, azevinho, mesh bow, pinhas y sinos. Formato de 12 unidades.",
+    de: "Großer runder Teller de plastic con Weihnachtsdekoration de Kranz, Stechpalme, mesh bow, Tannenzapfen y Glöckchen. Format mit 12 Einheiten.",
+    nl: "Groot rond bord de plastic con Kerstdecoratie de krans, hulst, mesh bow, dennenappels y belletjes. Formaat van 12 eenheden.",
+    pl: "Duży okrągły talerz de plastic con Dekoracja świąteczna de wieniec, ostrokrzew, mesh bow, szyszki y dzwoneczki. Format 12 sztuk."
+  },
+  "desechables-04": {
+    es: "Plato redondo de plástico con decoración navideña de corona, lazo rojo, ramas verdes y cascabeles. Formato de 12 unidades.",
+    en: "Round plate de plastic con Christmas decoration de wreath, mesh bow, green branches y bells. Pack of 12 units.",
+    fr: "Assiette ronde de plastic con Décoration de Noël de couronne, mesh bow, branches vertes y grelots. Format de 12 unitéés.",
+    it: "Piatto rotondo de plastic con Decorazione natalizia de ghirlanda, mesh bow, rami verdi y campanelli. Formato da 12 unitàà.",
+    pt: "Prato redondo de plastic con Decoração natalícia de coroa, mesh bow, ramos verdes y sinos. Formato de 12 unidades.",
+    de: "Runder Teller de plastic con Weihnachtsdekoration de Kranz, mesh bow, grüne Zweige y Glöckchen. Format mit 12 Einheiten.",
+    nl: "Rond bord de plastic con Kerstdecoratie de krans, mesh bow, groene takken y belletjes. Formaat van 12 eenheden.",
+    pl: "Okrągły talerz de plastic con Dekoracja świąteczna de wieniec, mesh bow, zielone gałązki y dzwoneczki. Format 12 sztuk."
+  },
+  "desechables-05": {
+    es: "Copas transparentes de plástico para picnic o fiestas, con borde y base plateados. Formato de 4 unidades.",
+    en: "Transparent plastic cups para picnic o fiestas, con borde y base silver. Pack of 4 units.",
+    fr: "Coupes transparentes en plastique para picnic o fiestas, con borde y base silver. Format de 4 unitéés.",
+    it: "Calici trasparenti in plastica para picnic o fiestas, con borde y base silver. Formato da 4 unitàà.",
+    pt: "Taças transparentes de plástico para picnic o fiestas, con borde y base silver. Formato de 4 unidades.",
+    de: "Transparente Kunststoffgläser para picnic o fiestas, con borde y base silver. Format mit 4 Einheiten.",
+    nl: "Transparante plastic glazen para picnic o fiestas, con borde y base silver. Formaat van 4 eenheden.",
+    pl: "Przezroczyste plastikowe kieliszki para picnic o fiestas, con borde y base silver. Format 4 sztuk."
+  },
+  "desechables-06": {
+    es: "Juego de cubiertos de plástico transparente compuesto por tenedor, cuchara y cuchillo. Formato de 4 juegos.",
+    en: "Transparent plastic cutlery set compuesto por fork, spoon y knife. Pack of 4 sets.",
+    fr: "Transparent plastic cutlery set compuesto por fork, spoon y knife. Format de 4 jeux.",
+    it: "Trasparente plastic cutlery set compuesto por fork, spoon y knife. Formato da 4 set.",
+    pt: "Transparente plastic cutlery set compuesto por fork, spoon y knife. Formato de 4 conjuntos.",
+    de: "Transparent plastic cutlery set compuesto por fork, spoon y knife. Format mit 4 Sets.",
+    nl: "Transparant plastic cutlery set compuesto por fork, spoon y knife. Formaat van 4 sets.",
+    pl: "Przezroczysty plastic cutlery set compuesto por fork, spoon y knife. Format 4 zestawy."
+  },
+  "desechables-07": {
+    es: "Vaso de cartón con diseño navideño Leiva Picnic, decorado con corona, ramas, frutos rojos y lazo. Capacidad 354 ml. Formato de 14 unidades.",
+    en: "Cardboard cup con diseño Christmas Leiva Picnic, decorated con wreath, branches, mesh berries y bow. Capacity 354 ml. Pack of 14 units.",
+    fr: "Gobelet en carton con diseño Christmas Leiva Picnic, decorated con couronne, branches, mesh berries y bow. Capacité 354 ml. Format de 14 unitéés.",
+    it: "Bicchiere in cartone con diseño Christmas Leiva Picnic, decorated con ghirlanda, branches, mesh berries y bow. Capacità 354 ml. Formato da 14 unitàà.",
+    pt: "Copo de cartão con diseño Christmas Leiva Picnic, decorated con coroa, branches, mesh berries y bow. Capacidade 354 ml. Formato de 14 unidades.",
+    de: "Pappbecher con diseño Christmas Leiva Picnic, decorated con Kranz, branches, mesh berries y bow. Fassungsvermögen 354 ml. Format mit 14 Einheiten.",
+    nl: "Kartonnen beker con diseño Christmas Leiva Picnic, decorated con krans, branches, mesh berries y bow. Capaciteit 354 ml. Formaat van 14 eenheden.",
+    pl: "Kubek kartonowy con diseño Christmas Leiva Picnic, decorated con wieniec, branches, mesh berries y bow. Pojemność 354 ml. Format 14 sztuk."
+  },
+  "desechables-08": {
+    es: "Vaso grande de cartón con diseño navideño Leiva Picnic, decorado con corona, acebo, piñas y lazo rojo. Capacidad 473 ml. Formato de 12 unidades.",
+    en: "Large cardboard cup con diseño Christmas Leiva Picnic, decorated con wreath, holly, pine cones y mesh bow. Capacity 473 ml. Pack of 12 units.",
+    fr: "Grand gobelet en carton con diseño Christmas Leiva Picnic, decorated con couronne, houx, pommes de pin y mesh bow. Capacité 473 ml. Format de 12 unitéés.",
+    it: "Bicchiere grande in cartone con diseño Christmas Leiva Picnic, decorated con ghirlanda, agrifoglio, pigne y mesh bow. Capacità 473 ml. Formato da 12 unitàà.",
+    pt: "Copo grande de cartão con diseño Christmas Leiva Picnic, decorated con coroa, azevinho, pinhas y mesh bow. Capacidade 473 ml. Formato de 12 unidades.",
+    de: "Großer Pappbecher con diseño Christmas Leiva Picnic, decorated con Kranz, Stechpalme, Tannenzapfen y mesh bow. Fassungsvermögen 473 ml. Format mit 12 Einheiten.",
+    nl: "Grote kartonnen beker con diseño Christmas Leiva Picnic, decorated con krans, hulst, dennenappels y mesh bow. Capaciteit 473 ml. Formaat van 12 eenheden.",
+    pl: "Duży kubek kartonowy con diseño Christmas Leiva Picnic, decorated con wieniec, ostrokrzew, szyszki y mesh bow. Pojemność 473 ml. Format 12 sztuk."
+  },
+  "desechables-09": {
+    es: "Servilletas de papel blancas con decoración navideña de corona, lazo rojo, ramas verdes y cascabeles. Formato de 24 unidades.",
+    en: "White paper napkins con Christmas decoration de wreath, mesh bow, green branches y bells. Pack of 24 units.",
+    fr: "Serviettes blanches en papier con Décoration de Noël de couronne, mesh bow, branches vertes y grelots. Format de 24 unitéés.",
+    it: "Tovaglioli bianchi di carta con Decorazione natalizia de ghirlanda, mesh bow, rami verdi y campanelli. Formato da 24 unitàà.",
+    pt: "Guardanapos brancos de papel con Decoração natalícia de coroa, mesh bow, ramos verdes y sinos. Formato de 24 unidades.",
+    de: "Weiße Papierservietten con Weihnachtsdekoration de Kranz, mesh bow, grüne Zweige y Glöckchen. Format mit 24 Einheiten.",
+    nl: "Witte papieren servetten con Kerstdecoratie de krans, mesh bow, groene takken y belletjes. Formaat van 24 eenheden.",
+    pl: "Białe serwetki papierowe con Dekoracja świąteczna de wieniec, mesh bow, zielone gałązki y dzwoneczki. Format 24 sztuk."
+  },
+  "desechables-10": {
+    es: "Mantel navideño de plástico con diseño Merry Christmas, corona, acebo y frutos rojos. Medida del producto 180 x 108 cm.",
+    en: "Christmas tablecloth de plastic con diseño Merry Christmas, wreath, holly y mesh berries. Product size 180 x 108 cm.",
+    fr: "Nappe de Noël de plastic con diseño Merry Christmas, couronne, houx y mesh berries. Dimension du produit 180 x 108 cm.",
+    it: "Tovaglia natalizia de plastic con diseño Merry Christmas, ghirlanda, agrifoglio y mesh berries. Misura prodotto 180 x 108 cm.",
+    pt: "Toalha de mesa natalícia de plastic con diseño Merry Christmas, coroa, azevinho y mesh berries. Medida do produto 180 x 108 cm.",
+    de: "Weihnachtstischdecke de plastic con diseño Merry Christmas, Kranz, Stechpalme y mesh berries. Produktmaß 180 x 108 cm.",
+    nl: "Kersttafelkleed de plastic con diseño Merry Christmas, krans, hulst y mesh berries. Productmaat 180 x 108 cm.",
+    pl: "Obrus świąteczny de plastic con diseño Merry Christmas, wieniec, ostrokrzew y mesh berries. Wymiar produktu 180 x 108 cm."
+  },
+
+  // ── JUGUETES (21 productos) ──────────────────────────────────────────
+
+  "juguetes-01": {
+    es: "Juego didáctico de madera con números y signos matemáticos de colores. Sirve para aprender números y operaciones básicas.",
+    en: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    fr: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    it: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    pt: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    de: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    nl: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas.",
+    pl: "Educational wooden game con numbers y signs mathematical de colours. Sirve para aprender numbers y operaciones básicas."
+  },
+  "juguetes-02": {
+    es: "Juego didáctico de madera con letras del abecedario en minúscula. Piezas de colores sobre tablero para aprendizaje inicial.",
+    en: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    fr: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    it: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    pt: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    de: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    nl: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early.",
+    pl: "Educational wooden game con letters del alphabet en lowercase. pieces de colours sobre board para learning early."
+  },
+  "juguetes-03": {
+    es: "Juego didáctico de madera tipo bloques geométricos/tangram en caja. Incluye piezas de diferentes formas y colores para crear figuras.",
+    en: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    fr: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    it: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    pt: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    de: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    nl: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures.",
+    pl: "Educational wooden game tipo blocks geometric/tangram en box. Incluye pieces de diferentes shapes y colours para crear figures."
+  },
+  "juguetes-04": {
+    es: "Ábaco de madera con cuentas de colores. Juego didáctico para aprender a contar y hacer operaciones básicas.",
+    en: "Wooden abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    fr: "Boisen abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    it: "Legnoen abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    pt: "Madeiraen abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    de: "Holzen abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    nl: "Houten abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas.",
+    pl: "Drewnoen abacus con beads de colours. game educational para aprender a contar y hacer operaciones básicas."
+  },
+  "juguetes-05": {
+    es: "Puzzle infantil de madera con ilustraciones de animales en distintas escenas. Varios diseños surtidos.",
+    en: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    fr: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    it: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    pt: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    de: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    nl: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted.",
+    pl: "Children’s wooden puzzle con illustrations de animals en distintas scenes. Varios diseños assorted."
+  },
+  "juguetes-06": {
+    es: "Puzzle de madera encajable con personajes y animales. Cada pieza numerada ayuda al montaje y aprendizaje.",
+    en: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    fr: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    it: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    pt: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    de: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    nl: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning.",
+    pl: "Puzzle de wood encajable con personajes y animals. Cada pieza numerada ayuda al montaje y learning."
+  },
+  "juguetes-07": {
+    es: "Xilófono de madera infantil con láminas de colores. Instrumento musical didáctico para niños.",
+    en: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    fr: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    it: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    pt: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    de: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    nl: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños.",
+    pl: "Children’s wooden xylophone con láminas de colours. Instrumento musical educational para niños."
+  },
+  "juguetes-08": {
+    es: "Puzzle didáctico de madera con animales marinos y nombres en inglés. Piezas encajables de colores.",
+    en: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    fr: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    it: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    pt: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    de: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    nl: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours.",
+    pl: "Educational wooden puzzle con animals sea y names en English. pieces encajables de colours."
+  },
+  "juguetes-09": {
+    es: "Juego didáctico de madera para clasificar y apilar formas geométricas de colores. Base con figuras y pivotes.",
+    en: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    fr: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    it: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    pt: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    de: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    nl: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs.",
+    pl: "Educational wooden game para sort y stack shapes geométricas de colours. base con figures y pegs."
+  },
+  "juguetes-10": {
+    es: "Puzzle de madera con forma de animal y letras. Juego encajable para aprender letras y secuencias.",
+    en: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    fr: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    it: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    pt: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    de: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    nl: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias.",
+    pl: "Puzzle de wood con shape de animal y letters. game encajable para aprender letters y secuencias."
+  },
+  "juguetes-11": {
+    es: "Puzzle didáctico de madera con figuras y personajes surtidos. Incluye piezas encajables para formar dibujos.",
+    en: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    fr: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    it: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    pt: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    de: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    nl: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos.",
+    pl: "Educational wooden puzzle con figures y personajes assorted. Incluye pieces encajables para formar dibujos."
+  },
+  "juguetes-12": {
+    es: "Puzzle didáctico de madera con forma de cohete y otros modelos surtidos. Piezas numeradas y de colores.",
+    en: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    fr: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    it: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    pt: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    de: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    nl: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours.",
+    pl: "Educational wooden puzzle con shape de rocket y otros models assorted. pieces numeradas y de colours."
+  },
+  "juguetes-13": {
+    es: "Puzzle de madera con bloques tipo animales encajables. Piezas grandes de colores para composición y aprendizaje.",
+    en: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    fr: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    it: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    pt: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    de: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    nl: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning.",
+    pl: "Puzzle de wood con blocks tipo animals encajables. pieces large de colours para composición y learning."
+  },
+  "juguetes-14": {
+    es: "Juego clásico tres en raya de madera con piezas X y O. Presentado en tablero cuadrado.",
+    en: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    fr: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    it: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    pt: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    de: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    nl: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado.",
+    pl: "Classic wooden tic-tac-toe game con pieces X y O. Presentado en board cuadrado."
+  },
+  "juguetes-15": {
+    es: "Juego didáctico de madera con ábaco y tabla de restas. Incluye cuentas de colores para aprender unidades y operaciones.",
+    en: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender units y operaciones.",
+    fr: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender unitéés y operaciones.",
+    it: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender unitàà y operaciones.",
+    pt: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender unidades y operaciones.",
+    de: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender Einheiten y operaciones.",
+    nl: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender eenheden y operaciones.",
+    pl: "Educational wooden game con abacus y board de subtractions. Incluye beads de colours para aprender sztuk y operaciones."
+  },
+  "juguetes-16": {
+    es: "Juego de torre de madera tipo bloques apilables. Incluye 48 piezas de colores y 1 dado.",
+    en: "Wooden stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    fr: "Boisen stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    it: "Legnoen stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    pt: "Madeiraen stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    de: "Holzen stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    nl: "Houten stacking tower block game. Incluye 48 pieces de colours y 1 dado.",
+    pl: "Drewnoen stacking tower block game. Incluye 48 pieces de colours y 1 dado."
+  },
+  "juguetes-17": {
+    es: "Marco/cuadro de madera para pintar con pincel, pinturas y rotuladores. Varios modelos infantiles surtidos.",
+    en: "Wooden frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    fr: "Boisen frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    it: "Legnoen frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    pt: "Madeiraen frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    de: "Holzen frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    nl: "Houten frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted.",
+    pl: "Drewnoen frame/picture para pintar con pincel, paints y markers. Varios models children’s assorted."
+  },
+  "juguetes-18": {
+    es: "Pizarra de madera tipo tablero negro para escribir o dibujar. Disponible en varios modelos surtidos.",
+    en: "Wooden blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    fr: "Boisen blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    it: "Legnoen blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    pt: "Madeiraen blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    de: "Holzen blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    nl: "Houten blackboard tipo board black para escribir o dibujar. available en varios models assorted.",
+    pl: "Drewnoen blackboard tipo board black para escribir o dibujar. available en varios models assorted."
+  },
+  "juguetes-19": {
+    es: "Puzzle 3D de cartón/madera para montar edificios o vehículos. Varios modelos surtidos, como castillo, barco, moto o tren.",
+    en: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Assorted models, como castillo, boat, motorbike o train.",
+    fr: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Modèles assortis, como castillo, boat, motorbike o train.",
+    it: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Modelli assortiti, como castillo, boat, motorbike o train.",
+    pt: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Modelos sortidos, como castillo, boat, motorbike o train.",
+    de: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Sortierte Modelle, como castillo, boat, motorbike o train.",
+    nl: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Gesorteerde modellen, como castillo, boat, motorbike o train.",
+    pl: "Puzzle 3D de cardboard/wood para montar buildings o vehículos. Modele mieszane, como castillo, boat, motorbike o train."
+  },
+  "juguetes-20": {
+    es: "Puzzle 3D de madera para montar maquinaria de obra. En la imagen aparece modelo Bulldozer, con otros modelos de vehículos de construcción surtidos.",
+    en: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    fr: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    it: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    pt: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    de: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    nl: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted.",
+    pl: "3D wooden puzzle para montar maquinaria de obra. En la imagen aparece modelo bulldozer, con otros models de vehículos de construction assorted."
+  },
+  "juguetes-21": {
+    es: "Lámina/cuadro de madera para colorear con caballete, pinceles o pinturas. Varios modelos infantiles surtidos.",
+    en: "Wooden sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    fr: "Boisen sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    it: "Legnoen sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    pt: "Madeiraen sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    de: "Holzen sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    nl: "Houten sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted.",
+    pl: "Drewnoen sheet/picture para colouring con easel, brushes o paints. Varios models children’s assorted."
+  },
+
+  // ── MASCOTAS (25 productos) ──────────────────────────────────────────
+
+  "mascotas-01": {
+    es: "Juguete hueso de goma con cuerda (con pitido)",
+    en: "Rubber bone toy with rope (with squeaker)",
+    fr: "Rubber bone toy with rope (with squeaker)",
+    it: "Rubber bone toy with rope (with squeaker)",
+    pt: "Rubber bone toy with rope (with squeaker)",
+    de: "Rubber bone toy with rope (with squeaker)",
+    nl: "Rubber bone toy with rope (with squeaker)",
+    pl: "Rubber bone toy with rope (with squeaker)"
+  },
+  "mascotas-02": {
+    es: "Juguete ratón de peluche con cuerda",
+    en: "Plush mouse toy with rope",
+    fr: "Plush mouse toy with rope",
+    it: "Plush mouse toy with rope",
+    pt: "Plush mouse toy with rope",
+    de: "Plush mouse toy with rope",
+    nl: "Plush mouse toy with rope",
+    pl: "Plush mouse toy with rope"
+  },
+  "mascotas-03": {
+    es: "Juguete donut de goma (con pitido)",
+    en: "Rubber donut toy (with squeaker)",
+    fr: "Jouet donut en caoutchouc (avec couineur)",
+    it: "Gioco donut in gomma (con squeaker)",
+    pt: "Brinquedo donut de borracha (com apito)",
+    de: "Donut-Spielzeug aus Gummi (mit Quietscher)",
+    nl: "Rubberen donut speeltje (met pieper)",
+    pl: "Gumowa zabawka donut (z piszczałką)"
+  },
+  "mascotas-04": {
+    es: "Rodillo quitapelusas",
+    en: "Lint roller",
+    fr: "Lint roller",
+    it: "Lint roller",
+    pt: "Lint roller",
+    de: "Lint roller",
+    nl: "Lint roller",
+    pl: "Lint roller"
+  },
+  "mascotas-05": {
+    es: "Cepillo madera doble cara",
+    en: "Brush wood double cara",
+    fr: "Brush wood double cara",
+    it: "Brush wood double cara",
+    pt: "Brush wood double cara",
+    de: "Brush wood double cara",
+    nl: "Brush wood double cara",
+    pl: "Brush wood double cara"
+  },
+  "mascotas-06": {
+    es: "Collar de nylon",
+    en: "Nylon collar",
+    fr: "Collier en nylon",
+    it: "Collare in nylon",
+    pt: "Coleira de nylon",
+    de: "Nylonhalsband",
+    nl: "Nylon halsband",
+    pl: "Obroża nylonowa"
+  },
+  "mascotas-07": {
+    es: "Comedero silicona plegable con mosquetón",
+    en: "Foldable silicone bowl with carabiner",
+    fr: "Foldable silicone bowl with carabiner",
+    it: "Foldable silicone bowl with carabiner",
+    pt: "Foldable silicone bowl with carabiner",
+    de: "Foldable silicone bowl with carabiner",
+    nl: "Foldable silicone bowl with carabiner",
+    pl: "Foldable silicone bowl with carabiner"
+  },
+  "mascotas-08": {
+    es: "Guante de goma quitapelos",
+    en: "Rubber hair-removal glove",
+    fr: "Rubber hair-removal glove",
+    it: "Rubber hair-removal glove",
+    pt: "Rubber hair-removal glove",
+    de: "Rubber hair-removal glove",
+    nl: "Rubber hair-removal glove",
+    pl: "Rubber hair-removal glove"
+  },
+  "mascotas-09": {
+    es: "Correa de cuerda con asa acolchada",
+    en: "Rope leash with padded handle",
+    fr: "Rope leash with padded handle",
+    it: "Rope leash with padded handle",
+    pt: "Rope leash with padded handle",
+    de: "Rope leash with padded handle",
+    nl: "Rope leash with padded handle",
+    pl: "Rope leash with padded handle"
+  },
+  "mascotas-10": {
+    es: "Rastrillo de púas de hierro",
+    en: "Iron-prong rake",
+    fr: "Iron-prong rake",
+    it: "Iron-prong rake",
+    pt: "Iron-prong rake",
+    de: "Iron-prong rake",
+    nl: "Iron-prong rake",
+    pl: "Iron-prong rake"
+  },
+  "mascotas-11": {
+    es: "Empapadores para perros",
+    en: "Training pads for dogs",
+    fr: "Alèses pour chiens",
+    it: "Traversine per cani",
+    pt: "Resguardos para cães",
+    de: "Trainingsunterlagen für Hunde",
+    nl: "Trainingsmatten voor honden",
+    pl: "Podkłady treningowe dla psów"
+  },
+  "mascotas-12": {
+    es: "Juguete hueso de tejido",
+    en: "Fabric bone toy",
+    fr: "Tissu bone toy",
+    it: "Tessuto bone toy",
+    pt: "Tecido bone toy",
+    de: "Stoff bone toy",
+    nl: "Stof bone toy",
+    pl: "Tkanina bone toy"
+  },
+  "mascotas-13": {
+    es: "Juguete de plástico (salchichas con cuerda)",
+    en: "Plastic toy (sausages with rope)",
+    fr: "Plastique toy (sausages with rope)",
+    it: "Plastica toy (sausages with rope)",
+    pt: "Plástico toy (sausages with rope)",
+    de: "Kunststoff toy (sausages with rope)",
+    nl: "Plastic toy (sausages with rope)",
+    pl: "Plastik toy (sausages with rope)"
+  },
+  "mascotas-14": {
+    es: "Hierba gatera en soporte de plástico",
+    en: "Catnip on plastic holder",
+    fr: "Catnip on plastic holder",
+    it: "Catnip on plastic holder",
+    pt: "Catnip on plastic holder",
+    de: "Catnip on plastic holder",
+    nl: "Catnip on plastic holder",
+    pl: "Catnip on plastic holder"
+  },
+  "mascotas-15": {
+    es: "Collar reflectante",
+    en: "Reflective collar",
+    fr: "Collier réfléchissant",
+    it: "Collare riflettente",
+    pt: "Coleira refletora",
+    de: "Reflektierendes Halsband",
+    nl: "Reflecterende halsband",
+    pl: "Obroża odblaskowa"
+  },
+  "mascotas-16": {
+    es: "Hierba gatera en tarrina",
+    en: "Catnip in tub",
+    fr: "Catnip in tub",
+    it: "Catnip in tub",
+    pt: "Catnip in tub",
+    de: "Catnip in tub",
+    nl: "Catnip in tub",
+    pl: "Catnip in tub"
+  },
+  "mascotas-17": {
+    es: "Arnés de nylon",
+    en: "Nylon harness",
+    fr: "Harnais en nylon",
+    it: "Pettorina in nylon",
+    pt: "Arnês de nylon",
+    de: "Nylongeschirr",
+    nl: "Nylon tuigje",
+    pl: "Szelki nylonowe"
+  },
+  "mascotas-18": {
+    es: "Juguete hueso de goma pequeño",
+    en: "Small rubber bone toy",
+    fr: "Small rubber bone toy",
+    it: "Small rubber bone toy",
+    pt: "Small rubber bone toy",
+    de: "Small rubber bone toy",
+    nl: "Small rubber bone toy",
+    pl: "Small rubber bone toy"
+  },
+  "mascotas-19": {
+    es: "Juguete hueso de goma grande",
+    en: "Large rubber bone toy",
+    fr: "Large rubber bone toy",
+    it: "Large rubber bone toy",
+    pt: "Large rubber bone toy",
+    de: "Large rubber bone toy",
+    nl: "Large rubber bone toy",
+    pl: "Large rubber bone toy"
+  },
+  "mascotas-20": {
+    es: "Comedero doble de plástico",
+    en: "Double plastic feeder",
+    fr: "Double plastic feeder",
+    it: "Double plastic feeder",
+    pt: "Double plastic feeder",
+    de: "Double plastic feeder",
+    nl: "Double plastic feeder",
+    pl: "Double plastic feeder"
+  },
+  "mascotas-21": {
+    es: "Dispensador de bolsas en forma de hueso y 4 rollos",
+    en: "Bone-shaped bag dispenser and 4 rolls",
+    fr: "Bone-shaped bag dispenser and 4 rouleaux",
+    it: "Bone-shaped bag dispenser and 4 rotoli",
+    pt: "Bone-shaped bag dispenser and 4 rolos",
+    de: "Bone-shaped bag dispenser and 4 Rollen",
+    nl: "Bone-shaped bag dispenser and 4 rollen",
+    pl: "Bone-shaped bag dispenser and 4 rolki"
+  },
+  "mascotas-22": {
+    es: "Juguete de cuerda trenzada con nudos",
+    en: "Braided rope toy with knots",
+    fr: "Braided rope toy with knots",
+    it: "Braided rope toy with knots",
+    pt: "Braided rope toy with knots",
+    de: "Braided rope toy with knots",
+    nl: "Braided rope toy with knots",
+    pl: "Braided rope toy with knots"
+  },
+  "mascotas-23": {
+    es: "Comedero doble de plástico con forma de gato",
+    en: "Cat-shaped double plastic feeder",
+    fr: "Cat-shaped double plastic feeder",
+    it: "Cat-shaped double plastic feeder",
+    pt: "Cat-shaped double plastic feeder",
+    de: "Cat-shaped double plastic feeder",
+    nl: "Cat-shaped double plastic feeder",
+    pl: "Cat-shaped double plastic feeder"
+  },
+  "mascotas-24": {
+    es: "Collar repelente de goma",
+    en: "Rubber repellent collar",
+    fr: "Rubber repellent collar",
+    it: "Rubber repellent collar",
+    pt: "Rubber repellent collar",
+    de: "Rubber repellent collar",
+    nl: "Rubber repellent collar",
+    pl: "Rubber repellent collar"
+  },
+  "mascotas-25": {
+    es: "Toallitas húmedas para perros y gatos",
+    en: "Wet wipes for dogs and cats",
+    fr: "Lingettes humides pour chiens et chats",
+    it: "Salviette umidificate per cani e gatti",
+    pt: "Toalhitas húmidas para cães e gatos",
+    de: "Feuchttücher für Hunde und Katzen",
+    nl: "Vochtige doekjes voor honden en katten",
+    pl: "Chusteczki nawilżane dla psów i kotów"
+  },
 };
 
 export function getProductDesc(productId: string, language: Language, fallback?: string): string | undefined {
