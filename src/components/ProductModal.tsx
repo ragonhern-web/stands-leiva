@@ -1,14 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import type { Product, TranslationCopy } from "../types";
+import { getProductDesc } from "../data/productI18n";
+import type { Product, TranslationCopy, Language } from "../types";
 
 interface Props {
   product: Product | null;
   onClose: () => void;
   t: TranslationCopy;
+  language: Language;
 }
 
-export default function ProductModal({ product, onClose, t }: Props) {
+export default function ProductModal({ product, onClose, t, language }: Props) {
   return (
     <AnimatePresence>
       {product && (
@@ -57,8 +59,10 @@ export default function ProductModal({ product, onClose, t }: Props) {
                 <h3 className="mt-1 text-2xl font-black text-slate-900">{product.name}</h3>
               </div>
 
-              {product.desc && (
-                <p className="text-sm leading-relaxed text-slate-600">{product.desc}</p>
+              {(getProductDesc(product.id, language, product.desc) ?? product.desc) && (
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {getProductDesc(product.id, language, product.desc) ?? product.desc}
+                </p>
               )}
 
               <div className="grid grid-cols-2 gap-3 text-[11px]">

@@ -475,8 +475,8 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  eco: {
-    imagePath: `${base}assets/stands/expositor-eco.png`,
+  abr: {
+    imagePath: `${base}assets/stands/expositor-abr.png`,
     info: { standRef: "99918", numRefs: 8, totalUnits: 78, sides: 2, priceStand: "138,84 €", pricePerUnit: "1,78 €", tipo: "Cuarto palé", standAlto: 150, standLargo: 40, standAncho: 60 },
     refs: [60383,60384,60385,60386,60406,60407,60408,60409],
     data: {
@@ -607,7 +607,7 @@ const seasonalDefs: StandDef[] = [
   { id: "ene", label: "ENE", color: "#1f6fb5", title: "Expositor Enero",         desc: "Ideal para reactivar ventas tras las fiestas con productos esenciales.",        productsBase: ["Juegos de mesa", "Puzzles", "Manualidades", "Figuras"] },
   { id: "feb", label: "FEB", color: "#2d87c8", title: "Expositor Febrero",        desc: "Regalos rápidos, detalles impulsivos y productos de alta rotación.",           productsBase: ["Peluches", "Cartas", "Detalles regalo", "Llaveros"] },
   { id: "mar", label: "MAR", color: "#5f9f4b", title: "Expositor Marzo",          desc: "Juegos de exterior para aprovechar el inicio del buen tiempo.",                productsBase: ["Cometas", "Pelotas", "Cuerdas", "Tizas"] },
-  { id: "abr", label: "ABR", color: "#6ca85b", title: "Expositor Abril",          desc: "Productos de primavera, Pascua y campañas familiares.",                        productsBase: ["Huevos sorpresa", "Peluches", "Cestas", "Pascua"] },
+  { id: "abr", label: "ABR", color: colorMap.darkGreen, title: "Expositor Colección Natural", desc: "Juguetes de playa y exterior de la colección natural, con materiales sostenibles.", productsBase: ["Palas", "Sets playa", "Regaderas", "Juegos"] },
   { id: "may", label: "MAY", color: "#77b35c", title: "Expositor Mayo",           desc: "Preparación de temporada de calor con juguetes dinámicos.",                   productsBase: ["Pistolas pequeñas", "Burbujeros", "Raquetas", "Discos"] },
   { id: "jun", label: "JUN", color: "#e5a2a2", title: "Expositor Junio",          desc: "Campaña de fin de clases y primeras compras de verano.",                      productsBase: ["Juegos viaje", "Explorador", "Cámaras agua", "Diarios"] },
   { id: "jul", label: "JUL", color: "#df8b8b", title: "Expositor Set de Playa",  desc: "Los productos estrella para playa, piscina y verano.",                        productsBase: ["Cubos y palas", "Pistolas de agua", "Flotadores", "Gafas buceo"] },
@@ -621,7 +621,6 @@ const seasonalDefs: StandDef[] = [
 const allYearDefs: StandDef[] = [
   { id: "balones",    label: "BALONES",    color: colorMap.orange,    title: "Expositor Balones",      desc: "Surtido completo de balones deportivos para todas las edades.",        productsBase: ["Balón fútbol", "Balón basket", "Voleibol", "Minipelota"] },
   { id: "mascotas",   label: "MASCOTAS",   color: colorMap.green,     title: "Expositor Mascotas",     desc: "Juguetes, accesorios y productos de cuidado para mascotas.",           productsBase: ["Mordedores", "Correas", "Cepillos", "Platos"] },
-  { id: "eco",        label: "ECO",        color: colorMap.darkGreen, title: "Expositor Eco",          desc: "Productos reciclables y alternativas respetuosas con el entorno.",     productsBase: ["Madera", "Reutilizables", "Ecológicos", "Manualidades"] },
   { id: "belleza",    label: "BELLEZA",    color: colorMap.orange,    title: "Expositor Belleza",      desc: "Sets de maquillaje, peinados y accesorios infantiles.",                productsBase: ["Manicura", "Bálsamos", "Diademas", "Cepillos"] },
   { id: "cocina",     label: "COCINA",     color: colorMap.red,       title: "Expositor Cocina",       desc: "Accesorios de cocina con colores y licencias familiares.",             productsBase: ["Vasos", "Moldes", "Fiambreras", "Cubiertos"] },
   { id: "desechables",label: "DESECHABLES",color: colorMap.slate,     title: "Expositor Desechables",  desc: "Artículos para cumpleaños, fiestas y celebraciones.",                  productsBase: ["Vasos", "Platos", "Servilletas", "Velas"] },

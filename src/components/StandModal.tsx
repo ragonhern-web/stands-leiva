@@ -199,7 +199,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           </section>
 
           {/* Modal de detalle de producto */}
-          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} t={t} />
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} t={t} language={language} />
         </motion.div>
       </motion.div>
     </AnimatePresence>
