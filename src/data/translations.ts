@@ -176,14 +176,38 @@ export const copy = {
 
 /** Abreviaturas de meses traducidas por idioma */
 export const standLabels: Record<Language, Partial<Record<string, string>>> = {
-  es: { ene: "ENE", feb: "FEB", mar: "MAR", abr: "ABR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DIC" },
-  en: { ene: "JAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC" },
-  fr: { ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC" },
-  it: { ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC" },
-  pt: { ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ" },
-  de: { ene: "JAN", feb: "FEB", mar: "MÄR", abr: "APR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEZ" },
-  nl: { ene: "JAN", feb: "FEB", mar: "MRT", abr: "APR", may: "MEI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEC" },
-  pl: { ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU" },
+  es: {
+    ene: "ENE", feb: "FEB", mar: "MAR", abr: "ABR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DIC",
+    balones: "BALONES", mascotas: "MASCOTAS", belleza: "BELLEZA", cocina: "COCINA", desechables: "DESECHABLES", auto: "AUTO", juguetes: "JUGUETES", toys: "TOYS", picnic: "PICNIC",
+  },
+  en: {
+    ene: "JAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
+    balones: "BALLS", mascotas: "PETS", belleza: "BEAUTY", cocina: "KITCHEN", desechables: "DISPOSABLES", auto: "CAR", juguetes: "WOOD TOYS", toys: "NOVELTY", picnic: "PICNIC",
+  },
+  fr: {
+    ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC",
+    balones: "BALLONS", mascotas: "ANIMAUX", belleza: "BEAUTÉ", cocina: "CUISINE", desechables: "JETABLES", auto: "AUTO", juguetes: "JOUETS BOIS", toys: "JOUETS", picnic: "PIQUE-NIQUE",
+  },
+  it: {
+    ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC",
+    balones: "PALLONI", mascotas: "ANIMALI", belleza: "BELLEZZA", cocina: "CUCINA", desechables: "MONOUSO", auto: "AUTO", juguetes: "GIOC. LEGNO", toys: "GIOCATTOLI", picnic: "PICNIC",
+  },
+  pt: {
+    ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ",
+    balones: "BOLAS", mascotas: "ANIMAIS", belleza: "BELEZA", cocina: "COZINHA", desechables: "DESCARTÁVEIS", auto: "AUTO", juguetes: "BRINQUEDOS", toys: "NOVIDADES", picnic: "PICNIC",
+  },
+  de: {
+    ene: "JAN", feb: "FEB", mar: "MÄR", abr: "APR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEZ",
+    balones: "BÄLLE", mascotas: "HAUSTIERE", belleza: "BEAUTY", cocina: "KÜCHE", desechables: "EINWEG", auto: "AUTO", juguetes: "HOLZSPIELE", toys: "SPIELZEUG", picnic: "PICKNICK",
+  },
+  nl: {
+    ene: "JAN", feb: "FEB", mar: "MRT", abr: "APR", may: "MEI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEC",
+    balones: "BALLEN", mascotas: "HUISDIEREN", belleza: "BEAUTY", cocina: "KEUKEN", desechables: "WEGWERP", auto: "AUTO", juguetes: "HOUT SPEEL.", toys: "SPEELGOED", picnic: "PICKNICK",
+  },
+  pl: {
+    ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU",
+    balones: "PIŁKI", mascotas: "ZWIERZĘTA", belleza: "URODA", cocina: "KUCHNIA", desechables: "JEDNORAZOWE", auto: "AUTO", juguetes: "DREWNIANE", toys: "ZABAWKI", picnic: "PIKNIK",
+  },
 };
 
 /** Devuelve la etiqueta del expositor en el idioma activo */
