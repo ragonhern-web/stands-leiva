@@ -39,11 +39,11 @@ export default function App() {
 
       {/* Hero */}
       <section className="relative z-10 mx-auto mt-36 grid w-full max-w-[1500px] grid-cols-1 items-center gap-2 px-4 md:mt-10 md:grid-cols-[0.38fr_0.62fr] md:px-6">
-        <div className="flex flex-col justify-center p-2 text-center md:p-4 md:text-left">
+        <div className="flex flex-col justify-center px-2 py-5 text-center md:p-4 md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-3 text-[15px] font-black uppercase tracking-[0.32em] text-slate-400"
+            className="mb-4 text-[15px] font-black uppercase tracking-[0.32em] text-slate-400 md:mb-3"
           >
             {t.eyebrow}
           </motion.p>
@@ -59,7 +59,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mt-3 max-w-lg text-base font-medium leading-relaxed text-slate-500 md:mx-0 md:text-lg"
+            className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-slate-500 md:mx-0 md:mt-3 md:text-lg"
           >
             {t.heroText}
           </motion.p>
@@ -69,8 +69,8 @@ export default function App() {
       </section>
 
       {/* Catálogo */}
-      <main className="relative z-10 mx-auto mt-4 flex w-full max-w-[1500px] flex-col gap-6 px-3 pb-10 md:-mt-2 md:px-6">
-        <section className="-mt-4">
+      <main className="relative z-10 mx-auto mt-14 flex w-full max-w-[1500px] flex-col gap-14 px-3 pb-14 md:-mt-2 md:gap-6 md:px-6 md:pb-10">
+        <section className="md:-mt-4">
           <SectionTitle eyebrow={t.monthlyEyebrow} title={t.monthlyTitle} />
           <TimelineRow
             stands={seasonalStands}
@@ -97,7 +97,7 @@ export default function App() {
         </section>
 
         <section>
-          <SectionTitle eyebrow="Próximamente" title="Nuevos expositores" />
+          <SectionTitle eyebrow="Nuevos expositores" title="Próximamente" />
           <TimelineRow
             stands={comingSoonStands}
             type="year"

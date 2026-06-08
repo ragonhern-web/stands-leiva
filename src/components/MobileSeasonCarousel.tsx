@@ -36,8 +36,8 @@ export default function MobileSeasonCarousel({
   const active = stands[activeIndex];
 
   return (
-    <div className="md:hidden rounded-[2rem] border border-slate-200 bg-white/90 px-4 py-6 shadow-xl shadow-slate-300/40">
-      <div className="mb-4 flex items-center justify-between gap-3">
+    <div className="md:hidden rounded-[2rem] border border-slate-200 bg-white/90 px-4 py-8 shadow-xl shadow-slate-300/40">
+      <div className="mb-6 flex items-center justify-between gap-3">
         <button
           type="button"
           onClick={() => move(-1)}
