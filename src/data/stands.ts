@@ -250,7 +250,7 @@ const standExtras: Record<string, StandExtra> = {
 
   abr: {
     imagePath: `${base}assets/stands/expositor-mar.png`,
-    info: { numRefs: 1, tipo: "Caja expositora", standAlto: 6, standLargo: 6, standAncho: 150 },
+    info: { standRef: "98685", numRefs: 1, tipo: "Caja expositora de cartón", pricePerUnit: "0,99 €", standAlto: 6, standLargo: 6, standAncho: 150 },
     refs: [98685],
     data: {
       98685: { units: "—", color: "Varios colores surtidos", name: "Churros de flotación de espuma", desc: "Churros de flotación de espuma de polietileno. 150 × 6 cm. Incluye caja expositora de cartón. Varios colores surtidos." },
