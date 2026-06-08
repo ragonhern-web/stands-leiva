@@ -238,7 +238,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── FEBRERO (14 productos) ──────────────────────────────────────────
 
-  "feb-01": {
+  "mar-01": {
     es: "Trampa adhesiva para cucarachas",
     en: "Adhesive cockroach trap",
     fr: "Piège adhésif pour cucarachas",
@@ -248,7 +248,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Kleefval voor cucarachas",
     pl: "Pułapka klejowa do cucarachas"
   },
-  "feb-02": {
+  "mar-02": {
     es: "Trampa adhesiva para hormigas",
     en: "Adhesive ant trap",
     fr: "Piège adhésif pour hormigas",
@@ -258,7 +258,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Kleefval voor hormigas",
     pl: "Pułapka klejowa do hormigas"
   },
-  "feb-03": {
+  "mar-03": {
     es: "Vela de jardín citronela en maceta",
     en: "Citronella garden candle in pot",
     fr: "Bougie de jardin à la citronnelle en maceta",
@@ -268,7 +268,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella tuinkaars en maceta",
     pl: "Świeca ogrodowa z citronellą en maceta"
   },
-  "feb-04": {
+  "mar-04": {
     es: "Velas de jardín citronela (tipo té)",
     en: "Citronella garden tea-light candles",
     fr: "Velas de jardín citronela (tipo té)",
@@ -278,7 +278,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Velas van jardín citronela (tipo té)",
     pl: "Velas z jardín citronela (tipo té)"
   },
-  "feb-05": {
+  "mar-05": {
     es: "Pulsera repelente citronela (espiral)",
     en: "Pulsera repelente citronela (espiral)",
     fr: "Bracelet répulsif à la citronnelle (espiral)",
@@ -288,7 +288,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella afweerarmband (espiral)",
     pl: "Opaska odstraszająca z citronellą (espiral)"
   },
-  "feb-06": {
+  "mar-06": {
     es: "Pulsera repelente citronela (silicona plana)",
     en: "Pulsera repelente citronela (silicona plana)",
     fr: "Bracelet répulsif à la citronnelle (siliaveca plana)",
@@ -298,7 +298,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella afweerarmband (silimeta plana)",
     pl: "Opaska odstraszająca z citronellą (siliza plana)"
   },
-  "feb-07": {
+  "mar-07": {
     es: "Pulsera repelente citronela (trenzada plana)",
     en: "Pulsera repelente citronela (trenzada plana)",
     fr: "Bracelet répulsif à la citronnelle (trenzada plana)",
@@ -308,7 +308,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella afweerarmband (trenzada plana)",
     pl: "Opaska odstraszająca z citronellą (trenzada plana)"
   },
-  "feb-08": {
+  "mar-08": {
     es: "Pulsera repelente citronela (cuerda trenzada)",
     en: "Pulsera repelente citronela (cuerda trenzada)",
     fr: "Bracelet répulsif à la citronnelle (cuerda trenzada)",
@@ -318,7 +318,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella afweerarmband (cuerda trenzada)",
     pl: "Opaska odstraszająca z citronellą (cuerda trenzada)"
   },
-  "feb-09": {
+  "mar-09": {
     es: "Matamoscas de plástico con mango metálico",
     en: "Plastic fly swatter with metal handle",
     fr: "Tapette à mouches de plastique avec mango metálico",
@@ -328,7 +328,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Vliegenmepper van plastic met mango metálico",
     pl: "Packa na muchi z plastik z mango metálico"
   },
-  "feb-10": {
+  "mar-10": {
     es: "Espiral antimosquitos",
     en: "Mosquito coil",
     fr: "Spirale anti-moustiques",
@@ -338,7 +338,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Muggenspiraal",
     pl: "Spirala przeciw komarom"
   },
-  "feb-11": {
+  "mar-11": {
     es: "Incienso de citronela",
     en: "Citronella incense",
     fr: "Encens à la citronnelle",
@@ -348,7 +348,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Citronella wierook",
     pl: "Kadzidło z citronellą"
   },
-  "feb-12": {
+  "mar-12": {
     es: "Repele-polillas en bolsitas",
     en: "Moth repellent sachets",
     fr: "Répulsif anti-mites en bolsitas",
@@ -358,7 +358,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Mottenverjager en bolsitas",
     pl: "Śrozk odstraszająci mole en bolsitas"
   },
-  "feb-13": {
+  "mar-13": {
     es: "Papel atrapa moscas (rollos)",
     en: "Fly-catching paper rolls",
     fr: "Papier attrape-mouches (rollos)",
@@ -368,7 +368,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Vliegenvangerpapier (rollos)",
     pl: "Papier na muchi (rollos)"
   },
-  "feb-14": {
+  "mar-14": {
     es: "Pulverizador repelente citronela",
     en: "Citronella repellent spray",
     fr: "Spraet répulsif à la citronnelle",
@@ -381,7 +381,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── MAYO (11 productos) ──────────────────────────────────────────
 
-  "may-01": {
+  "jun-01": {
     es: "Juego de pesca infantil con cañas, peces de colores y accesorios sobre blíster. Incluye varias piezas para jugar a pescar.",
     en: "Juego de pesca infantil con cañas, peces de colores y accessories on blister card. Includes several pieces for fishing play.",
     fr: "Juego de pesca enfant avec cañas, peces de colores et accesorios sobre blíster. Comprend varias piezas pour jugar a pescar.",
@@ -391,7 +391,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Juego van pesca kinvanr met cañas, peces van colores en accesorios sobre blíster. Bevat varias piezas voor jugar a pescar.",
     pl: "Juego z pesca dziecięci z cañas, peces z colores i accesorios sobre blíster. Zawiera varias piezas do jugar a pescar."
   },
-  "may-02": {
+  "jun-02": {
     es: "Set de gafas y tubo de buceo infantil en bolsa transparente. Producto de playa/piscina en colores surtidos.",
     en: "Set de gafas y tubo de buceo infantil in transparent bag. Product de playa/piscina en colores surtidos.",
     fr: "Set de gafas et tubo de buceo enfant en bolsa transparent. Produit de plaeta/piscina en couleurs assorties.",
@@ -401,7 +401,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van gafas en tubo van buceo kinvanr en bolsa transvoornt. Product van plaena/piscina in assorti kleuren.",
     pl: "Set z gafas i tubo z buceo dziecięci en bolsa przezroczisti. Produkt z plaia/piscina w kolorach mieszanich."
   },
-  "may-03": {
+  "jun-03": {
     es: "Pack de 2 pistolas de agua grandes en caja abierta, con diseño tipo lanzador. Producto para juego exterior.",
     en: "Pack de 2 pistolas de agua grandes in open box, with launcher-style design. Product para juego exterior.",
     fr: "Pack de 2 pistolas de agua grands en caja abierta, avec diseño tipo lanzador. Produit pour jeu extérieur.",
@@ -411,7 +411,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pack van 2 pistolas van agua grote en caja abierta, met diseño tipo lanzador. Product voor buitenspel.",
     pl: "Pack z 2 pistolas z agua duże en caja abierta, z diseño tipo lanzador. Produkt do zabawi na zewnątrz."
   },
-  "may-04": {
+  "jun-04": {
     es: "Juego de buceo con aros/figuras de peces de colores para piscina. Incluye 4 unidades en el envase.",
     en: "Juego de buceo con aros/figuras de peces de colores para piscina. Includes 4 units in the package.",
     fr: "Juego de buceo avec aros/figuras de peces de colores pour piscina. Comprend 4 unidades en el envase.",
@@ -421,7 +421,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Juego van buceo met aros/figuras van peces van colores voor piscina. Bevat 4 unidavans en el envase.",
     pl: "Juego z buceo z aros/figuras z peces z colores do piscina. Zawiera 4 unidazs en el envase."
   },
-  "may-05": {
+  "jun-05": {
     es: "Set de playa con cubo, pala, rastrillo, moldes y pieza tipo molino/colador. Presentado en bolsa de red.",
     en: "Set de playa con bucket, shovel, rake, molds y pieza tipo molino/strainer. Presentado en net bag.",
     fr: "Set de plaeta avec cubo, pala, rastrillo, moldes et pieza tipo molino/colador. Présenté dans un filet.",
@@ -431,7 +431,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van plaena met cubo, pala, rastrillo, molvans en pieza tipo molino/colador. Gepresenteerd in netzak.",
     pl: "Set z plaia z cubo, pala, rastrillo, molzs i pieza tipo molino/colador. Zapakowani w siatkową torbę."
   },
-  "may-06": {
+  "jun-06": {
     es: "Camión volquete de playa con pala, rastrillo y molde. Juguete de arena con piezas de colores.",
     en: "Camión volquete de playa con shovel, rake y molde. Juguete de arena con piezas de colores.",
     fr: "Camión volquete de plaeta avec pala, rastrillo et molde. Juguete de arena avec piezas de colores.",
@@ -441,7 +441,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Camión volquete van plaena met pala, rastrillo en molvan. Juguete van arena met piezas van colores.",
     pl: "Camión volquete z plaia z pala, rastrillo i molz. Juguete z arena z piezas z colores."
   },
-  "may-07": {
+  "jun-07": {
     es: "Camión grande con set de playa incluido: pala, rastrillo, moldes y accesorios. Presentado en bolsa de red.",
     en: "Camión grande con set de playa incluido: shovel, rake, molds y accessories. Presentado en net bag.",
     fr: "Camión grand avec set de plaeta inclus: pala, rastrillo, moldes et accesorios. Présenté dans un filet.",
@@ -451,7 +451,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Camión groot met set van plaena inbegrepen: pala, rastrillo, molvans en accesorios. Gepresenteerd in netzak.",
     pl: "Camión dużi z set z plaia w zestawie: pala, rastrillo, molzs i accesorios. Zapakowani w siatkową torbę."
   },
-  "may-08": {
+  "jun-08": {
     es: "Carretilla de playa con pala, rastrillo, moldes y accesorios de arena. Presentación en bolsa de red.",
     en: "Carretilla de playa con shovel, rake, molds y accessories de arena. Presentación en net bag.",
     fr: "Carretilla de plaeta avec pala, rastrillo, moldes et accesorios de arena. Presentación en bolsa de red.",
@@ -461,7 +461,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Carretilla van plaena met pala, rastrillo, molvans en accesorios van arena. Presentación en bolsa van red.",
     pl: "Carretilla z plaia z pala, rastrillo, molzs i accesorios z arena. Presentación en bolsa z red."
   },
-  "may-09": {
+  "jun-09": {
     es: "Pistola de agua grande tipo rifle en caja abierta. Diseño alargado con depósito superior.",
     en: "Pistola de agua grande tipo rifle in open box. Diseño alargado con depósito superior.",
     fr: "Pistola de agua grand tipo rifle en caja abierta. Diseño alargado avec depósito superior.",
@@ -471,7 +471,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pistola van agua groot tipo rifle en caja abierta. Diseño alargado met vanpósito superior.",
     pl: "Pistola z agua dużi tipo rifle en caja abierta. Diseño alargado z zpósito superior."
   },
-  "may-10": {
+  "jun-10": {
     es: "Set de juego de agua y arena con base grande tipo cangrejo, molino, cubo, pala, rastrillo y figuras.",
     en: "Set de juego de agua y arena con base grande tipo cangrejo, molino, bucket, shovel, rake y figuras.",
     fr: "Set de juego de agua et arena avec base grand tipo cangrejo, molino, cubo, pala, rastrillo et figuras.",
@@ -481,7 +481,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van juego van agua en arena met base groot tipo cangrejo, molino, cubo, pala, rastrillo en figuras.",
     pl: "Set z juego z agua i arena z base dużi tipo cangrejo, molino, cubo, pala, rastrillo i figuras."
   },
-  "may-11": {
+  "jun-11": {
     es: "Set de playa compacto con barco, pala, rastrillo, colador y moldes de animales marinos.",
     en: "Set de playa compacto con barco, shovel, rake, strainer y molds de animales marinos.",
     fr: "Set de plaeta compacto avec barco, pala, rastrillo, colador et moldes de animales marinos.",
@@ -494,7 +494,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── JUNIO (19 productos) ──────────────────────────────────────────
 
-  "jun-02": {
+  "jul-02": {
     es: "Juego de burbujas en blíster con 3 botes y varitas de diferentes formas. Producto de playa/exterior en colores surtidos.",
     en: "Juego de burbujas in blister pack con 3 botes y varitas de diferentes formas. Product de playa/exterior en colores surtidos.",
     fr: "Juego de burbujas en blíster avec 3 botes et varitas de diferentes formas. Produit de plage/extérieur en couleurs assorties.",
@@ -504,7 +504,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Juego van burbujas en blíster met 3 botes en varitas van diferentes formas. Strand-/buitenproduct in assorti kleuren.",
     pl: "Juego z burbujas en blíster z 3 botes i varitas z diferentes formas. Produkt plażowi/zewnętrzni w kolorach mieszanich."
   },
-  "jun-03": {
+  "jul-03": {
     es: "Pistola de agua alargada tipo tubo/lanza, presentada en expositor. Mango superior y cuerpo largo en colores surtidos.",
     en: "Pistola de agua alargada tipo tubo/lanza, presentada en expositor. Mango superior y cuerpo largo en colores surtidos.",
     fr: "Pistola de agua alargada tipo tubo/lanza, presentada en expositor. Mango superior et cuerpo largo en couleurs assorties.",
@@ -514,7 +514,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pistola van agua alargada tipo tubo/lanza, presentada en expositor. Mango superior en cuerpo largo in assorti kleuren.",
     pl: "Pistola z agua alargada tipo tubo/lanza, presentada en expositor. Mango superior i cuerpo largo w kolorach mieszanich."
   },
-  "jun-04": {
+  "jul-04": {
     es: "Frisbee/disco volador de plástico con diana central. Producto de juego exterior en varios colores.",
     en: "Frisbee/disco volador de plástico con diana central. Product de juego exterior en various colors.",
     fr: "Frisbee/disco volador de plastique avec diana central. Produit de juego exterior en varios colores.",
@@ -524,7 +524,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Frisbee/disco volador van plastic met diana central. Product van juego exterior en varios colores.",
     pl: "Frisbee/disco volador z plastik z diana central. Produkt z juego exterior en varios colores."
   },
-  "jun-05": {
+  "jul-05": {
     es: "Juego de buceo con aros de colores para piscina. Incluye 3 aros con forma de pez para lanzar y recoger bajo el agua.",
     en: "Juego de buceo con aros de colores para piscina. Includes 3 fish-shaped rings to throw and retrieve underwater.",
     fr: "Juego de buceo avec aros de colores pour piscina. Comprend 3 aros avec forma de pez pour lanzar et recoger bajo el agua.",
@@ -534,7 +534,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Juego van buceo met aros van colores voor piscina. Bevat 3 aros met forma van pez voor lanzar en recoger bajo el agua.",
     pl: "Juego z buceo z aros z colores do piscina. Zawiera 3 aros z forma z pez do lanzar i recoger bajo el agua."
   },
-  "jun-06": {
+  "jul-06": {
     es: "Set de playa con barquito, pala, rastrillo y molde con forma de concha. Presentado en bolsa de red.",
     en: "Set de playa con small boat, shovel, rake y molde con forma de concha. Presentado en net bag.",
     fr: "Set de plaeta avec barquito, pala, rastrillo et molde avec forma de aveccha. Présenté dans un filet.",
@@ -544,7 +544,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van plaena met barquito, pala, rastrillo en molvan met forma van metcha. Gepresenteerd in netzak.",
     pl: "Set z plaia z barquito, pala, rastrillo i molz z forma z zcha. Zapakowani w siatkową torbę."
   },
-  "jun-07": {
+  "jul-07": {
     es: "Set de playa con cubo, pala, rastrillo y moldes de animales marinos. Presentado en bolsa de red.",
     en: "Set de playa con bucket, shovel, rake y molds de animales marinos. Presentado en net bag.",
     fr: "Set de plaeta avec cubo, pala, rastrillo et moldes de animales marinos. Présenté dans un filet.",
@@ -554,7 +554,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van plaena met cubo, pala, rastrillo en molvans van animales marinos. Gepresenteerd in netzak.",
     pl: "Set z plaia z cubo, pala, rastrillo i molzs z animales marinos. Zapakowani w siatkową torbę."
   },
-  "jun-08": {
+  "jul-08": {
     es: "Gafas de natación infantiles en blíster, con montura de colores y lente oscura. Producto para piscina/playa.",
     en: "Gafas de natación infantiles in blister pack, con montura de colores y lente oscura. Product para piscina/playa.",
     fr: "Gafas de natación enfants en blíster, avec montura de colores et lente oscura. Produit pour piscine/plage.",
@@ -564,7 +564,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gafas van natación kinvanr en blíster, met montura van colores en lente oscura. Product voor zwembad/strand.",
     pl: "Gafas z natación dziecięce en blíster, z montura z colores i lente oscura. Produkt do basenu/na plażę."
   },
-  "jun-09": {
+  "jul-09": {
     es: "Set de playa compacto con barquitos, pala, rastrillo, cuchara y moldes de animales marinos en colores vivos.",
     en: "Set de playa compacto con small boats, shovel, rake, cuchara y molds de animales marinos en bright colors.",
     fr: "Set de plaeta compacto avec barquitos, pala, rastrillo, cuchara et moldes de animales marinos en colores vivos.",
@@ -574,7 +574,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van plaena compacto met barquitos, pala, rastrillo, cuchara en molvans van animales marinos en colores vivos.",
     pl: "Set z plaia compacto z barquitos, pala, rastrillo, cuchara i molzs z animales marinos en colores vivos."
   },
-  "jun-10": {
+  "jul-10": {
     es: "Camión volquete pequeño con accesorios de playa: pala, rastrillo, moldes y cucharón. Colores surtidos.",
     en: "Camión volquete pequeño con accessories de playa: shovel, rake, molds y cucharón. Colores surtidos.",
     fr: "Camión volquete petit avec accesorios de plaeta: pala, rastrillo, moldes et cucharón. Colores surtidos.",
@@ -584,7 +584,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Camión volquete klein met accesorios van plaena: pala, rastrillo, molvans en cucharón. Colores surtidos.",
     pl: "Camión volquete małi z accesorios z plaia: pala, rastrillo, molzs i cucharón. Colores surtidos."
   },
-  "jun-11": {
+  "jul-11": {
     es: "Pistola de agua tipo lanzador espacial en blíster. Depósito integrado y diseño infantil de colores vivos.",
     en: "Pistola de agua tipo lanzador espacial in blister pack. Depósito integrado y diseño infantil de bright colors.",
     fr: "Pistola de agua tipo lanzador espacial en blíster. Depósito integrado et diseño enfant de colores vivos.",
@@ -594,7 +594,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pistola van agua tipo lanzador espacial en blíster. Depósito integrado en diseño kinvanr van colores vivos.",
     pl: "Pistola z agua tipo lanzador espacial en blíster. Depósito integrado i diseño dziecięci z colores vivos."
   },
-  "jun-12": {
+  "jul-12": {
     es: "Pistolas de agua con forma de delfín, presentadas en blíster con varias unidades y colores surtidos.",
     en: "Pistolas de agua con forma de delfín, presentadas in blister pack con varias unidades y colores surtidos.",
     fr: "Pistolas de agua avec forma de delfín, presentadas en blíster avec plusieurs unités et couleurs assorties.",
@@ -604,7 +604,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pistolas van agua met forma van vanlfín, presentadas en blíster met meervanre eenhevann en assorti kleuren.",
     pl: "Pistolas z agua z forma z zlfín, presentadas en blíster z kilka sztuk i kolori mieszane."
   },
-  "jun-13": {
+  "jul-13": {
     es: "Lanza cohetes de juguete con diseño de cohete amarillo y rojo. Producto individual para juego exterior.",
     en: "Lanza cohetes de juguete con diseño de cohete amarillo y rojo. Product individual para juego exterior.",
     fr: "Lanza cohetes de juguete avec diseño de cohete amarillo et rojo. Produit individuel pour jeu extérieur.",
@@ -614,7 +614,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Lanza cohetes van juguete met diseño van cohete amarillo en rojo. Individueel product voor buitenspel.",
     pl: "Lanza cohetes z juguete z diseño z cohete amarillo i rojo. Pojedinczi produkt do zabawi na zewnątrz."
   },
-  "jun-14": {
+  "jul-14": {
     es: "Salabre telescópico plegable para piscina/playa, con red y mango extensible. Disponible en colores surtidos.",
     en: "Salabre telescópico plegable para piscina/playa, con red y mango extensible. Disponible en colores surtidos.",
     fr: "Salabre telescópico plegable pour piscina/plaeta, avec red et mango extensible. Disponible en couleurs assorties.",
@@ -624,7 +624,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Salabre telescópico plegable voor piscina/plaena, met red en mango extensible. Disponible in assorti kleuren.",
     pl: "Salabre telescópico plegable do piscina/plaia, z red i mango extensible. Disponible w kolorach mieszanich."
   },
-  "jun-15": {
+  "jul-15": {
     es: "Pistolas de agua pequeñas tipo nave, en blíster con tres unidades de diferentes colores.",
     en: "Pistolas de agua pequeñas tipo nave, in blister pack con tres unidades de diferentes colores.",
     fr: "Pistolas de agua petites tipo nave, en blíster avec tres unidades de diferentes colores.",
@@ -634,7 +634,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pistolas van agua kleine tipo nave, en blíster met tres unidavans van diferentes colores.",
     pl: "Pistolas z agua małe tipo nave, en blíster z tres unidazs z diferentes colores."
   },
-  "jun-16": {
+  "jul-16": {
     es: "Set de playa con molinillo/rueda de agua, pala, rastrillo y accesorios de arena. Colores surtidos.",
     en: "Set de playa con molinillo/rueda de agua, shovel, rake y accessories de arena. Colores surtidos.",
     fr: "Set de plaeta avec molinillo/rueda de agua, pala, rastrillo et accesorios de arena. Colores surtidos.",
@@ -644,7 +644,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van plaena met molinillo/rueda van agua, pala, rastrillo en accesorios van arena. Colores surtidos.",
     pl: "Set z plaia z molinillo/rueda z agua, pala, rastrillo i accesorios z arena. Colores surtidos."
   },
-  "jun-17": {
+  "jul-17": {
     es: "Pack de 4 pelotas pequeñas de plástico con diseño marmoleado/ondas. Presentadas en bolsa de red.",
     en: "Pack de 4 pelotas pequeñas de plástico con diseño marmoleado/ondas. Presentadas en net bag.",
     fr: "Pack de 4 pelotas petites de plastique avec diseño marmoleado/ondas. Présentées dans un filet.",
@@ -654,7 +654,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pack van 4 pelotas kleine van plastic met diseño marmoleado/ondas. Gepresenteerd in netzak.",
     pl: "Pack z 4 pelotas małe z plastik z diseño marmoleado/ondas. Zapakowane w siatkową torbę."
   },
-  "jun-18": {
+  "jul-18": {
     es: "Juego de palas cesta con agujeros y pelotas pequeñas. Pensado para lanzar y recoger pelotas al aire libre.",
     en: "Juego de shovels cesta con agujeros y pelotas pequeñas. Pensado para lanzar y recoger pelotas al aire libre.",
     fr: "Juego de palas cesta avec agujeros et pelotas petites. Pensado pour lanzar et recoger pelotas al aire libre.",
@@ -664,7 +664,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Juego van palas cesta met agujeros en pelotas kleine. Pensado voor lanzar en recoger pelotas al aire libre.",
     pl: "Juego z palas cesta z agujeros i pelotas małe. Pensado do lanzar i recoger pelotas al aire libre."
   },
-  "jun-19": {
+  "jul-19": {
     es: "Set de palas largas de playa con mangos y moldes de animales marinos. Presentado en bolsa de red.",
     en: "Set de shovels largas de playa con mangos y molds de animales marinos. Presentado en net bag.",
     fr: "Set de palas largas de plaeta avec mangos et moldes de animales marinos. Présenté dans un filet.",
@@ -674,7 +674,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van palas largas van plaena met mangos en molvans van animales marinos. Gepresenteerd in netzak.",
     pl: "Set z palas largas z plaia z mangos i molzs z animales marinos. Zapakowani w siatkową torbę."
   },
-  "jun-20": {
+  "jul-20": {
     es: "Set de playa con bandeja/cangrejo grande, pala, rastrillo y accesorios de arena. Presentado en bolsa de red.",
     en: "Set de playa con bandeja/cangrejo grande, shovel, rake y accessories de arena. Presentado en net bag.",
     fr: "Set de plaeta avec bandeja/cangrejo grand, pala, rastrillo et accesorios de arena. Présenté dans un filet.",
@@ -687,7 +687,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── SEPTIEMBRE (38 productos) ──────────────────────────────────────────
 
-  "sep-01": {
+  "ago-01": {
     es: "Bolígrafos azules. Caja expositora",
     en: "Blue pens. Display box",
     fr: "Stetlos bleus. Boîte présentoir",
@@ -697,7 +697,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Blauwe pennen. Displaendoos",
     pl: "Niebieskie długopisi. Puzłko ekspozicijne"
   },
-  "sep-02": {
+  "ago-02": {
     es: "Pinzas sujetapapeles metálicas. Varios tamaños. Caja expositora",
     en: "Metal binder clips. Various sizes. Display box",
     fr: "Pinces métalliques pour documents. Varios tamaños. Boîte présentoir",
@@ -707,7 +707,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Metalen papierklemmen. Varios tamaños. Displaendoos",
     pl: "Metalowe klipsi do papieru. Varios tamaños. Puzłko ekspozicijne"
   },
-  "sep-03": {
+  "ago-03": {
     es: "Pinzas de madera de colores. Caja expositora",
     en: "Colored wooden clips. Display box",
     fr: "Pinces en bois colorées. Boîte présentoir",
@@ -717,7 +717,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gekleurvan houten knijpers. Displaendoos",
     pl: "Kolorowe drewniane klamerki. Puzłko ekspozicijne"
   },
-  "sep-04": {
+  "ago-04": {
     es: "Set lápiz, goma y sacapuntas. Caja expositora",
     en: "Pencil, eraser and sharpener set. Display box",
     fr: "Set craeton, gomme et taille-craeton. Boîte présentoir",
@@ -727,7 +727,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set met potlood, gum en puntenslijper. Displaendoos",
     pl: "Zestaw: ołówek, gumka i temperówka. Puzłko ekspozicijne"
   },
-  "sep-05": {
+  "ago-05": {
     es: "Marcadores fluorescentes. Caja expositora",
     en: "Highlighters. Display box",
     fr: "Surligneurs. Boîte présentoir",
@@ -737,7 +737,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Markeerstiften. Displaendoos",
     pl: "Zakreślacze. Puzłko ekspozicijne"
   },
-  "sep-06": {
+  "ago-06": {
     es: "Portaminas con accesorios. Incluye minas de repuesto. Caja expositora",
     en: "Mechanical pencil with accessories. Includes spare leads. Display box",
     fr: "Porte-mines avec accessoires. Comprend minas de repuesto. Boîte présentoir",
@@ -747,7 +747,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Vulpotlood met accessoires. Bevat minas van repuesto. Displaendoos",
     pl: "Ołówek automaticzni z akcesoriami. Zawiera minas z repuesto. Puzłko ekspozicijne"
   },
-  "sep-07": {
+  "ago-07": {
     es: "Carpetas A4 con gomas. Caja expositora",
     en: "A4 folders with elastic bands. Display box",
     fr: "Chemises A4 avec élastiques. Boîte présentoir",
@@ -757,7 +757,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "A4-mappen met elastiek. Displaendoos",
     pl: "Teczki A4 z gumkami. Puzłko ekspozicijne"
   },
-  "sep-08": {
+  "ago-08": {
     es: "Carpetas transparentes. Caja expositora",
     en: "Transparent folders. Display box",
     fr: "Chemises transparents. Boîte présentoir",
@@ -767,7 +767,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Transvoornte mappen. Displaendoos",
     pl: "Przezrocziste teczki. Puzłko ekspozicijne"
   },
-  "sep-09": {
+  "ago-09": {
     es: "Fundas/carpeta transparente A4. Caja expositora",
     en: "A4 transparent sleeves/folder. Display box",
     fr: "Fundas/carpeta transparent A4. Boîte présentoir",
@@ -777,7 +777,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Fundas/carpeta transvoornt A4. Displaendoos",
     pl: "Fundas/carpeta przezroczisti A4. Puzłko ekspozicijne"
   },
-  "sep-10": {
+  "ago-10": {
     es: "Estuche escolar. Caja expositora",
     en: "School pencil case. Display box",
     fr: "Trousse scolaire. Boîte présentoir",
@@ -787,7 +787,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "School-etui. Displaendoos",
     pl: "Piórnik szkolni. Puzłko ekspozicijne"
   },
-  "sep-11": {
+  "ago-11": {
     es: "Bolígrafos de colores. Caja expositora",
     en: "Colored pens. Display box",
     fr: "Stetlos de couleur. Boîte présentoir",
@@ -797,7 +797,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gekleurvan pennen. Displaendoos",
     pl: "Kolorowe długopisi. Puzłko ekspozicijne"
   },
-  "sep-12": {
+  "ago-12": {
     es: "Corrector líquido tipo bolígrafo. Caja expositora",
     en: "Pen-style liquid corrector. Display box",
     fr: "Correcteur liquide tetpe stetlo. Boîte présentoir",
@@ -807,7 +807,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Vloeibare corrector in penvorm. Displaendoos",
     pl: "Korektor w płinie w formie długopisu. Puzłko ekspozicijne"
   },
-  "sep-13": {
+  "ago-13": {
     es: "Cinta correctora. Caja expositora",
     en: "Correction tape. Display box",
     fr: "Ruban correcteur. Boîte présentoir",
@@ -817,7 +817,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Correctietape. Displaendoos",
     pl: "Taśma korekcijna. Puzłko ekspozicijne"
   },
-  "sep-14": {
+  "ago-14": {
     es: "Bolígrafos azules. Caja expositora",
     en: "Blue pens. Display box",
     fr: "Stetlos bleus. Boîte présentoir",
@@ -827,7 +827,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Blauwe pennen. Displaendoos",
     pl: "Niebieskie długopisi. Puzłko ekspozicijne"
   },
-  "sep-15": {
+  "ago-15": {
     es: "Bolígrafos de 2 colores (rojo y negro). Caja expositora",
     en: "2-color pens (red and black). Display box",
     fr: "Stetlos 2 couleurs (rojo et negro). Boîte présentoir",
@@ -837,7 +837,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "2-kleurenpennen (rojo en negro). Displaendoos",
     pl: "Długopisi dwukolorowe (rojo i negro). Puzłko ekspozicijne"
   },
-  "sep-16": {
+  "ago-16": {
     es: "Rotuladores para pizarra blanca. Caja expositora",
     en: "Whiteboard markers. Display box",
     fr: "Rotuladores pour pizarra blanca. Boîte présentoir",
@@ -847,7 +847,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Rotuladores voor pizarra blanca. Displaendoos",
     pl: "Rotuladores do pizarra blanca. Puzłko ekspozicijne"
   },
-  "sep-17": {
+  "ago-17": {
     es: "Rotuladores para pizarra blanca con borrador. Caja expositora",
     en: "Whiteboard markers with eraser. Display box",
     fr: "Rotuladores pour pizarra blanca avec borrador. Boîte présentoir",
@@ -857,7 +857,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Rotuladores voor pizarra blanca met borrador. Displaendoos",
     pl: "Rotuladores do pizarra blanca z borrador. Puzłko ekspozicijne"
   },
-  "sep-18": {
+  "ago-18": {
     es: "Notas adhesivas y marcadores de página. 11 bloques. Diferentes tamaños. 20 x 20 unidades",
     en: "Sticky notes and page markers. 11 blocks. Different sizes. 20 x 20 units",
     fr: "Notas adhesivas et marcadores de página. 11 bloques. Diferentes tamaños. 20 x 20 unidades",
@@ -867,7 +867,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Notas adhesivas en marcadores van página. 11 bloques. Diferentes tamaños. 20 x 20 unidavans",
     pl: "Notas adhesivas i marcadores z página. 11 bloques. Diferentes tamaños. 20 x 20 unidazs"
   },
-  "sep-19": {
+  "ago-19": {
     es: "Sacapuntas de plástico con depósito. Caja expositora",
     en: "Plastic sharpener with container. Display box",
     fr: "Taille-craeton en plastique avec réservoir. Boîte présentoir",
@@ -877,7 +877,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Kunststof puntenslijper met reservoir. Displaendoos",
     pl: "Plastikowa temperówka z pojemnikiem. Puzłko ekspozicijne"
   },
-  "sep-20": {
+  "ago-20": {
     es: "Tijeras escolares. Caja expositora",
     en: "School scissors. Display box",
     fr: "Ciseaux scolaires. Boîte présentoir",
@@ -887,7 +887,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Schoolscharen. Displaendoos",
     pl: "Nożiczki szkolne. Puzłko ekspozicijne"
   },
-  "sep-21": {
+  "ago-21": {
     es: "Libreta con notas adhesivas y marcadores de página. Caja expositora",
     en: "Notebook with sticky notes and page markers. Display box",
     fr: "Libreta avec notas adhesivas et marcadores de página. Boîte présentoir",
@@ -897,7 +897,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Libreta met notas adhesivas en marcadores van página. Displaendoos",
     pl: "Libreta z notas adhesivas i marcadores z página. Puzłko ekspozicijne"
   },
-  "sep-22": {
+  "ago-22": {
     es: "Gomas elásticas. Caja expositora",
     en: "Rubber bands. Display box",
     fr: "Élastiques. Boîte présentoir",
@@ -907,7 +907,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Elastiekjes. Displaendoos",
     pl: "Gumki recepturki. Puzłko ekspozicijne"
   },
-  "sep-23": {
+  "ago-23": {
     es: "Clips metálicos y de colores. Caja expositora",
     en: "Metal and colored clips. Display box",
     fr: "Clips métalliques et colorés. Boîte présentoir",
@@ -917,7 +917,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Metalen en gekleurvan clips. Displaendoos",
     pl: "Metalowe i kolorowe spinacze. Puzłko ekspozicijne"
   },
-  "sep-24": {
+  "ago-24": {
     es: "Mini grapadora de plástico. Caja expositora",
     en: "Mini plastic stapler. Display box",
     fr: "Mini agrafeuse en plastique. Boîte présentoir",
@@ -927,7 +927,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Mini kunststof nietmachine. Displaendoos",
     pl: "Mini plastikowi zsziwacz. Puzłko ekspozicijne"
   },
-  "sep-25": {
+  "ago-25": {
     es: "Etiquetas adhesivas. Caja expositora",
     en: "Adhesive labels. Display box",
     fr: "Étiquettes adhésives. Boîte présentoir",
@@ -937,7 +937,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Zelfklevenvan etiketten. Displaendoos",
     pl: "Etikieti samoprzilepne. Puzłko ekspozicijne"
   },
-  "sep-26": {
+  "ago-26": {
     es: "Set de 3 lápices con goma de borrar con formas. Caja expositora",
     en: "Set of 3 pencils with shaped erasers. Display box",
     fr: "Set de 3 lápices avec goma de borrar avec formas. Boîte présentoir",
@@ -947,7 +947,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van 3 lápices met goma van borrar met formas. Displaendoos",
     pl: "Set z 3 lápices z goma z borrar z formas. Puzłko ekspozicijne"
   },
-  "sep-27": {
+  "ago-27": {
     es: "Set de pintura escolar con 12 ceras y 12 acuarelas. Caja expositora",
     en: "School painting set with 12 wax crayons and 12 watercolors. Display box",
     fr: "Set de pintura escolar avec 12 ceras et 12 acuarelas. Boîte présentoir",
@@ -957,7 +957,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van pintura escolar met 12 ceras en 12 acuarelas. Displaendoos",
     pl: "Set z pintura escolar z 12 ceras i 12 acuarelas. Puzłko ekspozicijne"
   },
-  "sep-28": {
+  "ago-28": {
     es: "Set de borrador de pizarra y 2 rotuladores. Caja expositora",
     en: "Whiteboard eraser and 2 markers set. Display box",
     fr: "Set de borrador de pizarra et 2 rotuladores. Boîte présentoir",
@@ -967,7 +967,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Set van borrador van pizarra en 2 rotuladores. Displaendoos",
     pl: "Set z borrador z pizarra i 2 rotuladores. Puzłko ekspozicijne"
   },
-  "sep-29": {
+  "ago-29": {
     es: "Calculadora básica. Caja expositora",
     en: "Basic calculator. Display box",
     fr: "Calculatrice de base. Boîte présentoir",
@@ -977,7 +977,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Basisrekenmachine. Displaendoos",
     pl: "Podstawowi kalkulator. Puzłko ekspozicijne"
   },
-  "sep-30": {
+  "ago-30": {
     es: "Pegamento en barra (21g + 9g). Caja expositora",
     en: "Glue stick (21g + 9g). Display box",
     fr: "Colle en bâton (21g + 9g). Boîte présentoir",
@@ -987,7 +987,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Lijmstift (21g + 9g). Displaendoos",
     pl: "Klej w sztifcie (21g + 9g). Puzłko ekspozicijne"
   },
-  "sep-31": {
+  "ago-31": {
     es: "Adhesivo cianocrilato. Caja expositora",
     en: "Cyanoacrylate adhesive. Display box",
     fr: "Adhésif cetanoacretlate. Boîte présentoir",
@@ -997,7 +997,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Cenanoacrenlaatlijm. Displaendoos",
     pl: "Klej cijanoakrilowi. Puzłko ekspozicijne"
   },
-  "sep-32": {
+  "ago-32": {
     es: "Bolígrafo con 6 colores de tinta. Caja expositora",
     en: "Pen with 6 ink colors. Display box",
     fr: "Stetlo avec 6 couleurs d’encre. Boîte présentoir",
@@ -1007,7 +1007,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pen met 6 inktkleuren. Displaendoos",
     pl: "Długopis z 6 kolorami tuszu. Puzłko ekspozicijne"
   },
-  "sep-33": {
+  "ago-33": {
     es: "Set de tizas (12 de colores + 12 blancas). Caja expositora",
     en: "Chalk set (12 colored + 12 white). Display box",
     fr: "Set de craies (12 de colores + 12 blancas). Boîte présentoir",
@@ -1017,7 +1017,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Krijtset (12 van colores + 12 blancas). Displaendoos",
     pl: "Zestaw kredi (12 z colores + 12 blancas). Puzłko ekspozicijne"
   },
-  "sep-34": {
+  "ago-34": {
     es: "Bote portalápices de metal. Caja expositora",
     en: "Metal pencil holder. Display box",
     fr: "Pot à craetons en métal. Boîte présentoir",
@@ -1027,7 +1027,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Metalen pennenhouvanr. Displaendoos",
     pl: "Metalowi pojemnik na długopisi. Puzłko ekspozicijne"
   },
-  "sep-35": {
+  "ago-35": {
     es: "Lápices de colores de madera. Caja expositora",
     en: "Wooden colored pencils. Display box",
     fr: "Craetons de couleur en bois. Boîte présentoir",
@@ -1037,7 +1037,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Houten kleurpotlovann. Displaendoos",
     pl: "Drewniane kredki. Puzłko ekspozicijne"
   },
-  "sep-36": {
+  "ago-36": {
     es: "Rotuladores de colores de plástico. Caja expositora",
     en: "Plastic colored markers. Display box",
     fr: "Feutres de couleur en plastique. Boîte présentoir",
@@ -1047,7 +1047,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gekleurvan kunststof stiften. Displaendoos",
     pl: "Kolorowe plastikowe markeri. Puzłko ekspozicijne"
   },
-  "sep-37": {
+  "ago-37": {
     es: "Cinta adhesiva transparente. Caja expositora",
     en: "Transparent adhesive tape. Display box",
     fr: "Ruban adhésif transparent. Boîte présentoir",
@@ -1057,7 +1057,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Transvoornte plakband. Displaendoos",
     pl: "Przezroczista taśma klejąca. Puzłko ekspozicijne"
   },
-  "sep-38": {
+  "ago-38": {
     es: "Lupa de plástico. Caja expositora",
     en: "Plastic magnifying glass. Display box",
     fr: "Loupe en plastique. Boîte présentoir",
@@ -1070,7 +1070,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── OCTUBRE (1 productos) ──────────────────────────────────────────
 
-  "oct-01": {
+  "sep-01": {
     es: "Cubo calabaza de plástico para Halloween",
     en: "Plastic pumpkin bucket for Halloween",
     fr: "Seau citrouille en plastique pour Halloween",
@@ -1083,7 +1083,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── NOVIEMBRE (39 productos) ──────────────────────────────────────────
 
-  "nov-01": {
+  "oct-01": {
     es: "Rollo de cinta decorativa para envolver regalos",
     en: "Roll of decorative ribbon for gift wrapping",
     fr: "Rollo de cinta décorative pour envolver regalos",
@@ -1093,7 +1093,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Rollo van cinta vancoratief voor envolver regalos",
     pl: "Rollo z cinta zkoracijna do envolver regalos"
   },
-  "nov-02": {
+  "oct-02": {
     es: "Adorno colgante clásico para árbol de Navidad",
     en: "Classic hanging ornament for Christmas tree",
     fr: "Adorno colgante clásico pour árbol de Navidad",
@@ -1103,7 +1103,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno colgante clásico voor árbol van Navidad",
     pl: "Adorno colgante clásico do árbol z Navidad"
   },
-  "nov-03": {
+  "oct-03": {
     es: "Adorno colgante decorativo en forma de búho",
     en: "Decorative owl-shaped hanging ornament",
     fr: "Adorno colgante décoratif en forma de búho",
@@ -1113,7 +1113,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno colgante vancoratief en forma van búho",
     pl: "Adorno colgante zkoracijni en forma z búho"
   },
-  "nov-04": {
+  "oct-04": {
     es: "Adorno colgante brillante para decoración navideña",
     en: "Shiny hanging ornament for Christmas decoration",
     fr: "Adorno colgante brillante pour decoración de Noël",
@@ -1123,7 +1123,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno colgante brillante voor vancoración kerst",
     pl: "Adorno colgante brillante do zcoración świąteczna"
   },
-  "nov-05": {
+  "oct-05": {
     es: "Figura decorativa colgante para Navidad",
     en: "Hanging decorative Christmas figure",
     fr: "Figura décorative colgante pour Navidad",
@@ -1133,7 +1133,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Figura vancoratief colgante voor Navidad",
     pl: "Figura zkoracijna colgante do Navidad"
   },
-  "nov-06": {
+  "oct-06": {
     es: "Ornamento festivo para árbol",
     en: "Festive tree ornament",
     fr: "Ornamento festivo pour árbol",
@@ -1143,7 +1143,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Ornamento festivo voor árbol",
     pl: "Ornamento festivo do árbol"
   },
-  "nov-07": {
+  "oct-07": {
     es: "Colgante decorativo con campanas/figuras",
     en: "Decorative hanging ornament with bells/figures",
     fr: "Colgante décoratif avec campanas/figuras",
@@ -1153,7 +1153,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Colgante vancoratief met campanas/figuras",
     pl: "Colgante zkoracijni z campanas/figuras"
   },
-  "nov-08": {
+  "oct-08": {
     es: "Adorno colgante en forma de bastón de caramelo",
     en: "Candy-cane-shaped hanging ornament",
     fr: "Adorno colgante en forma de bastón de caramelo",
@@ -1163,7 +1163,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno colgante en forma van bastón van caramelo",
     pl: "Adorno colgante en forma z bastón z caramelo"
   },
-  "nov-09": {
+  "oct-09": {
     es: "Adorno colgante en forma de caramelo envuelto",
     en: "Wrapped-candy-shaped hanging ornament",
     fr: "Adorno colgante en forma de caramelo envuelto",
@@ -1173,7 +1173,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno colgante en forma van caramelo envuelto",
     pl: "Adorno colgante en forma z caramelo envuelto"
   },
-  "nov-10": {
+  "oct-10": {
     es: "Bola de Navidad transparente con iluminación LED interior",
     en: "Transparent Christmas bauble with interior LED light",
     fr: "Bola de Navidad transparent avec iluminación LED interior",
@@ -1183,7 +1183,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Bola van Navidad transvoornt met iluminación LED interior",
     pl: "Bola z Navidad przezroczisti z iluminación LED interior"
   },
-  "nov-11": {
+  "oct-11": {
     es: "Esfera luminosa LED decorativa para colgar",
     en: "Decorative hanging LED light sphere",
     fr: "Esfera luminosa LED décorative pour colgar",
@@ -1193,7 +1193,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Esfera luminosa LED vancoratief voor colgar",
     pl: "Esfera luminosa LED zkoracijna do colgar"
   },
-  "nov-12": {
+  "oct-12": {
     es: "Figura decorativa de muñeco de nieve",
     en: "Decorative snowman figure",
     fr: "Figura décorative de muñeco de nieve",
@@ -1203,7 +1203,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Figura vancoratief van muñeco van nieve",
     pl: "Figura zkoracijna z muñeco z nieve"
   },
-  "nov-13": {
+  "oct-13": {
     es: "Bolsa de papel con motivos navideños para regalos",
     en: "Paper gift bag with Christmas motifs",
     fr: "Bolsa de papel avec motivos de Noëls pour regalos",
@@ -1213,7 +1213,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Bolsa van papel met motivos kersts voor regalos",
     pl: "Bolsa z papel z motivos świątecznis do regalos"
   },
-  "nov-14": {
+  "oct-14": {
     es: "Bolsa de regalo festiva grande",
     en: "Bolsa de regalo festiva grande",
     fr: "Bolsa de regalo festiva grand",
@@ -1223,7 +1223,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Bolsa van regalo festiva groot",
     pl: "Bolsa z regalo festiva dużi"
   },
-  "nov-15": {
+  "oct-15": {
     es: "Adorno en forma de estrella para árbol",
     en: "Star-shaped ornament for tree",
     fr: "Adorno en forma de estrella pour árbol",
@@ -1233,7 +1233,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno en forma van estrella voor árbol",
     pl: "Adorno en forma z estrella do árbol"
   },
-  "nov-16": {
+  "oct-16": {
     es: "Colgador decorativo de fieltro/tela para pomo de puerta",
     en: "Decorative felt/fabric door-knob hanger",
     fr: "Colgador décoratif de fieltro/tela pour pomo de puerta",
@@ -1243,7 +1243,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Colgador vancoratief van fieltro/tela voor pomo van puerta",
     pl: "Colgador zkoracijni z fieltro/tela do pomo z puerta"
   },
-  "nov-17": {
+  "oct-17": {
     es: "Felpudo de entrada con mensaje y diseño navideño",
     en: "Entrance doormat with Christmas message and design",
     fr: "Felpudo de entrada avec mensaje et diseño de Noël",
@@ -1253,7 +1253,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Felpudo van entrada met mensaje en diseño kerst",
     pl: "Felpudo z entrada z mensaje i diseño świąteczni"
   },
-  "nov-18": {
+  "oct-18": {
     es: "Gorro clásico de Papá Noel de tela",
     en: "Classic fabric Santa hat",
     fr: "Gorro clásico de Papá Noel de tela",
@@ -1263,7 +1263,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gorro clásico van Papá Noel van tela",
     pl: "Gorro clásico z Papá Noel z tela"
   },
-  "nov-19": {
+  "oct-19": {
     es: "Adorno o figura decorativa en forma de árbol de Navidad/Abeto",
     en: "Christmas tree/fir-shaped decorative ornament or figure",
     fr: "Adorno o figura décorative en forma de árbol de Navidad/Abeto",
@@ -1273,7 +1273,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno o figura vancoratief en forma van árbol van Navidad/Abeto",
     pl: "Adorno o figura zkoracijna en forma z árbol z Navidad/Abeto"
   },
-  "nov-20": {
+  "oct-20": {
     es: "Adorno rústico de madera tallada para colgar",
     en: "Rustic carved wooden hanging ornament",
     fr: "Adorno rústico de bois tallada pour colgar",
@@ -1283,7 +1283,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno rústico van hout tallada voor colgar",
     pl: "Adorno rústico z drewno tallada do colgar"
   },
-  "nov-21": {
+  "oct-21": {
     es: "Colgante de madera con figuras navideñas",
     en: "Wooden hanging ornament with Christmas figures",
     fr: "Colgante de bois avec figuras de Noëls",
@@ -1293,7 +1293,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Colgante van hout met figuras kersts",
     pl: "Colgante z drewno z figuras świątecznas"
   },
-  "nov-22": {
+  "oct-22": {
     es: "Adorno navideño con palo/pincho para centros de mesa o macetas",
     en: "Christmas ornament with stick/pick for centerpieces or pots",
     fr: "Adorno de Noël avec palo/pincho pour centros de mesa o macetas",
@@ -1303,7 +1303,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno kerst met palo/pincho voor centros van mesa o macetas",
     pl: "Adorno świąteczni z palo/pincho do centros z mesa o macetas"
   },
-  "nov-23": {
+  "oct-23": {
     es: "Pincho decorativo con personaje navideño (macetas/jardín)",
     en: "Decorative pick with Christmas character for pots/garden",
     fr: "Pincho décoratif avec personaje de Noël (macetas/jardín)",
@@ -1313,7 +1313,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pincho vancoratief met personaje kerst (macetas/jardín)",
     pl: "Pincho zkoracijni z personaje świąteczni (macetas/jardín)"
   },
-  "nov-24": {
+  "oct-24": {
     es: "Pack de lazos decorativos brillantes para árbol o guirnaldas",
     en: "Pack of shiny decorative bows for tree or garlands",
     fr: "Pack de lazos décoratifs brillantes pour árbol o guirnaldas",
@@ -1323,7 +1323,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Pack van lazos vancoratiefs brillantes voor árbol o guirnaldas",
     pl: "Pack z lazos zkoracijnis brillantes do árbol o guirnaldas"
   },
-  "nov-25": {
+  "oct-25": {
     es: "Calcetín navideño tradicional para colgar y rellenar",
     en: "Traditional Christmas stocking for hanging and filling",
     fr: "Calcetín de Noël tradicional pour colgar et rellenar",
@@ -1333,7 +1333,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Calcetín kerst tradicional voor colgar en rellenar",
     pl: "Calcetín świąteczni tradicional do colgar i rellenar"
   },
-  "nov-26": {
+  "oct-26": {
     es: "Bota/Calcetín festivo decorativo de fieltro",
     en: "Decorative festive felt stocking/sock",
     fr: "Bota/Calcetín festivo décoratif de fieltro",
@@ -1343,7 +1343,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Bota/Calcetín festivo vancoratief van fieltro",
     pl: "Bota/Calcetín festivo zkoracijni z fieltro"
   },
-  "nov-27": {
+  "oct-27": {
     es: "Letrero o cartel colgante con el texto 'Feliz Navidad'",
     en: "Hanging sign with the text 'Merry Christmas'",
     fr: "Letrero o cartel colgante avec el texto 'Feliz Navidad'",
@@ -1353,7 +1353,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Letrero o cartel colgante met el texto 'Feliz Navidad'",
     pl: "Letrero o cartel colgante z el texto 'Feliz Navidad'"
   },
-  "nov-28": {
+  "oct-28": {
     es: "Guirnalda de luces LED con bombillas en forma de bola",
     en: "LED light garland with ball-shaped bulbs",
     fr: "Guirnalda de luces LED avec bombillas en forma de bola",
@@ -1363,7 +1363,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Guirnalda van luces LED met bombillas en forma van bola",
     pl: "Guirnalda z luces LED z bombillas en forma z bola"
   },
-  "nov-29": {
+  "oct-29": {
     es: "Tira de luces LED con cubiertas en forma de estrella",
     en: "LED light strip with star-shaped covers",
     fr: "Tira de luces LED avec cubiertas en forma de estrella",
@@ -1373,7 +1373,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Tira van luces LED met cubiertas en forma van estrella",
     pl: "Tira z luces LED z cubiertas en forma z estrella"
   },
-  "nov-30": {
+  "oct-30": {
     es: "Stickers/Pegatinas de gel o vinilo para decorar ventanas",
     en: "Gel or vinyl stickers for window decoration",
     fr: "Stickers/Pegatinas de gel o vinilo pour decorar ventanas",
@@ -1383,7 +1383,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Stickers/Pegatinas van gel o vinilo voor vancorar ventanas",
     pl: "Stickers/Pegatinas z gel o vinilo do zcorar ventanas"
   },
-  "nov-31": {
+  "oct-31": {
     es: "Calcomanías decorativas navideñas para cristales",
     en: "Decorative Christmas decals for glass/windows",
     fr: "Calcomanías décoratives de Noëls pour cristales",
@@ -1393,7 +1393,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Calcomanías vancoratiefs kersts voor cristales",
     pl: "Calcomanías zkoracijnas świątecznas do cristales"
   },
-  "nov-32": {
+  "oct-32": {
     es: "Gafas de fiesta divertidas con temática navideña",
     en: "Fun Christmas-themed party glasses",
     fr: "Gafas de fiesta divertidas avec temática de Noël",
@@ -1403,7 +1403,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Gafas van fiesta divertidas met temática kerst",
     pl: "Gafas z fiesta divertidas z temática świąteczna"
   },
-  "nov-33": {
+  "oct-33": {
     es: "Adorno festivo surtido para ramas de árbol",
     en: "Assorted festive ornament for tree branches",
     fr: "Adorno festivo surtido pour ramas de árbol",
@@ -1413,7 +1413,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Adorno festivo surtido voor ramas van árbol",
     pl: "Adorno festivo surtido do ramas z árbol"
   },
-  "nov-34": {
+  "oct-34": {
     es: "Ornamento colgante con cuerda rústica",
     en: "Hanging ornament with rustic cord",
     fr: "Ornamento colgante avec cuerda rústica",
@@ -1423,7 +1423,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Ornamento colgante met cuerda rústica",
     pl: "Ornamento colgante z cuerda rústica"
   },
-  "nov-35": {
+  "oct-35": {
     es: "Figura colgante navideña tradicional",
     en: "Traditional hanging Christmas figure",
     fr: "Figura colgante de Noël tradicional",
@@ -1433,7 +1433,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Figura colgante kerst tradicional",
     pl: "Figura colgante świąteczna tradicional"
   },
-  "nov-36": {
+  "oct-36": {
     es: "Diadema festiva divertida (ej. cuernos de reno)",
     en: "Fun festive headband, e.g. reindeer antlers",
     fr: "Diadema festiva divertida (ej. cuernos de reno)",
@@ -1443,7 +1443,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Diavanma festiva divertida (ej. cuernos van reno)",
     pl: "Diazma festiva divertida (ej. cuernos z reno)"
   },
-  "nov-37": {
+  "oct-37": {
     es: "Diadema decorativa para fiestas navideñas",
     en: "Decorative headband for Christmas parties",
     fr: "Diadema décorative pour fiestas de Noëls",
@@ -1453,7 +1453,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Diavanma vancoratief voor fiestas kersts",
     pl: "Diazma zkoracijna do fiestas świątecznas"
   },
-  "nov-38": {
+  "oct-38": {
     es: "Cinta para el pelo con motivos navideños",
     en: "Hairband with Christmas motifs",
     fr: "Cinta pour el pelo avec motivos de Noëls",
@@ -1463,7 +1463,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Cinta voor el pelo met motivos kersts",
     pl: "Cinta do el pelo z motivos świątecznis"
   },
-  "nov-39": {
+  "oct-39": {
     es: "Gafas decorativas de disfraz navideño para photocall",
     en: "Decorative Christmas costume glasses for photocalls",
     fr: "Gafas décoratives de disfraz de Noël pour photocall",
@@ -1489,7 +1489,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── ABRIL (8 productos) ──────────────────────────────────────────
 
-  "abr-01": {
+  "may-01": {
     es: "Set de palas largas de playa con mango de madera y piezas de plástico/madera, acompañado de moldes marinos.",
     en: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
     fr: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
@@ -1499,7 +1499,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds.",
     pl: "Long beach paddle set con handle de wood y pieces de plastic/wood, acompañado de sea moulds."
   },
-  "abr-02": {
+  "may-02": {
     es: "Set de playa de colección natural con cubo, pala, rastrillo, molino y moldes marinos. Presentado en bolsa de red.",
     en: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
     fr: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
@@ -1509,7 +1509,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag.",
     pl: "Beach set de natural collection con bucket, shovel, rake, windmill y sea moulds. Presentado en mesh bag."
   },
-  "abr-03": {
+  "may-03": {
     es: "Camión volquete de colección natural con accesorios de playa: pala, rastrillo y moldes marinos.",
     en: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
     fr: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
@@ -1519,7 +1519,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds.",
     pl: "Dump truck de natural collection con accesorios de beach: shovel, rake y sea moulds."
   },
-  "abr-04": {
+  "may-04": {
     es: "Carretilla de playa con accesorios de arena de colección natural: pala, rastrillo y moldes marinos.",
     en: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
     fr: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
@@ -1529,7 +1529,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds.",
     pl: "Beach wheelbarrow con accesorios de sand de natural collection: shovel, rake y sea moulds."
   },
-  "abr-05": {
+  "may-05": {
     es: "Regadera infantil con forma de dinosaurio y accesorios de playa de colección natural.",
     en: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
     fr: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
@@ -1539,7 +1539,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection.",
     pl: "Children’s watering can con shape de dinosaur y accesorios de beach de natural collection."
   },
-  "abr-06": {
+  "may-06": {
     es: "Set de playa con cubo, pala, rastrillo y moldes de animales marinos de colección natural.",
     en: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
     fr: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
@@ -1549,7 +1549,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection.",
     pl: "Beach set con bucket, shovel, rake y moldes de animals sea de natural collection."
   },
-  "abr-07": {
+  "may-07": {
     es: "Juego de bolos infantil de colección natural, con bolos y bola en colores suaves surtidos.",
     en: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
     fr: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
@@ -1559,7 +1559,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted.",
     pl: "Children’s bowling game de natural collection, con bowling pins y ball en colours soft assorted."
   },
-  "abr-08": {
+  "may-08": {
     es: "Set de palas de playa de madera con pelota. Diseño clásico tipo beach ball para juego exterior.",
     en: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
     fr: "Beach paddle set de wood con ball. Diseño clásico tipo beach ball para game exterior.",
@@ -2674,7 +2674,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
 
   // ── DESECHABLES (10 productos) ──────────────────────────────────────────
 
-  "desechables-01": {
+  "nov-01": {
     es: "Bandeja rectangular navideña Leiva Picnic con dibujo de corona, lazo rojo, ramas y cascabeles. Formato de 8 unidades.",
     en: "Christmas rectangular tray Leiva Picnic con drawing de wreath, mesh bow, branches y bells. Pack of 8 units.",
     fr: "Plateau rectangulaire de Noël Leiva Picnic con drawing de couronne, mesh bow, branches y grelots. Format de 8 unitéés.",
@@ -2684,7 +2684,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Rechthoekig kerstdienblad Leiva Picnic con drawing de krans, mesh bow, branches y belletjes. Formaat van 8 eenheden.",
     pl: "Prostokątna taca świąteczna Leiva Picnic con drawing de wieniec, mesh bow, branches y dzwoneczki. Format 8 sztuk."
   },
-  "desechables-02": {
+  "nov-02": {
     es: "Plato redondo pequeño de plástico con decoración navideña de corona, acebo, lazo rojo, piñas y cascabeles. Formato de 18 unidades.",
     en: "Small round plate de plastic con Christmas decoration de wreath, holly, mesh bow, pine cones y bells. Pack of 18 units.",
     fr: "Petite assiette ronde de plastic con Décoration de Noël de couronne, houx, mesh bow, pommes de pin y grelots. Format de 18 unitéés.",
@@ -2694,7 +2694,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Klein rond bord de plastic con Kerstdecoratie de krans, hulst, mesh bow, dennenappels y belletjes. Formaat van 18 eenheden.",
     pl: "Mały okrągły talerz de plastic con Dekoracja świąteczna de wieniec, ostrokrzew, mesh bow, szyszki y dzwoneczki. Format 18 sztuk."
   },
-  "desechables-03": {
+  "nov-03": {
     es: "Plato redondo grande de plástico con decoración navideña de corona, acebo, lazo rojo, piñas y cascabeles. Formato de 12 unidades.",
     en: "Large round plate de plastic con Christmas decoration de wreath, holly, mesh bow, pine cones y bells. Pack of 12 units.",
     fr: "Grande assiette ronde de plastic con Décoration de Noël de couronne, houx, mesh bow, pommes de pin y grelots. Format de 12 unitéés.",
@@ -2704,7 +2704,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Groot rond bord de plastic con Kerstdecoratie de krans, hulst, mesh bow, dennenappels y belletjes. Formaat van 12 eenheden.",
     pl: "Duży okrągły talerz de plastic con Dekoracja świąteczna de wieniec, ostrokrzew, mesh bow, szyszki y dzwoneczki. Format 12 sztuk."
   },
-  "desechables-04": {
+  "nov-04": {
     es: "Plato redondo de plástico con decoración navideña de corona, lazo rojo, ramas verdes y cascabeles. Formato de 12 unidades.",
     en: "Round plate de plastic con Christmas decoration de wreath, mesh bow, green branches y bells. Pack of 12 units.",
     fr: "Assiette ronde de plastic con Décoration de Noël de couronne, mesh bow, branches vertes y grelots. Format de 12 unitéés.",
@@ -2714,7 +2714,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Rond bord de plastic con Kerstdecoratie de krans, mesh bow, groene takken y belletjes. Formaat van 12 eenheden.",
     pl: "Okrągły talerz de plastic con Dekoracja świąteczna de wieniec, mesh bow, zielone gałązki y dzwoneczki. Format 12 sztuk."
   },
-  "desechables-05": {
+  "nov-05": {
     es: "Copas transparentes de plástico para picnic o fiestas, con borde y base plateados. Formato de 4 unidades.",
     en: "Transparent plastic cups para picnic o fiestas, con borde y base silver. Pack of 4 units.",
     fr: "Coupes transparentes en plastique para picnic o fiestas, con borde y base silver. Format de 4 unitéés.",
@@ -2724,7 +2724,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Transparante plastic glazen para picnic o fiestas, con borde y base silver. Formaat van 4 eenheden.",
     pl: "Przezroczyste plastikowe kieliszki para picnic o fiestas, con borde y base silver. Format 4 sztuk."
   },
-  "desechables-06": {
+  "nov-06": {
     es: "Juego de cubiertos de plástico transparente compuesto por tenedor, cuchara y cuchillo. Formato de 4 juegos.",
     en: "Transparent plastic cutlery set compuesto por fork, spoon y knife. Pack of 4 sets.",
     fr: "Transparent plastic cutlery set compuesto por fork, spoon y knife. Format de 4 jeux.",
@@ -2734,7 +2734,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Transparant plastic cutlery set compuesto por fork, spoon y knife. Formaat van 4 sets.",
     pl: "Przezroczysty plastic cutlery set compuesto por fork, spoon y knife. Format 4 zestawy."
   },
-  "desechables-07": {
+  "nov-07": {
     es: "Vaso de cartón con diseño navideño Leiva Picnic, decorado con corona, ramas, frutos rojos y lazo. Capacidad 354 ml. Formato de 14 unidades.",
     en: "Cardboard cup con diseño Christmas Leiva Picnic, decorated con wreath, branches, mesh berries y bow. Capacity 354 ml. Pack of 14 units.",
     fr: "Gobelet en carton con diseño Christmas Leiva Picnic, decorated con couronne, branches, mesh berries y bow. Capacité 354 ml. Format de 14 unitéés.",
@@ -2744,7 +2744,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Kartonnen beker con diseño Christmas Leiva Picnic, decorated con krans, branches, mesh berries y bow. Capaciteit 354 ml. Formaat van 14 eenheden.",
     pl: "Kubek kartonowy con diseño Christmas Leiva Picnic, decorated con wieniec, branches, mesh berries y bow. Pojemność 354 ml. Format 14 sztuk."
   },
-  "desechables-08": {
+  "nov-08": {
     es: "Vaso grande de cartón con diseño navideño Leiva Picnic, decorado con corona, acebo, piñas y lazo rojo. Capacidad 473 ml. Formato de 12 unidades.",
     en: "Large cardboard cup con diseño Christmas Leiva Picnic, decorated con wreath, holly, pine cones y mesh bow. Capacity 473 ml. Pack of 12 units.",
     fr: "Grand gobelet en carton con diseño Christmas Leiva Picnic, decorated con couronne, houx, pommes de pin y mesh bow. Capacité 473 ml. Format de 12 unitéés.",
@@ -2754,7 +2754,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Grote kartonnen beker con diseño Christmas Leiva Picnic, decorated con krans, hulst, dennenappels y mesh bow. Capaciteit 473 ml. Formaat van 12 eenheden.",
     pl: "Duży kubek kartonowy con diseño Christmas Leiva Picnic, decorated con wieniec, ostrokrzew, szyszki y mesh bow. Pojemność 473 ml. Format 12 sztuk."
   },
-  "desechables-09": {
+  "nov-09": {
     es: "Servilletas de papel blancas con decoración navideña de corona, lazo rojo, ramas verdes y cascabeles. Formato de 24 unidades.",
     en: "White paper napkins con Christmas decoration de wreath, mesh bow, green branches y bells. Pack of 24 units.",
     fr: "Serviettes blanches en papier con Décoration de Noël de couronne, mesh bow, branches vertes y grelots. Format de 24 unitéés.",
@@ -2764,7 +2764,7 @@ export const productDescriptions: Record<string, Partial<Record<Language, string
     nl: "Witte papieren servetten con Kerstdecoratie de krans, mesh bow, groene takken y belletjes. Formaat van 24 eenheden.",
     pl: "Białe serwetki papierowe con Dekoracja świąteczna de wieniec, mesh bow, zielone gałązki y dzwoneczki. Format 24 sztuk."
   },
-  "desechables-10": {
+  "nov-10": {
     es: "Mantel navideño de plástico con diseño Merry Christmas, corona, acebo y frutos rojos. Medida del producto 180 x 108 cm.",
     en: "Christmas tablecloth de plastic con diseño Merry Christmas, wreath, holly y mesh berries. Product size 180 x 108 cm.",
     fr: "Nappe de Noël de plastic con diseño Merry Christmas, couronne, houx y mesh berries. Dimension du produit 180 x 108 cm.",

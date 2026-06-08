@@ -95,7 +95,7 @@ type StandExtra = {
 
 const standExtras: Record<string, StandExtra> = {
 
-  jun: {
+  jul: {
     imagePath: `${base}assets/stands/expositor-jun.png`,
     info: {
       standRef: "99917", numRefs: 20, totalUnits: 338, sides: 2,
@@ -226,7 +226,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  feb: {
+  mar: {
     imagePath: `${base}assets/stands/expositor-feb.png`,
     info: { standRef: "99938", numRefs: 14, totalUnits: 468, sides: 2, priceStand: "290,16 €", pricePerUnit: "0,62 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [32348,32349,32350,32351,32352,32353,32354,32355,32356,32357,32358,32359,32360,32361],
@@ -248,7 +248,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  mar: {
+  abr: {
     imagePath: `${base}assets/stands/expositor-mar.png`,
     info: { numRefs: 1, tipo: "Caja expositora", standAlto: 6, standLargo: 6, standAncho: 150 },
     refs: [98685],
@@ -257,7 +257,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  may: {
+  jun: {
     imagePath: `${base}assets/stands/expositor-may.png`,
     info: { standRef: "99919", numRefs: 11, totalUnits: 97, sides: 2, priceStand: "349,20 €", pricePerUnit: "3,60 €", tipo: "Medio palé", standAlto: 150, standLargo: 80, standAncho: 60 },
     refs: [60372,60373,60374,60375,60376,60377,60378,60379,60380,60381,60382],
@@ -276,7 +276,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  sep: {
+  ago: {
     imagePath: `${base}assets/stands/expositor-sep.png`,
     info: { standRef: "99932", numRefs: 38, totalUnits: 399, sides: 2, priceStand: "231,42 €", pricePerUnit: "0,58 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [32243,32244,32245,32246,32247,32248,32249,32250,32251,32252,32253,32254,32255,32256,32257,32258,32259,32260,32261,32262,32263,32264,32265,32266,32267,32268,32269,32270,32271,32272,32273,32274,32275,32276,32277,32278,32279,32280],
@@ -322,7 +322,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  oct: {
+  sep: {
     imagePath: `${base}assets/stands/expositor-oct.png`,
     info: { numRefs: 1, totalUnits: 18, tipo: "Caja expositora", standAlto: 34, standLargo: 48, standAncho: 40 },
     refs: [2062],
@@ -331,7 +331,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  nov: {
+  oct: {
     imagePath: `${base}assets/stands/expositor-nov.png`,
     info: { standRef: "99930", numRefs: 39, totalUnits: 294, sides: 4, priceStand: "323,40 €", pricePerUnit: "1,10 €", tipo: "Expositor giratorio", standAlto: 130, standLargo: 48, standAncho: 67 },
     refs: [60277,60306,60309,60305,60312,60310,60311,60297,60296,60308,60315,60313,60282,60283,60314,60307,60279,60278,60284,60289,60290,60287,60288,60293,60298,60299,60285,60280,60281,60292,60291,60286,60302,60294,60295,60300,60301,60303,60304],
@@ -387,7 +387,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  picnic: {
+  feb: {
     imagePath: `${base}assets/stands/expositor-picnic.png`,
     info: { standRef: "99937", numRefs: 18, totalUnits: 321, sides: 2, priceStand: "195,81 €", pricePerUnit: "0,61 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [43136,43137,43138,43139,43140,43141,43142,43143,43144,43145,43146,43147,43148,43150,43151,43152,43153,43154],
@@ -457,7 +457,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  desechables: {
+  nov: {
     imagePath: `${base}assets/stands/expositor-desechables.png`,
     info: { standRef: "99920", numRefs: 10, totalUnits: 231, sides: 2, priceStand: "263,34 €", pricePerUnit: "1,14 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [43214,43215,43216,43217,43218,43219,43220,43221,43222,43223],
@@ -475,7 +475,7 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
-  abr: {
+  may: {
     imagePath: `${base}assets/stands/expositor-abr.png`,
     info: { standRef: "99918", numRefs: 8, totalUnits: 78, sides: 2, priceStand: "138,84 €", pricePerUnit: "1,78 €", tipo: "Cuarto palé", standAlto: 150, standLargo: 40, standAncho: 60 },
     refs: [60383,60384,60385,60386,60406,60407,60408,60409],
@@ -604,30 +604,33 @@ const standExtras: Record<string, StandExtra> = {
 type StandDef = Omit<Stand, "image" | "products">;
 
 const seasonalDefs: StandDef[] = [
-  { id: "ene", label: "ENE", color: "#1f6fb5", title: "Expositor Enero",         desc: "Ideal para reactivar ventas tras las fiestas con productos esenciales.",        productsBase: ["Juegos de mesa", "Puzzles", "Manualidades", "Figuras"] },
-  { id: "feb", label: "FEB", color: "#2d87c8", title: "Expositor Febrero",        desc: "Regalos rápidos, detalles impulsivos y productos de alta rotación.",           productsBase: ["Peluches", "Cartas", "Detalles regalo", "Llaveros"] },
-  { id: "mar", label: "MAR", color: "#5f9f4b", title: "Expositor Marzo",          desc: "Juegos de exterior para aprovechar el inicio del buen tiempo.",                productsBase: ["Cometas", "Pelotas", "Cuerdas", "Tizas"] },
-  { id: "abr", label: "ABR", color: colorMap.darkGreen, title: "Expositor Colección Natural", desc: "Juguetes de playa y exterior de la colección natural, con materiales sostenibles.", productsBase: ["Palas", "Sets playa", "Regaderas", "Juegos"] },
-  { id: "may", label: "MAY", color: "#77b35c", title: "Expositor Mayo",           desc: "Preparación de temporada de calor con juguetes dinámicos.",                   productsBase: ["Pistolas pequeñas", "Burbujeros", "Raquetas", "Discos"] },
-  { id: "jun", label: "JUN", color: "#e5a2a2", title: "Expositor Junio",          desc: "Campaña de fin de clases y primeras compras de verano.",                      productsBase: ["Juegos viaje", "Explorador", "Cámaras agua", "Diarios"] },
-  { id: "jul", label: "JUL", color: "#df8b8b", title: "Expositor Set de Playa",  desc: "Los productos estrella para playa, piscina y verano.",                        productsBase: ["Cubos y palas", "Pistolas de agua", "Flotadores", "Gafas buceo"] },
-  { id: "ago", label: "AGO", color: "#d66a6a", title: "Expositor Agosto",         desc: "Entretenimiento para viajes, vacaciones y tardes de verano.",                 productsBase: ["Juegos magnéticos", "Pasatiempos", "Cartas", "Mini juegos"] },
-  { id: "sep", label: "SEP", color: "#d9a14c", title: "Expositor Septiembre",     desc: "Vuelta al cole con productos prácticos e infantiles.",                        productsBase: ["Estuches", "Mochilas", "Papelería", "Fiambreras"] },
-  { id: "oct", label: "OCT", color: "#d89a54", title: "Expositor Halloween",      desc: "Disfraces, decoración y accesorios para campañas de impacto visual.",         productsBase: ["Maquillaje", "Disfraces", "Calabazas", "Decoración"] },
-  { id: "nov", label: "NOV", color: "#d8a35f", title: "Expositor Noviembre",      desc: "Inicio de campaña navideña y productos de alta demanda.",                     productsBase: ["Juguetes estrella", "Adviento", "Catálogos", "Decoración"] },
-  { id: "dic", label: "DIC", color: "#2b6ea7", title: "Expositor Navidad",        desc: "Regalos de última hora y top ventas para diciembre.",                         productsBase: ["Interactivos", "Muñecas", "Pistas", "Construcción"] },
+  { id: "ene", label: "ENE", color: "#1f6fb5",       title: "Expositor Enero",            desc: "Ideal para reactivar ventas tras las fiestas con productos de jardinería.",    productsBase: ["Regaderas", "Macetas", "Herramientas", "Tutores"] },
+  { id: "feb", label: "FEB", color: "#2d87c8",       title: "Expositor Picnic",           desc: "Vajilla, vasos y accesorios desechables para picnic, celebraciones y hostelería.", productsBase: ["Platos", "Vasos", "Cubiertos", "Servilletas"] },
+  { id: "mar", label: "MAR", color: "#5f9f4b",       title: "Expositor Repelentes",       desc: "Repelentes, trampas y productos anti-insectos para el inicio del calor.",       productsBase: ["Pulseras repelentes", "Velas citronela", "Espirales", "Trampas"] },
+  { id: "abr", label: "ABR", color: colorMap.darkGreen, title: "Expositor Churros Flotación", desc: "Churros de flotación de espuma de polietileno para piscina y playa.",       productsBase: ["Churros flotación", "Colores surtidos"] },
+  { id: "may", label: "MAY", color: "#77b35c",       title: "Expositor Colección Natural", desc: "Juguetes de playa y exterior de la colección natural con materiales sostenibles.", productsBase: ["Palas madera", "Sets playa", "Regaderas", "Juegos buceo"] },
+  { id: "jun", label: "JUN", color: "#e5a2a2",       title: "Expositor Playa",            desc: "Todo para la playa y piscina: pistolas de agua, sets de arena y juegos acuáticos.", productsBase: ["Pistolas agua", "Sets playa", "Juego buceo", "Carretillas"] },
+  { id: "jul", label: "JUL", color: "#df8b8b",       title: "Expositor Set de Playa",     desc: "Los productos estrella para playa, piscina y verano.",                         productsBase: ["Cubos y palas", "Pistolas de agua", "Flotadores", "Gafas buceo"] },
+  { id: "ago", label: "AGO", color: "#d66a6a",       title: "Expositor Papelería",        desc: "Vuelta al cole con material escolar, papelería y accesorios de escritorio.",    productsBase: ["Bolígrafos", "Carpetas", "Estuches", "Tijeras"] },
+  { id: "sep", label: "SEP", color: "#d9a14c",       title: "Expositor Halloween",        desc: "Disfraces, decoración y accesorios para campañas de impacto visual.",           productsBase: ["Maquillaje", "Disfraces", "Calabazas", "Decoración"] },
+  { id: "oct", label: "OCT", color: "#d89a54",       title: "Expositor Navidad",          desc: "Adornos, luces y decoración navideña para la campaña de temporada.",            productsBase: ["Adornos árbol", "Guirnaldas", "Figuras", "Gorros"] },
+  { id: "nov", label: "NOV", color: "#d8a35f",       title: "Expositor Desechables Navidad", desc: "Vajilla y accesorios desechables con motivos navideños.",                   productsBase: ["Vasos", "Platos", "Servilletas", "Manteles"] },
+  { id: "dic", label: "DIC", color: "#2b6ea7",       title: "Expositor Cotillón",         desc: "Sets de cotillón y artículos de fiesta para fin de año.",                       productsBase: ["Bolsas cotillón", "Gorros", "Matasuegras", "Confeti"] },
 ];
 
 const allYearDefs: StandDef[] = [
-  { id: "balones",    label: "BALONES",    color: colorMap.orange,    title: "Expositor Balones",      desc: "Surtido completo de balones deportivos para todas las edades.",        productsBase: ["Balón fútbol", "Balón basket", "Voleibol", "Minipelota"] },
-  { id: "mascotas",   label: "MASCOTAS",   color: colorMap.green,     title: "Expositor Mascotas",     desc: "Juguetes, accesorios y productos de cuidado para mascotas.",           productsBase: ["Mordedores", "Correas", "Cepillos", "Platos"] },
-  { id: "belleza",    label: "BELLEZA",    color: colorMap.orange,    title: "Expositor Belleza",      desc: "Sets de maquillaje, peinados y accesorios infantiles.",                productsBase: ["Manicura", "Bálsamos", "Diademas", "Cepillos"] },
-  { id: "cocina",     label: "COCINA",     color: colorMap.red,       title: "Expositor Cocina",       desc: "Accesorios de cocina con colores y licencias familiares.",             productsBase: ["Vasos", "Moldes", "Fiambreras", "Cubiertos"] },
-  { id: "desechables",label: "DESECHABLES",color: colorMap.slate,     title: "Expositor Desechables",  desc: "Artículos para cumpleaños, fiestas y celebraciones.",                  productsBase: ["Vasos", "Platos", "Servilletas", "Velas"] },
-  { id: "auto",       label: "AUTO",       color: colorMap.black,     title: "Expositor Automóviles",  desc: "Productos funcionales para coche y viaje familiar.",                   productsBase: ["Organizadores", "Parasoles", "Ambientadores", "Protectores"] },
-  { id: "juguetes",   label: "JUGUETES",   color: colorMap.green,     title: "Expositor Juguetes",     desc: "Juguetes genéricos de venta constante durante todo el año.",           productsBase: ["Coches", "Muñecos", "Peonzas", "Yoyós"] },
-  { id: "toys",       label: "TOYS",       color: colorMap.red,       title: "Expositor Toys",         desc: "Novedades y juguetes de importación exclusivos.",                      productsBase: ["Robots", "Drones", "Slime", "Ciencia"] },
-  { id: "picnic",     label: "PICNIC",     color: colorMap.orange,    title: "Expositor Picnic",       desc: "Vajilla, vasos y accesorios desechables para picnic, celebraciones y hostelería.", productsBase: ["Platos", "Vasos", "Cubiertos", "Servilletas"] },
+  { id: "balones",  label: "BALONES",  color: colorMap.orange, title: "Expositor Balones",     desc: "Surtido completo de balones deportivos para todas las edades.",  productsBase: ["Balón fútbol", "Balón basket", "Voleibol", "Minipelota"] },
+  { id: "mascotas", label: "MASCOTAS", color: colorMap.green,  title: "Expositor Mascotas",    desc: "Juguetes, accesorios y productos de cuidado para mascotas.",     productsBase: ["Mordedores", "Correas", "Cepillos", "Platos"] },
+  { id: "belleza",  label: "BELLEZA",  color: colorMap.orange, title: "Expositor Belleza",     desc: "Sets de maquillaje, peinados y accesorios infantiles.",           productsBase: ["Manicura", "Bálsamos", "Diademas", "Cepillos"] },
+  { id: "cocina",   label: "COCINA",   color: colorMap.red,    title: "Expositor Cocina",      desc: "Accesorios de cocina con colores y licencias familiares.",        productsBase: ["Vasos", "Moldes", "Fiambreras", "Cubiertos"] },
+  { id: "auto",     label: "AUTO",     color: colorMap.black,  title: "Expositor Automóviles", desc: "Productos funcionales para coche y viaje familiar.",              productsBase: ["Organizadores", "Parasoles", "Ambientadores", "Protectores"] },
+  { id: "juguetes", label: "JUGUETES", color: colorMap.green,  title: "Expositor Juguetes",    desc: "Juguetes de madera didácticos de venta constante durante todo el año.", productsBase: ["Puzzles", "Ábaco", "Xilófono", "Tres en raya"] },
+];
+
+const comingSoonDefs: StandDef[] = [
+  { id: "jug3",        label: "JUG 3€",      color: colorMap.green,  title: "Juguetes (3€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
+  { id: "jug5",        label: "JUG 5€",      color: colorMap.green,  title: "Juguetes (5€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
+  { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, title: "Cocina Madera",    desc: "Próximamente disponible.", productsBase: ["Sartén", "Cuchara", "Espátula", "Moldes"] },
 ];
 
 // ─── Construcción genérica ────────────────────────────────────────────────────
@@ -684,3 +687,4 @@ function buildStands(defs: StandDef[]): Stand[] {
 
 export const seasonalStands: Stand[] = buildStands(seasonalDefs);
 export const allYearStands: Stand[] = buildStands(allYearDefs);
+export const comingSoonStands: Stand[] = buildStands(comingSoonDefs);

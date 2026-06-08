@@ -9,7 +9,7 @@ import HeroStandPreview from "./components/HeroStandPreview";
 import StandModal from "./components/StandModal";
 
 import { copy } from "./data/translations";
-import { seasonalStands, allYearStands, brand } from "./data/stands";
+import { seasonalStands, allYearStands, comingSoonStands, brand } from "./data/stands";
 import type { Language, Stand } from "./types";
 
 export default function App() {
@@ -91,6 +91,19 @@ export default function App() {
             selectedId={activeAllYear}
             setSelectedId={setActiveAllYear}
             openModal={setSelectedStand}
+            setPreviewStand={setPreviewStand}
+            language={language}
+          />
+        </section>
+
+        <section>
+          <SectionTitle eyebrow="Próximamente" title="Nuevos expositores" />
+          <TimelineRow
+            stands={comingSoonStands}
+            type="year"
+            selectedId=""
+            setSelectedId={() => {}}
+            openModal={() => {}}
             setPreviewStand={setPreviewStand}
             language={language}
           />

@@ -87,7 +87,12 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               />
               <div className="absolute bottom-10 right-[-100px] h-64 w-64 rounded-full bg-green-200/30 blur-3xl" />
             </div>
-            <div className="flex w-full flex-1 items-center justify-center">
+            <div className="relative flex w-full flex-1 items-center justify-center">
+              {["ene","feb","mar","ago","oct","nov","mascotas","cocina"].includes(stand.id) && (
+                <span className="absolute top-0 left-1/2 z-20 -translate-x-1/2 rounded-full bg-[#169b22] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-md">
+                  Stand Giratorio 360°
+                </span>
+              )}
               <img
                 src={stand.image}
                 alt={standCopy.title}
