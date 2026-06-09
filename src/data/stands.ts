@@ -639,6 +639,7 @@ const comingSoonImages: Partial<Record<string, string>> = {
   jug3:        `${base}assets/stands/expositor-jug3.png`,
   jug5:        `${base}assets/stands/expositor-jug5.png`,
   cocinamadera:`${base}assets/stands/expositor-cocinamadera.png`,
+  piscina:     `${base}assets/stands/expositor-piscina.png`,
   bricolaje:   `${base}assets/stands/expositor-bricolaje.png`,
 };
 
