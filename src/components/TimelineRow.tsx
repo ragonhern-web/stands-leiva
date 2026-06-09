@@ -140,16 +140,9 @@ export default function TimelineRow({
             onClick={() => openModal(stand)}
             className={`group relative flex min-w-0 flex-col items-center rounded-[1.5rem] border border-slate-200 bg-white/90 px-2 py-4 shadow-xl shadow-slate-300/35 transition hover:-translate-y-2 hover:shadow-2xl`}
           >
-            {/* Overlay "Próximamente" */}
+            {/* Tinte sutil cuando es próximamente */}
             {comingSoon && (
-              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 rounded-[1.5rem] bg-slate-950/55 backdrop-blur-[3px]">
-                <div className="flex items-center justify-center rounded-full bg-white/15 p-2.5 ring-1 ring-white/25">
-                  <Clock size={18} className="text-white" />
-                </div>
-                <span className="text-[9px] font-black uppercase tracking-[0.22em] text-white/90">
-                  Próximamente
-                </span>
-              </div>
+              <div className="absolute inset-0 z-10 rounded-[1.5rem] bg-slate-100/40" />
             )}
 
             <span
@@ -159,16 +152,10 @@ export default function TimelineRow({
               {getStandLabel(stand, language)}
             </span>
 
-            {comingSoon && (
-              <p className="relative z-30 mb-2 px-2 text-center text-[11px] font-black leading-tight text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] md:text-xs">
-                {standCopy.title}
-              </p>
-            )}
-
             <motion.div
               animate={{ scale: active ? 1.16 : 1, y: active ? -8 : 0, opacity: active ? 1 : 0.84 }}
               transition={{ type: "spring", stiffness: 280, damping: 24 }}
-              className="relative flex h-[170px] w-full items-end justify-center md:h-[210px]"
+              className={`relative flex h-[170px] w-full items-end justify-center md:h-[210px] ${comingSoon ? "opacity-75 saturate-50" : ""}`}
             >
               <div
                 className="absolute inset-x-3 bottom-6 top-8 rounded-full opacity-0 blur-2xl transition group-hover:opacity-35"
@@ -182,6 +169,13 @@ export default function TimelineRow({
               />
               <div className="absolute bottom-[-8px] h-6 w-24 rounded-full bg-black/15 blur-xl" />
             </motion.div>
+
+            {comingSoon && (
+              <div className="relative z-30 mt-2 flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 shadow-sm">
+                <Clock size={9} />
+                Próximamente
+              </div>
+            )}
           </button>
         );
       })}
