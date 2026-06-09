@@ -111,6 +111,7 @@ export default function TimelineRow({
                         src={stand.image}
                         alt={standCopy.title}
                         draggable="false"
+                        loading="lazy"
                         className="relative z-10 h-full max-h-[140px] w-auto object-contain drop-shadow-2xl md:max-h-[205px]"
                       />
                       <div className="absolute bottom-[-10px] h-7 w-24 rounded-full bg-black/15 blur-xl" />
@@ -165,6 +166,7 @@ export default function TimelineRow({
                 src={stand.image}
                 alt={standCopy.title}
                 draggable="false"
+                loading="lazy"
                 className="relative z-10 h-full max-h-[165px] w-auto object-contain drop-shadow-2xl md:max-h-[205px]"
               />
               <div className="absolute bottom-[-8px] h-6 w-24 rounded-full bg-black/15 blur-xl" />

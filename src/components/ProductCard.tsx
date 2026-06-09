@@ -18,6 +18,7 @@ export default function ProductCard({ product, t, onClick }: Props) {
           <img
             src={product.image}
             alt={product.name}
+            loading="lazy"
             className="h-full w-full object-contain transition group-hover:scale-105"
           />
         ) : (
