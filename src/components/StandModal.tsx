@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronUp, FileSpreadsheet, FileText, Package, X } from "lucide-react";
+import { ChevronUp, Clock, FileSpreadsheet, FileText, Package, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getStandCopy } from "../data/translations";
 import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
@@ -138,15 +138,21 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             )}
           </aside>
 
-          {/* Panel productos */}
+          {/* Panel productos / próximamente */}
           <section className="flex flex-col p-4 md:min-h-0 md:overflow-hidden md:p-8">
             {/* Título — solo desktop */}
             <div className="mb-4 hidden md:block md:mb-5">
               <div className="mb-3 flex items-center gap-3">
                 <span className="h-4 w-4 rounded-full shadow" style={{ backgroundColor: stand.color }} />
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
-                  {stand.numRefs ?? stand.products.length} {t.references}
-                </p>
+                {stand.comingSoon ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                    <Clock size={11} /> {t.newDisplaysTitle}
+                  </span>
+                ) : (
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
+                    {stand.numRefs ?? stand.products.length} {t.references}
+                  </p>
+                )}
               </div>
               <h2 className="text-5xl font-black tracking-tight text-slate-950">{standCopy.title}</h2>
               <p className="mt-3 max-w-3xl text-base font-medium leading-relaxed text-slate-500">
@@ -154,58 +160,78 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               </p>
             </div>
 
-            <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-3 md:mb-4">
-              <h3 className="flex items-center gap-2 text-sm font-black text-slate-800 md:text-lg">
-                <Package size={20} className="text-slate-400" /> {t.included}
-              </h3>
-              <span className="hidden rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-500 md:inline-flex">
-                5 {t.columns} × {Math.ceil(stand.products.length / 5)} {t.rows}
-              </span>
-            </div>
+            {stand.comingSoon ? (
+              /* Vista Próximamente — descripción en lugar de productos */
+              <div className="flex flex-1 flex-col items-center justify-center gap-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50/60 px-6 py-12 text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-slate-200">
+                  <Clock size={28} className="text-slate-400" />
+                </div>
+                <div>
+                  <p className="mb-2 text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
+                    {t.newDisplaysTitle}
+                  </p>
+                  <p className="max-w-sm text-sm font-medium leading-relaxed text-slate-600">
+                    {standCopy.desc}
+                  </p>
+                </div>
+                <p className="text-xs text-slate-400">Los productos se añadirán próximamente.</p>
+              </div>
+            ) : (
+              <>
+                <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-3 md:mb-4">
+                  <h3 className="flex items-center gap-2 text-sm font-black text-slate-800 md:text-lg">
+                    <Package size={20} className="text-slate-400" /> {t.included}
+                  </h3>
+                  <span className="hidden rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-500 md:inline-flex">
+                    5 {t.columns} × {Math.ceil(stand.products.length / 5)} {t.rows}
+                  </span>
+                </div>
 
-            <div className="grid grid-cols-2 gap-3 pr-1 md:min-h-0 md:flex-1 md:overflow-y-auto md:pr-3 md:[scrollbar-color:#169b22_#e2e8f0] md:[scrollbar-width:thin] lg:grid-cols-5">
-              {stand.products.map((product) => (
-                <ProductCard key={product.id} product={product} t={t} onClick={() => setSelectedProduct(product)} />
-              ))}
-            </div>
+                <div className="grid grid-cols-2 gap-3 pr-1 md:min-h-0 md:flex-1 md:overflow-y-auto md:pr-3 md:[scrollbar-color:#169b22_#e2e8f0] md:[scrollbar-width:thin] lg:grid-cols-5">
+                  {stand.products.map((product) => (
+                    <ProductCard key={product.id} product={product} t={t} onClick={() => setSelectedProduct(product)} />
+                  ))}
+                </div>
 
-            {/* Botón descarga — sticky abajo en móvil, flujo normal en desktop */}
-            <div className="sticky bottom-0 z-10 mt-4 bg-white/95 pt-3 pb-1 backdrop-blur-sm md:relative md:mt-5 md:bg-transparent md:pb-0">
-              <div className="flex justify-end border-t border-slate-100 pt-4">
-                <div className="relative w-full md:w-auto">
-                  {menuOpen && (
-                    <div className="absolute bottom-full mb-2 right-0 w-full md:w-56 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden z-10">
+                {/* Botón descarga — sticky abajo en móvil, flujo normal en desktop */}
+                <div className="sticky bottom-0 z-10 mt-4 bg-white/95 pt-3 pb-1 backdrop-blur-sm md:relative md:mt-5 md:bg-transparent md:pb-0">
+                  <div className="flex justify-end border-t border-slate-100 pt-4">
+                    <div className="relative w-full md:w-auto">
+                      {menuOpen && (
+                        <div className="absolute bottom-full mb-2 right-0 w-full md:w-56 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden z-10">
+                          <button
+                            onClick={() => { downloadPDF(stand, standCopy.title); setMenuOpen(false); }}
+                            className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-slate-700 hover:bg-slate-50 transition"
+                          >
+                            <FileText size={18} className="text-slate-400 shrink-0" />
+                            {t.downloadPDF}
+                          </button>
+                          <div className="h-px bg-slate-100" />
+                          <button
+                            onClick={() => { downloadExcel(stand, standCopy.title).then(() => setMenuOpen(false)); }}
+                            className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
+                          >
+                            <FileSpreadsheet size={18} className="shrink-0" />
+                            {t.downloadExcel}
+                          </button>
+                        </div>
+                      )}
+
                       <button
-                        onClick={() => { downloadPDF(stand, standCopy.title); setMenuOpen(false); }}
-                        className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-slate-700 hover:bg-slate-50 transition"
+                        onClick={() => setMenuOpen(o => !o)}
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] bg-[#169b22] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#087a18] md:w-auto"
                       >
-                        <FileText size={18} className="text-slate-400 shrink-0" />
-                        {t.downloadPDF}
-                      </button>
-                      <div className="h-px bg-slate-100" />
-                      <button
-                        onClick={() => { downloadExcel(stand, standCopy.title).then(() => setMenuOpen(false)); }}
-                        className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
-                      >
-                        <FileSpreadsheet size={18} className="shrink-0" />
-                        {t.downloadExcel}
+                        {t.downloadSheet}
+                        <ChevronUp
+                          size={18}
+                          className={`transition-transform duration-200 ${menuOpen ? "rotate-0" : "rotate-180"}`}
+                        />
                       </button>
                     </div>
-                  )}
-
-                  <button
-                    onClick={() => setMenuOpen(o => !o)}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] bg-[#169b22] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#087a18] md:w-auto"
-                  >
-                    {t.downloadSheet}
-                    <ChevronUp
-                      size={18}
-                      className={`transition-transform duration-200 ${menuOpen ? "rotate-0" : "rotate-180"}`}
-                    />
-                  </button>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            )}
           </section>
 
           {/* Modal de detalle de producto */}

@@ -628,11 +628,19 @@ const allYearDefs: StandDef[] = [
 ];
 
 const comingSoonDefs: StandDef[] = [
-  { id: "jug3",        label: "JUG 3€",      color: colorMap.green,  title: "Juguetes (3€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
-  { id: "jug5",        label: "JUG 5€",      color: colorMap.green,  title: "Juguetes (5€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
-  { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, title: "Cocina Madera",    desc: "Próximamente disponible.", productsBase: ["Sartén", "Cuchara", "Espátula", "Moldes"] },
-  { id: "piscina",     label: "PISCINA",      color: "#3b82f6",       title: "Piscina",          desc: "Próximamente disponible.", productsBase: ["Flotadores", "Churros", "Gafas", "Juguetes acuáticos"] },
+  { id: "jug3",        label: "JUG 3€",      color: colorMap.green,  title: "Juguetes (3€)",    desc: "Stand de juguetes a precio unitario de 3€, perfectos para regalo e impulso de compra.", productsBase: [] },
+  { id: "jug5",        label: "JUG 5€",      color: colorMap.green,  title: "Juguetes (5€)",    desc: "Stand de juguetes a precio unitario de 5€. Mayor calidad y presentación, ideales como regalo.", productsBase: [] },
+  { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, title: "Cocina Madera",    desc: "Utensilios de cocina en madera natural: espátulas, cucharas, tablas y accesorios sostenibles.", productsBase: [] },
+  { id: "piscina",     label: "PISCINA",      color: "#3b82f6",       title: "Piscina",          desc: "Todo para la piscina y el verano. Flotadores, churros, gafas acuáticas y juguetes de agua.", productsBase: [] },
+  { id: "bricolaje",   label: "BRICOLAJE",    color: colorMap.black,  title: "Bricolaje",        desc: "Herramientas básicas y accesorios de bricolaje para el hogar. Soluciones prácticas para mantenimiento y pequeñas reparaciones.", productsBase: [] },
 ];
+
+const comingSoonImages: Partial<Record<string, string>> = {
+  jug3:        `${base}assets/stands/expositor-jug3.png`,
+  jug5:        `${base}assets/stands/expositor-jug5.png`,
+  cocinamadera:`${base}assets/stands/expositor-cocinamadera.png`,
+  bricolaje:   `${base}assets/stands/expositor-bricolaje.png`,
+};
 
 // ─── Construcción genérica ────────────────────────────────────────────────────
 
@@ -686,6 +694,15 @@ function buildStands(defs: StandDef[]): Stand[] {
   });
 }
 
+function buildComingSoonStands(defs: StandDef[]): Stand[] {
+  return defs.map((def) => ({
+    ...def,
+    comingSoon: true,
+    image: comingSoonImages[def.id] ?? STAND_DEMO,
+    products: [],
+  }));
+}
+
 export const seasonalStands: Stand[] = buildStands(seasonalDefs);
 export const allYearStands: Stand[] = buildStands(allYearDefs);
-export const comingSoonStands: Stand[] = buildStands(comingSoonDefs);
+export const comingSoonStands: Stand[] = buildComingSoonStands(comingSoonDefs);

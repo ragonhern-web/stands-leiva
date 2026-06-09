@@ -35,6 +35,7 @@ export interface Stand {
   standAlto?: number;
   standLargo?: number;
   standAncho?: number;
+  comingSoon?: boolean;
 }
 
 export interface TranslationCopy {

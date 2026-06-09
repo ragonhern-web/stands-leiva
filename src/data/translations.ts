@@ -249,6 +249,11 @@ export const standText = ({
     auto: ["Expositor Automóviles", "Productos funcionales para coche y viaje familiar."],
     juguetes: ["Expositor Juguetes", "Juguetes genéricos de venta constante durante todo el año."],
     toys: ["Expositor Toys", "Novedades y juguetes de importación exclusivos."],
+    jug3: ["Juguetes (3€)", "Stand de juguetes a precio unitario de 3€, perfectos para regalo e impulso de compra."],
+    jug5: ["Juguetes (5€)", "Stand de juguetes a precio unitario de 5€. Mayor calidad y presentación, ideales como regalo."],
+    cocinamadera: ["Cocina Madera", "Utensilios de cocina en madera natural: espátulas, cucharas, tablas y accesorios sostenibles para el hogar."],
+    piscina: ["Piscina", "Todo para disfrutar de la piscina y el verano. Flotadores, churros, gafas acuáticas y juguetes de agua para toda la familia."],
+    bricolaje: ["Bricolaje", "Herramientas básicas y accesorios de bricolaje para el hogar. Soluciones prácticas para mantenimiento y pequeñas reparaciones."],
   },
   en: {
     ene: ["Garden Display", "Garden tools, watering cans, pots and accessories to kick off the season."],
@@ -272,6 +277,11 @@ export const standText = ({
     auto: ["Car Display", "Functional products for cars and family travel."],
     juguetes: ["Toy Display", "Generic toys with constant year-round sales."],
     toys: ["Toys Display", "New releases and exclusive imported toys."],
+    jug3: ["Toys (3€)", "Toy display at a unit price of 3€. Children's toy items, ideal for gifting and impulse buying."],
+    jug5: ["Toys (5€)", "Toy display at a unit price of 5€. Higher quality and presentation, ideal as gifts."],
+    cocinamadera: ["Wood Kitchen", "Kitchen utensils made from natural wood: spatulas, spoons, boards and sustainable home accessories."],
+    piscina: ["Pool", "Everything for pool and summer fun. Floats, pool noodles, goggles and water toys for the whole family."],
+    bricolaje: ["DIY", "Basic tools and DIY accessories for the home. Practical solutions for maintenance and minor repairs."],
   },
   fr: {
     ene: ["Présentoir Jardin", "Outils de jardinage, arrosoirs, pots et accessoires pour démarrer la saison."],
@@ -295,6 +305,11 @@ export const standText = ({
     auto: ["Présentoir Automobile", "Produits fonctionnels pour la voiture et le voyage en famille."],
     juguetes: ["Présentoir Jouets", "Jouets génériques à vente constante toute l'année."],
     toys: ["Présentoir Toys", "Nouveautés et jouets d'importation exclusifs."],
+    jug3: ["Jouets (3€)", "Présentoir de jouets à 3€ l'unité. Articles de jouets pour enfants, idéaux pour offrir et l'achat impulsif."],
+    jug5: ["Jouets (5€)", "Présentoir de jouets à 5€ l'unité. Meilleure qualité et présentation, idéaux comme cadeaux."],
+    cocinamadera: ["Cuisine en Bois", "Ustensiles de cuisine en bois naturel : spatules, cuillères, planches et accessoires durables."],
+    piscina: ["Piscine", "Tout pour la piscine et l'été. Bouées, frites de piscine, lunettes et jouets d'eau pour toute la famille."],
+    bricolaje: ["Bricolage", "Outils de base et accessoires de bricolage pour la maison. Solutions pratiques pour l'entretien et les petites réparations."],
   },
   it: {
     ene: ["Espositore Giardino", "Attrezzi da giardino, annaffiatoi, vasi e accessori per iniziare la stagione."],
@@ -318,6 +333,11 @@ export const standText = ({
     auto: ["Espositore Auto", "Prodotti funzionali per auto e viaggi in famiglia."],
     juguetes: ["Espositore Giocattoli", "Giocattoli generici a vendita costante tutto l'anno."],
     toys: ["Espositore Toys", "Novità e giocattoli d'importazione esclusivi."],
+    jug3: ["Giocattoli (3€)", "Espositore di giocattoli a 3€ l'uno. Giochi per bambini, perfetti come regalo e acquisto d'impulso."],
+    jug5: ["Giocattoli (5€)", "Espositore di giocattoli a 5€ l'uno. Migliore qualità e presentazione, ideali come regali."],
+    cocinamadera: ["Cucina in Legno", "Utensili da cucina in legno naturale: spatole, cucchiai, taglieri e accessori sostenibili per la casa."],
+    piscina: ["Piscina", "Tutto per la piscina e l'estate. Galleggianti, noodles, occhialini e giochi d'acqua per tutta la famiglia."],
+    bricolaje: ["Bricolage", "Attrezzi di base e accessori fai-da-te per la casa. Soluzioni pratiche per la manutenzione e le piccole riparazioni."],
   },
   pt: {
     ene: ["Expositor Jardim", "Ferramentas de jardim, regadores, vasos e acessórios para começar a temporada."],
@@ -341,6 +361,11 @@ export const standText = ({
     auto: ["Expositor Automóvel", "Produtos funcionais para carro e viagem familiar."],
     juguetes: ["Expositor Brinquedos", "Brinquedos genéricos de venda constante durante todo o ano."],
     toys: ["Expositor Toys", "Novidades e brinquedos de importação exclusivos."],
+    jug3: ["Brinquedos (3€)", "Expositor de brinquedos a 3€ por unidade. Artigos para crianças, ideais para oferecer e compra por impulso."],
+    jug5: ["Brinquedos (5€)", "Expositor de brinquedos a 5€ por unidade. Maior qualidade e apresentação, ideais como presentes."],
+    cocinamadera: ["Cozinha Madeira", "Utensílios de cozinha em madeira natural: espátulas, colheres, tábuas e acessórios sustentáveis."],
+    piscina: ["Piscina", "Tudo para a piscina e o verão. Bóias, esparguetes, óculos aquáticos e brinquedos de água para toda a família."],
+    bricolaje: ["Bricolage", "Ferramentas básicas e acessórios de bricolage para o lar. Soluções práticas para manutenção e pequenas reparações."],
   },
 }) as unknown as Record<Language, Record<string, [string, string]>>;
 
@@ -465,6 +490,11 @@ export const standText = ({
   cocina: ["Küchen-Expositeur", "Küchenhelfer in bunten Farben für Familien."],
   auto: ["Auto-Expositeur", "Funktionelle Produkte für Auto und Familienreise."],
   juguetes: ["Holzspielzeug-Expositeur", "Ganzjährig gefragtes didaktisches Holzspielzeug."],
+  jug3: ["Spielzeug (3€)", "Spielzeug-Expositeur zu 3€ je Stück. Kinderspielzeug, ideal als Geschenk und Impulskauf."],
+  jug5: ["Spielzeug (5€)", "Spielzeug-Expositeur zu 5€ je Stück. Bessere Qualität und Präsentation, ideal als Geschenk."],
+  cocinamadera: ["Holz-Küche", "Küchenutensilien aus Naturholz: Spatel, Löffel, Bretter und nachhaltiges Haushaltszubehör."],
+  piscina: ["Schwimmbad", "Alles für Schwimmbad und Sommer. Schwimmreifen, Schwimmnudeln, Brillen und Wasserspielzeug für die Familie."],
+  bricolaje: ["Heimwerken", "Grundlegende Werkzeuge und Heimwerkerzubehör. Praktische Lösungen für Wartung und kleine Reparaturen."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).nl = {
   ene: ["Tuin Expositeur", "Tuingereedschap, gieters, potten en accessoires voor het begin van het seizoen."],
@@ -485,6 +515,11 @@ export const standText = ({
   cocina: ["Keuken Expositeur", "Kleurrijke keukenartikelen voor het gezin."],
   auto: ["Auto Expositeur", "Functionele producten voor de auto en familiereis."],
   juguetes: ["Houten Speelgoed Expositeur", "Het hele jaar gevraagd didactisch houten speelgoed."],
+  jug3: ["Speelgoed (3€)", "Speelgoed-expositeur á 3€ per stuk. Kinderspeelgoed, ideaal als cadeau en impulsaankoop."],
+  jug5: ["Speelgoed (5€)", "Speelgoed-expositeur á 5€ per stuk. Betere kwaliteit en presentatie, ideaal als cadeau."],
+  cocinamadera: ["Houten Keuken", "Keukengereedschap van natuurlijk hout: spatels, lepels, snijplanken en duurzame accessoires."],
+  piscina: ["Zwembad", "Alles voor zwembad en zomer. Zwemringen, zwemnoodles, zwembrillen en waterspeelgoed voor het gezin."],
+  bricolaje: ["Doe-het-zelf", "Basisgereedschap en doe-het-zelf accessoires voor thuis. Praktische oplossingen voor onderhoud en kleine reparaties."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).pl = {
   ene: ["Ekspozytor Ogród", "Narzędzia ogrodnicze, konewki, doniczki i akcesoria na start sezonu."],
@@ -505,6 +540,11 @@ export const standText = ({
   cocina: ["Ekspozytor Kuchnia", "Kolorowe akcesoria kuchenne dla rodzin."],
   auto: ["Ekspozytor Samochód", "Funkcjonalne produkty do samochodu i podróży rodzinnych."],
   juguetes: ["Ekspozytor Zabawki Drewniane", "Drewniane zabawki dydaktyczne o stałej sprzedaży przez cały rok."],
+  jug3: ["Zabawki (3€)", "Ekspozytor z zabawkami w cenie 3€ za sztukę. Zabawki dla dzieci, idealne jako prezent i zakup impulsowy."],
+  jug5: ["Zabawki (5€)", "Ekspozytor z zabawkami w cenie 5€ za sztukę. Wyższa jakość i prezentacja, idealne jako prezenty."],
+  cocinamadera: ["Kuchnia Drewno", "Przybory kuchenne z naturalnego drewna: szpatułki, łyżki, deski i zrównoważone akcesoria domowe."],
+  piscina: ["Basen", "Wszystko do basenu i lata. Dmuchańce, makarony, okulary i zabawki wodne dla całej rodziny."],
+  bricolaje: ["Majsterkowanie", "Podstawowe narzędzia i akcesoria do majsterkowania. Praktyczne rozwiązania do konserwacji i drobnych napraw."],
 };
 
 /** Devuelve título y descripción del expositor en el idioma activo */

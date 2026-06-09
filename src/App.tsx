@@ -104,7 +104,7 @@ export default function App() {
             comingSoon
             selectedId=""
             setSelectedId={() => {}}
-            openModal={() => {}}
+            openModal={setSelectedStand}
             setPreviewStand={setPreviewStand}
             language={language}
           />

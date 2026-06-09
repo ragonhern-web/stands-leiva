@@ -136,9 +136,9 @@ export default function TimelineRow({
           <button
             key={stand.id}
             type="button"
-            onMouseEnter={() => !comingSoon && handleEnter(stand)}
-            onClick={() => !comingSoon && openModal(stand)}
-            className={`group relative flex min-w-0 flex-col items-center rounded-[1.5rem] border border-slate-200 bg-white/90 px-2 py-4 shadow-xl shadow-slate-300/35 transition ${comingSoon ? "cursor-default" : "hover:-translate-y-2 hover:shadow-2xl"}`}
+            onMouseEnter={() => handleEnter(stand)}
+            onClick={() => openModal(stand)}
+            className={`group relative flex min-w-0 flex-col items-center rounded-[1.5rem] border border-slate-200 bg-white/90 px-2 py-4 shadow-xl shadow-slate-300/35 transition hover:-translate-y-2 hover:shadow-2xl`}
           >
             {/* Overlay "Próximamente" */}
             {comingSoon && (
