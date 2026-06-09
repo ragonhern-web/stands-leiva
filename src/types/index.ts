@@ -67,4 +67,6 @@ export interface TranslationCopy {
   standPriceUnit: string;
   standTipo: string;
   standDims: string;
+  newDisplaysEyebrow: string;
+  newDisplaysTitle: string;
 }

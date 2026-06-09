@@ -250,10 +250,10 @@ const standExtras: Record<string, StandExtra> = {
 
   abr: {
     imagePath: `${base}assets/stands/expositor-mar.png`,
-    info: { standRef: "98685", numRefs: 1, tipo: "Cuarto palé", pricePerUnit: "0,99 €", standAlto: 6, standLargo: 6, standAncho: 150 },
+    info: { standRef: "98685", numRefs: 1, totalUnits: 54, tipo: "Cuarto palé", pricePerUnit: "0,99 €", priceStand: "53,46 €", standAlto: 6, standLargo: 6, standAncho: 150 },
     refs: [98685],
     data: {
-      98685: { units: "—", color: "Varios colores surtidos", name: "Churros de flotación de espuma", desc: "Churros de flotación de espuma de polietileno. 150 × 6 cm. Incluye caja expositora de cartón. Varios colores surtidos." },
+      98685: { units: "54", color: "Varios colores surtidos", name: "Churros de flotación de espuma", desc: "Churros de flotación de espuma de polietileno. 150 × 6 cm. 54 unidades por caja expositora. Varios colores surtidos." },
     },
   },
 
@@ -324,7 +324,7 @@ const standExtras: Record<string, StandExtra> = {
 
   sep: {
     imagePath: `${base}assets/stands/expositor-oct.png`,
-    info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Cuarto palé", pricePerUnit: "1,00 €", priceStand: "18,00 €", standAlto: 34, standLargo: 48, standAncho: 40 },
+    info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Cuarto palé", pricePerUnit: "1,10 €", priceStand: "19,80 €", standAlto: 34, standLargo: 48, standAncho: 40 },
     refs: [2062],
     data: {
       2062: { units: "18", color: "Naranja y negro", alto: 14, largo: 16, ancho: 16, name: "Cubo calabaza Halloween", desc: "Cubo de plástico con forma de calabaza para Halloween. Naranja y negro. 18 unidades por caja expositora." },
@@ -604,7 +604,7 @@ const standExtras: Record<string, StandExtra> = {
 type StandDef = Omit<Stand, "image" | "products">;
 
 const seasonalDefs: StandDef[] = [
-  { id: "ene", label: "ENE", color: "#1f6fb5",       title: "Expositor Enero",            desc: "Ideal para reactivar ventas tras las fiestas con productos de jardinería.",    productsBase: ["Regaderas", "Macetas", "Herramientas", "Tutores"] },
+  { id: "ene", label: "ENE", color: "#1f6fb5",       title: "Expositor Jardín",           desc: "Herramientas de jardín, regaderas, macetas y accesorios para empezar la temporada.", productsBase: ["Regaderas", "Macetas", "Herramientas", "Tutores"] },
   { id: "feb", label: "FEB", color: "#2d87c8",       title: "Expositor Picnic",           desc: "Vajilla, vasos y accesorios desechables para picnic, celebraciones y hostelería.", productsBase: ["Platos", "Vasos", "Cubiertos", "Servilletas"] },
   { id: "mar", label: "MAR", color: "#5f9f4b",       title: "Expositor Repelentes",       desc: "Repelentes, trampas y productos anti-insectos para el inicio del calor.",       productsBase: ["Pulseras repelentes", "Velas citronela", "Espirales", "Trampas"] },
   { id: "abr", label: "ABR", color: colorMap.darkGreen, title: "Expositor Churros Flotación", desc: "Churros de flotación de espuma de polietileno para piscina y playa.",       productsBase: ["Churros flotación", "Colores surtidos"] },
@@ -631,6 +631,7 @@ const comingSoonDefs: StandDef[] = [
   { id: "jug3",        label: "JUG 3€",      color: colorMap.green,  title: "Juguetes (3€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
   { id: "jug5",        label: "JUG 5€",      color: colorMap.green,  title: "Juguetes (5€)",    desc: "Próximamente disponible.", productsBase: ["Juguete A", "Juguete B", "Juguete C", "Juguete D"] },
   { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, title: "Cocina Madera",    desc: "Próximamente disponible.", productsBase: ["Sartén", "Cuchara", "Espátula", "Moldes"] },
+  { id: "piscina",     label: "PISCINA",      color: "#3b82f6",       title: "Piscina",          desc: "Próximamente disponible.", productsBase: ["Flotadores", "Churros", "Gafas", "Juguetes acuáticos"] },
 ];
 
 // ─── Construcción genérica ────────────────────────────────────────────────────

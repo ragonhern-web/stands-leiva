@@ -43,6 +43,8 @@ export const copy = {
     standPriceUnit: "Precio unidad",
     standTipo: "Tipo",
     standDims: "Medidas expositor",
+    newDisplaysEyebrow: "Nuevos expositores",
+    newDisplaysTitle: "Próximamente",
   },
   en: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -75,6 +77,8 @@ export const copy = {
     standPriceUnit: "Unit price",
     standTipo: "Type",
     standDims: "Display dimensions",
+    newDisplaysEyebrow: "New displays",
+    newDisplaysTitle: "Coming soon",
   },
   fr: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -107,6 +111,8 @@ export const copy = {
     standPriceUnit: "Prix unitaire",
     standTipo: "Type",
     standDims: "Dimensions",
+    newDisplaysEyebrow: "Nouveaux présentoirs",
+    newDisplaysTitle: "Bientôt disponible",
   },
   it: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -139,6 +145,8 @@ export const copy = {
     standPriceUnit: "Prezzo unitario",
     standTipo: "Tipo",
     standDims: "Dimensioni",
+    newDisplaysEyebrow: "Nuovi espositori",
+    newDisplaysTitle: "Prossimamente",
   },
   pt: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -171,6 +179,8 @@ export const copy = {
     standPriceUnit: "Preço unitário",
     standTipo: "Tipo",
     standDims: "Dimensões",
+    newDisplaysEyebrow: "Novos expositores",
+    newDisplaysTitle: "Em breve",
   },
 } as unknown as Record<Language, TranslationCopy>;
 
@@ -218,7 +228,7 @@ export function getStandLabel(stand: { id: string; label: string }, language: La
 /** Textos de título y descripción de cada expositor por idioma */
 export const standText = ({
   es: {
-    ene: ["Expositor Enero", "Ideal para reactivar ventas tras las fiestas con productos esenciales."],
+    ene: ["Expositor Jardín", "Herramientas de jardín, regaderas, macetas y accesorios para empezar la temporada con fuerza."],
     feb: ["Expositor Picnic", "Vajilla, vasos y accesorios desechables para picnic, celebraciones y hostelería."],
     mar: ["Expositor Repelentes", "Repelentes, trampas y productos anti-insectos para el inicio del calor."],
     abr: ["Expositor Churros Flotación", "Churros de flotación de espuma de polietileno para piscina y playa."],
@@ -241,7 +251,7 @@ export const standText = ({
     toys: ["Expositor Toys", "Novedades y juguetes de importación exclusivos."],
   },
   en: {
-    ene: ["January Display", "Essential products to reactivate sales after the holidays."],
+    ene: ["Garden Display", "Garden tools, watering cans, pots and accessories to kick off the season."],
     feb: ["Picnic Display", "Disposable tableware, cups and accessories for picnics, celebrations and catering."],
     mar: ["Repellents Display", "Repellents, traps and anti-insect products for the start of warm weather."],
     abr: ["Flotation Noodles Display", "Polyethylene foam pool noodles for pools and beaches."],
@@ -264,7 +274,7 @@ export const standText = ({
     toys: ["Toys Display", "New releases and exclusive imported toys."],
   },
   fr: {
-    ene: ["Présentoir Janvier", "Produits essentiels pour relancer les ventes après les fêtes."],
+    ene: ["Présentoir Jardin", "Outils de jardinage, arrosoirs, pots et accessoires pour démarrer la saison."],
     feb: ["Présentoir Pique-nique", "Vaisselle jetable, gobelets et accessoires pour pique-niques, fêtes et restauration."],
     mar: ["Présentoir Répulsifs", "Répulsifs, pièges et produits anti-insectes pour le début de la chaleur."],
     abr: ["Présentoir Frites de Piscine", "Frites de natation en mousse de polyéthylène pour piscines et plages."],
@@ -287,7 +297,7 @@ export const standText = ({
     toys: ["Présentoir Toys", "Nouveautés et jouets d'importation exclusifs."],
   },
   it: {
-    ene: ["Espositore Gennaio", "Prodotti essenziali per rilanciare le vendite dopo le feste."],
+    ene: ["Espositore Giardino", "Attrezzi da giardino, annaffiatoi, vasi e accessori per iniziare la stagione."],
     feb: ["Espositore Picnic", "Stoviglie monouso, bicchieri e accessori per picnic, feste e ristorazione."],
     mar: ["Espositore Repellenti", "Repellenti, trappole e prodotti anti-insetti per l'inizio del caldo."],
     abr: ["Espositore Noodles da Piscina", "Noodles da piscina in gommapiuma di polietilene per piscine e spiagge."],
@@ -310,7 +320,7 @@ export const standText = ({
     toys: ["Espositore Toys", "Novità e giocattoli d'importazione esclusivi."],
   },
   pt: {
-    ene: ["Expositor Janeiro", "Produtos essenciais para reativar as vendas após as festas."],
+    ene: ["Expositor Jardim", "Ferramentas de jardim, regadores, vasos e acessórios para começar a temporada."],
     feb: ["Expositor Piquenique", "Utensílios descartáveis, copos e acessórios para piqueniques, celebrações e restauração."],
     mar: ["Expositor Repelentes", "Repelentes, armadilhas e produtos anti-insetos para o início do calor."],
     abr: ["Expositor Esparguete de Natação", "Esparguetes de natação em espuma de polietileno para piscinas e praias."],
@@ -366,6 +376,8 @@ export const standText = ({
   standPriceUnit: "Preis/Einheit",
   standTipo: "Typ",
   standDims: "Expositormaße",
+  newDisplaysEyebrow: "Neue Expositeure",
+  newDisplaysTitle: "Demnächst",
 };
 (copy as unknown as Record<Language, TranslationCopy>).nl = {
   eyebrow: "Virtuele Showroom Novedades Leiva",
@@ -397,6 +409,8 @@ export const standText = ({
   standPriceUnit: "Prijs/eenheid",
   standTipo: "Type",
   standDims: "Afmetingen",
+  newDisplaysEyebrow: "Nieuwe expositeurs",
+  newDisplaysTitle: "Binnenkort",
 };
 (copy as unknown as Record<Language, TranslationCopy>).pl = {
   eyebrow: "Wirtualny Showroom Novedades Leiva",
@@ -428,10 +442,12 @@ export const standText = ({
   standPriceUnit: "Cena/jedn.",
   standTipo: "Typ",
   standDims: "Wymiary ekspozytora",
+  newDisplaysEyebrow: "Nowe ekspozytory",
+  newDisplaysTitle: "Wkrótce",
 };
 
 (standText as unknown as Record<Language, Record<string, [string, string]>>).de = {
-  ene: ["Januar-Expositeur — Garten", "Wesentliche Gartenprodukte zur Belebung des Umsatzes nach den Feiertagen."],
+  ene: ["Garten-Expositeur", "Gartengeräte, Gießkannen, Töpfe und Zubehör für den Saisonstart."],
   feb: ["Picnic-Expositeur", "Einweggeschirr, Becher und Zubehör für Picknick, Feiern und Gastronomie."],
   mar: ["Insektenschutz-Expositeur", "Insektenschutzmittel, Fallen und Anti-Insekten-Produkte für den Saisonstart."],
   abr: ["Schwimmnudel-Expositeur", "Schwimmnudeln aus Polyethylenschaum für Freibäder und Pools."],
@@ -451,7 +467,7 @@ export const standText = ({
   juguetes: ["Holzspielzeug-Expositeur", "Ganzjährig gefragtes didaktisches Holzspielzeug."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).nl = {
-  ene: ["Januari Expositeur — Tuin", "Essentiële tuinproducten om de verkoop na de feestdagen te stimuleren."],
+  ene: ["Tuin Expositeur", "Tuingereedschap, gieters, potten en accessoires voor het begin van het seizoen."],
   feb: ["Picnic Expositeur", "Wegwerpservies, bekers en accessoires voor picknick, feesten en horeca."],
   mar: ["Insectenwering Expositeur", "Insectenweringsmiddelen, vallen en anti-insectenproducten voor het begin van warm weer."],
   abr: ["Zwemnoodle Expositeur", "Zwemnoodles van polyethyleenschuim voor buiten- en zwembaden."],
@@ -471,7 +487,7 @@ export const standText = ({
   juguetes: ["Houten Speelgoed Expositeur", "Het hele jaar gevraagd didactisch houten speelgoed."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).pl = {
-  ene: ["Ekspozytor Styczeń — Ogród", "Podstawowe produkty ogrodnicze do ożywienia sprzedaży po świętach."],
+  ene: ["Ekspozytor Ogród", "Narzędzia ogrodnicze, konewki, doniczki i akcesoria na start sezonu."],
   feb: ["Ekspozytor Piknik", "Jednorazowe naczynia, kubki i akcesoria do pikników, imprez i gastronomii."],
   mar: ["Ekspozytor Środki Odstraszające", "Środki odstraszające, pułapki i produkty przeciwko owadom na początek sezonu."],
   abr: ["Ekspozytor Makaron Pływacki", "Makaron pływacki z pianki polietylenowej do basenów i na plażę."],

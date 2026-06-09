@@ -97,7 +97,7 @@ export default function App() {
         </section>
 
         <section>
-          <SectionTitle eyebrow="Nuevos expositores" title="Próximamente" />
+          <SectionTitle eyebrow={t.newDisplaysEyebrow} title={t.newDisplaysTitle} />
           <TimelineRow
             stands={comingSoonStands}
             type="year"
