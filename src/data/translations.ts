@@ -190,38 +190,47 @@ export const standLabels: Record<Language, Partial<Record<string, string>>> = {
   es: {
     ene: "ENE", feb: "FEB", mar: "MAR", abr: "ABR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DIC",
     balones: "BALONES", mascotas: "MASCOTAS", belleza: "BELLEZA", cocina: "COCINA", auto: "AUTO", juguetes: "JUGUETES",
+    jug3: "JUG 3€", jug5: "JUG 5€", cocinamadera: "COC. MADERA", piscina: "PISCINA", bricolaje: "BRICOLAJE",
   },
   en: {
     ene: "JAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
     balones: "BALLS", mascotas: "PETS", belleza: "BEAUTY", cocina: "KITCHEN", auto: "CAR", juguetes: "WOOD TOYS",
+    jug3: "TOYS 3€", jug5: "TOYS 5€", cocinamadera: "WOOD KITCH.", piscina: "POOL", bricolaje: "DIY",
   },
   fr: {
     ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC",
     balones: "BALLONS", mascotas: "ANIMAUX", belleza: "BEAUTÉ", cocina: "CUISINE", auto: "AUTO", juguetes: "JOUETS BOIS",
+    jug3: "JOU. 3€", jug5: "JOU. 5€", cocinamadera: "CUIS. BOIS", piscina: "PISCINE", bricolaje: "BRICOLAGE",
   },
   it: {
     ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC",
     balones: "PALLONI", mascotas: "ANIMALI", belleza: "BELLEZZA", cocina: "CUCINA", auto: "AUTO", juguetes: "GIOC. LEGNO",
+    jug3: "GIOC. 3€", jug5: "GIOC. 5€", cocinamadera: "CUC. LEGNO", piscina: "PISCINA", bricolaje: "BRICOLAGE",
   },
   pt: {
     ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ",
     balones: "BOLAS", mascotas: "ANIMAIS", belleza: "BELEZA", cocina: "COZINHA", auto: "AUTO", juguetes: "BRINQUEDOS",
+    jug3: "BRINQ. 3€", jug5: "BRINQ. 5€", cocinamadera: "COZ. MADEIRA", piscina: "PISCINA", bricolaje: "BRICOLAGEM",
   },
   de: {
     ene: "JAN", feb: "FEB", mar: "MÄR", abr: "APR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEZ",
     balones: "BÄLLE", mascotas: "HAUSTIERE", belleza: "BEAUTY", cocina: "KÜCHE", auto: "AUTO", juguetes: "HOLZSPIELE",
+    jug3: "SPIELZ. 3€", jug5: "SPIELZ. 5€", cocinamadera: "HOLZKÜCHE", piscina: "SCHWIMMBAD", bricolaje: "HEIMWERK.",
   },
   nl: {
     ene: "JAN", feb: "FEB", mar: "MRT", abr: "APR", may: "MEI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEC",
     balones: "BALLEN", mascotas: "HUISDIEREN", belleza: "BEAUTY", cocina: "KEUKEN", auto: "AUTO", juguetes: "HOUT SPEEL.",
+    jug3: "SPEELG. 3€", jug5: "SPEELG. 5€", cocinamadera: "HOUT KEUKEN", piscina: "ZWEMBAD", bricolaje: "KLUSWERK",
   },
   pl: {
     ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU",
     balones: "PIŁKI", mascotas: "ZWIERZĘTA", belleza: "URODA", cocina: "KUCHNIA", auto: "AUTO", juguetes: "DREWNIANE",
+    jug3: "ZAB. 3€", jug5: "ZAB. 5€", cocinamadera: "KUCH. DREWNO", piscina: "BASEN", bricolaje: "MAJSTERN.",
   },
   ro: {
     ene: "IAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAI", jun: "IUN", jul: "IUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
     balones: "MINGI", mascotas: "ANIMALE", belleza: "FRUMUSEȚE", cocina: "BUCĂTĂRIE", auto: "AUTO", juguetes: "JUCĂRII",
+    jug3: "JUC. 3€", jug5: "JUC. 5€", cocinamadera: "BUCĂT. LEMN", piscina: "PISCINĂ", bricolaje: "BRICOLAJ",
   },
 };
 
