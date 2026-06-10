@@ -26,8 +26,8 @@ export default function ProductCard({ product, t, onClick }: Props) {
         )}
       </div>
 
-      <p className="mt-3 line-clamp-2 h-8 text-center text-[11px] font-black leading-tight text-slate-700">
-        {product.name}
+      <p className="mt-3 text-center text-[11px] font-black leading-tight text-slate-700">
+        {product.name.match(/Ref\.\d+/)?.[0] ?? product.name}
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-[10px]">

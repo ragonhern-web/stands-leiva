@@ -56,7 +56,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
             <div className="flex flex-col gap-4 overflow-y-auto p-6 md:w-2/5">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Referencia</p>
-                <h3 className="mt-1 text-2xl font-black text-slate-900">{product.name}</h3>
+                <h3 className="mt-1 text-2xl font-black text-slate-900">{product.name.match(/Ref\.\d+/)?.[0] ?? product.name}</h3>
               </div>
 
               {(getProductDesc(product.id, language, product.desc) ?? product.desc) && (
