@@ -1,5 +1,13 @@
 import type { Stand } from "../types";
 
+function realRef(name: string): string {
+  return name.match(/Ref\.(\d+)/)?.[1] ?? name;
+}
+
+function cleanName(name: string): string {
+  return name.replace(/\s*·\s*Ref\.\d+$/, "");
+}
+
 function standInfoRows(stand: Stand): [string, string | number][] {
   const rows: [string, string | number][] = [];
   if (stand.standRef)     rows.push(["Ref. stand",        stand.standRef]);
@@ -100,8 +108,8 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
 
   stand.products.forEach((p, i) => {
     const row = prodSheet.addRow([
-      p.id,
-      p.name,
+      realRef(p.name),
+      cleanName(p.name),
       "Ver foto",
       p.color  ?? "",
       p.alto   ?? "",
@@ -174,8 +182,8 @@ export function downloadPDF(stand: Stand, title: string): void {
   <thead><tr>${["Foto","Nº Ref","Referencia","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
   <tbody>${stand.products.map(p => `<tr>
     <td><img src="${origin}${p.image}" class="photo" alt="${p.name}" /></td>
-    <td class="ref">${p.id}</td>
-    <td>${p.name}</td>
+    <td class="ref">${realRef(p.name)}</td>
+    <td>${cleanName(p.name)}</td>
     <td>${p.color ?? "—"}</td>
     <td>${p.alto ? p.alto + " cm" : "—"}</td>
     <td>${p.largo ? p.largo + " cm" : "—"}</td>
