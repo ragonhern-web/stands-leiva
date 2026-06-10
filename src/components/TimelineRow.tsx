@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
-import { getStandCopy, getStandLabel } from "../data/translations";
+import { copy, getStandCopy, getStandLabel } from "../data/translations";
 import { brand } from "../data/stands";
 import MobileSeasonCarousel from "./MobileSeasonCarousel";
 import type { Stand, Language } from "../types";
@@ -175,7 +175,7 @@ export default function TimelineRow({
             {comingSoon && (
               <div className="relative z-30 mt-2 flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 shadow-sm">
                 <Clock size={9} />
-                Próximamente
+                {copy[language]?.newDisplaysTitle ?? copy.es.newDisplaysTitle}
               </div>
             )}
           </button>
