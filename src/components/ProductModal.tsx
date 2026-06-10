@@ -106,7 +106,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
                     </div>
                   </div>
                 )}
-                {product.color && (
+                {product.color && !getProductDesc(product.id, language) && (
                   <div className="col-span-2">
                     <p className="font-black uppercase tracking-wider text-slate-400">{t.color}</p>
                     <div className="mt-1 flex min-h-8 items-center justify-center rounded-xl bg-slate-50 px-2 py-1 text-center font-black leading-tight text-slate-700">

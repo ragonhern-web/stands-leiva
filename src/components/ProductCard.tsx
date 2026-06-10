@@ -1,13 +1,16 @@
 import { Package } from "lucide-react";
-import type { Product, TranslationCopy } from "../types";
+import { getProductDesc } from "../data/productI18n";
+import type { Product, TranslationCopy, Language } from "../types";
 
 interface Props {
   product: Product;
   t: TranslationCopy;
+  language: Language;
   onClick?: () => void;
 }
 
-export default function ProductCard({ product, t, onClick }: Props) {
+export default function ProductCard({ product, t, language, onClick }: Props) {
+  const desc = getProductDesc(product.id, language) ?? product.color;
   return (
     <article
       className="group cursor-pointer rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:border-[#169b22]/40 hover:shadow-xl"
@@ -30,22 +33,28 @@ export default function ProductCard({ product, t, onClick }: Props) {
         {product.name.match(/Ref\.\d+/)?.[0] ?? product.name}
       </p>
 
-      <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-[10px]">
-        <div>
-          <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
-          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#ffe100] font-black text-black">
-            {product.units}
-          </div>
+      {(product.units || product.price) && (
+        <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-[10px]">
+          {product.units && (
+            <div>
+              <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
+              <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#ffe100] font-black text-black">
+                {product.units}
+              </div>
+            </div>
+          )}
+          {product.price && (
+            <div>
+              <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
+              <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#169b22] font-black text-white">
+                {product.price}
+              </div>
+            </div>
+          )}
         </div>
-        <div>
-          <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
-          <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#169b22] font-black text-white">
-            {product.price}
-          </div>
-        </div>
-      </div>
+      )}
 
-      {(product.color || product.alto != null) && (
+      {product.alto != null && (
         <div className="mt-2 grid grid-cols-3 gap-2 text-[10px]">
           {(["alto", "largo", "ancho"] as const).map((dim) =>
             product[dim] != null ? (
@@ -60,11 +69,10 @@ export default function ProductCard({ product, t, onClick }: Props) {
         </div>
       )}
 
-      {product.color && (
+      {desc && (
         <div className="mt-2 text-[10px]">
-          <p className="font-black uppercase tracking-wider text-slate-400">{t.color}</p>
-          <div className="mt-1 flex min-h-7 items-center justify-center rounded-lg bg-slate-50 px-1 py-1 text-center font-black leading-tight text-slate-700">
-            {product.color}
+          <div className="mt-1 flex min-h-7 items-center justify-center rounded-lg bg-slate-50 px-1 py-1 text-center leading-tight text-slate-600">
+            {desc}
           </div>
         </div>
       )}

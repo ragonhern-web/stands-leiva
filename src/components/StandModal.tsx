@@ -189,7 +189,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
                 <div className="grid grid-cols-2 gap-3 pr-1 md:min-h-0 md:flex-1 md:overflow-y-auto md:pr-3 md:[scrollbar-color:#169b22_#e2e8f0] md:[scrollbar-width:thin] lg:grid-cols-5">
                   {stand.products.map((product) => (
-                    <ProductCard key={product.id} product={product} t={t} onClick={() => setSelectedProduct(product)} />
+                    <ProductCard key={product.id} product={product} t={t} language={language} onClick={() => setSelectedProduct(product)} />
                   ))}
                 </div>
 
