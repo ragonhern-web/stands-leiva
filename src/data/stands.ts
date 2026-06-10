@@ -491,6 +491,47 @@ const standExtras: Record<string, StandExtra> = {
     },
   },
 
+  jug3: {
+    imagePath: `${base}assets/stands/expositor-jug3.webp`,
+    info: { standRef: "99915", numRefs: 33, sides: 2, tipo: "Medio palet", standAlto: 150, standLargo: 80, standAncho: 60 },
+    refs: [60468,60469,60470,60471,60472,60473,60474,60475,60476,60477,60478,60479,60480,60481,60482,60483,60484,60485,60486,60487,60488,60489,60490,60491,60492,60493,60494,60495,60496,60497,60498,60499,60500],
+    data: {
+      60468: { units: "1 juego en caja",                          color: "Caja azul con diseño jungle, serpientes, escaleras y bolas de colores.", alto: 24, largo: 5,  ancho: 15, name: "Juego Snake & Ladders 3D",           desc: "Juego de mesa 3D Snake & Ladders con tablero, fichas y ruleta." },
+      60469: { units: "1 juego en caja",                          color: "Caja azul con diseño infantil de animales y tablero verde/naranja.",    alto: 24, largo: 5,  ancho: 15, name: "Juego Guess Animals",                desc: "Juego Guess Animals con tablero abatible y tarjetas de animales." },
+      60470: { units: "1 juego en caja",                          color: "Caja azul con bloques multicolor en rojo, amarillo, verde y azul.",     alto: 24, largo: 5,  ancho: 15, name: "Juego Stackers bloques apilables",  desc: "Juego Stackers de bloques apilables de equilibrio." },
+      60471: { units: "1 unidad / varios colores surtidos",       color: "Varios colores surtidos; caja azul, verde y naranja.",                 alto: 13, largo: 7,  ancho: 10, name: "Peonza giratoria Cool Top",         desc: "Peonza giratoria con lanzador y piezas apilables tipo Cool Top." },
+      60472: { units: "1 set en caja / varios colores surtidos",  color: "Caja morada y rosa; varios colores surtidos.",                         alto: 21, largo: 4,  ancho: 28, name: "Set muñeca accesorios peluquería",  desc: "Set de muñeca con accesorios de peluquería, vestido, espejo, peine y secador." },
+      60473: { units: "1 kit en caja",                            color: "Caja rosa con abalorios multicolor y diseño infantil.",                 alto: 16, largo: 3,  ancho: 30, name: "Kit DIY abalorios pulseras",        desc: "Kit DIY de abalorios para crear pulseras y bisutería infantil." },
+      60474: { units: "1 set en caja / varios modelos surtidos",  color: "Caja rosa/fucsia con varios modelos surtidos.",                        alto: 33, largo: 2,  ancho: 17, name: "Set belleza infantil con corona",   desc: "Set de belleza infantil con corona, collar, pendientes y accesorios." },
+      60475: { units: "1 unidad en caja",                         color: "Caja roja con xilófono multicolor.",                                    alto: 15, largo: 4,  ancho: 24, name: "Xilófono infantil de colores",     desc: "Xilófono infantil con teclas de colores y baqueta." },
+      60476: { units: "1 dinosaurio / varios modelos surtidos",   color: "Varios modelos surtidos en colores naranja, verde, azul y amarillo.",  alto: 16, largo: 7,  ancho: 22, name: "Dinosaurio desmontable DIY",       desc: "Dinosaurio desmontable DIY con piezas y tornillos visibles." },
+      60477: { units: "1 set en caja",                            color: "Envase verde con bloques multicolor en azul, rosa, amarillo, naranja y morado.", alto: 23, largo: 8, ancho: 8, name: "Set bloques puzzle geométricos", desc: "Set de bloques puzzle encajables con formas geométricas." },
+      60478: { units: "1 unidad / varios modelos surtidos",       color: "Madera natural con piezas multicolor; varios modelos surtidos.",        name: "Reloj educativo de madera",        desc: "Reloj educativo de madera con números encajables de colores y cordón." },
+      60479: { units: "1 muñeca en caja",                         color: "Caja blanca/dorada con diseño floral; muñeca con vestido rojo.",        alto: 32, largo: 4,  ancho: 14, name: "Muñeca Fashion Girl vestido rojo", desc: "Muñeca Fashion Girl con vestido rojo y accesorios de belleza." },
+      60480: { units: "1 muñeca en caja",                         color: "Caja blanca/dorada con diseño floral; muñeca con vestido blanco y detalles morados.", alto: 32, largo: 4, ancho: 14, name: "Muñeca Fashion Girl vestido blanco", desc: "Muñeca Fashion Girl con vestido blanco y morado." },
+      60481: { units: "1 muñeca en caja",                         color: "Caja blanca/dorada con diseño floral; muñeca con vestido rosa/fucsia.", alto: 32, largo: 4,  ancho: 14, name: "Muñeca Fashion Girl vestido rosa",  desc: "Muñeca Fashion Girl con vestido rosa y lazo rojo." },
+      60482: { units: "1 muñeca en caja",                         color: "Caja blanca/dorada con diseño floral; muñeca con vestido rosa claro.", alto: 32, largo: 4,  ancho: 14, name: "Muñeca Fashion Girl encaje rosa",   desc: "Muñeca Fashion Girl con vestido rosa claro y falda de encaje." },
+      60483: { units: "1 set en caja / varios colores surtidos",  color: "Varios colores surtidos; caja azul/gris con diseño deportivo.",        alto: 40, largo: 3,  ancho: 15, name: "Set arco y flechas con diana",     desc: "Set de arco y flechas con diana para juego de puntería." },
+      60484: { units: "1 juego en caja / varios colores surtidos",color: "Varios colores surtidos; caja azul, blanca y verde.",                  alto: 25, largo: 3,  ancho: 15, name: "Juego Bingo habilidad 2 jugadores",desc: "Juego Bingo de habilidad para 2 jugadores con tablero y fichas." },
+      60485: { units: "1 set en caja",                            color: "Caja con diseño militar en camuflaje verde, marrón y beige.",          alto: 21, largo: 5,  ancho: 16, name: "Set militar figuras de combate",   desc: "Set militar con figuras, soldados, accesorios y elementos de combate." },
+      60486: { units: "1 pistola + accesorios / colores surtidos",color: "Varios colores surtidos; caja azul, blanca y negra.",                  alto: 15, largo: 4,  ancho: 22, name: "Pistola Shoot Gun balas blandas",  desc: "Pistola de juguete Shoot Gun con balas blandas y bolas." },
+      60487: { units: "1 set en caja",                            color: "Caja azul, amarilla y roja con piezas en rojo, amarillo, verde y azul.", alto: 25, largo: 3, ancho: 20, name: "Set mosaico plástico tablero",    desc: "Set de mosaico plástico con tablero perforado y piezas de colores." },
+      60488: { units: "1 set en caja",                            color: "Caja verde y blanca con temática jurásica, dinosaurios multicolor y fondo selvático.", alto: 18, largo: 5, ancho: 26, name: "Set Dinosaur World figuras", desc: "Set Dinosaur World con figuras de dinosaurios y vegetación decorativa." },
+      60489: { units: "1 set en caja",                            color: "Caja azul, verde y naranja con temática espacial.",                    alto: 21, largo: 4,  ancho: 28, name: "Set espacial Space Team",          desc: "Set espacial Space Team con nave, astronautas, cohete, torre y planetas." },
+      60490: { units: "1 set en caja",                            color: "Caja marrón con diseño de piedra/jurásico y dinosaurios en tonos verdes, amarillos y naranjas.", alto: 23, largo: 5, ancho: 18, name: "Set Jurassic Play World", desc: "Set de dinosaurios Jurassic Play World con figuras, huevos y accesorios." },
+      60491: { units: "1 set en caja",                            color: "Caja verde con temática de dinosaurios, tren verde y vías naranjas.",  alto: 22, largo: 4,  ancho: 20, name: "Set Train Track Dinosaur World",   desc: "Set Train Track Dinosaur World con tren, vagones y vías." },
+      60492: { units: "1 robot en blíster / varios modelos",      color: "Blíster azul con robots de varios colores: blanco, azul, rojo, verde, naranja y negro.", alto: 19, largo: 5, ancho: 12, name: "Robot Warrior Mecha", desc: "Robot Warrior Mecha con accesorio de arma, varios modelos surtidos." },
+      60493: { units: "1 juego en caja",                          color: "Caja negra y naranja con diseño familiar y fichas blancas numeradas.", alto: 20, largo: 4,  ancho: 15, name: "Juego Rummikub Family Games",      desc: "Juego de mesa Rummikub Family Games con fichas numéricas y soportes." },
+      60494: { units: "1 juego en caja",                          color: "Caja roja y blanca con escaleras multicolor en rojo, azul, verde y amarillo.", alto: 20, largo: 4, ancho: 15, name: "Juego Ladders Balancing Game", desc: "Juego Ladders Balancing Game con escaleras de colores para equilibrio." },
+      60495: { units: "1 juego en caja",                          color: "Caja roja y blanca con piezas multicolor en azul, rojo, amarillo y verde.", alto: 20, largo: 4, ancho: 15, name: "Juego Topple apilables",       desc: "Juego Topple con base azul y piezas apilables de colores." },
+      60496: { units: "1 set en caja / varios modelos surtidos",  color: "Caja morada y rosa con caballo blanco/marrón y accesorios beige.",    alto: 11, largo: 4,  ancho: 20, name: "Set Horse Farm con caballo",       desc: "Set Horse Farm con caballo, accesorios de establo y herramientas." },
+      60497: { units: "1 set en caja / varios modelos surtidos",  color: "Caja rosa y turquesa con diseño beauty/fashion; varios modelos surtidos.", alto: 18, largo: 4, ancho: 25, name: "Set Beautiful Fashion Set",   desc: "Set Beautiful Fashion Set con muñeca, vestidos, bolso, peine y accesorios." },
+      60498: { units: "1 set en caja",                            color: "Caja rosa, blanca y morada con accesorios en tonos rosa y azul.",     alto: 21, largo: 4,  ancho: 25, name: "Set Fashion Girl Collection",      desc: "Set Fashion Girl Collection con accesorios de belleza, espejo, bolso, perfume y complementos." },
+      60499: { units: "1 set en caja",                            color: "Caja rosa/fucsia con ventana transparente y diseño fashion infantil.", alto: 21, largo: 4,  ancho: 25, name: "Set Fashion Dolls Pets",           desc: "Set Fashion Dolls Pets con muñeca, vestidos intercambiables, mascotas y accesorios." },
+      60500: { units: "6 figuras en caja",                        color: "Caja con diseño camuflaje militar en tonos verde, beige y marrón.",   alto: 14, largo: 3,  ancho: 40, name: "Set Combat Play Set soldados",     desc: "Set militar Combat Play Set con varias figuras de soldados." },
+    },
+  },
+
   juguetes: {
     imagePath: `${base}assets/stands/expositor-juguetes.webp`,
     info: { standRef: "99922", numRefs: 21, totalUnits: 105, sides: 2, priceStand: "309,75 €", pricePerUnit: "2,95 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
@@ -625,10 +666,10 @@ const allYearDefs: StandDef[] = [
   { id: "cocina",   label: "COCINA",   color: colorMap.red,    title: "Expositor Cocina",      desc: "Accesorios de cocina con colores y licencias familiares.",        productsBase: ["Vasos", "Moldes", "Fiambreras", "Cubiertos"] },
   { id: "auto",     label: "AUTO",     color: colorMap.black,  title: "Expositor Automóviles", desc: "Productos funcionales para coche y viaje familiar.",              productsBase: ["Organizadores", "Parasoles", "Ambientadores", "Protectores"] },
   { id: "juguetes", label: "JUGUETES", color: colorMap.green,  title: "Expositor Juguetes",    desc: "Juguetes de madera didácticos de venta constante durante todo el año.", productsBase: ["Puzzles", "Ábaco", "Xilófono", "Tres en raya"] },
+  { id: "jug3",     label: "JUG 3€",   color: colorMap.green,  title: "Juguetes (3€)",         desc: "Stand de juguetes a precio unitario de 3€, perfectos para regalo e impulso de compra.", productsBase: [] },
 ];
 
 const comingSoonDefs: StandDef[] = [
-  { id: "jug3",        label: "JUG 3€",      color: colorMap.green,  title: "Juguetes (3€)",    desc: "Stand de juguetes a precio unitario de 3€, perfectos para regalo e impulso de compra.", productsBase: [] },
   { id: "jug5",        label: "JUG 5€",      color: colorMap.green,  title: "Juguetes (5€)",    desc: "Stand de juguetes a precio unitario de 5€. Mayor calidad y presentación, ideales como regalo.", productsBase: [] },
   { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, title: "Cocina Madera",    desc: "Utensilios de cocina en madera natural: espátulas, cucharas, tablas y accesorios sostenibles.", productsBase: [] },
   { id: "piscina",     label: "PISCINA",      color: "#3b82f6",       title: "Piscina",          desc: "Todo para la piscina y el verano. Flotadores, churros, gafas acuáticas y juguetes de agua.", productsBase: [] },
@@ -636,7 +677,6 @@ const comingSoonDefs: StandDef[] = [
 ];
 
 const comingSoonImages: Partial<Record<string, string>> = {
-  jug3:        `${base}assets/stands/expositor-jug3.webp`,
   jug5:        `${base}assets/stands/expositor-jug5.webp`,
   cocinamadera:`${base}assets/stands/expositor-cocinamadera.webp`,
   piscina:     `${base}assets/stands/expositor-piscina.webp`,
