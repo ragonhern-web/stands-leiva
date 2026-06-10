@@ -6,7 +6,7 @@ export default function Logo() {
       <p className="text-[9px] font-black uppercase tracking-[0.28em] text-slate-400">Import – Export</p>
       <div className="flex items-center gap-3">
         <img
-          src={`${base}favicon.png`}
+          src={`${base}favicon.webp`}
           alt="Novedades Leiva S.L."
           className="h-10 w-10 object-contain mix-blend-multiply"
         />

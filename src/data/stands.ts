@@ -96,7 +96,7 @@ type StandExtra = {
 const standExtras: Record<string, StandExtra> = {
 
   jul: {
-    imagePath: `${base}assets/stands/expositor-jun.png`,
+    imagePath: `${base}assets/stands/expositor-jun.webp`,
     info: {
       standRef: "99917", numRefs: 20, totalUnits: 338, sides: 2,
       priceStand: "385,32 €", pricePerUnit: "1,14 €",
@@ -129,7 +129,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   belleza: {
-    imagePath: `${base}assets/stands/expositor-belleza.png`,
+    imagePath: `${base}assets/stands/expositor-belleza.webp`,
     info: {
       standRef: "99928", numRefs: 51, totalUnits: 346, sides: 2,
       priceStand: "238,74 €", pricePerUnit: "0,69 €",
@@ -196,7 +196,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   ene: {
-    imagePath: `${base}assets/stands/expositor-ene.png`,
+    imagePath: `${base}assets/stands/expositor-ene.webp`,
     info: { standRef: "99935", numRefs: 23, totalUnits: 174, sides: 2, priceStand: "201,84 €", pricePerUnit: "1,16 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 40, standAncho: 60 },
     refs: [32298,32299,32300,32301,32302,32303,32304,32305,32306,32307,32308,32309,32310,32311,32312,32313,32314,32315,32316,32317,32318,32319,32320],
     data: {
@@ -227,7 +227,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   mar: {
-    imagePath: `${base}assets/stands/expositor-feb.png`,
+    imagePath: `${base}assets/stands/expositor-feb.webp`,
     info: { standRef: "99938", numRefs: 14, totalUnits: 468, sides: 2, priceStand: "290,16 €", pricePerUnit: "0,62 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [32348,32349,32350,32351,32352,32353,32354,32355,32356,32357,32358,32359,32360,32361],
     data: {
@@ -249,7 +249,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   abr: {
-    imagePath: `${base}assets/stands/expositor-mar.png`,
+    imagePath: `${base}assets/stands/expositor-mar.webp`,
     info: { standRef: "98685", numRefs: 1, totalUnits: 54, tipo: "Cuarto palé", pricePerUnit: "0,99 €", priceStand: "53,46 €", standAlto: 6, standLargo: 6, standAncho: 150 },
     refs: [98685],
     data: {
@@ -258,7 +258,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   jun: {
-    imagePath: `${base}assets/stands/expositor-may.png`,
+    imagePath: `${base}assets/stands/expositor-may.webp`,
     info: { standRef: "99919", numRefs: 11, totalUnits: 97, sides: 2, priceStand: "349,20 €", pricePerUnit: "3,60 €", tipo: "Medio palé", standAlto: 150, standLargo: 80, standAncho: 60 },
     refs: [60372,60373,60374,60375,60376,60377,60378,60379,60380,60381,60382],
     data: {
@@ -277,7 +277,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   ago: {
-    imagePath: `${base}assets/stands/expositor-sep.png`,
+    imagePath: `${base}assets/stands/expositor-sep.webp`,
     info: { standRef: "99932", numRefs: 38, totalUnits: 399, sides: 2, priceStand: "231,42 €", pricePerUnit: "0,58 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [32243,32244,32245,32246,32247,32248,32249,32250,32251,32252,32253,32254,32255,32256,32257,32258,32259,32260,32261,32262,32263,32264,32265,32266,32267,32268,32269,32270,32271,32272,32273,32274,32275,32276,32277,32278,32279,32280],
     data: {
@@ -323,7 +323,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   sep: {
-    imagePath: `${base}assets/stands/expositor-oct.png`,
+    imagePath: `${base}assets/stands/expositor-oct.webp`,
     info: { standRef: "2062", numRefs: 1, totalUnits: 18, tipo: "Cuarto palé", pricePerUnit: "1,10 €", priceStand: "19,80 €", standAlto: 34, standLargo: 48, standAncho: 40 },
     refs: [2062],
     data: {
@@ -332,7 +332,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   oct: {
-    imagePath: `${base}assets/stands/expositor-nov.png`,
+    imagePath: `${base}assets/stands/expositor-nov.webp`,
     info: { standRef: "99930", numRefs: 39, totalUnits: 294, sides: 4, priceStand: "323,40 €", pricePerUnit: "1,10 €", tipo: "Expositor giratorio", standAlto: 130, standLargo: 48, standAncho: 67 },
     refs: [60277,60306,60309,60305,60312,60310,60311,60297,60296,60308,60315,60313,60282,60283,60314,60307,60279,60278,60284,60289,60290,60287,60288,60293,60298,60299,60285,60280,60281,60292,60291,60286,60302,60294,60295,60300,60301,60303,60304],
     data: {
@@ -379,7 +379,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   dic: {
-    imagePath: `${base}assets/stands/expositor-dic.png`,
+    imagePath: `${base}assets/stands/expositor-dic.webp`,
     info: { numRefs: 1, totalUnits: 50, tipo: "Caja expositora", standAlto: 38, standLargo: 28, standAncho: 23 },
     refs: [3940],
     data: {
@@ -388,7 +388,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   feb: {
-    imagePath: `${base}assets/stands/expositor-picnic.png`,
+    imagePath: `${base}assets/stands/expositor-picnic.webp`,
     info: { standRef: "99937", numRefs: 18, totalUnits: 321, sides: 2, priceStand: "195,81 €", pricePerUnit: "0,61 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [43136,43137,43138,43139,43140,43141,43142,43143,43144,43145,43146,43147,43148,43150,43151,43152,43153,43154],
     data: {
@@ -414,7 +414,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   auto: {
-    imagePath: `${base}assets/stands/expositor-auto.png`,
+    imagePath: `${base}assets/stands/expositor-auto.webp`,
     info: { standRef: "99939", numRefs: 27, totalUnits: 244, sides: 2, priceStand: "283,04 €", pricePerUnit: "1,16 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 40, standAncho: 60 },
     refs: [32321,32322,32323,32324,32325,32326,32327,32328,32329,32330,32331,32332,32333,32334,32335,32336,32337,32338,32339,32340,32341,32342,32343,32344,32345,32346,32347],
     data: {
@@ -449,7 +449,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   balones: {
-    imagePath: `${base}assets/stands/expositor-balones.png`,
+    imagePath: `${base}assets/stands/expositor-balones.webp`,
     info: { standRef: "60388", numRefs: 1, totalUnits: 40, sides: 2, tipo: "Cuarto palé", pricePerUnit: "2,50 €", priceStand: "100,00 €", standAlto: 145, standLargo: 42, standAncho: 60 },
     refs: [60388],
     data: {
@@ -458,7 +458,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   nov: {
-    imagePath: `${base}assets/stands/expositor-desechables.png`,
+    imagePath: `${base}assets/stands/expositor-desechables.webp`,
     info: { standRef: "99920", numRefs: 10, totalUnits: 231, sides: 2, priceStand: "263,34 €", pricePerUnit: "1,14 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [43214,43215,43216,43217,43218,43219,43220,43221,43222,43223],
     data: {
@@ -476,7 +476,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   may: {
-    imagePath: `${base}assets/stands/expositor-abr.png`,
+    imagePath: `${base}assets/stands/expositor-abr.webp`,
     info: { standRef: "99918", numRefs: 8, totalUnits: 78, sides: 2, priceStand: "138,84 €", pricePerUnit: "1,78 €", tipo: "Cuarto palé", standAlto: 150, standLargo: 40, standAncho: 60 },
     refs: [60383,60384,60385,60386,60406,60407,60408,60409],
     data: {
@@ -492,7 +492,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   juguetes: {
-    imagePath: `${base}assets/stands/expositor-juguetes.png`,
+    imagePath: `${base}assets/stands/expositor-juguetes.webp`,
     info: { standRef: "99922", numRefs: 21, totalUnits: 105, sides: 2, priceStand: "309,75 €", pricePerUnit: "2,95 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [60414,60415,60416,60417,60418,60419,60420,60421,60422,60423,60424,60425,60426,60427,60428,60429,60430,60431,60432,60433,60434],
     data: {
@@ -521,7 +521,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   mascotas: {
-    imagePath: `${base}assets/stands/expositor-mascotas.png`,
+    imagePath: `${base}assets/stands/expositor-mascotas.webp`,
     info: { standRef: "99936", numRefs: 25, totalUnits: 225, sides: 2, priceStand: "261,00 €", pricePerUnit: "1,16 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [51584,51585,51586,51587,51588,51589,51590,51591,51592,51593,51594,51595,51596,51597,51598,51599,51600,51601,51602,51603,51604,51605,51606,51607,51608],
     data: {
@@ -554,7 +554,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   cocina: {
-    imagePath: `${base}assets/stands/expositor-cocina.png`,
+    imagePath: `${base}assets/stands/expositor-cocina.webp`,
     info: {
       standRef: "99929", numRefs: 30, totalUnits: 296, sides: 2,
       priceStand: "337,44 €", pricePerUnit: "1,14 €",
@@ -636,11 +636,11 @@ const comingSoonDefs: StandDef[] = [
 ];
 
 const comingSoonImages: Partial<Record<string, string>> = {
-  jug3:        `${base}assets/stands/expositor-jug3.png`,
-  jug5:        `${base}assets/stands/expositor-jug5.png`,
-  cocinamadera:`${base}assets/stands/expositor-cocinamadera.png`,
-  piscina:     `${base}assets/stands/expositor-piscina.png`,
-  bricolaje:   `${base}assets/stands/expositor-bricolaje.png`,
+  jug3:        `${base}assets/stands/expositor-jug3.webp`,
+  jug5:        `${base}assets/stands/expositor-jug5.webp`,
+  cocinamadera:`${base}assets/stands/expositor-cocinamadera.webp`,
+  piscina:     `${base}assets/stands/expositor-piscina.webp`,
+  bricolaje:   `${base}assets/stands/expositor-bricolaje.webp`,
 };
 
 // ─── Construcción genérica ────────────────────────────────────────────────────
@@ -652,7 +652,7 @@ function buildRealProducts(id: string, extra: StandExtra): Product[] {
     return {
       id: `${id}-${num}`,
       name: d?.name ? `${d.name} · Ref.${ref}` : `Ref.${ref}`,
-      image: `${extra.imagePath.replace(/[^/]+\.png$/, "")}../products/${id}-${num}.jpg`
+      image: `${extra.imagePath.replace(/[^/]+\.webp$/, "")}../products/${id}-${num}.webp`
         .replace("stands/../", ""),
       units: d?.units ?? "",
       price: extra.info.pricePerUnit ?? "",
