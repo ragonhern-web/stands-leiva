@@ -62,7 +62,7 @@ const colorMap = {
 // ─── Tipos auxiliares ────────────────────────────────────────────────────────
 
 type ProductRow = {
-  units: string;
+  units?: string;
   color?: string;
   alto?: number;
   largo?: number;
