@@ -9,6 +9,7 @@ export const languages: Record<Language, { flag: string; short: string; name: st
   de: { flag: "🇩🇪", short: "DE", name: "Deutsch" },
   nl: { flag: "🇳🇱", short: "NL", name: "Nederlands" },
   pl: { flag: "🇵🇱", short: "PL", name: "Polski" },
+  ro: { flag: "🇷🇴", short: "RO", name: "Română" },
 };
 
 export const copy = {
@@ -217,6 +218,10 @@ export const standLabels: Record<Language, Partial<Record<string, string>>> = {
   pl: {
     ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU",
     balones: "PIŁKI", mascotas: "ZWIERZĘTA", belleza: "URODA", cocina: "KUCHNIA", auto: "AUTO", juguetes: "DREWNIANE",
+  },
+  ro: {
+    ene: "IAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAI", jun: "IUN", jul: "IUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
+    balones: "MINGI", mascotas: "ANIMALE", belleza: "FRUMUSEȚE", cocina: "BUCĂTĂRIE", auto: "AUTO", juguetes: "JUCĂRII",
   },
 };
 
@@ -545,6 +550,68 @@ export const standText = ({
   cocinamadera: ["Kuchnia Drewno", "Przybory kuchenne z naturalnego drewna: szpatułki, łyżki, deski i zrównoważone akcesoria domowe."],
   piscina: ["Basen", "Wszystko do basenu i lata. Dmuchańce, makarony, okulary i zabawki wodne dla całej rodziny."],
   bricolaje: ["Majsterkowanie", "Podstawowe narzędzia i akcesoria do majsterkowania. Praktyczne rozwiązania do konserwacji i drobnych napraw."],
+};
+
+(copy as unknown as Record<Language, TranslationCopy>).ro = {
+  eyebrow: "Showroom Virtual Novedades Leiva",
+  heroTitle: "Ready to Sell",
+  heroText: "Alegeți un sezon sau o categorie, examinați produsele incluse și pregătiți comanda cu unitățile și prețul per referință.",
+  monthlyEyebrow: "Campanii lunare",
+  monthlyTitle: "Expozitoare sezoniere",
+  permanentEyebrow: "Catalog permanent",
+  permanentTitle: "Expozitoare tot anul",
+  references: "referințe",
+  included: "Produse incluse",
+  columns: "col.",
+  rows: "rânduri",
+  units: "Unități",
+  price: "Preț/unit.",
+  request: "Solicitați acest expozitor",
+  downloadSheet: "Descărcați Fișa Tehnică",
+  downloadPDF: "PDF",
+  downloadExcel: "Excel",
+  color: "Culoare",
+  alto: "Înălțime",
+  largo: "Lungime",
+  ancho: "Lățime",
+  standRef: "Ref. expozitor",
+  standNumRefs: "Nr. referințe",
+  standTotalUnits: "Nr. unități",
+  standSides: "Laturi",
+  standPrice: "Prețul expozitorului",
+  standPriceUnit: "Preț/unitate",
+  standTipo: "Tip",
+  standDims: "Dimensiuni expozitor",
+  newDisplaysEyebrow: "Expozitoare noi",
+  newDisplaysTitle: "În curând",
+};
+(standText as unknown as Record<Language, Record<string, [string, string]>>).ro = {
+  ene: ["Expozitor Grădină", "Unelte de grădinărit, stropitori, ghivece și accesorii pentru a demara sezonul."],
+  feb: ["Expozitor Picnic", "Veselă, pahare și accesorii de unică folosință pentru picnic, celebrări și horeca."],
+  mar: ["Expozitor Repelente", "Repelente, capcane și produse anti-insecte pentru începutul verii."],
+  abr: ["Expozitor Tăiței de Înot", "Tăiței de înot din spumă de polietilenă pentru piscine și plaje."],
+  may: ["Expozitor Colecție Naturală", "Jucării de plajă și exterior din colecția naturală cu materiale sustenabile."],
+  jun: ["Expozitor Plajă", "Pistoale cu apă, seturi de nisip și jocuri acvatice pentru sezonul de vară."],
+  jul: ["Expozitor Set de Plajă", "Produsele vedetă pentru plajă, piscină și vară."],
+  ago: ["Expozitor Papetărie", "Rechizite școlare, papetărie și accesorii de birou pentru revenirea la școală."],
+  sep: ["Expozitor Halloween", "Costume, decorațiuni și accesorii pentru campanii cu impact vizual."],
+  oct: ["Expozitor Crăciun", "Ornamente, lumini și decorațiuni de Crăciun pentru sezon."],
+  nov: ["Expozitor Unică Folosință Crăciun", "Veselă de unică folosință și accesorii cu motive de Crăciun pentru petreceri."],
+  dic: ["Expozitor Crăciun", "Cadouri de ultim moment și bestseller-uri din decembrie."],
+  balones: ["Expozitor Mingi", "Selecție completă de mingi sportive pentru toate vârstele."],
+  mascotas: ["Expozitor Animale de Companie", "Jucării, accesorii și produse de îngrijire pentru animale."],
+  eco: ["Expozitor Eco", "Produse reciclabile și alternative ecologice."],
+  belleza: ["Expozitor Frumusețe", "Seturi de machiaj, coafură și accesorii pentru copii."],
+  cocina: ["Expozitor Bucătărie", "Accesorii de bucătărie colorate pentru familii."],
+  desechables: ["Expozitor Unică Folosință", "Articole pentru zile de naștere, petreceri și celebrări."],
+  auto: ["Expozitor Auto", "Produse funcționale pentru mașină și călătorii de familie."],
+  juguetes: ["Expozitor Jucării", "Jucării generice cu vânzare constantă tot anul."],
+  toys: ["Expozitor Toys", "Noutăți și jucării de import exclusive."],
+  jug3: ["Jucării (3€)", "Expozitor de jucării la 3€ bucata. Jucării pentru copii, ideale ca cadou și cumpărătură impulsivă."],
+  jug5: ["Jucării (5€)", "Expozitor de jucării la 5€ bucata. Calitate și prezentare superioare, ideale ca cadouri."],
+  cocinamadera: ["Bucătărie Lemn", "Ustensile de bucătărie din lemn natural: spatule, linguri, tocătoare și accesorii sustenabile."],
+  piscina: ["Piscină", "Tot pentru piscină și vară. Colaci, tăiței de înot, ochelari și jucării acvatice pentru toată familia."],
+  bricolaje: ["Bricolaj", "Unelte de bază și accesorii pentru bricolaj. Soluții practice pentru întreținere și reparații minore."],
 };
 
 /** Devuelve título y descripción del expositor en el idioma activo */
