@@ -88,7 +88,7 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
 
   const prodCols = [
     { header: "Nº Ref",      width: 16 },
-    { header: "Referencia",  width: 30 },
+    { header: "Producto",    width: 30 },
     { header: "Foto",        width: 12 },
     { header: "Color",       width: 24 },
     { header: "Alto (cm)",   width: 11 },
@@ -179,7 +179,7 @@ export function downloadPDF(stand: Stand, title: string): void {
 </div>
 <h2>Productos incluidos</h2>
 <table>
-  <thead><tr>${["Foto","Nº Ref","Referencia","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
+  <thead><tr>${["Foto","Nº Ref","Producto","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
   <tbody>${stand.products.map(p => `<tr>
     <td><img src="${origin}${p.image}" class="photo" alt="${p.name}" /></td>
     <td class="ref">${realRef(p.name)}</td>
