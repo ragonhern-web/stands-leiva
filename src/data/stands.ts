@@ -493,7 +493,7 @@ const standExtras: Record<string, StandExtra> = {
 
   jug3: {
     imagePath: `${base}assets/stands/expositor-jug3.webp`,
-    info: { standRef: "99915", numRefs: 33, sides: 2, tipo: "Medio palet", standAlto: 150, standLargo: 80, standAncho: 60 },
+    info: { standRef: "99915", numRefs: 33, sides: 2, pricePerUnit: "3,00 €", tipo: "Medio Palé", standAlto: 150, standLargo: 80, standAncho: 60 },
     refs: [60468,60469,60470,60471,60472,60473,60474,60475,60476,60477,60478,60479,60480,60481,60482,60483,60484,60485,60486,60487,60488,60489,60490,60491,60492,60493,60494,60495,60496,60497,60498,60499,60500],
     data: {
       60468: { alto: 24, largo: 5,  ancho: 15, name: "Juego Snake & Ladders 3D",           desc: "Juego de mesa 3D Snake & Ladders con tablero, fichas y ruleta." },
