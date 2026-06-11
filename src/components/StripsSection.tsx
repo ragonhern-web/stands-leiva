@@ -51,14 +51,15 @@ export default function StripsSection({ language: _language }: Props) {
       <div className="grid gap-8 lg:grid-cols-[200px_1fr]">
 
         {/* Izquierda: imagen sticky sin fondo ni caja */}
-        <aside className="lg:sticky lg:top-6 lg:self-start flex justify-center">
+        <aside className="hidden lg:flex lg:sticky lg:top-6 lg:self-start justify-center items-start">
           <img
             key={previewSrc}
             src={previewSrc}
             alt={`Tira ${activeStrip.label}`}
             draggable="false"
             onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
-            className="w-full max-w-[200px] h-auto object-contain drop-shadow-2xl"
+            className="w-auto max-w-full object-contain drop-shadow-2xl"
+            style={{ height: "min(560px, 72vh)" }}
           />
         </aside>
 
