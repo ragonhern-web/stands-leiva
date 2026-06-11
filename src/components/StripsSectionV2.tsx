@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
+import type { StripProduct } from "../data/strips";
+import StripProductModal from "./StripProductModal";
 import type { Language } from "../types";
 
 interface Props {
@@ -11,6 +13,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
   const [activeStripId, setActiveStripId] = useState(strips[0].id);
   const [previewSrc, setPreviewSrc] = useState(strips[0].template);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<StripProduct | null>(null);
 
   const activeStrip = strips.find((s) => s.id === activeStripId) ?? strips[0];
 
@@ -22,14 +25,13 @@ export default function StripsSectionV2({ language: _language }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-
-      {/* ── PARTE 1: Hero (título + preview) ── */}
-      <section className="relative z-10 grid w-full grid-cols-1 items-center gap-2 md:grid-cols-[0.38fr_0.62fr] md:px-0">
+    <>
+      {/* ── PARTE 1: Hero (título izq. + preview dcha.) ── */}
+      <section className="relative z-10 grid w-full grid-cols-1 items-center gap-2 md:grid-cols-[0.38fr_0.62fr]">
 
         {/* Izquierda: título + descripción + selector */}
         <div className="flex flex-col justify-center px-2 py-5 text-center md:p-4 md:text-left">
-          <p className="mb-4 text-[10px] font-black uppercase tracking-[0.28em] text-slate-400 md:mb-3">
+          <p className="mb-4 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400 md:mb-3">
             TIRAS PROMOCIONALES
           </p>
           <h2 className="text-5xl font-black tracking-tight text-slate-950 md:text-6xl">
@@ -64,33 +66,35 @@ export default function StripsSectionV2({ language: _language }: Props) {
           </div>
         </div>
 
-        {/* Derecha: preview grande de la tira / producto hover */}
-        <div className="relative flex min-h-[340px] items-center justify-center px-4 py-6">
-          {/* Glow de fondo en color de la tira */}
+        {/* Derecha: preview de la tira / producto — contenedor fijo sin layout shift */}
+        <div className="relative flex min-h-[320px] items-center justify-center px-4 py-6">
+          {/* Glow de fondo */}
           <div
-            className="pointer-events-none absolute inset-x-8 inset-y-12 rounded-full opacity-20 blur-3xl transition-colors duration-700"
+            className="pointer-events-none absolute inset-x-8 inset-y-12 rounded-full opacity-20 blur-3xl transition-colors duration-500"
             style={{ backgroundColor: activeStrip.color }}
           />
-
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={previewSrc}
-              src={previewSrc}
-              alt={`Tira ${activeStrip.label}`}
-              draggable="false"
-              initial={{ opacity: 0, scale: 0.88, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: -8 }}
-              transition={{ type: "spring", stiffness: 220, damping: 26 }}
-              onError={(e) => {
-                e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label);
-              }}
-              className="relative z-10 max-h-[320px] w-auto max-w-full object-contain drop-shadow-2xl"
-            />
-          </AnimatePresence>
-
           {/* Sombra suelo */}
-          <div className="absolute bottom-8 h-8 w-40 rounded-full bg-black/10 blur-2xl" />
+          <div className="absolute bottom-6 h-8 w-40 rounded-full bg-black/10 blur-2xl" />
+
+          {/* Imagen con crossfade rápido — contenedor absoluto para evitar layout shift */}
+          <div className="relative h-[280px] w-full">
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={previewSrc}
+                src={previewSrc}
+                alt={`Tira ${activeStrip.label}`}
+                draggable="false"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
+                onError={(e) => {
+                  e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label);
+                }}
+                className="absolute inset-0 m-auto max-h-full max-w-full object-contain drop-shadow-2xl"
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
@@ -102,7 +106,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
           setHoveredId(null);
         }}
       >
-        <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
           {activeStrip.products.map((product) => {
             const isHovered = hoveredId === product.id;
             return (
@@ -113,29 +117,29 @@ export default function StripsSectionV2({ language: _language }: Props) {
                   setPreviewSrc(product.image);
                   setHoveredId(product.id);
                 }}
-                className="group relative flex min-w-0 flex-col items-center rounded-[1rem] border border-slate-200 bg-white px-1 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => setSelectedProduct(product)}
+                className="group relative flex min-w-0 flex-col items-center rounded-[1rem] border border-slate-200 bg-white px-2 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Ref */}
                 <span
-                  className="mb-1 max-w-full truncate text-[8px] font-black transition group-hover:-translate-y-0.5"
+                  className="mb-1 max-w-full truncate text-[9px] font-black transition group-hover:-translate-y-0.5"
                   style={{ color: activeStrip.color }}
                 >
                   {product.ref}
                 </span>
 
-                {/* Imagen con efectos */}
+                {/* Imagen + glow + sombra suelo */}
                 <motion.div
                   animate={{
-                    scale: isHovered ? 1.14 : 1,
-                    y: isHovered ? -5 : 0,
+                    scale: isHovered ? 1.1 : 1,
+                    y: isHovered ? -4 : 0,
                     opacity: isHovered ? 1 : 0.84,
                   }}
-                  transition={{ type: "spring", stiffness: 280, damping: 24 }}
-                  className="relative flex h-[80px] w-full items-end justify-center"
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="relative flex h-[100px] w-full items-end justify-center"
                 >
-                  {/* Glow */}
                   <div
-                    className="absolute inset-x-1 bottom-4 top-4 rounded-full opacity-0 blur-xl transition group-hover:opacity-40"
+                    className="absolute inset-x-2 bottom-4 top-4 rounded-full opacity-0 blur-xl transition group-hover:opacity-35"
                     style={{ backgroundColor: activeStrip.color }}
                   />
                   <img
@@ -149,15 +153,14 @@ export default function StripsSectionV2({ language: _language }: Props) {
                         activeStrip.label
                       );
                     }}
-                    className="relative z-10 max-h-[72px] w-auto object-contain drop-shadow-xl"
+                    className="relative z-10 max-h-[90px] w-auto object-contain drop-shadow-xl"
                   />
-                  {/* Sombra suelo */}
-                  <div className="absolute bottom-[-6px] h-4 w-10 rounded-full bg-black/15 blur-lg" />
+                  <div className="absolute bottom-[-6px] h-4 w-12 rounded-full bg-black/12 blur-lg" />
                 </motion.div>
 
                 {/* Badge precio */}
                 <div
-                  className="mt-2 rounded-full px-2 py-0.5 text-[8px] font-black text-white"
+                  className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white"
                   style={{ backgroundColor: activeStrip.color }}
                 >
                   {activeStrip.label}
@@ -168,6 +171,12 @@ export default function StripsSectionV2({ language: _language }: Props) {
         </div>
       </div>
 
-    </div>
+      {/* Modal de producto */}
+      <StripProductModal
+        product={selectedProduct}
+        strip={activeStrip}
+        onClose={() => setSelectedProduct(null)}
+      />
+    </>
   );
 }
