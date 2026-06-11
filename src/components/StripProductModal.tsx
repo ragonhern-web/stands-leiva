@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Package } from "lucide-react";
-import { strips, STRIP_PRODUCT_DEMO } from "../data/strips";
+import { STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct, StripType } from "../data/strips";
 
 interface Props {
