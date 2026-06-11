@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SectionTitle from "./SectionTitle";
-import { strips } from "../data/strips";
+import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { Language } from "../types";
 
 interface Props {
@@ -62,6 +62,7 @@ export default function StripsSection({ language: _language }: Props) {
               src={previewSrc}
               alt={`Tira ${activeStrip.label}`}
               draggable="false"
+              onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
               className="relative z-10 h-full w-full max-h-[580px] object-contain object-top drop-shadow-2xl"
             />
           </aside>
@@ -85,7 +86,7 @@ export default function StripsSection({ language: _language }: Props) {
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                    onError={(e) => { e.currentTarget.src = STRIP_PRODUCT_DEMO(activeStrip.color, activeStrip.label); }}
                     className="h-full w-full object-contain transition group-hover:scale-105"
                   />
                 </div>
