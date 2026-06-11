@@ -101,20 +101,20 @@ export const strips: StripType[] = [
     label: "1€",
     color: "#e21b23",
     template: `${base}assets/strips/tira-1e.png`,
-    products: makeProducts("1e", 20, 10001),
+    products: makeProducts("1e", 24, 10001),
   },
   {
     id: "2e",
     label: "2€",
     color: "#f5a623",
     template: `${base}assets/strips/tira-2e.png`,
-    products: makeProducts("2e", 20, 20001),
+    products: makeProducts("2e", 24, 20001),
   },
   {
     id: "3e",
     label: "3€",
     color: "#169b22",
     template: `${base}assets/strips/tira-3e.png`,
-    products: makeProducts("3e", 20, 30001),
+    products: makeProducts("3e", 24, 30001),
   },
 ];
