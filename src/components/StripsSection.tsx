@@ -49,21 +49,17 @@ export default function StripsSection({ language: _language }: Props) {
 
       {/* Panel principal */}
       <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-xl shadow-slate-300/40 md:p-8">
-        <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[200px_1fr] lg:items-start">
 
-          {/* Izquierda: imagen de la tira */}
-          <aside className="relative flex min-h-[600px] items-start justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-slate-50 to-white pt-6 pb-6">
-            <div
-              className="absolute inset-0 opacity-10 blur-3xl transition-colors duration-500"
-              style={{ backgroundColor: activeStrip.color }}
-            />
+          {/* Izquierda: imagen sticky sin fondo */}
+          <aside className="lg:sticky lg:top-6 flex justify-center">
             <img
               key={previewSrc}
               src={previewSrc}
               alt={`Tira ${activeStrip.label}`}
               draggable="false"
               onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
-              className="relative z-10 h-full w-full max-h-[580px] object-contain object-top drop-shadow-2xl"
+              className="w-full max-w-[200px] h-auto object-contain drop-shadow-2xl"
             />
           </aside>
 
