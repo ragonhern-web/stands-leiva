@@ -47,23 +47,23 @@ export default function StripsSection({ language: _language }: Props) {
         </div>
       </div>
 
-      {/* Panel principal */}
-      <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-xl shadow-slate-300/40 md:p-8">
-        <div className="grid gap-8 lg:grid-cols-[200px_1fr]">
+      {/* Panel principal: grid fuera de cualquier caja */}
+      <div className="grid gap-8 lg:grid-cols-[200px_1fr]">
 
-          {/* Izquierda: imagen sticky sin fondo */}
-          <aside className="lg:sticky lg:top-6 lg:self-start flex justify-center">
-            <img
-              key={previewSrc}
-              src={previewSrc}
-              alt={`Tira ${activeStrip.label}`}
-              draggable="false"
-              onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
-              className="w-full max-w-[200px] h-auto object-contain drop-shadow-2xl"
-            />
-          </aside>
+        {/* Izquierda: imagen sticky sin fondo ni caja */}
+        <aside className="lg:sticky lg:top-6 lg:self-start flex justify-center">
+          <img
+            key={previewSrc}
+            src={previewSrc}
+            alt={`Tira ${activeStrip.label}`}
+            draggable="false"
+            onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
+            className="w-full max-w-[200px] h-auto object-contain drop-shadow-2xl"
+          />
+        </aside>
 
-          {/* Derecha: grid de productos */}
+        {/* Derecha: caja blanca solo alrededor de los productos */}
+        <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-xl shadow-slate-300/40 md:p-8">
           <div
             className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
             onMouseLeave={() => setPreviewSrc(activeStrip.template)}
@@ -102,8 +102,8 @@ export default function StripsSection({ language: _language }: Props) {
               </button>
             ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );
