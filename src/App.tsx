@@ -7,6 +7,7 @@ import SectionTitle from "./components/SectionTitle";
 import TimelineRow from "./components/TimelineRow";
 import HeroStandPreview from "./components/HeroStandPreview";
 import StandModal from "./components/StandModal";
+import StripsSection from "./components/StripsSection";
 
 import { copy } from "./data/translations";
 import { seasonalStands, allYearStands, comingSoonStands, brand } from "./data/stands";
@@ -109,6 +110,8 @@ export default function App() {
             language={language}
           />
         </section>
+
+        <StripsSection language={language} />
       </main>
 
       <StandModal
