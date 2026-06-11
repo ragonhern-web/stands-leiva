@@ -49,10 +49,10 @@ export default function StripsSection({ language: _language }: Props) {
 
       {/* Panel principal */}
       <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-xl shadow-slate-300/40 md:p-8">
-        <div className="grid gap-8 lg:grid-cols-[200px_1fr] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[200px_1fr]">
 
           {/* Izquierda: imagen sticky sin fondo */}
-          <aside className="lg:sticky lg:top-6 flex justify-center">
+          <aside className="lg:sticky lg:top-6 lg:self-start flex justify-center">
             <img
               key={previewSrc}
               src={previewSrc}
