@@ -23,8 +23,8 @@ function makeProducts(stripId: string, count: number, refBase: number): StripPro
       id: `${stripId}-${num}`,
       name: `Ref. ${refBase + i}`,
       ref: String(refBase + i),
-      image:   `${base}assets/strips/products/${stripId}-${num}.webp`,
-      preview: `${base}assets/strips/previews/${stripId}-${num}.webp`,
+      image:   `${base}assets/strips/products/${stripId}-${num}.png`,
+      preview: `${base}assets/strips/previews/${stripId}-${num}.png`,
     };
   });
 }
@@ -34,21 +34,21 @@ export const strips: StripType[] = [
     id: "1e",
     label: "1€",
     color: "#e21b23",
-    template: `${base}assets/strips/tira-1e.webp`,
+    template: `${base}assets/strips/tira-1e.png`,
     products: makeProducts("1e", 20, 10001),
   },
   {
     id: "2e",
     label: "2€",
     color: "#f5a623",
-    template: `${base}assets/strips/tira-2e.webp`,
+    template: `${base}assets/strips/tira-2e.png`,
     products: makeProducts("2e", 20, 20001),
   },
   {
     id: "3e",
     label: "3€",
     color: "#169b22",
-    template: `${base}assets/strips/tira-3e.webp`,
+    template: `${base}assets/strips/tira-3e.png`,
     products: makeProducts("3e", 20, 30001),
   },
 ];
