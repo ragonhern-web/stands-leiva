@@ -206,7 +206,8 @@ export default function StripsSectionV2({ language: _language }: Props) {
 
       {/* ── PARTE 2: Grid de productos estilo TimelineRow ── */}
       <div
-        className="rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40"
+        className="overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40"
+        style={{ maxHeight: "220px" }}
         onMouseLeave={() => {
           setPreviewSrc(activeStrip.template);
           setHoveredId(null);
