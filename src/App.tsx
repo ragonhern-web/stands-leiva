@@ -27,7 +27,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f8fafc] font-sans text-slate-800">
+    <div className="min-h-screen overflow-x-clip bg-[#f8fafc] font-sans text-slate-800">
       <Logo />
       <LanguageSelector language={language} setLanguage={setLanguage} />
 
