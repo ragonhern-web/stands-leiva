@@ -93,20 +93,40 @@ export default function StripsSectionV2({ language: _language }: Props) {
           </div>
         </div>
 
-        {/* Col 3: ficha técnica del producto en hover */}
-        <div className="flex min-h-[320px] flex-col justify-center py-6 pr-2">
-          <AnimatePresence mode="wait">
-            {hoveredProduct ? (
+        {/* Col 3: ficha técnica — tamaño fijo, ambos estados en absolute para no mover el layout */}
+        <div className="relative min-h-[420px]">
+
+          {/* Placeholder (visible sin hover) */}
+          <motion.div
+            animate={{ opacity: hoveredProduct ? 0 : 1 }}
+            transition={{ duration: 0.12 }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-slate-200 p-4 text-center"
+            style={{ pointerEvents: hoveredProduct ? "none" : "auto" }}
+          >
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md"
+              style={{ backgroundColor: activeStrip.color }}
+            >
+              {activeStrip.label}
+            </div>
+            <p className="text-[11px] font-medium leading-snug text-slate-400">
+              Pasa el cursor sobre un producto para ver su ficha
+            </p>
+          </motion.div>
+
+          {/* Ficha (visible con hover) */}
+          <AnimatePresence>
+            {hoveredProduct && (
               <motion.div
                 key={hoveredProduct.id}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 10 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.12, ease: "easeOut" }}
-                className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-lg backdrop-blur-sm"
+                className="absolute inset-0 flex flex-col gap-3 overflow-y-auto rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-lg backdrop-blur-sm"
               >
                 {/* Eyebrow + precio */}
-                <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex flex-wrap items-center gap-2">
                   <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">
                     Tira promocional
                   </p>
@@ -148,7 +168,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">Precio</p>
                     <div
-                      className="mt-1 flex h-7 items-center justify-center rounded-lg font-black text-white text-[10px]"
+                      className="mt-1 flex h-7 items-center justify-center rounded-lg text-[10px] font-black text-white"
                       style={{ backgroundColor: activeStrip.color }}
                     >
                       {activeStrip.label}
@@ -156,19 +176,19 @@ export default function StripsSectionV2({ language: _language }: Props) {
                   </div>
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">Uds./tira</p>
-                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-black text-slate-700 text-[10px]">
+                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 text-[10px] font-black text-slate-700">
                       12 uds.
                     </div>
                   </div>
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">EAN</p>
-                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-mono font-black text-slate-700 text-[9px]">
+                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-mono text-[9px] font-black text-slate-700">
                       8437{hoveredProduct.ref}
                     </div>
                   </div>
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">Stock</p>
-                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 font-black text-slate-700 text-[10px]">
+                    <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 text-[10px] font-black text-slate-700">
                       240 uds.
                     </div>
                   </div>
@@ -177,25 +197,6 @@ export default function StripsSectionV2({ language: _language }: Props) {
                 {/* Descripción */}
                 <p className="text-[11px] leading-relaxed text-slate-500">
                   Producto de precio único para tira expositora de supermercado.
-                </p>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="empty"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15 }}
-                className="flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-slate-200 p-4 text-center"
-              >
-                <div
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-white text-sm font-black shadow-md"
-                  style={{ backgroundColor: activeStrip.color }}
-                >
-                  {activeStrip.label}
-                </div>
-                <p className="text-[11px] font-medium leading-snug text-slate-400">
-                  Pasa el cursor sobre un producto para ver su ficha
                 </p>
               </motion.div>
             )}
