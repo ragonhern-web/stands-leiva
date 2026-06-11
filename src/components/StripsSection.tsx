@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Package } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import { strips } from "../data/strips";
 import type { Language } from "../types";
@@ -53,22 +52,18 @@ export default function StripsSection({ language: _language }: Props) {
         <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
 
           {/* Izquierda: imagen de la tira */}
-          <aside className="relative flex min-h-[480px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-slate-50 to-white p-4">
+          <aside className="relative flex min-h-[600px] items-start justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-slate-50 to-white pt-6 pb-6">
             <div
-              className="absolute h-64 w-64 rounded-full opacity-10 blur-3xl transition-colors duration-500"
+              className="absolute inset-0 opacity-10 blur-3xl transition-colors duration-500"
               style={{ backgroundColor: activeStrip.color }}
             />
-            {previewSrc ? (
-              <img
-                key={previewSrc}
-                src={previewSrc}
-                alt={`Tira ${activeStrip.label}`}
-                draggable="false"
-                className="relative z-10 max-h-[460px] w-auto object-contain drop-shadow-2xl"
-              />
-            ) : (
-              <Package className="h-16 w-16 text-slate-300" />
-            )}
+            <img
+              key={previewSrc}
+              src={previewSrc}
+              alt={`Tira ${activeStrip.label}`}
+              draggable="false"
+              className="relative z-10 h-full w-full max-h-[580px] object-contain object-top drop-shadow-2xl"
+            />
           </aside>
 
           {/* Derecha: grid de productos */}
@@ -80,8 +75,8 @@ export default function StripsSection({ language: _language }: Props) {
               <button
                 key={product.id}
                 type="button"
-                onMouseEnter={() => setPreviewSrc(product.preview)}
-                onClick={() => setPreviewSrc(product.preview)}
+                onMouseEnter={() => setPreviewSrc(product.image)}
+                onClick={() => setPreviewSrc(product.image)}
                 className="group rounded-2xl border border-slate-200 bg-white p-3 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Imagen del producto */}
