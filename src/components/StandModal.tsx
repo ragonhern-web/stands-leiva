@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, Clock, FileSpreadsheet, FileText, Package, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getStandCopy } from "../data/translations";
+import { brandGradients } from "../data/stands";
 import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
 import ProductModal from "./ProductModal";
@@ -68,7 +69,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
           {/* Título — solo móvil, encima de la imagen */}
           <div className="px-4 pt-3 pb-2 md:hidden">
             {["ene","feb","mar","ago","oct","nov","mascotas","cocina"].includes(stand.id) && (
-              <span className="mb-2 inline-flex items-center rounded-full bg-[#169b22] px-3 py-1 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm whitespace-nowrap">
+              <span className="mb-2 inline-flex items-center rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-md whitespace-nowrap" style={{ background: brandGradients.green }}>
                 Stand Giratorio 360°
               </span>
             )}
@@ -94,7 +95,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             </div>
             <div className="relative flex w-full flex-1 items-center justify-center">
               {["ene","feb","mar","ago","oct","nov","mascotas","cocina"].includes(stand.id) && (
-                <span className="absolute top-0 left-1/2 z-20 hidden -translate-x-1/2 whitespace-nowrap rounded-full bg-[#169b22] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-md md:inline-flex">
+                <span className="absolute top-0 left-1/2 z-20 hidden -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-md md:inline-flex" style={{ background: brandGradients.green }}>
                   Stand Giratorio 360°
                 </span>
               )}
@@ -219,7 +220,8 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
                       <button
                         onClick={() => setMenuOpen(o => !o)}
-                        className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] bg-[#169b22] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#087a18] md:w-auto"
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 md:w-auto"
+                        style={{ background: brandGradients.green }}
                       >
                         {t.downloadSheet}
                         <ChevronUp
