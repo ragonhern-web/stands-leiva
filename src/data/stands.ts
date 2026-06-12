@@ -51,8 +51,8 @@ export const brand = {
 } as const;
 
 export const brandGradients = {
-  green:  "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)",
-  yellow: "linear-gradient(135deg, #fff176 0%, #ffe100 48%, #b8860b 100%)",
+  green:  "radial-gradient(circle, #2edf52 0%, #169b22 55%, #093d0d 100%)",
+  yellow: "radial-gradient(circle, #fff9a0 0%, #ffe100 55%, #b8860b 100%)",
 } as const;
 
 const colorMap = {
