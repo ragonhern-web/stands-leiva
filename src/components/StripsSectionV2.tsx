@@ -310,7 +310,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
               <button
                 key={product.id}
                 type="button"
-                onMouseEnter={() => { setPreviewSrc(product.image); setHoveredId(product.id); }}
+                onMouseEnter={() => { setPreviewSrc(product.preview); setHoveredId(product.id); }}
                 onClick={() => setSelectedProduct(product)}
                 className="group relative flex min-w-0 flex-col items-center rounded-[1rem] border border-slate-200 bg-white px-2 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
