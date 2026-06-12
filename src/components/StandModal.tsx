@@ -73,7 +73,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
               </span>
             )}
             <div className="mb-2 flex items-center gap-2">
-              <span className="h-3.5 w-3.5 rounded-full shadow" style={{ backgroundColor: stand.color }} />
+              <span className="h-3.5 w-3.5 rounded-full shadow" style={stand.gradient ? { background: stand.gradient } : { backgroundColor: stand.color }} />
               <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">
                 {stand.numRefs ?? stand.products.length} {t.references}
               </p>
@@ -143,7 +143,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
             {/* Título — solo desktop */}
             <div className="mb-4 hidden md:block md:mb-5">
               <div className="mb-3 flex items-center gap-3">
-                <span className="h-4 w-4 rounded-full shadow" style={{ backgroundColor: stand.color }} />
+                <span className="h-4 w-4 rounded-full shadow" style={stand.gradient ? { background: stand.gradient } : { backgroundColor: stand.color }} />
                 {stand.comingSoon ? (
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500">
                     <Clock size={11} /> {t.newDisplaysTitle}

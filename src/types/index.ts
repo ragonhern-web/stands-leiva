@@ -19,6 +19,7 @@ export interface Stand {
   id: string;
   label: string;
   color: string;
+  gradient?: string;
   title: string;
   desc: string;
   /** Ruta relativa a /assets/stands/ o URL de imagen */

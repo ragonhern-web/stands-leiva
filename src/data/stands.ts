@@ -645,7 +645,7 @@ const standExtras: Record<string, StandExtra> = {
 type StandDef = Omit<Stand, "image" | "products">;
 
 const seasonalDefs: StandDef[] = [
-  { id: "ene", label: "ENE", color: "#1f6fb5",       title: "Expositor Jardín",           desc: "Herramientas de jardín, regaderas, macetas y accesorios para empezar la temporada.", productsBase: ["Regaderas", "Macetas", "Herramientas", "Tutores"] },
+  { id: "ene", label: "ENE", color: "#1f6fb5", gradient: "linear-gradient(135deg, #5bb8f5 0%, #1f6fb5 48%, #0b3d6e 100%)", title: "Expositor Jardín", desc: "Herramientas de jardín, regaderas, macetas y accesorios para empezar la temporada.", productsBase: ["Regaderas", "Macetas", "Herramientas", "Tutores"] },
   { id: "feb", label: "FEB", color: "#2d87c8",       title: "Expositor Picnic",           desc: "Vajilla, vasos y accesorios desechables para picnic, celebraciones y hostelería.", productsBase: ["Platos", "Vasos", "Cubiertos", "Servilletas"] },
   { id: "mar", label: "MAR", color: "#5f9f4b",       title: "Expositor Repelentes",       desc: "Repelentes, trampas y productos anti-insectos para el inicio del calor.",       productsBase: ["Pulseras repelentes", "Velas citronela", "Espirales", "Trampas"] },
   { id: "abr", label: "ABR", color: colorMap.darkGreen, title: "Expositor Churros Flotación", desc: "Churros de flotación de espuma de polietileno para piscina y playa.",       productsBase: ["Churros flotación", "Colores surtidos"] },

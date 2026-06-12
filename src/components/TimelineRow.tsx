@@ -94,7 +94,7 @@ export default function TimelineRow({
                     >
                       <span
                         className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                        style={{ backgroundColor: stand.color }}
+                        style={stand.gradient ? { background: stand.gradient } : { backgroundColor: stand.color }}
                       />
                     </span>
 
@@ -148,7 +148,10 @@ export default function TimelineRow({
 
             <span
               className="relative z-30 mb-1 max-w-full truncate rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black shadow-sm transition group-hover:-translate-y-1 md:text-xs"
-              style={{ color: stand.color }}
+              style={stand.gradient
+                ? { background: stand.gradient, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }
+                : { color: stand.color }
+              }
             >
               {getStandLabel(stand, language)}
             </span>
