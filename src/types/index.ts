@@ -70,4 +70,16 @@ export interface TranslationCopy {
   standDims: string;
   newDisplaysEyebrow: string;
   newDisplaysTitle: string;
+  stripsEyebrow: string;
+  stripsTitle: string;
+  stripsDesc: string;
+  stripsProductEyebrow: string;
+  stripsRef: string;
+  stripsSalePrice: string;
+  stripsUnitsPerStrip: string;
+  stripsEAN: string;
+  stripsStock: string;
+  stripsDescLabel: string;
+  stripsProductDescription: string;
+  stripsHoverHint: string;
 }

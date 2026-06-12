@@ -3,13 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct } from "../data/strips";
 import StripProductModal from "./StripProductModal";
+import { copy } from "../data/translations";
 import type { Language } from "../types";
 
 interface Props {
   language: Language;
 }
 
-export default function StripsSectionV2({ language: _language }: Props) {
+export default function StripsSectionV2({ language }: Props) {
+  const t = copy[language] ?? copy.es;
   const [activeStripId, setActiveStripId] = useState(strips[0].id);
   const [previewSrc, setPreviewSrc] = useState(strips[0].template);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -71,14 +73,13 @@ export default function StripsSectionV2({ language: _language }: Props) {
         {/* Cabecera */}
         <div className="px-2">
           <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
-            TIRAS PROMOCIONALES
+            {t.stripsEyebrow}
           </p>
           <h2 className="text-4xl font-black tracking-tight text-slate-950">
-            Tiras para supermercado
+            {t.stripsTitle}
           </h2>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">
-            Tiras expositoras de precio único para lineales de supermercado.
-            Disponibles en tres gamas de precio:
+            {t.stripsDesc}
           </p>
           <div className="mt-4">{tabButtons}</div>
         </div>
@@ -173,14 +174,13 @@ export default function StripsSectionV2({ language: _language }: Props) {
         {/* Col 1: título + descripción + selector */}
         <div className="flex flex-col justify-center p-4">
           <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
-            TIRAS PROMOCIONALES
+            {t.stripsEyebrow}
           </p>
           <h2 className="text-6xl font-black tracking-tight text-slate-950">
-            Tiras para<br />supermercado
+            {t.stripsTitle}
           </h2>
           <p className="mt-3 max-w-lg text-lg font-medium leading-relaxed text-slate-500">
-            Tiras expositoras de precio único para lineales de supermercado.
-            Disponibles en tres gamas de precio:
+            {t.stripsDesc}
           </p>
           <div className="mt-6">{tabButtons}</div>
         </div>
@@ -228,7 +228,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
               {activeStrip.label}
             </div>
             <p className="text-[11px] font-medium leading-snug text-slate-400">
-              Pasa el cursor sobre un producto para ver su ficha
+              {t.stripsHoverHint}
             </p>
           </motion.div>
 
@@ -245,7 +245,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">
-                    Tira promocional
+                    {t.stripsProductEyebrow}
                   </p>
                   <span
                     className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white"
@@ -255,7 +255,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
                   </span>
                 </div>
                 <div>
-                  <p className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">Referencia</p>
+                  <p className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">{t.stripsRef}</p>
                   <p className="mt-0.5 text-2xl font-black text-slate-900">{hoveredProduct.ref}</p>
                 </div>
                 <div
@@ -271,10 +271,10 @@ export default function StripsSectionV2({ language: _language }: Props) {
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[10px]">
                   {[
-                    ["Precio", activeStrip.label, true],
-                    ["Uds./tira", "12 uds.", false],
-                    ["EAN", `8437${hoveredProduct.ref}`, false],
-                    ["Stock", "240 uds.", false],
+                    [t.stripsSalePrice, activeStrip.label, true],
+                    [t.stripsUnitsPerStrip, "12 uds.", false],
+                    [t.stripsEAN, `8437${hoveredProduct.ref}`, false],
+                    [t.stripsStock, "240 uds.", false],
                   ].map(([label, value, colored]) => (
                     <div key={String(label)}>
                       <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
@@ -289,7 +289,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
                   ))}
                 </div>
                 <p className="text-[11px] leading-relaxed text-slate-500">
-                  Producto de precio único para tira expositora de supermercado.
+                  {t.stripsProductDescription}
                 </p>
               </motion.div>
             )}
@@ -356,6 +356,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
         product={selectedProduct}
         strip={activeStrip}
         onClose={() => setSelectedProduct(null)}
+        language={language}
       />
     </>
   );

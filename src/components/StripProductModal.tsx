@@ -2,14 +2,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Package } from "lucide-react";
 import { STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct, StripType } from "../data/strips";
+import { copy } from "../data/translations";
+import type { Language } from "../types";
 
 interface Props {
   product: StripProduct | null;
   strip: StripType | null;
   onClose: () => void;
+  language: Language;
 }
 
-export default function StripProductModal({ product, strip, onClose }: Props) {
+export default function StripProductModal({ product, strip, onClose, language }: Props) {
+  const t = copy[language] ?? copy.es;
   return (
     <AnimatePresence>
       {product && strip && (
@@ -63,7 +67,7 @@ export default function StripProductModal({ product, strip, onClose }: Props) {
               {/* Eyebrow + precio */}
               <div className="flex items-center gap-2">
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                  Tira promocional
+                  {t.stripsProductEyebrow}
                 </p>
                 <span
                   className="rounded-full px-3 py-0.5 text-[10px] font-black text-white"
@@ -76,7 +80,7 @@ export default function StripProductModal({ product, strip, onClose }: Props) {
               {/* Referencia */}
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
-                  Referencia
+                  {t.stripsRef}
                 </p>
                 <h3 className="mt-1 text-3xl font-black text-slate-900">
                   {product.ref}
@@ -86,7 +90,7 @@ export default function StripProductModal({ product, strip, onClose }: Props) {
               {/* Datos de ejemplo */}
               <div className="grid grid-cols-2 gap-3 text-[11px]">
                 <div>
-                  <p className="font-black uppercase tracking-wider text-slate-400">Precio venta</p>
+                  <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsSalePrice}</p>
                   <div
                     className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white"
                     style={{ backgroundColor: strip.color }}
@@ -95,19 +99,19 @@ export default function StripProductModal({ product, strip, onClose }: Props) {
                   </div>
                 </div>
                 <div>
-                  <p className="font-black uppercase tracking-wider text-slate-400">Unidades/tira</p>
+                  <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsUnitsPerStrip}</p>
                   <div className="mt-1 flex h-8 items-center justify-center rounded-xl bg-slate-50 font-black text-slate-700">
                     12 uds.
                   </div>
                 </div>
                 <div>
-                  <p className="font-black uppercase tracking-wider text-slate-400">EAN</p>
+                  <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsEAN}</p>
                   <div className="mt-1 flex h-8 items-center justify-center rounded-xl bg-slate-50 font-mono text-[10px] font-black text-slate-700">
                     8437000{product.ref}
                   </div>
                 </div>
                 <div>
-                  <p className="font-black uppercase tracking-wider text-slate-400">Stock</p>
+                  <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsStock}</p>
                   <div className="mt-1 flex h-8 items-center justify-center rounded-xl bg-slate-50 font-black text-slate-700">
                     240 uds.
                   </div>
@@ -117,11 +121,10 @@ export default function StripProductModal({ product, strip, onClose }: Props) {
               {/* Descripción de ejemplo */}
               <div>
                 <p className="font-black uppercase tracking-wider text-[11px] text-slate-400">
-                  Descripción
+                  {t.stripsDescLabel}
                 </p>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
-                  Producto de precio único para tira expositora de supermercado.
-                  Disponible en la gama de {strip.label}.
+                  {t.stripsProductDescription}
                 </p>
               </div>
             </div>
