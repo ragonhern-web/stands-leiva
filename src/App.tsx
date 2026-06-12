@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import Logo from "./components/Logo";
 import LanguageSelector from "./components/LanguageSelector";
+import ThemeToggle from "./components/ThemeToggle";
 import SectionTitle from "./components/SectionTitle";
 import TimelineRow from "./components/TimelineRow";
 import HeroStandPreview from "./components/HeroStandPreview";
@@ -11,7 +12,7 @@ import StripsSectionV2 from "./components/StripsSectionV2";
 
 import { copy } from "./data/translations";
 import { seasonalStands, allYearStands, comingSoonStands, brand } from "./data/stands";
-import type { Language, Stand } from "./types";
+import type { Language, Stand, Theme } from "./types";
 
 export default function App() {
   const [selectedStand, setSelectedStand] = useState<Stand | null>(null);
@@ -19,6 +20,7 @@ export default function App() {
   const [activeAllYear, setActiveAllYear] = useState("balones");
   const [previewStand, setPreviewStand] = useState<Stand>(seasonalStands[0]);
   const [language, setLanguage] = useState<Language>("es");
+  const [theme, setTheme] = useState<Theme>("light");
 
   const t = copy[language] ?? copy.es;
   const heroAccent = useMemo(
@@ -27,14 +29,18 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-[#f8fafc] font-sans text-slate-800">
+    <div className={`min-h-screen overflow-x-clip font-sans text-slate-800 transition-colors duration-300 bg-[#f8fafc] dark:bg-slate-950${theme === "dark" ? " dark" : ""}`}>
       <Logo />
-      <LanguageSelector language={language} setLanguage={setLanguage} />
+      {/* Controles: tema + idioma */}
+      <div className="fixed right-5 top-5 z-40 flex items-center gap-2 md:right-6">
+        <ThemeToggle theme={theme} setTheme={setTheme} />
+        <LanguageSelector language={language} setLanguage={setLanguage} />
+      </div>
 
       {/* Fondos decorativos */}
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,1),rgba(247,255,247,0.9)_42%,rgba(248,250,252,1)_76%)]" />
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,1),rgba(247,255,247,0.9)_42%,rgba(248,250,252,1)_76%)] dark:bg-[radial-gradient(circle_at_top,rgba(8,10,24,1),rgba(4,6,18,0.98)_42%,rgba(2,3,12,1)_76%)] transition-all duration-300" />
       <div
-        className="pointer-events-none fixed left-1/2 top-20 h-72 w-[720px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+        className="pointer-events-none fixed left-1/2 top-20 h-72 w-[720px] -translate-x-1/2 rounded-full opacity-20 dark:opacity-30 blur-3xl transition-opacity duration-300"
         style={{ backgroundColor: heroAccent }}
       />
 
@@ -44,7 +50,7 @@ export default function App() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-[15px] font-black uppercase tracking-[0.32em] text-slate-400 md:mb-3"
+            className="mb-4 text-[15px] font-black uppercase tracking-[0.32em] text-slate-400 dark:text-slate-500 md:mb-3"
           >
             {t.eyebrow}
           </motion.p>
@@ -52,7 +58,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="text-6xl font-black tracking-tight text-slate-950 md:text-7xl"
+            className="text-6xl font-black tracking-tight text-slate-950 dark:text-white md:text-7xl"
           >
             {t.heroTitle}
           </motion.h1>
@@ -60,7 +66,7 @@ export default function App() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-slate-500 md:mx-0 md:mt-3 md:text-lg"
+            className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-slate-500 dark:text-slate-400 md:mx-0 md:mt-3 md:text-lg"
           >
             {t.heroText}
           </motion.p>

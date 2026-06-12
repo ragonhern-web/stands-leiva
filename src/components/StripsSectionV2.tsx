@@ -72,13 +72,13 @@ export default function StripsSectionV2({ language }: Props) {
       <div className="flex flex-col gap-5 md:hidden">
         {/* Cabecera */}
         <div className="px-2">
-          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
+          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400 dark:text-slate-500">
             {t.stripsEyebrow}
           </p>
-          <h2 className="text-4xl font-black tracking-tight text-slate-950">
+          <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
             {t.stripsTitle}
           </h2>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">
+          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400">
             {t.stripsDesc}
           </p>
           <div className="mt-4">{tabButtons}</div>
@@ -173,13 +173,13 @@ export default function StripsSectionV2({ language }: Props) {
 
         {/* Col 1: título + descripción + selector */}
         <div className="flex flex-col justify-center p-4">
-          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">
+          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.32em] text-slate-400 dark:text-slate-500">
             {t.stripsEyebrow}
           </p>
-          <h2 className="text-6xl font-black tracking-tight text-slate-950">
+          <h2 className="text-6xl font-black tracking-tight text-slate-950 dark:text-white">
             {t.stripsTitle}
           </h2>
-          <p className="mt-3 max-w-lg text-lg font-medium leading-relaxed text-slate-500">
+          <p className="mt-3 max-w-lg text-lg font-medium leading-relaxed text-slate-500 dark:text-slate-400">
             {t.stripsDesc}
           </p>
           <div className="mt-6">{tabButtons}</div>
@@ -227,7 +227,7 @@ export default function StripsSectionV2({ language }: Props) {
             >
               {activeStrip.label}
             </div>
-            <p className="text-[11px] font-medium leading-snug text-slate-400">
+            <p className="text-[11px] font-medium leading-snug text-slate-400 dark:text-slate-500">
               {t.stripsHoverHint}
             </p>
           </motion.div>

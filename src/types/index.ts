@@ -1,4 +1,5 @@
 export type Language = "es" | "en" | "fr" | "it" | "pt" | "de" | "nl" | "pl" | "ro";
+export type Theme = "light" | "dark";
 
 export interface Product {
   id: string;
