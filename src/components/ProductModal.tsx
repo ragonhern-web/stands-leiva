@@ -70,7 +70,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
                 {product.units && (
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
-                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-black shadow-sm" style={{ backgroundColor: brand.yellow, border: "1.5px solid #b8860b" }}>
+                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-black shadow-sm" style={{ backgroundColor: brand.yellow }}>
                       {product.units}
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
                 {product.price && (
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
-                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white shadow-sm" style={{ backgroundColor: brand.green, border: "1.5px solid #093d0d" }}>
+                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white shadow-sm" style={{ backgroundColor: brand.green }}>
                       {product.price}
                     </div>
                   </div>
