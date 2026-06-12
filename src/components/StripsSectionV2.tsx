@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct } from "../data/strips";
@@ -299,8 +299,13 @@ export default function StripsSectionV2({ language }: Props) {
 
       {/* Parte 2: Grid de productos (desktop) */}
       <div
-        className="hidden overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40 md:block"
-        style={{ maxHeight: "400px" }}
+        className="strips-scroll hidden overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40 md:block"
+        style={{
+          maxHeight: "400px",
+          "--strip-color": activeStrip.color,
+          scrollbarColor: `${activeStrip.color} transparent`,
+          scrollbarWidth: "thin",
+        } as CSSProperties}
         onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="grid grid-cols-8 gap-3">

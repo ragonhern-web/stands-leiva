@@ -12,3 +12,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Scrollbar personalizado para el grid de productos de tiras */
+.strips-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.strips-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.strips-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--strip-color, #169b22);
+  border-radius: 999px;
+  transition: background-color 0.3s ease;
+}
