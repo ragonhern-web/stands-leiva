@@ -70,8 +70,8 @@ export default function StripProductModal({ product, strip, onClose, language }:
                   {t.stripsProductEyebrow}
                 </p>
                 <span
-                  className="rounded-full px-3 py-0.5 text-[10px] font-black text-white"
-                  style={{ backgroundColor: strip.color }}
+                  className="rounded-full px-3 py-0.5 text-[10px] font-black text-white shadow-sm"
+                  style={{ background: strip.gradient }}
                 >
                   {strip.label}
                 </span>
@@ -92,8 +92,8 @@ export default function StripProductModal({ product, strip, onClose, language }:
                 <div>
                   <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsSalePrice}</p>
                   <div
-                    className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white"
-                    style={{ backgroundColor: strip.color }}
+                    className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white shadow-sm"
+                    style={{ background: strip.gradient }}
                   >
                     {strip.label}
                   </div>

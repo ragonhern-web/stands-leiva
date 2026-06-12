@@ -23,7 +23,6 @@ body {
   margin-bottom: 20px;
 }
 .strips-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--strip-color, #169b22);
+  background: var(--strip-gradient, linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%));
   border-radius: 999px;
-  transition: background-color 0.3s ease;
 }

@@ -78,6 +78,7 @@ export interface StripType {
   id: string;
   label: string;
   color: string;
+  gradient: string;
   template: string;
   products: StripProduct[];
 }
@@ -108,6 +109,7 @@ export const strips: StripType[] = [
     id: "1e",
     label: "1€",
     color: "#e21b23",
+    gradient: "linear-gradient(135deg, #ff5f65 0%, #e21b23 48%, #7d0810 100%)",
     template: `${base}assets/strips/tira-1e.png`,
     products: makeProducts("1e", 24, 10001),
   },
@@ -115,6 +117,7 @@ export const strips: StripType[] = [
     id: "2e",
     label: "2€",
     color: "#f5a623",
+    gradient: "linear-gradient(135deg, #ffd166 0%, #f5a623 48%, #b85800 100%)",
     template: `${base}assets/strips/tira-2e.png`,
     products: makeProducts("2e", 24, 20001),
   },
@@ -122,6 +125,7 @@ export const strips: StripType[] = [
     id: "3e",
     label: "3€",
     color: "#169b22",
+    gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)",
     template: `${base}assets/strips/tira-3e.png`,
     products: makeProducts("3e", 24, 30001),
   },

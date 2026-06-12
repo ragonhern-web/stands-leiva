@@ -56,7 +56,7 @@ export default function StripsSectionV2({ language }: Props) {
               ? "border-transparent text-white"
               : "border-slate-200 bg-white text-slate-700"
           }`}
-          style={activeStrip.id === strip.id ? { backgroundColor: strip.color } : undefined}
+          style={activeStrip.id === strip.id ? { background: strip.gradient } : undefined}
         >
           {strip.label}
         </button>
@@ -152,8 +152,8 @@ export default function StripsSectionV2({ language }: Props) {
 
                   {/* Badge precio */}
                   <div
-                    className="mt-4 rounded-full px-4 py-1 text-sm font-black text-white"
-                    style={{ backgroundColor: activeStrip.color }}
+                    className="mt-4 rounded-full px-4 py-1 text-sm font-black text-white shadow-sm"
+                    style={{ background: activeStrip.gradient }}
                   >
                     {activeStrip.label}
                   </div>
@@ -223,7 +223,7 @@ export default function StripsSectionV2({ language }: Props) {
           >
             <div
               className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md"
-              style={{ backgroundColor: activeStrip.color }}
+              style={{ background: activeStrip.gradient }}
             >
               {activeStrip.label}
             </div>
@@ -248,8 +248,8 @@ export default function StripsSectionV2({ language }: Props) {
                     {t.stripsProductEyebrow}
                   </p>
                   <span
-                    className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white"
-                    style={{ backgroundColor: activeStrip.color }}
+                    className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm"
+                    style={{ background: activeStrip.gradient }}
                   >
                     {activeStrip.label}
                   </span>
@@ -280,7 +280,7 @@ export default function StripsSectionV2({ language }: Props) {
                       <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
                       <div
                         className="mt-1 flex h-7 items-center justify-center rounded-lg text-[10px] font-black"
-                        style={colored ? { backgroundColor: activeStrip.color, color: "white" } : undefined}
+                        style={colored ? { background: activeStrip.gradient, color: "white" } : undefined}
                         {...(!colored ? { className: "mt-1 flex h-7 items-center justify-center rounded-lg bg-slate-50 text-[10px] font-black text-slate-700" } : {})}
                       >
                         {value}
@@ -302,7 +302,7 @@ export default function StripsSectionV2({ language }: Props) {
         className="strips-scroll hidden overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40 md:block"
         style={{
           maxHeight: "400px",
-          "--strip-color": activeStrip.color,
+          "--strip-gradient": activeStrip.gradient,
           scrollbarColor: `${activeStrip.color} transparent`,
           scrollbarWidth: "thin",
         } as CSSProperties}
@@ -345,8 +345,8 @@ export default function StripsSectionV2({ language }: Props) {
                   <div className="absolute bottom-[-6px] h-4 w-12 rounded-full bg-black/15 blur-lg" />
                 </motion.div>
                 <div
-                  className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white"
-                  style={{ backgroundColor: activeStrip.color }}
+                  className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm"
+                  style={{ background: activeStrip.gradient }}
                 >
                   {activeStrip.label}
                 </div>
