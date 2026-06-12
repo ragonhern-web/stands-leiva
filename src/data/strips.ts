@@ -82,15 +82,23 @@ export interface StripType {
   products: StripProduct[];
 }
 
+// Refs reales por producto — se añaden a medida que llegan las fotos
+const realRefs: Record<string, string> = {
+  "1e-01": "92030E",
+  "1e-02": "92005E",
+};
+
 function makeProducts(stripId: string, count: number, refBase: number): StripProduct[] {
   return Array.from({ length: count }, (_, i) => {
     const num = String(i + 1).padStart(2, "0");
+    const id = `${stripId}-${num}`;
+    const ref = realRefs[id] ?? String(refBase + i);
     return {
-      id: `${stripId}-${num}`,
-      name: `Ref. ${refBase + i}`,
-      ref: String(refBase + i),
-      image:   `${base}assets/strips/products/${stripId}-${num}.png`,
-      preview: `${base}assets/strips/previews/${stripId}-${num}.png`,
+      id,
+      name: ref,
+      ref,
+      image:   `${base}assets/strips/products/${id}.png`,
+      preview: `${base}assets/strips/previews/${id}.png`,
     };
   });
 }
