@@ -19,8 +19,8 @@ body {
 }
 .strips-scroll::-webkit-scrollbar-track {
   background: transparent;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .strips-scroll::-webkit-scrollbar-thumb {
   background: var(--strip-gradient, linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%));
