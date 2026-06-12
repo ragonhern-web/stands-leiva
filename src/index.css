@@ -19,6 +19,8 @@ body {
 }
 .strips-scroll::-webkit-scrollbar-track {
   background: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .strips-scroll::-webkit-scrollbar-thumb {
   background-color: var(--strip-color, #169b22);
