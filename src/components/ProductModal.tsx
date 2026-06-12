@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { getProductDesc } from "../data/productI18n";
-import { brandGradients } from "../data/stands";
+import { brand } from "../data/stands";
 import type { Product, TranslationCopy, Language } from "../types";
 
 interface Props {
@@ -70,7 +70,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
                 {product.units && (
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
-                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-black shadow-sm" style={{ background: brandGradients.yellow }}>
+                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-black shadow-sm" style={{ backgroundColor: brand.yellow, border: "1.5px solid #b8860b" }}>
                       {product.units}
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function ProductModal({ product, onClose, t, language }: Props) {
                 {product.price && (
                   <div>
                     <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
-                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white shadow-sm" style={{ background: brandGradients.green }}>
+                    <div className="mt-1 flex h-8 items-center justify-center rounded-xl font-black text-white shadow-sm" style={{ backgroundColor: brand.green, border: "1.5px solid #093d0d" }}>
                       {product.price}
                     </div>
                   </div>
