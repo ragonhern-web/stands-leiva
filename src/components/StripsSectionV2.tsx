@@ -300,7 +300,7 @@ export default function StripsSectionV2({ language: _language }: Props) {
       {/* Parte 2: Grid de productos (desktop) */}
       <div
         className="hidden overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white/90 px-4 py-5 shadow-xl shadow-slate-300/40 md:block"
-        style={{ maxHeight: "220px" }}
+        style={{ maxHeight: "400px" }}
         onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="grid grid-cols-8 gap-3">
