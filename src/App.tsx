@@ -112,8 +112,8 @@ export default function App() {
           />
         </section>
 
-        <StripsSection language={language} />
         <StripsSectionV2 language={language} />
+        <StripsSection language={language} />
       </main>
 
       <StandModal
