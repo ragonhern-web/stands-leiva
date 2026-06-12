@@ -220,7 +220,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
                       <button
                         onClick={() => setMenuOpen(o => !o)}
-                        className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[#ffe100] px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 md:w-auto"
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 md:w-auto"
                         style={{ background: brandGradients.green }}
                       >
                         {t.downloadSheet}

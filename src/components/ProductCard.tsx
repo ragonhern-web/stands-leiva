@@ -1,5 +1,6 @@
 import { Package } from "lucide-react";
 import { getProductDesc } from "../data/productI18n";
+import { brandGradients } from "../data/stands";
 import type { Product, TranslationCopy, Language } from "../types";
 
 interface Props {
@@ -38,7 +39,7 @@ export default function ProductCard({ product, t, language, onClick }: Props) {
           {product.units && (
             <div>
               <p className="font-black uppercase tracking-wider text-slate-400">{t.units}</p>
-              <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#ffe100] font-black text-black">
+              <div className="mt-1 flex h-7 items-center justify-center rounded-lg font-black text-black shadow-sm" style={{ background: brandGradients.yellow }}>
                 {product.units}
               </div>
             </div>
@@ -46,7 +47,7 @@ export default function ProductCard({ product, t, language, onClick }: Props) {
           {product.price && (
             <div>
               <p className="font-black uppercase tracking-wider text-slate-400">{t.price}</p>
-              <div className="mt-1 flex h-7 items-center justify-center rounded-lg bg-[#169b22] font-black text-white">
+              <div className="mt-1 flex h-7 items-center justify-center rounded-lg font-black text-white shadow-sm" style={{ background: brandGradients.green }}>
                 {product.price}
               </div>
             </div>
