@@ -7,7 +7,6 @@ import SectionTitle from "./components/SectionTitle";
 import TimelineRow from "./components/TimelineRow";
 import HeroStandPreview from "./components/HeroStandPreview";
 import StandModal from "./components/StandModal";
-import StripsSection from "./components/StripsSection";
 import StripsSectionV2 from "./components/StripsSectionV2";
 
 import { copy } from "./data/translations";
@@ -113,7 +112,6 @@ export default function App() {
         </section>
 
         <StripsSectionV2 language={language} />
-        <StripsSection language={language} />
       </main>
 
       <StandModal
