@@ -152,6 +152,7 @@ export function downloadPDF(stand: Stand, title: string): void {
   const standImgUrl = `${origin}${stand.image}`;
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ficha técnica – ${title}</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 32px; color: #202020; }
@@ -168,7 +169,9 @@ export function downloadPDF(stand: Stand, title: string): void {
   .ref  { font-size: 10px; color: #888; font-family: monospace; }
   .photo { width: 58px; height: 58px; object-fit: contain; display: block; }
   @media print { body { padding: 16px; } }
-</style></head><body>
+</style>
+<script>window.addEventListener('load', function() { window.print(); });<\/script>
+</head><body>
 <h1>${title}</h1>
 <h2>Ficha del expositor</h2>
 <div class="info-section">
@@ -194,13 +197,17 @@ export function downloadPDF(stand: Stand, title: string): void {
 </table>
 </body></html>`;
 
-  const iframe = document.createElement("iframe");
-  iframe.style.cssText = "position:fixed;width:0;height:0;border:0;opacity:0;";
-  iframe.srcdoc = html;
-  document.body.appendChild(iframe);
-  iframe.addEventListener("load", () => {
-    iframe.contentWindow!.focus();
-    iframe.contentWindow!.print();
-    setTimeout(() => document.body.removeChild(iframe), 1500);
-  });
+  const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const win = window.open(url, "_blank");
+  if (!win) {
+    // Fallback si el navegador bloquea el popup
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
