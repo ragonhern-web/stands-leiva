@@ -567,7 +567,7 @@ const standExtras: Record<string, StandExtra> = {
   },
 
   mascotas: {
-    imagePath: `${base}assets/stands/expositor-mascotas.webm`,
+    imagePath: `${base}assets/stands/expositor-mascotas.webp`,
     info: { standRef: "99936", numRefs: 25, totalUnits: 225, sides: 2, priceStand: "261,00 €", pricePerUnit: "1,16 €", tipo: "Cuarto palé", standAlto: 125, standLargo: 42, standAncho: 60 },
     refs: [51584,51585,51586,51587,51588,51589,51590,51591,51592,51593,51594,51595,51596,51597,51598,51599,51600,51601,51602,51603,51604,51605,51606,51607,51608],
     data: {
