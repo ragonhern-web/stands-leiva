@@ -20,17 +20,34 @@ export default function HeroStandPreview({ stand, language }: Props) {
       />
 
       <AnimatePresence mode="wait">
-        <motion.img
-          key={stand.id}
-          src={stand.image}
-          alt={standCopy.title}
-          initial={{ opacity: 0, scale: 0.86, y: 28 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: -20 }}
-          transition={{ type: "spring", stiffness: 220, damping: 22 }}
-          className="relative z-10 max-h-[300px] w-auto object-contain drop-shadow-2xl md:max-h-[440px]"
-          draggable="false"
-        />
+        {stand.image.endsWith(".webm") ? (
+          <motion.video
+            key={stand.id}
+            autoPlay
+            muted
+            loop
+            playsInline
+            initial={{ opacity: 0, scale: 0.86, y: 28 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ type: "spring", stiffness: 220, damping: 22 }}
+            className="relative z-10 max-h-[300px] w-auto object-contain drop-shadow-2xl md:max-h-[440px]"
+          >
+            <source src={stand.image} type="video/webm" />
+          </motion.video>
+        ) : (
+          <motion.img
+            key={stand.id}
+            src={stand.image}
+            alt={standCopy.title}
+            initial={{ opacity: 0, scale: 0.86, y: 28 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ type: "spring", stiffness: 220, damping: 22 }}
+            className="relative z-10 max-h-[300px] w-auto object-contain drop-shadow-2xl md:max-h-[440px]"
+            draggable="false"
+          />
+        )}
       </AnimatePresence>
 
       <div className="absolute bottom-8 h-10 w-72 rounded-full bg-black/10 blur-2xl md:w-96" />

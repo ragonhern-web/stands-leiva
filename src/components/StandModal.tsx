@@ -99,11 +99,23 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
                   Stand Giratorio 360°
                 </span>
               )}
-              <img
-                src={stand.image}
-                alt={standCopy.title}
-                className="relative z-10 w-full max-w-[220px] object-contain drop-shadow-2xl md:max-h-[55vh] md:max-w-full"
-              />
+              {stand.image.endsWith(".webm") ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="relative z-10 w-full max-w-[220px] object-contain drop-shadow-2xl md:max-h-[55vh] md:max-w-full"
+                >
+                  <source src={stand.image} type="video/webm" />
+                </video>
+              ) : (
+                <img
+                  src={stand.image}
+                  alt={standCopy.title}
+                  className="relative z-10 w-full max-w-[220px] object-contain drop-shadow-2xl md:max-h-[55vh] md:max-w-full"
+                />
+              )}
             </div>
 
             {/* Ficha del expositor — solo desktop */}
