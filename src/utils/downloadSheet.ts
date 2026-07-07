@@ -173,7 +173,6 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
 
   // ── ROWS 2…N: Stand info table ───────────────────────────────────────────
   const INFO_START = 2;
-  const INFO_END   = Math.max(INFO_START + infoRows.length - 1, INFO_START);
 
   infoRows.forEach(([label, value], i) => {
     const r = INFO_START + i;
