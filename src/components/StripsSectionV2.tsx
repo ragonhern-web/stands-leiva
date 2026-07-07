@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { strips, STRIP_PRODUCT_DEMO } from "../data/strips";
+import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct } from "../data/strips";
 import StripProductModal from "./StripProductModal";
 import { copy } from "../data/translations";
@@ -15,6 +15,7 @@ interface Props {
 
 export default function StripsSectionV2({ language }: Props) {
   const t = copy[language] ?? copy.es;
+  const [previewSrc, setPreviewSrc] = useState(strips[0].template);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<StripProduct | null>(null);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
@@ -37,14 +38,10 @@ export default function StripsSectionV2({ language }: Props) {
           VISTA MÓVIL  (oculta en md+)
       ══════════════════════════════════════════════ */}
       <div className="flex flex-col gap-5 md:hidden">
-        {/* Cabecera — sin eyebrow ni descripción */}
         <div className="px-2">
           <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
-            Tiras para supermercado
+            STRIPS SUPERMARKET
           </h2>
-          <p className="mt-1 text-sm font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
-            Strips Supermarket
-          </p>
         </div>
 
         {/* Fila logo + productos — 1 línea, scroll horizontal */}
@@ -67,11 +64,8 @@ export default function StripsSectionV2({ language }: Props) {
                 key={product.id}
                 type="button"
                 onClick={() => {
-                  if (!isActive) {
-                    setMobileActiveIndex(i);
-                  } else {
-                    setSelectedProduct(product);
-                  }
+                  if (!isActive) setMobileActiveIndex(i);
+                  else setSelectedProduct(product);
                 }}
                 className="group mr-3 flex w-[100px] flex-none flex-col items-center rounded-2xl border border-slate-200 bg-white/90 px-2 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
@@ -100,33 +94,55 @@ export default function StripsSectionV2({ language }: Props) {
           VISTA DESKTOP  (oculta en móvil)
       ══════════════════════════════════════════════ */}
 
-      {/* Parte 1: título + imagen placeholder + ficha técnica */}
+      {/* Parte 1: título + preview tira + ficha técnica */}
       <section className="relative z-10 hidden w-full items-stretch gap-4 md:grid md:grid-cols-[0.38fr_0.38fr_0.24fr]">
 
         {/* Col 1: título */}
         <div className="flex flex-col justify-center p-4">
           <h2 className="text-6xl font-black tracking-tight text-slate-950 dark:text-white">
-            Tiras para supermercado
+            STRIPS SUPERMARKET
           </h2>
-          <p className="mt-3 text-base font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-            Strips Supermarket
-          </p>
         </div>
 
-        {/* Col 2: imagen placeholder (sustituir por <img> cuando llegue el archivo) */}
-        <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800">
-          <div className="flex flex-col items-center gap-3 text-slate-300 dark:text-slate-600">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <span className="text-sm font-medium">Imagen próximamente</span>
+        {/* Col 2: preview de la tira (igual que antes) + badge DEMO */}
+        <div className="flex flex-col gap-3">
+          <div className="relative flex min-h-[320px] flex-1 items-center justify-center px-4 py-6">
+            <div
+              className="pointer-events-none absolute inset-x-8 inset-y-12 rounded-full opacity-20 blur-3xl transition-colors duration-500"
+              style={{ backgroundColor: activeStrip.color }}
+            />
+            <div className="absolute bottom-6 h-8 w-40 rounded-full bg-black/10 blur-2xl" />
+            <div className="relative h-[280px] w-full">
+              <AnimatePresence mode="sync">
+                <motion.img
+                  key={previewSrc}
+                  src={previewSrc}
+                  alt={`Tira ${activeStrip.label}`}
+                  draggable="false"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.1, ease: "easeOut" }}
+                  onError={(e) => { e.currentTarget.src = STRIP_DEMO(activeStrip.color, activeStrip.label); }}
+                  className="absolute inset-0 m-auto max-h-full max-w-full object-contain drop-shadow-2xl"
+                />
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Badge DEMO — estilo igual que los labels de los stands */}
+          <div className="flex justify-center pb-2">
+            <span
+              className="inline-flex items-center rounded-full px-5 py-1.5 text-sm font-black uppercase tracking-[0.22em] text-white shadow-md"
+              style={{ background: activeStrip.gradient }}
+            >
+              DEMO
+            </span>
           </div>
         </div>
 
-        {/* Col 3: ficha técnica — igual que antes */}
+        {/* Col 3: ficha técnica en hover — sin cambios */}
         <div className="relative min-h-[420px]">
-          {/* Placeholder */}
           <motion.div
             animate={{ opacity: hoveredProduct ? 0 : 1 }}
             transition={{ duration: 0.12 }}
@@ -144,7 +160,6 @@ export default function StripsSectionV2({ language }: Props) {
             </p>
           </motion.div>
 
-          {/* Ficha */}
           <AnimatePresence>
             {hoveredProduct && (
               <motion.div
@@ -212,7 +227,7 @@ export default function StripsSectionV2({ language }: Props) {
       <div
         className="hidden overflow-x-auto py-1 [&::-webkit-scrollbar]:hidden md:block"
         style={{ scrollbarWidth: "none" }}
-        onMouseLeave={() => setHoveredId(null)}
+        onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="flex gap-3">
           {/* Logo */}
@@ -227,7 +242,7 @@ export default function StripsSectionV2({ language }: Props) {
               <button
                 key={product.id}
                 type="button"
-                onMouseEnter={() => setHoveredId(product.id)}
+                onMouseEnter={() => { setPreviewSrc(product.preview); setHoveredId(product.id); }}
                 onClick={() => setSelectedProduct(product)}
                 className="group relative flex w-[120px] flex-none flex-col items-center rounded-[1rem] border border-slate-200 bg-white px-2 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
