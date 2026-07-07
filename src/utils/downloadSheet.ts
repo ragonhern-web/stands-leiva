@@ -9,6 +9,30 @@ function cleanName(name: string): string {
   return name.replace(/\s*·\s*Ref\.\d+$/, "");
 }
 
+const COLOR_MAP: Record<string, Partial<Record<Language, string>>> = {
+  "Varios colores surtidos": { en: "Various assorted colours", fr: "Plusieurs couleurs assorties", it: "Vari colori assortiti", pt: "Várias cores sortidas", de: "Verschiedene Farben", nl: "Diverse kleuren", pl: "Różne kolory", ro: "Culori asortate" },
+  "Varios colores":          { en: "Various colours",          fr: "Plusieurs couleurs",            it: "Vari colori",          pt: "Várias cores",         de: "Verschiedene Farben", nl: "Diverse kleuren", pl: "Różne kolory", ro: "Culori diverse" },
+  "Blanco":       { en: "White",       fr: "Blanc",      it: "Bianco",      pt: "Branco",     de: "Weiß",     nl: "Wit",      pl: "Biały",   ro: "Alb" },
+  "Negro":        { en: "Black",       fr: "Noir",       it: "Nero",        pt: "Preto",      de: "Schwarz",  nl: "Zwart",    pl: "Czarny",  ro: "Negru" },
+  "Verde":        { en: "Green",       fr: "Vert",       it: "Verde",       pt: "Verde",      de: "Grün",     nl: "Groen",    pl: "Zielony", ro: "Verde" },
+  "Rojo":         { en: "Red",         fr: "Rouge",      it: "Rosso",       pt: "Vermelho",   de: "Rot",      nl: "Rood",     pl: "Czerwony",ro: "Roșu" },
+  "Azul":         { en: "Blue",        fr: "Bleu",       it: "Blu",         pt: "Azul",       de: "Blau",     nl: "Blauw",    pl: "Niebieski",ro: "Albastru" },
+  "Naranja":      { en: "Orange",      fr: "Orange",     it: "Arancione",   pt: "Laranja",    de: "Orange",   nl: "Oranje",   pl: "Pomarańczowy", ro: "Portocaliu" },
+  "Amarillo":     { en: "Yellow",      fr: "Jaune",      it: "Giallo",      pt: "Amarelo",    de: "Gelb",     nl: "Geel",     pl: "Żółty",   ro: "Galben" },
+  "Rosa":         { en: "Pink",        fr: "Rose",       it: "Rosa",        pt: "Rosa",       de: "Rosa",     nl: "Roze",     pl: "Różowy",  ro: "Roz" },
+  "Gris":         { en: "Grey",        fr: "Gris",       it: "Grigio",      pt: "Cinzento",   de: "Grau",     nl: "Grijs",    pl: "Szary",   ro: "Gri" },
+  "Marrón":       { en: "Brown",       fr: "Marron",     it: "Marrone",     pt: "Castanho",   de: "Braun",    nl: "Bruin",    pl: "Brązowy", ro: "Maro" },
+  "Beige":        { en: "Beige",       fr: "Beige",      it: "Beige",       pt: "Bege",       de: "Beige",    nl: "Beige",    pl: "Beżowy",  ro: "Bej" },
+  "Transparente": { en: "Transparent", fr: "Transparent",it: "Trasparente", pt: "Transparente",de: "Transparent",nl: "Transparant",pl: "Przezroczysty",ro: "Transparent" },
+  "Luz cálida":   { en: "Warm light",  fr: "Lumière chaude", it: "Luce calda", pt: "Luz quente", de: "Warmweißes Licht", nl: "Warm licht", pl: "Ciepłe światło", ro: "Lumină caldă" },
+};
+
+function translateColor(color: string | undefined, lang: Language): string {
+  if (!color) return "";
+  if (lang === "es") return color;
+  return COLOR_MAP[color]?.[lang] ?? color;
+}
+
 function resolveImgSrc(src: string, origin: string): string {
   return src.startsWith("data:") || src.startsWith("http") ? src : `${origin}${src}`;
 }
@@ -214,7 +238,7 @@ function buildSheet(
     cell(ws, r, 1, "",                { bg, border: true });
     cell(ws, r, 2, realRef(p.name),   { bg, fg: "FF64748b", hAlign: "center", bold: true });
     cell(ws, r, 3, cleanName(p.name), { bg, indent: 1 });
-    cell(ws, r, 4, p.color ?? "",     { bg, indent: 1 });
+    cell(ws, r, 4, translateColor(p.color, language), { bg, indent: 1 });
     cell(ws, r, 5, p.alto  ? `${p.alto} cm`  : "", { bg, hAlign: "center" });
     cell(ws, r, 6, p.largo ? `${p.largo} cm` : "", { bg, hAlign: "center" });
     cell(ws, r, 7, p.ancho ? `${p.ancho} cm` : "", { bg, hAlign: "center" });
@@ -251,9 +275,9 @@ export async function downloadExcel(stand: Stand, _title: string, _language: Lan
 
   // Build one sheet per language
   const tabs: { lang: Language; name: string }[] = [
-    { lang: "es", name: "Ficha Técnica" },
-    { lang: "en", name: "Technical Sheet" },
-    { lang: "fr", name: "Fiche Technique" },
+    { lang: "es", name: "Español" },
+    { lang: "en", name: "English" },
+    { lang: "fr", name: "Français" },
   ];
 
   for (const { lang, name } of tabs) {
