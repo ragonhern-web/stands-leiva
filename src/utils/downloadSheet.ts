@@ -148,14 +148,27 @@ function buildInfoRows(stand: Stand, t: TranslationCopy): [string, string | numb
   return rows;
 }
 
+// iOS Safari <14.1 lacks blob.arrayBuffer() — FileReader works everywhere
+function blobToAB(blob: Blob): Promise<ArrayBuffer> {
+  if (typeof blob.arrayBuffer === "function") return blob.arrayBuffer();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as ArrayBuffer);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsArrayBuffer(blob);
+  });
+}
+
 async function fetchBuf(url: string): Promise<ArrayBuffer | null> {
   try {
     const res = await fetch(url);
-    return res.ok ? res.arrayBuffer() : null;
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    return blobToAB(blob);
   } catch { return null; }
 }
 
-// Converts an ArrayBuffer to JPEG via canvas using a blob: URL (no crossOrigin CORS issues — works on mobile)
+// Canvas conversion via blob: URL — no crossOrigin CORS, works on iOS Safari
 async function imgBufToJpeg(buf: ArrayBuffer, mime: string): Promise<ArrayBuffer | null> {
   return new Promise(resolve => {
     const blobUrl = URL.createObjectURL(new Blob([buf], { type: mime }));
@@ -177,7 +190,7 @@ async function imgBufToJpeg(buf: ArrayBuffer, mime: string): Promise<ArrayBuffer
         canvas.toBlob(blob => {
           URL.revokeObjectURL(blobUrl);
           if (!blob) { resolve(null); return; }
-          blob.arrayBuffer().then(resolve).catch(() => resolve(null));
+          blobToAB(blob).then(resolve).catch(() => resolve(null));
         }, "image/jpeg", 0.85);
       } catch { URL.revokeObjectURL(blobUrl); resolve(null); }
     };
@@ -186,7 +199,7 @@ async function imgBufToJpeg(buf: ArrayBuffer, mime: string): Promise<ArrayBuffer
   });
 }
 
-// data: URI fallback (keeps crossOrigin=anonymous only for already-embedded data)
+// data: URI canvas fallback
 async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
   return new Promise(resolve => {
     const img = new Image();
@@ -206,7 +219,7 @@ async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         canvas.toBlob(blob => {
           if (!blob) { resolve(null); return; }
-          blob.arrayBuffer().then(resolve).catch(() => resolve(null));
+          blobToAB(blob).then(resolve).catch(() => resolve(null));
         }, "image/jpeg", 0.85);
       } catch { resolve(null); }
     };
