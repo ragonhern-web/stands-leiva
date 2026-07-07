@@ -40,7 +40,7 @@ export default function StripsSectionV2({ language }: Props) {
       <div className="flex flex-col gap-5 md:hidden">
         <div className="px-2">
           <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
-            STRIPS SUPERMARKET
+            Strips Supermarket
           </h2>
         </div>
 
@@ -100,7 +100,7 @@ export default function StripsSectionV2({ language }: Props) {
         {/* Col 1: título */}
         <div className="flex flex-col justify-center p-4">
           <h2 className="text-6xl font-black tracking-tight text-slate-950 dark:text-white">
-            STRIPS SUPERMARKET
+            Strips Supermarket
           </h2>
         </div>
 
