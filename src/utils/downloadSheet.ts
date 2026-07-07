@@ -191,7 +191,10 @@ async function imgBufToJpeg(buf: ArrayBuffer, mime: string): Promise<ArrayBuffer
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         URL.revokeObjectURL(blobUrl);
-        resolve(canvasToJpegBuf(canvas));
+        const result = canvasToJpegBuf(canvas);
+        // Liberar la memoria del canvas explícitamente (crítico en iOS Safari)
+        canvas.width = 0; canvas.height = 0;
+        resolve(result);
       } catch { URL.revokeObjectURL(blobUrl); resolve(null); }
     };
     img.onerror = () => { URL.revokeObjectURL(blobUrl); resolve(null); };
@@ -217,7 +220,9 @@ async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        resolve(canvasToJpegBuf(canvas));
+        const result = canvasToJpegBuf(canvas);
+        canvas.width = 0; canvas.height = 0;
+        resolve(result);
       } catch { resolve(null); }
     };
     img.onerror = () => resolve(null);
@@ -406,10 +411,15 @@ const TAB_NAMES: Partial<Record<Language, string>> = {
 export async function downloadExcel(stand: Stand, language: Language = "es"): Promise<void> {
   const origin = window.location.origin;
 
-  const [standImg, ...productImgs] = await Promise.all([
-    getImgForExcel(resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin),
-    ...stand.products.map(p => getImgForExcel(p.image, origin)),
-  ]);
+  // Procesamiento secuencial — iOS Safari WKWebView tiene un límite de canvas
+  // simultáneos muy bajo; con Promise.all se pierden imágenes silenciosamente
+  const standImg = await getImgForExcel(
+    resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin
+  );
+  const productImgs: Awaited<ReturnType<typeof getImgForExcel>>[] = [];
+  for (const p of stand.products) {
+    productImgs.push(await getImgForExcel(p.image, origin));
+  }
 
   const ExcelJS = (await import("exceljs")).default;
   const wb = new ExcelJS.Workbook();
