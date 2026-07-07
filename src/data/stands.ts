@@ -679,6 +679,7 @@ const comingSoonDefs: StandDef[] = [
   { id: "cocinamadera",label: "COC. MADERA",  color: colorMap.orange, gradient: "linear-gradient(135deg, #ffd166 0%, #f5a623 48%, #a85a00 100%)", title: "Cocina Madera",    desc: "Utensilios de cocina en madera natural: espátulas, cucharas, tablas y accesorios sostenibles.",                              productsBase: [] },
   { id: "piscina",     label: "PISCINA",      color: "#3b82f6",       gradient: "linear-gradient(135deg, #93c5fd 0%, #3b82f6 48%, #1a3a8f 100%)", title: "Piscina",          desc: "Todo para la piscina y el verano. Flotadores, churros, gafas acuáticas y juguetes de agua.",                                productsBase: [] },
   { id: "bricolaje",   label: "BRICOLAJE",    color: colorMap.black,  gradient: "linear-gradient(135deg, #686868 0%, #202020 48%, #080808 100%)", title: "Bricolaje",        desc: "Herramientas básicas y accesorios de bricolaje para el hogar. Soluciones prácticas para mantenimiento y pequeñas reparaciones.", productsBase: [] },
+  { id: "flores",      label: "FLORES",       color: "#ec4899",       gradient: "linear-gradient(135deg, #f9a8d4 0%, #ec4899 48%, #9d174d 100%)", title: "Flores",           desc: "Expositor de flores decorativas y artificiales. Colores vivos y diseños variados para decoración del hogar.",                    productsBase: [] },
 ];
 
 const comingSoonImages: Partial<Record<string, string>> = {
@@ -686,6 +687,7 @@ const comingSoonImages: Partial<Record<string, string>> = {
   cocinamadera:`${base}assets/stands/expositor-cocinamadera.webp`,
   piscina:     `${base}assets/stands/expositor-piscina.webp`,
   bricolaje:   `${base}assets/stands/expositor-bricolaje.webp`,
+  flores:      `${base}assets/stands/expositor-flores.webp`,
 };
 
 // ─── Construcción genérica ────────────────────────────────────────────────────

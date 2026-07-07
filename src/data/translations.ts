@@ -250,47 +250,47 @@ export const standLabels: Record<Language, Partial<Record<string, string>>> = {
   es: {
     ene: "ENE", feb: "FEB", mar: "MAR", abr: "ABR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DIC",
     balones: "BALONES", mascotas: "MASCOTAS", belleza: "BELLEZA", cocina: "COCINA", auto: "AUTO", juguetes: "JUG. MADERA",
-    jug3: "JUGUETES", jug5: "JUG 5€", cocinamadera: "COC. MADERA", piscina: "PISCINA", bricolaje: "BRICOLAJE",
+    jug3: "JUGUETES", jug5: "JUG 5€", cocinamadera: "COC. MADERA", piscina: "PISCINA", bricolaje: "BRICOLAJE", flores: "FLORES",
   },
   en: {
     ene: "JAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAY", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
     balones: "BALLS", mascotas: "PETS", belleza: "BEAUTY", cocina: "KITCHEN", auto: "CAR", juguetes: "WOOD TOYS",
-    jug3: "TOYS", jug5: "TOYS 5€", cocinamadera: "WOOD KITCH.", piscina: "POOL", bricolaje: "DIY",
+    jug3: "TOYS", jug5: "TOYS 5€", cocinamadera: "WOOD KITCH.", piscina: "POOL", bricolaje: "DIY", flores: "FLOWERS",
   },
   fr: {
     ene: "JANV", feb: "FÉV", mar: "MARS", abr: "AVR", may: "MAI", jun: "JUIN", jul: "JUIL", ago: "AOÛT", sep: "SEPT", oct: "OCT", nov: "NOV", dic: "DÉC",
     balones: "BALLONS", mascotas: "ANIMAUX", belleza: "BEAUTÉ", cocina: "CUISINE", auto: "AUTO", juguetes: "JOUETS BOIS",
-    jug3: "JOUETS", jug5: "JOU. 5€", cocinamadera: "CUIS. BOIS", piscina: "PISCINE", bricolaje: "BRICOLAGE",
+    jug3: "JOUETS", jug5: "JOU. 5€", cocinamadera: "CUIS. BOIS", piscina: "PISCINE", bricolaje: "BRICOLAGE", flores: "FLEURS",
   },
   it: {
     ene: "GEN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAG", jun: "GIU", jul: "LUG", ago: "AGO", sep: "SET", oct: "OTT", nov: "NOV", dic: "DIC",
     balones: "PALLONI", mascotas: "ANIMALI", belleza: "BELLEZZA", cocina: "CUCINA", auto: "AUTO", juguetes: "GIOC. LEGNO",
-    jug3: "GIOCATTOLI", jug5: "GIOC. 5€", cocinamadera: "CUC. LEGNO", piscina: "PISCINA", bricolaje: "BRICOLAGE",
+    jug3: "GIOCATTOLI", jug5: "GIOC. 5€", cocinamadera: "CUC. LEGNO", piscina: "PISCINA", bricolaje: "BRICOLAGE", flores: "FIORI",
   },
   pt: {
     ene: "JAN", feb: "FEV", mar: "MAR", abr: "ABR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AGO", sep: "SET", oct: "OUT", nov: "NOV", dic: "DEZ",
     balones: "BOLAS", mascotas: "ANIMAIS", belleza: "BELEZA", cocina: "COZINHA", auto: "AUTO", juguetes: "BRINQUEDOS",
-    jug3: "BRINQUEDOS", jug5: "BRINQ. 5€", cocinamadera: "COZ. MADEIRA", piscina: "PISCINA", bricolaje: "BRICOLAGEM",
+    jug3: "BRINQUEDOS", jug5: "BRINQ. 5€", cocinamadera: "COZ. MADEIRA", piscina: "PISCINA", bricolaje: "BRICOLAGEM", flores: "FLORES",
   },
   de: {
     ene: "JAN", feb: "FEB", mar: "MÄR", abr: "APR", may: "MAI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEZ",
     balones: "BÄLLE", mascotas: "HAUSTIERE", belleza: "BEAUTY", cocina: "KÜCHE", auto: "AUTO", juguetes: "HOLZSPIELE",
-    jug3: "SPIELZEUG", jug5: "SPIELZ. 5€", cocinamadera: "HOLZKÜCHE", piscina: "SCHWIMMBAD", bricolaje: "HEIMWERK.",
+    jug3: "SPIELZEUG", jug5: "SPIELZ. 5€", cocinamadera: "HOLZKÜCHE", piscina: "SCHWIMMBAD", bricolaje: "HEIMWERK.", flores: "BLUMEN",
   },
   nl: {
     ene: "JAN", feb: "FEB", mar: "MRT", abr: "APR", may: "MEI", jun: "JUN", jul: "JUL", ago: "AUG", sep: "SEP", oct: "OKT", nov: "NOV", dic: "DEC",
     balones: "BALLEN", mascotas: "HUISDIEREN", belleza: "BEAUTY", cocina: "KEUKEN", auto: "AUTO", juguetes: "HOUT SPEEL.",
-    jug3: "SPEELGOED", jug5: "SPEELG. 5€", cocinamadera: "HOUT KEUKEN", piscina: "ZWEMBAD", bricolaje: "KLUSWERK",
+    jug3: "SPEELGOED", jug5: "SPEELG. 5€", cocinamadera: "HOUT KEUKEN", piscina: "ZWEMBAD", bricolaje: "KLUSWERK", flores: "BLOEMEN",
   },
   pl: {
     ene: "STY", feb: "LUT", mar: "MAR", abr: "KWI", may: "MAJ", jun: "CZE", jul: "LIP", ago: "SIE", sep: "WRZ", oct: "PAŹ", nov: "LIS", dic: "GRU",
     balones: "PIŁKI", mascotas: "ZWIERZĘTA", belleza: "URODA", cocina: "KUCHNIA", auto: "AUTO", juguetes: "DREWNIANE",
-    jug3: "ZABAWKI", jug5: "ZAB. 5€", cocinamadera: "KUCH. DREWNO", piscina: "BASEN", bricolaje: "MAJSTERN.",
+    jug3: "ZABAWKI", jug5: "ZAB. 5€", cocinamadera: "KUCH. DREWNO", piscina: "BASEN", bricolaje: "MAJSTERN.", flores: "KWIATY",
   },
   ro: {
     ene: "IAN", feb: "FEB", mar: "MAR", abr: "APR", may: "MAI", jun: "IUN", jul: "IUL", ago: "AUG", sep: "SEP", oct: "OCT", nov: "NOV", dic: "DEC",
     balones: "MINGI", mascotas: "ANIMALE", belleza: "FRUMUSEȚE", cocina: "BUCĂTĂRIE", auto: "AUTO", juguetes: "JUCĂRII",
-    jug3: "JUCĂRII", jug5: "JUC. 5€", cocinamadera: "BUCĂT. LEMN", piscina: "PISCINĂ", bricolaje: "BRICOLAJ",
+    jug3: "JUCĂRII", jug5: "JUC. 5€", cocinamadera: "BUCĂT. LEMN", piscina: "PISCINĂ", bricolaje: "BRICOLAJ", flores: "FLORI",
   },
 };
 
@@ -328,6 +328,7 @@ export const standText = ({
     cocinamadera: ["Cocina Madera", "Utensilios de cocina en madera natural: espátulas, cucharas, tablas y accesorios sostenibles para el hogar."],
     piscina: ["Piscina", "Todo para disfrutar de la piscina y el verano. Flotadores, churros, gafas acuáticas y juguetes de agua para toda la familia."],
     bricolaje: ["Bricolaje", "Herramientas básicas y accesorios de bricolaje para el hogar. Soluciones prácticas para mantenimiento y pequeñas reparaciones."],
+    flores: ["Flores", "Expositor de flores decorativas y artificiales. Colores vivos y diseños variados para la decoración del hogar."],
   },
   en: {
     ene: ["Garden Display", "Garden tools, watering cans, pots and accessories to kick off the season."],
@@ -356,6 +357,7 @@ export const standText = ({
     cocinamadera: ["Wood Kitchen", "Kitchen utensils made from natural wood: spatulas, spoons, boards and sustainable home accessories."],
     piscina: ["Pool", "Everything for pool and summer fun. Floats, pool noodles, goggles and water toys for the whole family."],
     bricolaje: ["DIY", "Basic tools and DIY accessories for the home. Practical solutions for maintenance and minor repairs."],
+    flores: ["Flowers", "Decorative and artificial flower display. Vivid colours and varied designs for home decoration."],
   },
   fr: {
     ene: ["Présentoir Jardin", "Outils de jardinage, arrosoirs, pots et accessoires pour démarrer la saison."],
@@ -384,6 +386,7 @@ export const standText = ({
     cocinamadera: ["Cuisine en Bois", "Ustensiles de cuisine en bois naturel : spatules, cuillères, planches et accessoires durables."],
     piscina: ["Piscine", "Tout pour la piscine et l'été. Bouées, frites de piscine, lunettes et jouets d'eau pour toute la famille."],
     bricolaje: ["Bricolage", "Outils de base et accessoires de bricolage pour la maison. Solutions pratiques pour l'entretien et les petites réparations."],
+    flores: ["Fleurs", "Présentoir de fleurs décoratives et artificielles. Couleurs vives et designs variés pour la décoration intérieure."],
   },
   it: {
     ene: ["Espositore Giardino", "Attrezzi da giardino, annaffiatoi, vasi e accessori per iniziare la stagione."],
@@ -412,6 +415,7 @@ export const standText = ({
     cocinamadera: ["Cucina in Legno", "Utensili da cucina in legno naturale: spatole, cucchiai, taglieri e accessori sostenibili per la casa."],
     piscina: ["Piscina", "Tutto per la piscina e l'estate. Galleggianti, noodles, occhialini e giochi d'acqua per tutta la famiglia."],
     bricolaje: ["Bricolage", "Attrezzi di base e accessori fai-da-te per la casa. Soluzioni pratiche per la manutenzione e le piccole riparazioni."],
+    flores: ["Fiori", "Espositore di fiori decorativi e artificiali. Colori vivaci e design variati per l'arredamento della casa."],
   },
   pt: {
     ene: ["Expositor Jardim", "Ferramentas de jardim, regadores, vasos e acessórios para começar a temporada."],
@@ -440,6 +444,7 @@ export const standText = ({
     cocinamadera: ["Cozinha Madeira", "Utensílios de cozinha em madeira natural: espátulas, colheres, tábuas e acessórios sustentáveis."],
     piscina: ["Piscina", "Tudo para a piscina e o verão. Bóias, esparguetes, óculos aquáticos e brinquedos de água para toda a família."],
     bricolaje: ["Bricolage", "Ferramentas básicas e acessórios de bricolage para o lar. Soluções práticas para manutenção e pequenas reparações."],
+    flores: ["Flores", "Expositor de flores decorativas e artificiais. Cores vivas e designs variados para decoração do lar."],
   },
 }) as unknown as Record<Language, Record<string, [string, string]>>;
 
@@ -605,6 +610,7 @@ export const standText = ({
   cocinamadera: ["Holz-Küche", "Küchenutensilien aus Naturholz: Spatel, Löffel, Bretter und nachhaltiges Haushaltszubehör."],
   piscina: ["Schwimmbad", "Alles für Schwimmbad und Sommer. Schwimmreifen, Schwimmnudeln, Brillen und Wasserspielzeug für die Familie."],
   bricolaje: ["Heimwerken", "Grundlegende Werkzeuge und Heimwerkerzubehör. Praktische Lösungen für Wartung und kleine Reparaturen."],
+  flores: ["Blumen", "Expositeur für dekorative und künstliche Blumen. Lebhafte Farben und vielfältige Designs für die Heimdekoration."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).nl = {
   ene: ["Tuin Expositeur", "Tuingereedschap, gieters, potten en accessoires voor het begin van het seizoen."],
@@ -630,6 +636,7 @@ export const standText = ({
   cocinamadera: ["Houten Keuken", "Keukengereedschap van natuurlijk hout: spatels, lepels, snijplanken en duurzame accessoires."],
   piscina: ["Zwembad", "Alles voor zwembad en zomer. Zwemringen, zwemnoodles, zwembrillen en waterspeelgoed voor het gezin."],
   bricolaje: ["Doe-het-zelf", "Basisgereedschap en doe-het-zelf accessoires voor thuis. Praktische oplossingen voor onderhoud en kleine reparaties."],
+  flores: ["Bloemen", "Expositeur voor decoratieve en kunstbloemen. Levendige kleuren en gevarieerde designs voor huisdecoratie."],
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).pl = {
   ene: ["Ekspozytor Ogród", "Narzędzia ogrodnicze, konewki, doniczki i akcesoria na start sezonu."],
@@ -655,6 +662,7 @@ export const standText = ({
   cocinamadera: ["Kuchnia Drewno", "Przybory kuchenne z naturalnego drewna: szpatułki, łyżki, deski i zrównoważone akcesoria domowe."],
   piscina: ["Basen", "Wszystko do basenu i lata. Dmuchańce, makarony, okulary i zabawki wodne dla całej rodziny."],
   bricolaje: ["Majsterkowanie", "Podstawowe narzędzia i akcesoria do majsterkowania. Praktyczne rozwiązania do konserwacji i drobnych napraw."],
+  flores: ["Kwiaty", "Ekspozytor kwiatów dekoracyjnych i sztucznych. Żywe kolory i różnorodne wzornictwo do dekoracji domu."],
 };
 
 (copy as unknown as Record<Language, TranslationCopy>).ro = {
@@ -729,6 +737,7 @@ export const standText = ({
   cocinamadera: ["Bucătărie Lemn", "Ustensile de bucătărie din lemn natural: spatule, linguri, tocătoare și accesorii sustenabile."],
   piscina: ["Piscină", "Tot pentru piscină și vară. Colaci, tăiței de înot, ochelari și jucării acvatice pentru toată familia."],
   bricolaje: ["Bricolaj", "Unelte de bază și accesorii pentru bricolaj. Soluții practice pentru întreținere și reparații minore."],
+  flores: ["Flori", "Expozitor de flori decorative și artificiale. Culori vii și design variat pentru decorarea casei."],
 };
 
 /** Devuelve título y descripción del expositor en el idioma activo */
