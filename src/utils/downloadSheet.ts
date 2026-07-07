@@ -27,7 +27,7 @@ function buildInfoRows(stand: Stand, t: TranslationCopy): [string, string | numb
   return rows;
 }
 
-// Converts any image (webp, png, svg…) to JPEG ArrayBuffer via Canvas
+// Canvas fallback: converts any image to JPEG ArrayBuffer (used for webp-only assets and data URIs)
 async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
   return new Promise(resolve => {
     const img = new Image();
@@ -55,6 +55,38 @@ async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
     img.onerror = () => resolve(null);
     img.src = src;
   });
+}
+
+async function fetchBuf(url: string): Promise<ArrayBuffer | null> {
+  try {
+    const res = await fetch(url);
+    return res.ok ? res.arrayBuffer() : null;
+  } catch { return null; }
+}
+
+// Fast path: fetch .jpg/.png directly; Canvas fallback only for webp-only assets (jug3) and data URIs
+async function getImgForExcel(src: string, origin: string): Promise<{ buf: ArrayBuffer; ext: "jpeg" | "png" } | null> {
+  const resolved = resolveImgSrc(src, origin);
+
+  if (resolved.endsWith(".webp")) {
+    const buf = await fetchBuf(resolved.replace(/\.webp$/, ".jpg"));
+    if (buf) return { buf, ext: "jpeg" };
+    const canvasBuf = await imgToJpegBuffer(resolved);
+    return canvasBuf ? { buf: canvasBuf, ext: "jpeg" } : null;
+  }
+
+  if (resolved.endsWith(".png")) {
+    const buf = await fetchBuf(resolved);
+    return buf ? { buf, ext: "png" } : null;
+  }
+
+  if (resolved.startsWith("data:")) {
+    const canvasBuf = await imgToJpegBuffer(resolved);
+    return canvasBuf ? { buf: canvasBuf, ext: "jpeg" } : null;
+  }
+
+  const buf = await fetchBuf(resolved);
+  return buf ? { buf, ext: "jpeg" } : null;
 }
 
 function cell(
@@ -102,10 +134,10 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
   const t        = copy[language] ?? copy.es;
   const infoRows = buildInfoRows(stand, t);
 
-  // Fetch + convert all images in parallel (one shot, reused)
-  const [standImgBuf, ...productImgBufs] = await Promise.all([
-    imgToJpegBuffer(resolveImgSrc(stand.image, origin)),
-    ...stand.products.map(p => imgToJpegBuffer(resolveImgSrc(p.image, origin))),
+  // Fetch all images in parallel — stand uses .png directly, products try .jpg first (fast path)
+  const [standImg, ...productImgs] = await Promise.all([
+    getImgForExcel(resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin),
+    ...stand.products.map(p => getImgForExcel(p.image, origin)),
   ]);
 
   const ExcelJS = (await import("exceljs")).default;
@@ -155,8 +187,8 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
 
   // Stand image — positioned right of the info table (cols D–I), rows 2 onwards
   const IMG_ROWS = Math.max(infoRows.length + 1, 9);
-  if (standImgBuf) {
-    const imgId = wb.addImage({ buffer: standImgBuf, extension: "jpeg" });
+  if (standImg) {
+    const imgId = wb.addImage({ buffer: standImg.buf, extension: standImg.ext });
     ws.addImage(imgId, {
       tl: { col: 3, row: INFO_START - 1 },   // col D, row 2 (0-indexed)
       ext: { width: 210, height: Math.round(IMG_ROWS * 20) },
@@ -194,7 +226,7 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
     const r   = DATA_START + i;
     const odd = i % 2 === 0;
     const bg  = odd ? W : GR2;
-    const hasImg = !!productImgBufs[i];
+    const hasImg = !!productImgs[i];
     ws.getRow(r).height = hasImg ? 44 : 18;
 
     // A: photo placeholder (image added below)
@@ -215,9 +247,9 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
     cell(ws, r, 9, p.price ?? "", { bg: G, fg: W, bold: true, hAlign: "center" });
 
     // Product image
-    const buf = productImgBufs[i];
-    if (buf) {
-      const imgId = wb.addImage({ buffer: buf, extension: "jpeg" });
+    const img = productImgs[i];
+    if (img) {
+      const imgId = wb.addImage({ buffer: img.buf, extension: img.ext });
       ws.addImage(imgId, {
         tl: { col: 0, row: r - 1 },
         ext: { width: 55, height: 40 },
