@@ -185,12 +185,12 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
   });
 
   // Stand image — positioned right of the info table (cols D–I), rows 2 onwards
-  const IMG_ROWS = Math.max(infoRows.length + 1, 9);
+  const IMG_ROWS = Math.max(infoRows.length + 1, 15);
   if (standImg) {
     const imgId = wb.addImage({ buffer: standImg.buf, extension: standImg.ext });
     ws.addImage(imgId, {
       tl: { col: 3, row: INFO_START - 1 },   // col D, row 2 (0-indexed)
-      ext: { width: 210, height: Math.round(IMG_ROWS * 20) },
+      ext: { width: 210, height: 300 },
     });
   }
   // Ensure enough rows exist for the image area
