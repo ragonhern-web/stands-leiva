@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronUp, Clock, FileSpreadsheet, FileText, Package, X } from "lucide-react";
+import { ChevronLeft, ChevronUp, Clock, FileSpreadsheet, FileText, Package, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getStandCopy } from "../data/translations";
 import { brandGradients } from "../data/stands";
@@ -7,6 +7,18 @@ import { downloadExcel, downloadPDF } from "../utils/downloadSheet";
 import ProductCard from "./ProductCard";
 import ProductModal from "./ProductModal";
 import type { Stand, Language, TranslationCopy, Product } from "../types";
+
+const LANGS: { lang: Language; flag: string; name: string }[] = [
+  { lang: "es", flag: "🇪🇸", name: "Español" },
+  { lang: "en", flag: "🇬🇧", name: "English" },
+  { lang: "fr", flag: "🇫🇷", name: "Français" },
+  { lang: "it", flag: "🇮🇹", name: "Italiano" },
+  { lang: "pt", flag: "🇵🇹", name: "Português" },
+  { lang: "de", flag: "🇩🇪", name: "Deutsch" },
+  { lang: "nl", flag: "🇳🇱", name: "Nederlands" },
+  { lang: "pl", flag: "🇵🇱", name: "Polski" },
+  { lang: "ro", flag: "🇷🇴", name: "Română" },
+];
 
 interface Props {
   stand: Stand | null;
@@ -19,11 +31,13 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isExporting, setIsExporting] = useState(false);
+  const [downloadType, setDownloadType] = useState<"pdf" | "excel" | null>(null);
 
-  // Resetear producto seleccionado al cambiar de stand
+  const closeMenu = () => { setMenuOpen(false); setDownloadType(null); };
+
   useEffect(() => {
     setSelectedProduct(null);
-    setMenuOpen(false);
+    closeMenu();
   }, [stand?.id]);
 
   if (!stand) return null;
@@ -200,27 +214,66 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
                   <div className="flex justify-end border-t border-slate-100 pt-4">
                     <div className="relative w-full md:w-auto">
                       {menuOpen && (
-                        <div className="absolute bottom-full mb-2 right-0 w-full md:w-56 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden z-10">
-                          <button
-                            onClick={() => { downloadPDF(stand, standCopy.title); setMenuOpen(false); }}
-                            className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-slate-700 hover:bg-slate-50 transition"
-                          >
-                            <FileText size={18} className="text-slate-400 shrink-0" />
-                            {t.downloadPDF}
-                          </button>
-                          <div className="h-px bg-slate-100" />
-                          <button
-                            onClick={async () => { setIsExporting(true); await downloadExcel(stand, standCopy.title, language); setIsExporting(false); setMenuOpen(false); }}
-                            className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
-                          >
-                            <FileSpreadsheet size={18} className="shrink-0" />
-                            {t.downloadExcel}
-                          </button>
+                        <div className="absolute bottom-full mb-2 right-0 w-full md:w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden z-10">
+                          {downloadType === null ? (
+                            <>
+                              <button
+                                onClick={() => setDownloadType("pdf")}
+                                className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-slate-700 hover:bg-slate-50 transition"
+                              >
+                                <FileText size={18} className="text-slate-400 shrink-0" />
+                                {t.downloadPDF}
+                              </button>
+                              <div className="h-px bg-slate-100" />
+                              <button
+                                onClick={() => setDownloadType("excel")}
+                                className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
+                              >
+                                <FileSpreadsheet size={18} className="shrink-0" />
+                                {t.downloadExcel}
+                              </button>
+                            </>
+                          ) : (
+                            <div className="p-3">
+                              <button
+                                onClick={() => setDownloadType(null)}
+                                className="mb-2 flex items-center gap-1 text-[11px] font-black text-slate-400 hover:text-slate-700 transition"
+                              >
+                                <ChevronLeft size={13} /> Atrás
+                              </button>
+                              <p className="mb-2 text-[9px] font-black uppercase tracking-[0.18em] text-slate-400">
+                                {downloadType === "pdf" ? t.downloadPDF : t.downloadExcel}
+                              </p>
+                              <div className="grid grid-cols-3 gap-1.5">
+                                {LANGS.map(({ lang: l, flag, name }) => (
+                                  <button
+                                    key={l}
+                                    disabled={isExporting}
+                                    onClick={async () => {
+                                      if (downloadType === "pdf") {
+                                        downloadPDF(stand, l);
+                                        closeMenu();
+                                      } else {
+                                        setIsExporting(true);
+                                        await downloadExcel(stand, l);
+                                        setIsExporting(false);
+                                        closeMenu();
+                                      }
+                                    }}
+                                    className="flex flex-col items-center gap-0.5 rounded-xl border border-slate-100 py-2 px-1 text-center transition hover:bg-slate-50 hover:border-slate-200 disabled:opacity-50"
+                                  >
+                                    <span className="text-lg leading-none">{flag}</span>
+                                    <span className="text-[9px] font-black text-slate-600">{name}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
 
                       <button
-                        onClick={() => setMenuOpen(o => !o)}
+                        onClick={() => { if (menuOpen) closeMenu(); else setMenuOpen(true); }}
                         disabled={isExporting}
                         className="flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 disabled:opacity-70 disabled:cursor-wait md:w-auto"
                         style={{ background: brandGradients.green }}

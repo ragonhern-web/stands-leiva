@@ -255,10 +255,15 @@ function buildSheet(
   });
 }
 
-export async function downloadExcel(stand: Stand, _title: string, _language: Language = "es"): Promise<void> {
+const TAB_NAMES: Partial<Record<Language, string>> = {
+  es: "Español", en: "English", fr: "Français",
+  it: "Italiano", pt: "Português", de: "Deutsch",
+  nl: "Nederlands", pl: "Polski", ro: "Română",
+};
+
+export async function downloadExcel(stand: Stand, language: Language = "es"): Promise<void> {
   const origin = window.location.origin;
 
-  // Fetch all images once — shared across all language sheets
   const [standImg, ...productImgs] = await Promise.all([
     getImgForExcel(resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin),
     ...stand.products.map(p => getImgForExcel(p.image, origin)),
@@ -267,27 +272,16 @@ export async function downloadExcel(stand: Stand, _title: string, _language: Lan
   const ExcelJS = (await import("exceljs")).default;
   const wb = new ExcelJS.Workbook();
 
-  // Register images in workbook once — IDs reused across all sheets
   const standImgId    = standImg ? wb.addImage({ buffer: standImg.buf, extension: standImg.ext }) : null;
   const productImgIds = productImgs.map(img =>
     img ? wb.addImage({ buffer: img.buf, extension: img.ext }) : null
   );
 
-  // Build one sheet per language
-  const tabs: { lang: Language; name: string }[] = [
-    { lang: "es", name: "Español" },
-    { lang: "en", name: "English" },
-    { lang: "fr", name: "Français" },
-  ];
+  const t          = copy[language] ?? copy.es;
+  const standTitle = getStandCopy(stand, language).title;
+  const ws         = wb.addWorksheet(TAB_NAMES[language] ?? "Ficha Técnica");
+  buildSheet(ws, stand, t, language, standTitle, standImgId, productImgIds);
 
-  for (const { lang, name } of tabs) {
-    const t          = copy[lang] ?? copy.es;
-    const standTitle = getStandCopy(stand, lang).title;
-    const ws         = wb.addWorksheet(name);
-    buildSheet(ws, stand, t, lang, standTitle, standImgId, productImgIds);
-  }
-
-  // ── Download ─────────────────────────────────────────────────────────────
   const buffer = await wb.xlsx.writeBuffer();
   const blob = new Blob([buffer], {
     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -302,14 +296,22 @@ export async function downloadExcel(stand: Stand, _title: string, _language: Lan
   URL.revokeObjectURL(url);
 }
 
-export function downloadPDF(stand: Stand, title: string): void {
-  const origin    = window.location.origin;
-  const infoRows  = buildInfoRows(stand, copy.es);
+export function downloadPDF(stand: Stand, language: Language = "es"): void {
+  const origin      = window.location.origin;
+  const t           = copy[language] ?? copy.es;
+  const standTitle  = getStandCopy(stand, language).title;
+  const infoRows    = buildInfoRows(stand, t);
   const standImgUrl = resolveImgSrc(stand.image, origin);
+
+  const photoLabel = language === "es" ? "Foto" : "Photo";
+  const refLabel   = language === "en" ? "Ref. No." : language === "fr" ? "N° Réf." : "Nº Ref.";
+  const prodLabel  = language === "en" ? "Product" : language === "fr" ? "Produit" : language === "it" ? "Prodotto" : language === "pt" ? "Produto" : language === "de" ? "Produkt" : language === "nl" ? "Product" : language === "pl" ? "Produkt" : language === "ro" ? "Produs" : "Producto";
+  const sectionLabel = language === "en" ? "Display information" : language === "fr" ? "Informations expositor" : language === "it" ? "Informazioni espositore" : language === "pt" ? "Informações expositor" : language === "de" ? "Expositor-Informationen" : language === "nl" ? "Expositeur informatie" : language === "pl" ? "Informacje ekspozytora" : language === "ro" ? "Informații expozitor" : "Ficha del expositor";
+  const colHeaders  = [photoLabel, refLabel, prodLabel, t.color, `${t.alto} (cm)`, `${t.largo} (cm)`, `${t.ancho} (cm)`, t.units, t.price];
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ficha técnica – ${title}</title>
+<title>${standTitle}</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 32px; color: #202020; }
   h1 { color: #169b22; font-size: 22px; margin-bottom: 16px; }
@@ -328,25 +330,25 @@ export function downloadPDF(stand: Stand, title: string): void {
 </style>
 <script>window.addEventListener('load', function() { window.print(); });<\/script>
 </head><body>
-<h1>${title}</h1>
-<h2>Ficha del expositor</h2>
+<h1>${standTitle}</h1>
+<h2>${sectionLabel}</h2>
 <div class="info-section">
   <div class="info-table">
     <table>${infoRows.map(([k, v]) => {
-      const isPrice = k === copy.es.standPrice || k === copy.es.standPriceUnit;
+      const isPrice = k === t.standPrice || k === t.standPriceUnit;
       return `<tr><td><b>${k}</b></td><td class="${isPrice ? "price" : ""}">${v}</td></tr>`;
     }).join("")}</table>
   </div>
-  <img src="${standImgUrl}" class="stand-img" alt="${title}" />
+  <img src="${standImgUrl}" class="stand-img" alt="${standTitle}" />
 </div>
-<h2>Productos incluidos</h2>
+<h2>${t.included}</h2>
 <table>
-  <thead><tr>${["Foto","Nº Ref","Producto","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
+  <thead><tr>${colHeaders.map(h => `<th>${h}</th>`).join("")}</tr></thead>
   <tbody>${stand.products.map(p => `<tr>
     <td><img src="${resolveImgSrc(p.image, origin)}" class="photo" alt="${p.name}" /></td>
     <td class="ref">${realRef(p.name)}</td>
     <td>${cleanName(p.name)}</td>
-    <td>${p.color ?? "—"}</td>
+    <td>${translateColor(p.color, language) || "—"}</td>
     <td>${p.alto  ? p.alto  + " cm" : "—"}</td>
     <td>${p.largo ? p.largo + " cm" : "—"}</td>
     <td>${p.ancho ? p.ancho + " cm" : "—"}</td>
