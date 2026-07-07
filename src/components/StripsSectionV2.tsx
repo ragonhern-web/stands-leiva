@@ -130,15 +130,6 @@ export default function StripsSectionV2({ language }: Props) {
             </div>
           </div>
 
-          {/* Badge DEMO — estilo igual que los labels de los stands */}
-          <div className="flex justify-center pb-2">
-            <span
-              className="inline-flex items-center rounded-full px-5 py-1.5 text-sm font-black uppercase tracking-[0.22em] text-white shadow-md"
-              style={{ background: activeStrip.gradient }}
-            >
-              DEMO
-            </span>
-          </div>
         </div>
 
         {/* Col 3: ficha técnica en hover — sin cambios */}
@@ -230,9 +221,17 @@ export default function StripsSectionV2({ language }: Props) {
         onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="flex gap-3">
-          {/* Logo */}
-          <div className="flex w-[120px] flex-none flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-            <img src={LOGO_SRC} alt="Novedades Leiva" className="max-h-[72px] w-full object-contain" />
+          {/* Logo + badge DEMO encima */}
+          <div className="flex w-[120px] flex-none flex-col gap-1.5">
+            <span
+              className="self-start rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-sm"
+              style={{ background: activeStrip.gradient }}
+            >
+              DEMO
+            </span>
+            <div className="flex flex-1 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <img src={LOGO_SRC} alt="Novedades Leiva" className="max-h-[72px] w-full object-contain" />
+            </div>
           </div>
 
           {/* Productos */}

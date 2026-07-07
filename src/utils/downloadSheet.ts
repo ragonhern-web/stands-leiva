@@ -148,11 +148,48 @@ function buildInfoRows(stand: Stand, t: TranslationCopy): [string, string | numb
   return rows;
 }
 
-// Canvas fallback: converts any image to JPEG ArrayBuffer (used for webp-only assets and data URIs)
+async function fetchBuf(url: string): Promise<ArrayBuffer | null> {
+  try {
+    const res = await fetch(url);
+    return res.ok ? res.arrayBuffer() : null;
+  } catch { return null; }
+}
+
+// Converts an ArrayBuffer to JPEG via canvas using a blob: URL (no crossOrigin CORS issues — works on mobile)
+async function imgBufToJpeg(buf: ArrayBuffer, mime: string): Promise<ArrayBuffer | null> {
+  return new Promise(resolve => {
+    const blobUrl = URL.createObjectURL(new Blob([buf], { type: mime }));
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const MAX = 300;
+        const nw = img.naturalWidth  || MAX;
+        const nh = img.naturalHeight || MAX;
+        const scale = Math.min(1, MAX / Math.max(nw, nh));
+        const canvas = document.createElement("canvas");
+        canvas.width  = Math.round(nw * scale);
+        canvas.height = Math.round(nh * scale);
+        const ctx = canvas.getContext("2d");
+        if (!ctx) { URL.revokeObjectURL(blobUrl); resolve(null); return; }
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => {
+          URL.revokeObjectURL(blobUrl);
+          if (!blob) { resolve(null); return; }
+          blob.arrayBuffer().then(resolve).catch(() => resolve(null));
+        }, "image/jpeg", 0.85);
+      } catch { URL.revokeObjectURL(blobUrl); resolve(null); }
+    };
+    img.onerror = () => { URL.revokeObjectURL(blobUrl); resolve(null); };
+    img.src = blobUrl;
+  });
+}
+
+// data: URI fallback (keeps crossOrigin=anonymous only for already-embedded data)
 async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
   return new Promise(resolve => {
     const img = new Image();
-    img.crossOrigin = "anonymous";
     img.onload = () => {
       try {
         const MAX = 300;
@@ -178,22 +215,20 @@ async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
   });
 }
 
-async function fetchBuf(url: string): Promise<ArrayBuffer | null> {
-  try {
-    const res = await fetch(url);
-    return res.ok ? res.arrayBuffer() : null;
-  } catch { return null; }
-}
-
-// Fast path: fetch .jpg/.png directly; Canvas fallback only for webp-only assets (jug3) and data URIs
+// Fetch .jpg/.png directly; for .webp fetch raw bytes and convert via blob: URL (no CORS issues on mobile)
 async function getImgForExcel(src: string, origin: string): Promise<{ buf: ArrayBuffer; ext: "jpeg" | "png" } | null> {
   const resolved = resolveImgSrc(src, origin);
 
   if (resolved.endsWith(".webp")) {
-    const buf = await fetchBuf(resolved.replace(/\.webp$/, ".jpg"));
-    if (buf) return { buf, ext: "jpeg" };
-    const canvasBuf = await imgToJpegBuffer(resolved);
-    return canvasBuf ? { buf: canvasBuf, ext: "jpeg" } : null;
+    const jpgBuf = await fetchBuf(resolved.replace(/\.webp$/, ".jpg"));
+    if (jpgBuf) return { buf: jpgBuf, ext: "jpeg" };
+    // Fetch .webp bytes then convert via blob: URL — avoids crossOrigin CORS block on iOS/Android
+    const webpBuf = await fetchBuf(resolved);
+    if (webpBuf) {
+      const jpegBuf = await imgBufToJpeg(webpBuf, "image/webp");
+      if (jpegBuf) return { buf: jpegBuf, ext: "jpeg" };
+    }
+    return null;
   }
 
   if (resolved.endsWith(".png")) {
