@@ -1,4 +1,5 @@
-import type { Stand } from "../types";
+import { copy } from "../data/translations";
+import type { Stand, TranslationCopy } from "../types";
 
 function realRef(name: string): string {
   return name.match(/Ref\.(\d+)/)?.[1] ?? name;
@@ -8,21 +9,38 @@ function cleanName(name: string): string {
   return name.replace(/\s*·\s*Ref\.\d+$/, "");
 }
 
-function standInfoRows(stand: Stand): [string, string | number][] {
+function resolveImgSrc(src: string, origin: string): string {
+  return src.startsWith("data:") || src.startsWith("http") ? src : `${origin}${src}`;
+}
+
+function buildInfoRows(stand: Stand, t: TranslationCopy): [string, string | number][] {
   const rows: [string, string | number][] = [];
-  if (stand.standRef)     rows.push(["Ref. stand",        stand.standRef]);
-  if (stand.tipo)         rows.push(["Tipo",               stand.tipo]);
-  if (stand.numRefs)      rows.push(["Nº referencias",     stand.numRefs]);
-  if (stand.totalUnits)   rows.push(["Nº unidades",        stand.totalUnits]);
-  if (stand.sides)        rows.push(["Lados",              stand.sides]);
-  if (stand.priceStand)   rows.push(["Precio expositor",   stand.priceStand]);
-  if (stand.pricePerUnit) rows.push(["Precio unidad",      stand.pricePerUnit]);
+  if (stand.standRef)     rows.push([t.standRef,        stand.standRef]);
+  if (stand.tipo)         rows.push([t.standTipo,        stand.tipo]);
+  if (stand.numRefs)      rows.push([t.standNumRefs,     stand.numRefs]);
+  if (stand.totalUnits)   rows.push([t.standTotalUnits,  stand.totalUnits]);
+  if (stand.sides)        rows.push([t.standSides,       stand.sides]);
+  if (stand.priceStand)   rows.push([t.standPrice,       stand.priceStand]);
+  if (stand.pricePerUnit) rows.push([t.standPriceUnit,   stand.pricePerUnit]);
   if (stand.standAlto != null)
-    rows.push(["Medidas expositor", `${stand.standAlto} × ${stand.standLargo} × ${stand.standAncho} cm`]);
+    rows.push([t.standDims, `${stand.standAlto} × ${stand.standLargo} × ${stand.standAncho} cm`]);
   return rows;
 }
 
 async function fetchImageBuffer(url: string): Promise<ArrayBuffer | null> {
+  if (url.startsWith("data:")) {
+    // Decode base64 data URI to ArrayBuffer
+    try {
+      const base64 = url.split(",")[1];
+      if (!base64) return null;
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      return bytes.buffer;
+    } catch {
+      return null;
+    }
+  }
   try {
     const res = await fetch(url);
     if (!res.ok) return null;
@@ -32,23 +50,26 @@ async function fetchImageBuffer(url: string): Promise<ArrayBuffer | null> {
   }
 }
 
-export async function downloadExcel(stand: Stand, _title: string): Promise<void> {
-  const origin = window.location.origin;
-  const ExcelJS = (await import("exceljs")).default;
-  const wb = new ExcelJS.Workbook();
+async function addStandSheet(
+  wb: import("exceljs").Workbook,
+  stand: Stand,
+  t: TranslationCopy,
+  sheetName: string,
+  standImgBuf: ArrayBuffer | null,
+  productImgBufs: (ArrayBuffer | null)[],
+): Promise<void> {
+  const green = "FF169b22";
+  const infoRows = buildInfoRows(stand, t);
 
-  // ── Hoja 1: Ficha expositor ──────────────────────────────────────────────
-  const infoSheet = wb.addWorksheet("Ficha expositor");
+  // ── Hoja Ficha expositor ─────────────────────────────────────────────────
+  const infoSheet = wb.addWorksheet(sheetName);
 
   infoSheet.getColumn(1).width = 24;
   infoSheet.getColumn(2).width = 32;
-  infoSheet.getColumn(3).width = 4;  // separador
-  infoSheet.getColumn(4).width = 30; // columna imagen
+  infoSheet.getColumn(3).width = 4;
+  infoSheet.getColumn(4).width = 30;
 
-  const green = "FF169b22";
-
-  // Cabecera
-  const headerRow = infoSheet.addRow(["Campo", "Valor"]);
+  const headerRow = infoSheet.addRow(["Campo / Field", "Valor / Value"]);
   headerRow.eachCell((cell, col) => {
     if (col > 2) return;
     cell.fill   = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
@@ -56,61 +77,55 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
     cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
   });
 
-  // Filas de datos
-  standInfoRows(stand).forEach(([label, value]) => {
+  infoRows.forEach(([label, value]) => {
     const row = infoSheet.addRow([label, String(value)]);
     row.getCell(1).font = { bold: true, color: { argb: "FF475569" }, size: 10 };
-    row.getCell(2).font = { size: 10 };
-    if (label.includes("Precio")) {
-      row.getCell(2).font = { bold: true, color: { argb: green }, size: 10 };
-    }
+    const isPrice = label === t.standPrice || label === t.standPriceUnit;
+    row.getCell(2).font = { bold: isPrice, color: { argb: isPrice ? green : "FF202020" }, size: 10 };
     row.eachCell((cell, col) => {
       if (col > 2) return;
       cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
     });
   });
 
-  // Imagen del stand (columna D, fila 1)
-  const standImgUrl = `${origin}${stand.image}`;
-  const standImgBuf = await fetchImageBuffer(standImgUrl);
   if (standImgBuf) {
     const imgId = wb.addImage({ buffer: standImgBuf, extension: "png" });
-    infoSheet.addImage(imgId, {
-      tl: { col: 3, row: 0 },
-      ext: { width: 200, height: 280 },
-    });
-    // Altura de filas para que quede bien
+    infoSheet.addImage(imgId, { tl: { col: 3, row: 0 }, ext: { width: 200, height: 280 } });
     for (let r = 1; r <= 10; r++) infoSheet.getRow(r).height = 28;
   }
 
-  // ── Hoja 2: Productos ────────────────────────────────────────────────────
-  const prodSheet = wb.addWorksheet("Productos");
+  // ── Hoja Productos ───────────────────────────────────────────────────────
+  const prodSheetName = sheetName === "Español" ? "Productos ES"
+    : sheetName === "English" ? "Products EN"
+    : "Produits FR";
 
-  const prodCols = [
-    { header: "Nº Ref",      width: 16 },
-    { header: "Producto",    width: 30 },
-    { header: "Foto",        width: 12 },
-    { header: "Color",       width: 24 },
-    { header: "Alto (cm)",   width: 11 },
-    { header: "Largo (cm)",  width: 12 },
-    { header: "Ancho (cm)",  width: 12 },
-    { header: "Unidades",    width: 11 },
-    { header: "Precio/u",    width: 11 },
+  const prodSheet = wb.addWorksheet(prodSheetName);
+
+  prodSheet.columns = [
+    { header: "Ref.",              width: 14 },
+    { header: "Producto / Product", width: 30 },
+    { header: "Foto / Photo",      width: 12 },
+    { header: t.color,             width: 24 },
+    { header: `${t.alto} (cm)`,    width: 11 },
+    { header: `${t.largo} (cm)`,   width: 12 },
+    { header: `${t.ancho} (cm)`,   width: 12 },
+    { header: t.units,             width: 11 },
+    { header: t.price,             width: 11 },
   ];
-  prodSheet.columns = prodCols.map(c => ({ header: c.header, width: c.width }));
 
-  const prodHeader = prodSheet.getRow(1);
-  prodHeader.eachCell(cell => {
-    cell.fill  = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
-    cell.font  = { bold: true, color: { argb: "FFFFFFFF" }, size: 10 };
+  prodSheet.getRow(1).eachCell(cell => {
+    cell.fill   = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
+    cell.font   = { bold: true, color: { argb: "FFFFFFFF" }, size: 10 };
     cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
   });
+
+  const origin = window.location.origin;
 
   stand.products.forEach((p, i) => {
     const row = prodSheet.addRow([
       realRef(p.name),
       cleanName(p.name),
-      "Ver foto",
+      "→ foto",
       p.color  ?? "",
       p.alto   ?? "",
       p.largo  ?? "",
@@ -118,22 +133,48 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
       p.units  ?? "",
       p.price  ?? "",
     ]);
-    // Hipervínculo en "Ver foto"
+
     const fotoCell = row.getCell(3);
-    fotoCell.value = { text: "Ver foto", hyperlink: `${origin}${p.image}` };
+    fotoCell.value = { text: "→ foto", hyperlink: resolveImgSrc(p.image, origin) };
     fotoCell.font  = { color: { argb: "FF2563eb" }, underline: true, size: 10 };
-    // Color alternante
+
     if (i % 2 === 1) {
       row.eachCell(cell => {
         cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFf8fafc" } };
       });
     }
-    // Precio en verde
-    const priceCell = row.getCell(9);
-    priceCell.font = { bold: true, color: { argb: green }, size: 10 };
-  });
 
-  // ── Descarga ─────────────────────────────────────────────────────────────
+    row.getCell(9).font = { bold: true, color: { argb: green }, size: 10 };
+
+    // Insertar imagen del producto si está disponible
+    const buf = productImgBufs[i];
+    if (buf) {
+      const imgId = wb.addImage({ buffer: buf, extension: "png" });
+      prodSheet.addImage(imgId, {
+        tl: { col: 2, row: i + 1 },
+        ext: { width: 50, height: 50 },
+        editAs: "oneCell",
+      });
+      row.height = 40;
+    }
+  });
+}
+
+export async function downloadExcel(stand: Stand, _title: string): Promise<void> {
+  const origin = window.location.origin;
+  const ExcelJS = (await import("exceljs")).default;
+  const wb = new ExcelJS.Workbook();
+
+  // Prefetch de imágenes (una sola vez, reutilizadas en las 3 hojas)
+  const standImgBuf = await fetchImageBuffer(resolveImgSrc(stand.image, origin));
+  const productImgBufs = await Promise.all(
+    stand.products.map(p => fetchImageBuffer(resolveImgSrc(p.image, origin)))
+  );
+
+  await addStandSheet(wb, stand, copy.es, "Español", standImgBuf, productImgBufs);
+  await addStandSheet(wb, stand, copy.en, "English", standImgBuf, productImgBufs);
+  await addStandSheet(wb, stand, copy.fr, "Français", standImgBuf, productImgBufs);
+
   const buffer = await wb.xlsx.writeBuffer();
   const blob = new Blob([buffer], {
     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -142,14 +183,16 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
   const a = document.createElement("a");
   a.href = url;
   a.download = `ficha-tecnica-${stand.id}.xlsx`;
+  document.body.appendChild(a);
   a.click();
+  document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
 
 export function downloadPDF(stand: Stand, title: string): void {
   const origin = window.location.origin;
-  const infoRows = standInfoRows(stand);
-  const standImgUrl = `${origin}${stand.image}`;
+  const infoRows = buildInfoRows(stand, copy.es);
+  const standImgUrl = resolveImgSrc(stand.image, origin);
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -176,7 +219,10 @@ export function downloadPDF(stand: Stand, title: string): void {
 <h2>Ficha del expositor</h2>
 <div class="info-section">
   <div class="info-table">
-    <table>${infoRows.map(([k, v]) => `<tr><td><b>${k}</b></td><td class="${String(k).includes("Precio") ? "price" : ""}">${v}</td></tr>`).join("")}</table>
+    <table>${infoRows.map(([k, v]) => {
+      const isPrice = k === copy.es.standPrice || k === copy.es.standPriceUnit;
+      return `<tr><td><b>${k}</b></td><td class="${isPrice ? "price" : ""}">${v}</td></tr>`;
+    }).join("")}</table>
   </div>
   <img src="${standImgUrl}" class="stand-img" alt="${title}" />
 </div>
@@ -184,7 +230,7 @@ export function downloadPDF(stand: Stand, title: string): void {
 <table>
   <thead><tr>${["Foto","Nº Ref","Producto","Color","Alto","Largo","Ancho","Uds.","Precio/u"].map(h => `<th>${h}</th>`).join("")}</tr></thead>
   <tbody>${stand.products.map(p => `<tr>
-    <td><img src="${origin}${p.image}" class="photo" alt="${p.name}" /></td>
+    <td><img src="${resolveImgSrc(p.image, origin)}" class="photo" alt="${p.name}" /></td>
     <td class="ref">${realRef(p.name)}</td>
     <td>${cleanName(p.name)}</td>
     <td>${p.color ?? "—"}</td>
@@ -201,7 +247,6 @@ export function downloadPDF(stand: Stand, title: string): void {
   const url = URL.createObjectURL(blob);
   const win = window.open(url, "_blank");
   if (!win) {
-    // Fallback si el navegador bloquea el popup
     const a = document.createElement("a");
     a.href = url;
     a.target = "_blank";

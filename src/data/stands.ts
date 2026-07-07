@@ -498,7 +498,7 @@ const standExtras: Record<string, StandExtra> = {
 
   jug3: {
     imagePath: `${base}assets/stands/expositor-jug3.webp`,
-    info: { standRef: "99915", numRefs: 33, sides: 2, pricePerUnit: "3,00 €", tipo: "Medio Palé", standAlto: 150, standLargo: 80, standAncho: 60 },
+    info: { standRef: "99915", numRefs: 33, sides: 2, pricePerUnit: "1,24 €", tipo: "Medio Palé", standAlto: 150, standLargo: 80, standAncho: 60 },
     refs: [60468,60469,60470,60471,60472,60473,60474,60475,60476,60477,60478,60479,60480,60481,60482,60483,60484,60485,60486,60487,60488,60489,60490,60491,60492,60493,60494,60495,60496,60497,60498,60499,60500],
     data: {
       60468: { alto: 24, largo: 5,  ancho: 15, name: "Juego Snake & Ladders 3D",           desc: "Juego de mesa 3D Snake & Ladders con tablero, fichas y ruleta." },
@@ -670,8 +670,8 @@ const allYearDefs: StandDef[] = [
   { id: "belleza",  label: "BELLEZA",  color: colorMap.orange, gradient: "linear-gradient(135deg, #ffd166 0%, #f5a623 48%, #a85a00 100%)", title: "Expositor Belleza",     desc: "Sets de maquillaje, peinados y accesorios infantiles.",                        productsBase: ["Manicura", "Bálsamos", "Diademas", "Cepillos"] },
   { id: "cocina",   label: "COCINA",   color: colorMap.red,    gradient: "linear-gradient(135deg, #ff6670 0%, #e21b23 48%, #8a0a10 100%)", title: "Expositor Cocina",      desc: "Accesorios de cocina con colores y licencias familiares.",                     productsBase: ["Vasos", "Moldes", "Fiambreras", "Cubiertos"] },
   { id: "auto",     label: "AUTO",     color: colorMap.black,  gradient: "linear-gradient(135deg, #686868 0%, #202020 48%, #080808 100%)", title: "Expositor Automóviles", desc: "Productos funcionales para coche y viaje familiar.",                           productsBase: ["Organizadores", "Parasoles", "Ambientadores", "Protectores"] },
-  { id: "juguetes", label: "JUGUETES", color: colorMap.green,  gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)", title: "Expositor Juguetes",    desc: "Juguetes de madera didácticos de venta constante durante todo el año.",       productsBase: ["Puzzles", "Ábaco", "Xilófono", "Tres en raya"] },
-  { id: "jug3",     label: "JUG 3€",   color: colorMap.green,  gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)", title: "Juguetes (3€)",         desc: "Stand de juguetes a precio unitario de 3€, perfectos para regalo e impulso de compra.", productsBase: [] },
+  { id: "juguetes", label: "JUG. MADERA", color: colorMap.green,  gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)", title: "Expositor Juguetes de Madera", desc: "Juguetes de madera didácticos de venta constante durante todo el año.",               productsBase: ["Puzzles", "Ábaco", "Xilófono", "Tres en raya"] },
+  { id: "jug3",     label: "JUGUETES",   color: colorMap.green,  gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)", title: "Juguetes",              desc: "Stand de juguetes de precio unitario económico, perfectos para regalo e impulso de compra.", productsBase: [] },
 ];
 
 const comingSoonDefs: StandDef[] = [
