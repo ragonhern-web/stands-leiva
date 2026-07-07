@@ -1,5 +1,5 @@
 import { copy } from "../data/translations";
-import type { Stand, TranslationCopy } from "../types";
+import type { Stand, Language, TranslationCopy } from "../types";
 
 function realRef(name: string): string {
   return name.match(/Ref\.(\d+)/)?.[1] ?? name;
@@ -15,173 +15,225 @@ function resolveImgSrc(src: string, origin: string): string {
 
 function buildInfoRows(stand: Stand, t: TranslationCopy): [string, string | number][] {
   const rows: [string, string | number][] = [];
-  if (stand.standRef)     rows.push([t.standRef,        stand.standRef]);
-  if (stand.tipo)         rows.push([t.standTipo,        stand.tipo]);
-  if (stand.numRefs)      rows.push([t.standNumRefs,     stand.numRefs]);
-  if (stand.totalUnits)   rows.push([t.standTotalUnits,  stand.totalUnits]);
-  if (stand.sides)        rows.push([t.standSides,       stand.sides]);
-  if (stand.priceStand)   rows.push([t.standPrice,       stand.priceStand]);
-  if (stand.pricePerUnit) rows.push([t.standPriceUnit,   stand.pricePerUnit]);
+  if (stand.standRef)     rows.push([t.standRef,       stand.standRef]);
+  if (stand.tipo)         rows.push([t.standTipo,       stand.tipo]);
+  if (stand.numRefs)      rows.push([t.standNumRefs,    stand.numRefs]);
+  if (stand.totalUnits)   rows.push([t.standTotalUnits, stand.totalUnits]);
+  if (stand.sides)        rows.push([t.standSides,      stand.sides]);
+  if (stand.priceStand)   rows.push([t.standPrice,      stand.priceStand]);
+  if (stand.pricePerUnit) rows.push([t.standPriceUnit,  stand.pricePerUnit]);
   if (stand.standAlto != null)
     rows.push([t.standDims, `${stand.standAlto} × ${stand.standLargo} × ${stand.standAncho} cm`]);
   return rows;
 }
 
-async function fetchImageBuffer(url: string): Promise<ArrayBuffer | null> {
-  if (url.startsWith("data:")) {
-    // Decode base64 data URI to ArrayBuffer
-    try {
-      const base64 = url.split(",")[1];
-      if (!base64) return null;
-      const binary = atob(base64);
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-      return bytes.buffer;
-    } catch {
-      return null;
-    }
-  }
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    return await res.arrayBuffer();
-  } catch {
-    return null;
-  }
+// Converts any image (webp, png, svg…) to JPEG ArrayBuffer via Canvas
+async function imgToJpegBuffer(src: string): Promise<ArrayBuffer | null> {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      try {
+        const MAX = 300;
+        const nw = img.naturalWidth  || MAX;
+        const nh = img.naturalHeight || MAX;
+        const scale = Math.min(1, MAX / Math.max(nw, nh));
+        const canvas = document.createElement("canvas");
+        canvas.width  = Math.round(nw * scale);
+        canvas.height = Math.round(nh * scale);
+        const ctx = canvas.getContext("2d");
+        if (!ctx) { resolve(null); return; }
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => {
+          if (!blob) { resolve(null); return; }
+          blob.arrayBuffer().then(resolve).catch(() => resolve(null));
+        }, "image/jpeg", 0.85);
+      } catch { resolve(null); }
+    };
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
 }
 
-async function addStandSheet(
-  wb: import("exceljs").Workbook,
-  stand: Stand,
-  t: TranslationCopy,
-  sheetName: string,
-  standImgBuf: ArrayBuffer | null,
-  productImgBufs: (ArrayBuffer | null)[],
-): Promise<void> {
-  const green = "FF169b22";
+function cell(
+  ws: import("exceljs").Worksheet,
+  row: number,
+  col: number,
+  value: import("exceljs").CellValue,
+  opts: {
+    bg?: string;
+    fg?: string;
+    bold?: boolean;
+    size?: number;
+    italic?: boolean;
+    hAlign?: import("exceljs").Alignment["horizontal"];
+    vAlign?: import("exceljs").Alignment["vertical"];
+    indent?: number;
+    border?: boolean;
+    wrapText?: boolean;
+  } = {}
+) {
+  const c = ws.getCell(row, col);
+  c.value = value;
+  if (opts.bg) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: opts.bg } };
+  c.font = {
+    name: "Arial",
+    size: opts.size ?? 9,
+    bold: opts.bold ?? false,
+    italic: opts.italic ?? false,
+    color: { argb: opts.fg ?? "FF202020" },
+  };
+  c.alignment = {
+    vertical: opts.vAlign ?? "middle",
+    horizontal: opts.hAlign ?? "left",
+    indent: opts.indent ?? 0,
+    wrapText: opts.wrapText ?? false,
+  };
+  if (opts.border !== false) {
+    c.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
+  }
+  return c;
+}
+
+export async function downloadExcel(stand: Stand, title: string, language: Language = "es"): Promise<void> {
+  const origin   = window.location.origin;
+  const t        = copy[language] ?? copy.es;
   const infoRows = buildInfoRows(stand, t);
 
-  // ── Hoja Ficha expositor ─────────────────────────────────────────────────
-  const infoSheet = wb.addWorksheet(sheetName);
+  // Fetch + convert all images in parallel (one shot, reused)
+  const [standImgBuf, ...productImgBufs] = await Promise.all([
+    imgToJpegBuffer(resolveImgSrc(stand.image, origin)),
+    ...stand.products.map(p => imgToJpegBuffer(resolveImgSrc(p.image, origin))),
+  ]);
 
-  infoSheet.getColumn(1).width = 24;
-  infoSheet.getColumn(2).width = 32;
-  infoSheet.getColumn(3).width = 4;
-  infoSheet.getColumn(4).width = 30;
-
-  const headerRow = infoSheet.addRow(["Campo / Field", "Valor / Value"]);
-  headerRow.eachCell((cell, col) => {
-    if (col > 2) return;
-    cell.fill   = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
-    cell.font   = { bold: true, color: { argb: "FFFFFFFF" }, size: 11 };
-    cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
-  });
-
-  infoRows.forEach(([label, value]) => {
-    const row = infoSheet.addRow([label, String(value)]);
-    row.getCell(1).font = { bold: true, color: { argb: "FF475569" }, size: 10 };
-    const isPrice = label === t.standPrice || label === t.standPriceUnit;
-    row.getCell(2).font = { bold: isPrice, color: { argb: isPrice ? green : "FF202020" }, size: 10 };
-    row.eachCell((cell, col) => {
-      if (col > 2) return;
-      cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
-    });
-  });
-
-  if (standImgBuf) {
-    const imgId = wb.addImage({ buffer: standImgBuf, extension: "png" });
-    infoSheet.addImage(imgId, { tl: { col: 3, row: 0 }, ext: { width: 200, height: 280 } });
-    for (let r = 1; r <= 10; r++) infoSheet.getRow(r).height = 28;
-  }
-
-  // ── Hoja Productos ───────────────────────────────────────────────────────
-  const prodSheetName = sheetName === "Español" ? "Productos ES"
-    : sheetName === "English" ? "Products EN"
-    : "Produits FR";
-
-  const prodSheet = wb.addWorksheet(prodSheetName);
-
-  prodSheet.columns = [
-    { header: "Ref.",              width: 14 },
-    { header: "Producto / Product", width: 30 },
-    { header: "Foto / Photo",      width: 12 },
-    { header: t.color,             width: 24 },
-    { header: `${t.alto} (cm)`,    width: 11 },
-    { header: `${t.largo} (cm)`,   width: 12 },
-    { header: `${t.ancho} (cm)`,   width: 12 },
-    { header: t.units,             width: 11 },
-    { header: t.price,             width: 11 },
-  ];
-
-  prodSheet.getRow(1).eachCell(cell => {
-    cell.fill   = { type: "pattern", pattern: "solid", fgColor: { argb: green } };
-    cell.font   = { bold: true, color: { argb: "FFFFFFFF" }, size: 10 };
-    cell.border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } } };
-  });
-
-  const origin = window.location.origin;
-
-  stand.products.forEach((p, i) => {
-    const row = prodSheet.addRow([
-      realRef(p.name),
-      cleanName(p.name),
-      "→ foto",
-      p.color  ?? "",
-      p.alto   ?? "",
-      p.largo  ?? "",
-      p.ancho  ?? "",
-      p.units  ?? "",
-      p.price  ?? "",
-    ]);
-
-    const fotoCell = row.getCell(3);
-    fotoCell.value = { text: "→ foto", hyperlink: resolveImgSrc(p.image, origin) };
-    fotoCell.font  = { color: { argb: "FF2563eb" }, underline: true, size: 10 };
-
-    if (i % 2 === 1) {
-      row.eachCell(cell => {
-        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFf8fafc" } };
-      });
-    }
-
-    row.getCell(9).font = { bold: true, color: { argb: green }, size: 10 };
-
-    // Insertar imagen del producto si está disponible
-    const buf = productImgBufs[i];
-    if (buf) {
-      const imgId = wb.addImage({ buffer: buf, extension: "png" });
-      prodSheet.addImage(imgId, {
-        tl: { col: 2, row: i + 1 },
-        ext: { width: 50, height: 50 },
-        editAs: "oneCell",
-      });
-      row.height = 40;
-    }
-  });
-}
-
-export async function downloadExcel(stand: Stand, _title: string): Promise<void> {
-  const origin = window.location.origin;
   const ExcelJS = (await import("exceljs")).default;
   const wb = new ExcelJS.Workbook();
+  const ws = wb.addWorksheet("Ficha Técnica");
 
-  // Prefetch de imágenes (una sola vez, reutilizadas en las 3 hojas)
-  const standImgBuf = await fetchImageBuffer(resolveImgSrc(stand.image, origin));
-  const productImgBufs = await Promise.all(
-    stand.products.map(p => fetchImageBuffer(resolveImgSrc(p.image, origin)))
-  );
+  // ── Palette ───────────────────────────────────────────────────────────────
+  const G     = "FF169b22";  // Leiva green
+  const W     = "FFFFFFFF";
+  const Y     = "FFffe100";  // yellow (units)
+  const SLATE = "FF475569";
+  const GR1   = "FFf1f5f9";  // light gray row
+  const GR2   = "FFf8fafc";  // alternating row
+  const PRICE_BG = "FFe8f5e9";
 
-  await addStandSheet(wb, stand, copy.es, "Español", standImgBuf, productImgBufs);
-  await addStandSheet(wb, stand, copy.en, "English", standImgBuf, productImgBufs);
-  await addStandSheet(wb, stand, copy.fr, "Français", standImgBuf, productImgBufs);
+  // ── Column widths ────────────────────────────────────────────────────────
+  ws.columns = [
+    { width: 9.5 },  // A: photo
+    { width: 13  },  // B: ref
+    { width: 34  },  // C: product name
+    { width: 24  },  // D: color
+    { width: 9   },  // E: alto
+    { width: 9   },  // F: largo
+    { width: 9   },  // G: ancho
+    { width: 10  },  // H: units
+    { width: 11  },  // I: price
+  ];
 
+  // ── ROW 1: Stand title ───────────────────────────────────────────────────
+  ws.mergeCells("A1:I1");
+  cell(ws, 1, 1, title, { bg: G, fg: W, bold: true, size: 16, hAlign: "left", indent: 1, border: false });
+  ws.getRow(1).height = 36;
+
+  // ── ROWS 2…N: Stand info table ───────────────────────────────────────────
+  const INFO_START = 2;
+  const INFO_END   = Math.max(INFO_START + infoRows.length - 1, INFO_START);
+
+  infoRows.forEach(([label, value], i) => {
+    const r = INFO_START + i;
+    ws.getRow(r).height = 20;
+    cell(ws, r, 1, label,        { bg: GR1, fg: SLATE, bold: true, indent: 1 });
+    const isPrice = label === t.standPrice || label === t.standPriceUnit;
+    cell(ws, r, 2, String(value), { bg: isPrice ? PRICE_BG : W, fg: isPrice ? G : "FF202020", bold: isPrice, indent: 1 });
+    // Add right border to label cell
+    ws.getCell(r, 1).border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } }, right: { style: "thin", color: { argb: "FFcbd5e1" } } };
+  });
+
+  // Stand image — positioned right of the info table (cols D–I), rows 2 onwards
+  const IMG_ROWS = Math.max(infoRows.length + 1, 9);
+  if (standImgBuf) {
+    const imgId = wb.addImage({ buffer: standImgBuf, extension: "jpeg" });
+    ws.addImage(imgId, {
+      tl: { col: 3, row: INFO_START - 1 },   // col D, row 2 (0-indexed)
+      ext: { width: 210, height: Math.round(IMG_ROWS * 20) },
+    });
+  }
+  // Ensure enough rows exist for the image area
+  for (let r = INFO_START; r < INFO_START + IMG_ROWS; r++) {
+    if (!ws.getRow(r).height) ws.getRow(r).height = 20;
+  }
+
+  // ── Separator + section header ───────────────────────────────────────────
+  const SEP_ROW = INFO_START + IMG_ROWS + 1;
+  ws.mergeCells(`A${SEP_ROW}:I${SEP_ROW}`);
+  cell(ws, SEP_ROW, 1, t.included, { bg: G, fg: W, bold: true, size: 11, indent: 1, border: false });
+  ws.getRow(SEP_ROW).height = 28;
+
+  // ── Product column headers ───────────────────────────────────────────────
+  const HDR_ROW = SEP_ROW + 1;
+  const prodLabel = language === "en" ? "Product" : language === "fr" ? "Produit" : "Producto";
+  const headers = ["Foto", "Ref.", prodLabel, t.color, `${t.alto} cm`, `${t.largo} cm`, `${t.ancho} cm`, t.units, t.price];
+  headers.forEach((h, i) => {
+    cell(ws, HDR_ROW, i + 1, h, { bg: SLATE, fg: W, bold: true, size: 9, hAlign: "center", border: false });
+  });
+  ws.getRow(HDR_ROW).height = 22;
+
+  // Bottom border on header
+  for (let c2 = 1; c2 <= 9; c2++) {
+    ws.getCell(HDR_ROW, c2).border = { bottom: { style: "medium", color: { argb: G } } };
+  }
+
+  // ── Product rows ──────────────────────────────────────────────────────────
+  const DATA_START = HDR_ROW + 1;
+
+  stand.products.forEach((p, i) => {
+    const r   = DATA_START + i;
+    const odd = i % 2 === 0;
+    const bg  = odd ? W : GR2;
+    const hasImg = !!productImgBufs[i];
+    ws.getRow(r).height = hasImg ? 44 : 18;
+
+    // A: photo placeholder (image added below)
+    cell(ws, r, 1, "",                    { bg, border: true });
+    // B: ref
+    cell(ws, r, 2, realRef(p.name),       { bg, fg: "FF64748b", hAlign: "center", bold: true });
+    // C: name
+    cell(ws, r, 3, cleanName(p.name),     { bg, indent: 1 });
+    // D: color
+    cell(ws, r, 4, p.color ?? "",         { bg, indent: 1 });
+    // E-G: dimensions
+    cell(ws, r, 5, p.alto  ? `${p.alto} cm`  : "", { bg, hAlign: "center" });
+    cell(ws, r, 6, p.largo ? `${p.largo} cm` : "", { bg, hAlign: "center" });
+    cell(ws, r, 7, p.ancho ? `${p.ancho} cm` : "", { bg, hAlign: "center" });
+    // H: units (yellow)
+    cell(ws, r, 8, p.units ?? "", { bg: Y, fg: "FF202020", bold: true, hAlign: "center" });
+    // I: price (green)
+    cell(ws, r, 9, p.price ?? "", { bg: G, fg: W, bold: true, hAlign: "center" });
+
+    // Product image
+    const buf = productImgBufs[i];
+    if (buf) {
+      const imgId = wb.addImage({ buffer: buf, extension: "jpeg" });
+      ws.addImage(imgId, {
+        tl: { col: 0, row: r - 1 },
+        ext: { width: 55, height: 40 },
+        editAs: "oneCell",
+      });
+    }
+  });
+
+  // ── Download ─────────────────────────────────────────────────────────────
   const buffer = await wb.xlsx.writeBuffer();
   const blob = new Blob([buffer], {
     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
+  const a   = document.createElement("a");
+  a.href     = url;
   a.download = `ficha-tecnica-${stand.id}.xlsx`;
   document.body.appendChild(a);
   a.click();
@@ -190,8 +242,8 @@ export async function downloadExcel(stand: Stand, _title: string): Promise<void>
 }
 
 export function downloadPDF(stand: Stand, title: string): void {
-  const origin = window.location.origin;
-  const infoRows = buildInfoRows(stand, copy.es);
+  const origin    = window.location.origin;
+  const infoRows  = buildInfoRows(stand, copy.es);
   const standImgUrl = resolveImgSrc(stand.image, origin);
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -209,7 +261,7 @@ export function downloadPDF(stand: Stand, title: string): void {
   td { border-bottom: 1px solid #e2e8f0; padding: 6px 8px; vertical-align: middle; }
   tr:nth-child(even) td { background: #f8fafc; }
   .price { color: #169b22; font-weight: bold; }
-  .ref  { font-size: 10px; color: #888; font-family: monospace; }
+  .ref   { font-size: 10px; color: #888; font-family: monospace; }
   .photo { width: 58px; height: 58px; object-fit: contain; display: block; }
   @media print { body { padding: 16px; } }
 </style>
@@ -234,7 +286,7 @@ export function downloadPDF(stand: Stand, title: string): void {
     <td class="ref">${realRef(p.name)}</td>
     <td>${cleanName(p.name)}</td>
     <td>${p.color ?? "—"}</td>
-    <td>${p.alto ? p.alto + " cm" : "—"}</td>
+    <td>${p.alto  ? p.alto  + " cm" : "—"}</td>
     <td>${p.largo ? p.largo + " cm" : "—"}</td>
     <td>${p.ancho ? p.ancho + " cm" : "—"}</td>
     <td>${p.units ?? "—"}</td>
@@ -244,15 +296,12 @@ export function downloadPDF(stand: Stand, title: string): void {
 </body></html>`;
 
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const win = window.open(url, "_blank");
+  const url  = URL.createObjectURL(blob);
+  const win  = window.open(url, "_blank");
   if (!win) {
     const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    a.href = url; a.target = "_blank";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
   }
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 }

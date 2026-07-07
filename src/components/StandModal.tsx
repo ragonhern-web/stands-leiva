@@ -18,6 +18,7 @@ interface Props {
 export default function StandModal({ stand, closeModal, language, t }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isExporting, setIsExporting] = useState(false);
 
   // Resetear producto seleccionado al cambiar de stand
   useEffect(() => {
@@ -209,7 +210,7 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
                           </button>
                           <div className="h-px bg-slate-100" />
                           <button
-                            onClick={() => { downloadExcel(stand, standCopy.title).then(() => setMenuOpen(false)); }}
+                            onClick={async () => { setIsExporting(true); await downloadExcel(stand, standCopy.title, language); setIsExporting(false); setMenuOpen(false); }}
                             className="flex w-full items-center gap-3 px-5 py-3.5 text-sm font-black text-[#169b22] hover:bg-green-50 transition"
                           >
                             <FileSpreadsheet size={18} className="shrink-0" />
@@ -220,14 +221,17 @@ export default function StandModal({ stand, closeModal, language, t }: Props) {
 
                       <button
                         onClick={() => setMenuOpen(o => !o)}
-                        className="flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 md:w-auto"
+                        disabled={isExporting}
+                        className="flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3 font-black text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110 disabled:opacity-70 disabled:cursor-wait md:w-auto"
                         style={{ background: brandGradients.green }}
                       >
-                        {t.downloadSheet}
-                        <ChevronUp
-                          size={18}
-                          className={`transition-transform duration-200 ${menuOpen ? "rotate-0" : "rotate-180"}`}
-                        />
+                        {isExporting ? "Generando Excel…" : t.downloadSheet}
+                        {!isExporting && (
+                          <ChevronUp
+                            size={18}
+                            className={`transition-transform duration-200 ${menuOpen ? "rotate-0" : "rotate-180"}`}
+                          />
+                        )}
                       </button>
                     </div>
                   </div>
