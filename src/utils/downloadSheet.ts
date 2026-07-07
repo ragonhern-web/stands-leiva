@@ -149,7 +149,7 @@ function buildSheet(
   const PRICE_BG = "FFe8f5e9";
 
   ws.columns = [
-    { width: 9.5 },
+    { width: 12  },
     { width: 13  },
     { width: 34  },
     { width: 24  },
