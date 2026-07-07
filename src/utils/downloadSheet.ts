@@ -1,4 +1,4 @@
-import { copy } from "../data/translations";
+import { copy, getStandCopy } from "../data/translations";
 import type { Stand, Language, TranslationCopy } from "../types";
 
 function realRef(name: string): string {
@@ -129,126 +129,99 @@ function cell(
   return c;
 }
 
-export async function downloadExcel(stand: Stand, title: string, language: Language = "es"): Promise<void> {
-  const origin   = window.location.origin;
-  const t        = copy[language] ?? copy.es;
+function buildSheet(
+  ws: import("exceljs").Worksheet,
+  stand: Stand,
+  t: TranslationCopy,
+  language: Language,
+  standTitle: string,
+  standImgId: number | null,
+  productImgIds: (number | null)[],
+): void {
   const infoRows = buildInfoRows(stand, t);
 
-  // Fetch all images in parallel — stand uses .png directly, products try .jpg first (fast path)
-  const [standImg, ...productImgs] = await Promise.all([
-    getImgForExcel(resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin),
-    ...stand.products.map(p => getImgForExcel(p.image, origin)),
-  ]);
-
-  const ExcelJS = (await import("exceljs")).default;
-  const wb = new ExcelJS.Workbook();
-  const ws = wb.addWorksheet("Ficha Técnica");
-
-  // ── Palette ───────────────────────────────────────────────────────────────
-  const G     = "FF169b22";  // Leiva green
-  const W     = "FFFFFFFF";
-  const Y     = "FFffe100";  // yellow (units)
-  const SLATE = "FF475569";
-  const GR1   = "FFf1f5f9";  // light gray row
-  const GR2   = "FFf8fafc";  // alternating row
+  const G        = "FF169b22";
+  const W        = "FFFFFFFF";
+  const Y        = "FFffe100";
+  const SLATE    = "FF475569";
+  const GR1      = "FFf1f5f9";
+  const GR2      = "FFf8fafc";
   const PRICE_BG = "FFe8f5e9";
 
-  // ── Column widths ────────────────────────────────────────────────────────
   ws.columns = [
-    { width: 9.5 },  // A: photo
-    { width: 13  },  // B: ref
-    { width: 34  },  // C: product name
-    { width: 24  },  // D: color
-    { width: 9   },  // E: alto
-    { width: 9   },  // F: largo
-    { width: 9   },  // G: ancho
-    { width: 10  },  // H: units
-    { width: 11  },  // I: price
+    { width: 9.5 },
+    { width: 13  },
+    { width: 34  },
+    { width: 24  },
+    { width: 9   },
+    { width: 9   },
+    { width: 9   },
+    { width: 10  },
+    { width: 11  },
   ];
 
-  // ── ROW 1: Stand title ───────────────────────────────────────────────────
   ws.mergeCells("A1:I1");
-  cell(ws, 1, 1, title, { bg: G, fg: W, bold: true, size: 16, hAlign: "left", indent: 1, border: false });
+  cell(ws, 1, 1, standTitle, { bg: G, fg: W, bold: true, size: 16, hAlign: "left", indent: 1, border: false });
   ws.getRow(1).height = 36;
 
-  // ── ROWS 2…N: Stand info table ───────────────────────────────────────────
   const INFO_START = 2;
 
   infoRows.forEach(([label, value], i) => {
     const r = INFO_START + i;
     ws.getRow(r).height = 20;
-    cell(ws, r, 1, label,        { bg: GR1, fg: SLATE, bold: true, indent: 1 });
+    cell(ws, r, 1, label,         { bg: GR1, fg: SLATE, bold: true, indent: 1 });
     const isPrice = label === t.standPrice || label === t.standPriceUnit;
     cell(ws, r, 2, String(value), { bg: isPrice ? PRICE_BG : W, fg: isPrice ? G : "FF202020", bold: isPrice, indent: 1 });
-    // Add right border to label cell
     ws.getCell(r, 1).border = { bottom: { style: "thin", color: { argb: "FFe2e8f0" } }, right: { style: "thin", color: { argb: "FFcbd5e1" } } };
   });
 
-  // Stand image — positioned right of the info table (cols D–I), rows 2 onwards
   const IMG_ROWS = Math.max(infoRows.length + 1, 15);
-  if (standImg) {
-    const imgId = wb.addImage({ buffer: standImg.buf, extension: standImg.ext });
-    ws.addImage(imgId, {
-      tl: { col: 3, row: INFO_START - 1 },   // col D, row 2 (0-indexed)
+  if (standImgId !== null) {
+    ws.addImage(standImgId, {
+      tl: { col: 3, row: INFO_START - 1 },
       ext: { width: 210, height: 300 },
     });
   }
-  // Ensure enough rows exist for the image area
   for (let r = INFO_START; r < INFO_START + IMG_ROWS; r++) {
     if (!ws.getRow(r).height) ws.getRow(r).height = 20;
   }
 
-  // ── Separator + section header ───────────────────────────────────────────
   const SEP_ROW = INFO_START + IMG_ROWS + 1;
   ws.mergeCells(`A${SEP_ROW}:I${SEP_ROW}`);
   cell(ws, SEP_ROW, 1, t.included, { bg: G, fg: W, bold: true, size: 11, indent: 1, border: false });
   ws.getRow(SEP_ROW).height = 28;
 
-  // ── Product column headers ───────────────────────────────────────────────
-  const HDR_ROW = SEP_ROW + 1;
-  const prodLabel = language === "en" ? "Product" : language === "fr" ? "Produit" : "Producto";
-  const headers = ["Foto", "Ref.", prodLabel, t.color, `${t.alto} cm`, `${t.largo} cm`, `${t.ancho} cm`, t.units, t.price];
+  const HDR_ROW   = SEP_ROW + 1;
+  const photoLabel = language === "es" ? "Foto" : "Photo";
+  const prodLabel  = language === "en" ? "Product" : language === "fr" ? "Produit" : "Producto";
+  const headers = [photoLabel, "Ref.", prodLabel, t.color, `${t.alto} cm`, `${t.largo} cm`, `${t.ancho} cm`, t.units, t.price];
   headers.forEach((h, i) => {
     cell(ws, HDR_ROW, i + 1, h, { bg: SLATE, fg: W, bold: true, size: 9, hAlign: "center", border: false });
   });
   ws.getRow(HDR_ROW).height = 22;
-
-  // Bottom border on header
   for (let c2 = 1; c2 <= 9; c2++) {
     ws.getCell(HDR_ROW, c2).border = { bottom: { style: "medium", color: { argb: G } } };
   }
 
-  // ── Product rows ──────────────────────────────────────────────────────────
   const DATA_START = HDR_ROW + 1;
 
   stand.products.forEach((p, i) => {
-    const r   = DATA_START + i;
-    const odd = i % 2 === 0;
-    const bg  = odd ? W : GR2;
-    const hasImg = !!productImgs[i];
-    ws.getRow(r).height = hasImg ? 44 : 18;
+    const r     = DATA_START + i;
+    const bg    = i % 2 === 0 ? W : GR2;
+    const imgId = productImgIds[i];
+    ws.getRow(r).height = imgId !== null ? 44 : 18;
 
-    // A: photo placeholder (image added below)
-    cell(ws, r, 1, "",                    { bg, border: true });
-    // B: ref
-    cell(ws, r, 2, realRef(p.name),       { bg, fg: "FF64748b", hAlign: "center", bold: true });
-    // C: name
-    cell(ws, r, 3, cleanName(p.name),     { bg, indent: 1 });
-    // D: color
-    cell(ws, r, 4, p.color ?? "",         { bg, indent: 1 });
-    // E-G: dimensions
+    cell(ws, r, 1, "",                { bg, border: true });
+    cell(ws, r, 2, realRef(p.name),   { bg, fg: "FF64748b", hAlign: "center", bold: true });
+    cell(ws, r, 3, cleanName(p.name), { bg, indent: 1 });
+    cell(ws, r, 4, p.color ?? "",     { bg, indent: 1 });
     cell(ws, r, 5, p.alto  ? `${p.alto} cm`  : "", { bg, hAlign: "center" });
     cell(ws, r, 6, p.largo ? `${p.largo} cm` : "", { bg, hAlign: "center" });
     cell(ws, r, 7, p.ancho ? `${p.ancho} cm` : "", { bg, hAlign: "center" });
-    // H: units (yellow)
     cell(ws, r, 8, p.units ?? "", { bg: Y, fg: "FF202020", bold: true, hAlign: "center" });
-    // I: price (green)
-    cell(ws, r, 9, p.price ?? "", { bg: G, fg: W, bold: true, hAlign: "center" });
+    cell(ws, r, 9, p.price ?? "", { bg: G, fg: W,          bold: true, hAlign: "center" });
 
-    // Product image
-    const img = productImgs[i];
-    if (img) {
-      const imgId = wb.addImage({ buffer: img.buf, extension: img.ext });
+    if (imgId !== null) {
       ws.addImage(imgId, {
         tl: { col: 0, row: r - 1 },
         ext: { width: 55, height: 40 },
@@ -256,6 +229,39 @@ export async function downloadExcel(stand: Stand, title: string, language: Langu
       });
     }
   });
+}
+
+export async function downloadExcel(stand: Stand, _title: string, _language: Language = "es"): Promise<void> {
+  const origin = window.location.origin;
+
+  // Fetch all images once — shared across all language sheets
+  const [standImg, ...productImgs] = await Promise.all([
+    getImgForExcel(resolveImgSrc(stand.image, origin).replace(/\.webp$/, ".png"), origin),
+    ...stand.products.map(p => getImgForExcel(p.image, origin)),
+  ]);
+
+  const ExcelJS = (await import("exceljs")).default;
+  const wb = new ExcelJS.Workbook();
+
+  // Register images in workbook once — IDs reused across all sheets
+  const standImgId    = standImg ? wb.addImage({ buffer: standImg.buf, extension: standImg.ext }) : null;
+  const productImgIds = productImgs.map(img =>
+    img ? wb.addImage({ buffer: img.buf, extension: img.ext }) : null
+  );
+
+  // Build one sheet per language
+  const tabs: { lang: Language; name: string }[] = [
+    { lang: "es", name: "Ficha Técnica" },
+    { lang: "en", name: "Technical Sheet" },
+    { lang: "fr", name: "Fiche Technique" },
+  ];
+
+  for (const { lang, name } of tabs) {
+    const t          = copy[lang] ?? copy.es;
+    const standTitle = getStandCopy(stand, lang).title;
+    const ws         = wb.addWorksheet(name);
+    buildSheet(ws, stand, t, lang, standTitle, standImgId, productImgIds);
+  }
 
   // ── Download ─────────────────────────────────────────────────────────────
   const buffer = await wb.xlsx.writeBuffer();
