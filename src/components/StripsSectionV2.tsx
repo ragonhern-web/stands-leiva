@@ -4,10 +4,12 @@ import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct } from "../data/strips";
 import StripProductModal from "./StripProductModal";
 import { copy } from "../data/translations";
+import { brandGradients } from "../data/stands";
 import type { Language } from "../types";
 
 const base = import.meta.env.BASE_URL;
 const LOGO_SRC = `${base}assets/logo.png`;
+const LEIVA_GREEN = brandGradients.green;
 
 interface Props {
   language: Language;
@@ -51,9 +53,13 @@ export default function StripsSectionV2({ language }: Props) {
           className="flex overflow-x-auto py-2 [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none", paddingLeft: "8px", paddingRight: "8px" }}
         >
-          {/* Logo de marca */}
-          <div className="mr-3 flex w-[100px] flex-none flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-            <img src={activeStrip.logo ?? LOGO_SRC} alt={activeStrip.id} className="max-h-[60px] w-full object-contain" />
+          {/* Logo de marca — full bleed, sin espacio blanco */}
+          <div className="mr-3 h-[100px] w-[100px] flex-none overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+            <img
+              src={activeStrip.logo ?? LOGO_SRC}
+              alt={activeStrip.id}
+              className="h-full w-full object-cover"
+            />
           </div>
 
           {/* Productos */}
@@ -81,7 +87,7 @@ export default function StripsSectionV2({ language }: Props) {
                     className="relative z-10 max-h-[64px] w-auto object-contain drop-shadow-lg"
                   />
                 </div>
-                <div className="mt-2 rounded-full px-2 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: activeStrip.gradient }}>
+                <div className="mt-2 rounded-full px-2 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>
                   {activeStrip.label}
                 </div>
               </button>
@@ -103,17 +109,17 @@ export default function StripsSectionV2({ language }: Props) {
             Strips Supermarket
           </h2>
           {activeStrip.logo && (
-            <div className="flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <img
                 src={activeStrip.logo}
                 alt={activeStrip.id}
-                className="max-h-[100px] w-full object-contain"
+                className="max-h-[120px] w-full object-cover"
               />
             </div>
           )}
         </div>
 
-        {/* Col 2: preview de la tira (igual que antes) + badge DEMO */}
+        {/* Col 2: preview de la tira */}
         <div className="flex flex-col gap-3">
           <div className="relative flex min-h-[320px] flex-1 items-center justify-center px-4 py-6">
             <div
@@ -138,10 +144,9 @@ export default function StripsSectionV2({ language }: Props) {
               </AnimatePresence>
             </div>
           </div>
-
         </div>
 
-        {/* Col 3: ficha técnica en hover — sin cambios */}
+        {/* Col 3: ficha técnica en hover */}
         <div className="relative min-h-[420px]">
           <motion.div
             animate={{ opacity: hoveredProduct ? 0 : 1 }}
@@ -151,7 +156,7 @@ export default function StripsSectionV2({ language }: Props) {
           >
             <div
               className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md"
-              style={{ background: activeStrip.gradient }}
+              style={{ background: LEIVA_GREEN }}
             >
               {activeStrip.label}
             </div>
@@ -176,7 +181,7 @@ export default function StripsSectionV2({ language }: Props) {
                   </p>
                   <span
                     className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm"
-                    style={{ background: activeStrip.gradient }}
+                    style={{ background: LEIVA_GREEN }}
                   >
                     {activeStrip.label}
                   </span>
@@ -207,7 +212,7 @@ export default function StripsSectionV2({ language }: Props) {
                       <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
                       <div
                         className={`mt-1 flex h-7 items-center justify-center rounded-lg text-[10px] font-black ${colored ? "" : "bg-slate-50 text-slate-700"}`}
-                        style={colored ? { background: activeStrip.gradient, color: "white" } : undefined}
+                        style={colored ? { background: LEIVA_GREEN, color: "white" } : undefined}
                       >
                         {value}
                       </div>
@@ -230,19 +235,19 @@ export default function StripsSectionV2({ language }: Props) {
         onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="flex gap-3">
-          {/* Logo de marca + badge DEMO encima */}
+          {/* Logo de marca + badge DEMO encima — full bleed, sin espacio blanco */}
           <div className="flex w-[120px] flex-none flex-col gap-1.5">
             <span
               className="self-start rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-sm"
-              style={{ background: activeStrip.gradient }}
+              style={{ background: LEIVA_GREEN }}
             >
               DEMO
             </span>
-            <div className="flex flex-1 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+            <div className="relative flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <img
                 src={activeStrip.logo ?? LOGO_SRC}
                 alt={activeStrip.id}
-                className="max-h-[72px] w-full object-contain"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           </div>
@@ -285,7 +290,7 @@ export default function StripsSectionV2({ language }: Props) {
                 </motion.div>
                 <div
                   className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm"
-                  style={{ background: activeStrip.gradient }}
+                  style={{ background: LEIVA_GREEN }}
                 >
                   {activeStrip.label}
                 </div>
