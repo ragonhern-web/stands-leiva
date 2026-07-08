@@ -4,12 +4,10 @@ import { strips, STRIP_DEMO, STRIP_PRODUCT_DEMO } from "../data/strips";
 import type { StripProduct, StripType } from "../data/strips";
 import StripProductModal from "./StripProductModal";
 import { copy } from "../data/translations";
-import { brandGradients } from "../data/stands";
 import type { Language } from "../types";
 
 const base = import.meta.env.BASE_URL;
 const LOGO_SRC = `${base}assets/logo.png`;
-const fichaStrip.gradient = brandGradients.green;
 
 interface Props {
   language: Language;
