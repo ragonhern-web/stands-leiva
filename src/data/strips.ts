@@ -98,8 +98,8 @@ export const strips: StripType[] = [
   {
     id: "misterzoo",
     label: "1,15€",
-    color: "#e07b1a",
-    gradient: "linear-gradient(135deg, #f5a843 0%, #e07b1a 48%, #8a4400 100%)",
+    color: "#1A8FB5",
+    gradient: "linear-gradient(135deg, #8DC5D7 0%, #1A8FB5 48%, #0d5470 100%)",
     template: `${base}assets/tiras/misterzoo/tira-preview.png`,
     logo: `${base}assets/tiras/misterzoo/logo.jpg`,
     products: MISTERZOO_REFS.map((ref) => ({
@@ -113,8 +113,8 @@ export const strips: StripType[] = [
   {
     id: "bariloche",
     label: "—",
-    color: "#8B4513",
-    gradient: "linear-gradient(135deg, #c97d3a 0%, #8B4513 48%, #4a2008 100%)",
+    color: "#D42B70",
+    gradient: "linear-gradient(135deg, #f08db8 0%, #D42B70 48%, #8a0d43 100%)",
     template: STRIP_DEMO("#8B4513", "—"),
     logo: `${base}assets/tiras/bariloche/logo.jpg`,
     products: makeDemoProducts("bariloche", "#8B4513", "—"),
@@ -122,8 +122,8 @@ export const strips: StripType[] = [
   {
     id: "demilia",
     label: "—",
-    color: "#c0930a",
-    gradient: "linear-gradient(135deg, #f5c842 0%, #c0930a 48%, #6b5000 100%)",
+    color: "#A92833",
+    gradient: "linear-gradient(135deg, #e06070 0%, #A92833 48%, #5c0d15 100%)",
     template: STRIP_DEMO("#c0930a", "—"),
     logo: `${base}assets/tiras/demilia/logo.jpg`,
     products: makeDemoProducts("demilia", "#c0930a", "—"),
@@ -131,8 +131,8 @@ export const strips: StripType[] = [
   {
     id: "leiva",
     label: "—",
-    color: "#169b22",
-    gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)",
+    color: "#BD4B08",
+    gradient: "linear-gradient(135deg, #f0a060 0%, #BD4B08 48%, #6b2200 100%)",
     template: STRIP_DEMO("#169b22", "—"),
     logo: `${base}assets/tiras/leiva/logo.jpg`,
     products: makeDemoProducts("leiva", "#169b22", "—"),
@@ -140,8 +140,8 @@ export const strips: StripType[] = [
   {
     id: "marcos-toys",
     label: "—",
-    color: "#2962FF",
-    gradient: "linear-gradient(135deg, #6b8fff 0%, #2962FF 48%, #0032b5 100%)",
+    color: "#7C5C4E",
+    gradient: "linear-gradient(135deg, #c09080 0%, #7C5C4E 48%, #3d2a22 100%)",
     template: STRIP_DEMO("#2962FF", "—"),
     logo: `${base}assets/tiras/marcos-toys/logo.jpg`,
     products: makeDemoProducts("marcos-toys", "#2962FF", "—"),

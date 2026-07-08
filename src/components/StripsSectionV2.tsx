@@ -9,7 +9,7 @@ import type { Language } from "../types";
 
 const base = import.meta.env.BASE_URL;
 const LOGO_SRC = `${base}assets/logo.png`;
-const LEIVA_GREEN = brandGradients.green;
+const fichaStrip.gradient = brandGradients.green;
 
 interface Props {
   language: Language;
@@ -57,7 +57,7 @@ export default function StripsSectionV2({ language }: Props) {
       <div className="flex h-[165px] w-[120px] flex-none flex-col gap-1.5">
         <span
           className="self-start rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-sm"
-          style={{ background: LEIVA_GREEN }}
+          style={{ background: strip.gradient }}
         >
           DEMO
         </span>
@@ -100,7 +100,7 @@ export default function StripsSectionV2({ language }: Props) {
               />
               <div className="absolute bottom-[-6px] h-4 w-12 rounded-full bg-black/15 blur-lg" />
             </motion.div>
-            <div className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>
+            <div className="mt-2 rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: strip.gradient }}>
               {strip.label}
             </div>
           </button>
@@ -182,7 +182,7 @@ export default function StripsSectionV2({ language }: Props) {
                       className="relative z-10 max-h-[64px] w-auto object-contain drop-shadow-lg"
                     />
                   </div>
-                  <div className="mt-2 rounded-full px-2 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>{strip.label}</div>
+                  <div className="mt-2 rounded-full px-2 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: strip.gradient }}>{strip.label}</div>
                 </button>
               ))}
             </div>
@@ -255,7 +255,7 @@ export default function StripsSectionV2({ language }: Props) {
               className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-slate-200 p-4 text-center"
               style={{ pointerEvents: hoveredProduct ? "none" : "auto" }}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md" style={{ background: LEIVA_GREEN }}>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md" style={{ background: fichaStrip.gradient }}>
                 {fichaStrip.label}
               </div>
               <p className="text-[11px] font-medium leading-snug text-slate-400 dark:text-slate-500">{t.stripsHoverHint}</p>
@@ -273,7 +273,7 @@ export default function StripsSectionV2({ language }: Props) {
                 >
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">{t.stripsProductEyebrow}</p>
-                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>{fichaStrip.label}</span>
+                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: fichaStrip.gradient }}>{fichaStrip.label}</span>
                   </div>
                   <div>
                     <p className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">{t.stripsRef}</p>
@@ -296,7 +296,7 @@ export default function StripsSectionV2({ language }: Props) {
                         <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
                         <div
                           className={`mt-1 flex h-7 items-center justify-center rounded-lg text-[10px] font-black ${colored ? "" : "bg-slate-50 text-slate-700"}`}
-                          style={colored ? { background: LEIVA_GREEN, color: "white" } : undefined}
+                          style={colored ? { background: fichaStrip.gradient, color: "white" } : undefined}
                         >
                           {value}
                         </div>
