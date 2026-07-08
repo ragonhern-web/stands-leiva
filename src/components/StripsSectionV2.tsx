@@ -41,6 +41,9 @@ export default function StripsSectionV2({ language }: Props) {
       ══════════════════════════════════════════════ */}
       <div className="flex flex-col gap-5 md:hidden">
         <div className="px-2">
+          <span className="mb-2 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+            El complemento perfecto
+          </span>
           <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
             Strips Supermarket
           </h2>
@@ -105,9 +108,14 @@ export default function StripsSectionV2({ language }: Props) {
 
         {/* Col 1: título + logo de marca */}
         <div className="flex flex-col justify-center gap-6 p-4">
-          <h2 className="text-6xl font-black tracking-tight text-slate-950 dark:text-white">
-            Strips Supermarket
-          </h2>
+          <div>
+            <span className="mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+              El complemento perfecto
+            </span>
+            <h2 className="mt-2 text-6xl font-black tracking-tight text-slate-950 dark:text-white">
+              Strips Supermarket
+            </h2>
+          </div>
           {activeStrip.logo && (
             <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <img
