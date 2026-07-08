@@ -89,7 +89,7 @@ const MISTERZOO_REFS = ["51199", "51378", "51427", "51436", "92068", "92073"];
 export const strips: StripType[] = [
   {
     id: "misterzoo",
-    label: "MZ",
+    label: "1,15€",
     color: "#e07b1a",
     gradient: "linear-gradient(135deg, #f5a843 0%, #e07b1a 48%, #8a4400 100%)",
     template: `${base}assets/tiras/misterzoo/tira-preview.png`,
