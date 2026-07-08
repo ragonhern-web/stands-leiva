@@ -17,14 +17,22 @@ interface Props {
 
 export default function StripsSectionV2({ language }: Props) {
   const t = copy[language] ?? copy.es;
+  const [activeStripIdx, setActiveStripIdx] = useState(0);
   const [previewSrc, setPreviewSrc] = useState(strips[0].template);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<StripProduct | null>(null);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const activeStrip = strips[0];
+  const activeStrip = strips[activeStripIdx];
   const hoveredProduct = activeStrip.products.find((p) => p.id === hoveredId) ?? null;
+
+  const handleBrandSwitch = useCallback((idx: number) => {
+    setActiveStripIdx(idx);
+    setPreviewSrc(strips[idx].template);
+    setHoveredId(null);
+    setMobileActiveIndex(0);
+  }, []);
 
   const handleCarouselScroll = useCallback(() => {
     const el = scrollRef.current;
@@ -47,6 +55,26 @@ export default function StripsSectionV2({ language }: Props) {
           <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
             Strips Supermarket
           </h2>
+        </div>
+
+        {/* Selector de marcas (mobile) */}
+        <div className="flex gap-2 px-2">
+          {strips.map((s, i) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => handleBrandSwitch(i)}
+              className={`h-[44px] w-[44px] flex-none overflow-hidden rounded-xl border-2 shadow-sm transition ${
+                i === activeStripIdx ? "border-[#169b22] ring-2 ring-[#169b22]/30" : "border-slate-200"
+              }`}
+            >
+              <img
+                src={s.logo ?? `${base}assets/logo.png`}
+                alt={s.id}
+                className="h-full w-full object-cover"
+              />
+            </button>
+          ))}
         </div>
 
         {/* Fila logo + productos — 1 línea, scroll horizontal */}
@@ -233,6 +261,26 @@ export default function StripsSectionV2({ language }: Props) {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* Selector de marcas (desktop) */}
+      <div className="hidden gap-2 md:flex">
+        {strips.map((s, i) => (
+          <button
+            key={s.id}
+            type="button"
+            onClick={() => handleBrandSwitch(i)}
+            className={`h-[52px] w-[52px] flex-none overflow-hidden rounded-xl border-2 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${
+              i === activeStripIdx ? "border-[#169b22] ring-2 ring-[#169b22]/30" : "border-slate-200"
+            }`}
+          >
+            <img
+              src={s.logo ?? `${base}assets/logo.png`}
+              alt={s.id}
+              className="h-full w-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
 
       {/* Parte 2: fila logo + productos (desktop) — 1 línea, scroll horizontal */}
       <div
