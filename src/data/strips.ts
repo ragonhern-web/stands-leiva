@@ -86,6 +86,14 @@ export interface StripType {
 
 const MISTERZOO_REFS = ["51199", "51378", "51427", "51436", "92068", "92073"];
 
+function makeDemoProducts(stripId: string, color: string, label: string): StripProduct[] {
+  return Array.from({ length: 6 }, (_, i) => {
+    const ref = String(i + 1).padStart(2, "0");
+    const svg = STRIP_PRODUCT_DEMO(color, label);
+    return { id: `${stripId}-demo-${ref}`, name: ref, ref, image: svg, preview: svg };
+  });
+}
+
 export const strips: StripType[] = [
   {
     id: "misterzoo",
@@ -107,35 +115,35 @@ export const strips: StripType[] = [
     label: "—",
     color: "#8B4513",
     gradient: "linear-gradient(135deg, #c97d3a 0%, #8B4513 48%, #4a2008 100%)",
-    template: `${base}assets/tiras/bariloche/logo.jpg`,
+    template: STRIP_DEMO("#8B4513", "—"),
     logo: `${base}assets/tiras/bariloche/logo.jpg`,
-    products: [],
+    products: makeDemoProducts("bariloche", "#8B4513", "—"),
   },
   {
     id: "demilia",
     label: "—",
     color: "#c0930a",
     gradient: "linear-gradient(135deg, #f5c842 0%, #c0930a 48%, #6b5000 100%)",
-    template: `${base}assets/tiras/demilia/logo.jpg`,
+    template: STRIP_DEMO("#c0930a", "—"),
     logo: `${base}assets/tiras/demilia/logo.jpg`,
-    products: [],
+    products: makeDemoProducts("demilia", "#c0930a", "—"),
   },
   {
     id: "leiva",
     label: "—",
     color: "#169b22",
     gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)",
-    template: `${base}assets/tiras/leiva/logo.jpg`,
+    template: STRIP_DEMO("#169b22", "—"),
     logo: `${base}assets/tiras/leiva/logo.jpg`,
-    products: [],
+    products: makeDemoProducts("leiva", "#169b22", "—"),
   },
   {
     id: "marcos-toys",
     label: "—",
     color: "#2962FF",
     gradient: "linear-gradient(135deg, #6b8fff 0%, #2962FF 48%, #0032b5 100%)",
-    template: `${base}assets/tiras/marcos-toys/logo.jpg`,
+    template: STRIP_DEMO("#2962FF", "—"),
     logo: `${base}assets/tiras/marcos-toys/logo.jpg`,
-    products: [],
+    products: makeDemoProducts("marcos-toys", "#2962FF", "—"),
   },
 ];
