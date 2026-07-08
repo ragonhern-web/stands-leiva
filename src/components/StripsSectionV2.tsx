@@ -205,8 +205,6 @@ export default function StripsSectionV2({ language }: Props) {
                   {[
                     [t.stripsSalePrice, activeStrip.label, true],
                     [t.stripsUnitsPerStrip, "12 uds.", false],
-                    [t.stripsEAN, `8437${hoveredProduct.ref}`, false],
-                    [t.stripsStock, "240 uds.", false],
                   ].map(([label, value, colored]) => (
                     <div key={String(label)}>
                       <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
