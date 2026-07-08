@@ -51,9 +51,9 @@ export default function StripsSectionV2({ language }: Props) {
           className="flex overflow-x-auto py-2 [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none", paddingLeft: "8px", paddingRight: "8px" }}
         >
-          {/* Logo */}
+          {/* Logo de marca */}
           <div className="mr-3 flex w-[100px] flex-none flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-            <img src={LOGO_SRC} alt="Novedades Leiva" className="max-h-[60px] w-full object-contain" />
+            <img src={activeStrip.logo ?? LOGO_SRC} alt={activeStrip.id} className="max-h-[60px] w-full object-contain" />
           </div>
 
           {/* Productos */}
@@ -97,11 +97,20 @@ export default function StripsSectionV2({ language }: Props) {
       {/* Parte 1: título + preview tira + ficha técnica */}
       <section className="relative z-10 hidden w-full items-stretch gap-4 md:grid md:grid-cols-[0.38fr_0.38fr_0.24fr]">
 
-        {/* Col 1: título */}
-        <div className="flex flex-col justify-center p-4">
+        {/* Col 1: título + logo de marca */}
+        <div className="flex flex-col justify-center gap-6 p-4">
           <h2 className="text-6xl font-black tracking-tight text-slate-950 dark:text-white">
             Strips Supermarket
           </h2>
+          {activeStrip.logo && (
+            <div className="flex items-center justify-center rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <img
+                src={activeStrip.logo}
+                alt={activeStrip.id}
+                className="max-h-[100px] w-full object-contain"
+              />
+            </div>
+          )}
         </div>
 
         {/* Col 2: preview de la tira (igual que antes) + badge DEMO */}
@@ -221,7 +230,7 @@ export default function StripsSectionV2({ language }: Props) {
         onMouseLeave={() => { setPreviewSrc(activeStrip.template); setHoveredId(null); }}
       >
         <div className="flex gap-3">
-          {/* Logo + badge DEMO encima */}
+          {/* Logo de marca + badge DEMO encima */}
           <div className="flex w-[120px] flex-none flex-col gap-1.5">
             <span
               className="self-start rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-sm"
@@ -230,7 +239,11 @@ export default function StripsSectionV2({ language }: Props) {
               DEMO
             </span>
             <div className="flex flex-1 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-              <img src={LOGO_SRC} alt="Novedades Leiva" className="max-h-[72px] w-full object-contain" />
+              <img
+                src={activeStrip.logo ?? LOGO_SRC}
+                alt={activeStrip.id}
+                className="max-h-[72px] w-full object-contain"
+              />
             </div>
           </div>
 

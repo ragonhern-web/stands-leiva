@@ -80,53 +80,26 @@ export interface StripType {
   color: string;
   gradient: string;
   template: string;
+  logo?: string;
   products: StripProduct[];
 }
 
-// Refs reales por producto — se añaden a medida que llegan las fotos
-const realRefs: Record<string, string> = {
-  "1e-01": "92030E",
-  "1e-02": "92005E",
-};
-
-function makeProducts(stripId: string, count: number, refBase: number): StripProduct[] {
-  return Array.from({ length: count }, (_, i) => {
-    const num = String(i + 1).padStart(2, "0");
-    const id = `${stripId}-${num}`;
-    const ref = realRefs[id] ?? String(refBase + i);
-    return {
-      id,
-      name: ref,
-      ref,
-      image:   `${base}assets/strips/products/${id}.png`,
-      preview: `${base}assets/strips/previews/${id}.png`,
-    };
-  });
-}
+const MISTERZOO_REFS = ["51199", "51378", "51427", "51436", "92068", "92073"];
 
 export const strips: StripType[] = [
   {
-    id: "1e",
-    label: "1€",
-    color: "#e21b23",
-    gradient: "linear-gradient(135deg, #ff5f65 0%, #e21b23 48%, #7d0810 100%)",
-    template: `${base}assets/strips/tira-1e.png`,
-    products: makeProducts("1e", 24, 10001),
-  },
-  {
-    id: "2e",
-    label: "2€",
-    color: "#f5a623",
-    gradient: "linear-gradient(135deg, #ffd166 0%, #f5a623 48%, #b85800 100%)",
-    template: `${base}assets/strips/tira-2e.png`,
-    products: makeProducts("2e", 24, 20001),
-  },
-  {
-    id: "3e",
-    label: "3€",
-    color: "#169b22",
-    gradient: "linear-gradient(135deg, #2edf52 0%, #169b22 48%, #093d0d 100%)",
-    template: `${base}assets/strips/tira-3e.png`,
-    products: makeProducts("3e", 24, 30001),
+    id: "misterzoo",
+    label: "MZ",
+    color: "#e07b1a",
+    gradient: "linear-gradient(135deg, #f5a843 0%, #e07b1a 48%, #8a4400 100%)",
+    template: `${base}assets/tiras/misterzoo/logo.jpg`,
+    logo: `${base}assets/tiras/misterzoo/logo.jpg`,
+    products: MISTERZOO_REFS.map((ref) => ({
+      id: `misterzoo-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/misterzoo/productos/${ref}.png`,
+      preview: `${base}assets/tiras/misterzoo/preview/${ref}.png`,
+    })),
   },
 ];
