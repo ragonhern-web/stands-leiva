@@ -205,7 +205,7 @@ export default function StripsSectionV2({ language }: Props) {
                   <img src={strip.logo ?? LOGO_SRC} alt={strip.id} className="h-full w-full object-cover" />
                 </div>
                 {/* Productos */}
-                {strip.products.map((product, i) => (
+                {strip.products.map((product) => (
                   <button
                     key={product.id}
                     type="button"
