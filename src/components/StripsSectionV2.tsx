@@ -208,25 +208,20 @@ export default function StripsSectionV2({ language }: Props) {
                 Strips Supermarket
               </h2>
             </div>
-            {fichaStrip.logo && (
-              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                <img src={fichaStrip.logo} alt={fichaStrip.id} className="max-h-[120px] w-full object-cover" />
-              </div>
-            )}
-
-            {/* Info de envío */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/60">
-              <p className="mb-0.5 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+            <div className="flex flex-col gap-2">
+              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
                 1 CAJA = 10 TIRAS = 100 UNIDADES
               </p>
-              <p className="mb-3 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
                 PEDIDO MÍNIMO 1 PALET (25 CAJAS)
               </p>
-              <img
-                src={`${base}assets/tiras/imagen-envio.png`}
-                alt="Imagen envío"
-                className="w-full rounded-xl object-contain"
-              />
+              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                <img
+                  src={`${base}assets/tiras/imagen-envio.png`}
+                  alt="Imagen envío"
+                  className="w-full object-contain"
+                />
+              </div>
             </div>
           </div>
 
