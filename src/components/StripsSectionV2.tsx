@@ -21,17 +21,20 @@ export default function StripsSectionV2({ language }: Props) {
   const [activeStripIdx, setActiveStripIdx] = useState<number | null>(null);
   const [previewSrc, setPreviewSrc] = useState(strips[0].template);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [hoveredStrip, setHoveredStrip] = useState<StripType | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<StripProduct | null>(null);
   const [selectedStrip, setSelectedStrip] = useState<StripType>(strips[0]);
 
-  // Para el preview/ficha usamos la marca seleccionada o la primera como fallback
+  // Para preview/ficha: usa la marca en hover, si no la seleccionada, si no la primera
   const activeStrip = activeStripIdx !== null ? strips[activeStripIdx] : strips[0];
-  const hoveredProduct = activeStrip.products.find((p) => p.id === hoveredId) ?? null;
+  const fichaStrip = hoveredStrip ?? activeStrip;
+  const hoveredProduct = fichaStrip.products.find((p) => p.id === hoveredId) ?? null;
 
   const handleBrandSwitch = useCallback((idx: number | null) => {
     setActiveStripIdx(idx);
     setPreviewSrc(idx !== null ? strips[idx].template : strips[0].template);
     setHoveredId(null);
+    setHoveredStrip(null);
   }, []);
 
   const openProduct = useCallback((product: StripProduct, strip: StripType) => {
@@ -45,10 +48,9 @@ export default function StripsSectionV2({ language }: Props) {
       className="flex gap-3 overflow-x-auto py-1 [&::-webkit-scrollbar]:hidden"
       style={{ scrollbarWidth: "none" }}
       onMouseLeave={() => {
-        if (activeStripIdx !== null) {
-          setPreviewSrc(strip.template);
-          setHoveredId(null);
-        }
+        setPreviewSrc(activeStripIdx !== null ? strip.template : strips[0].template);
+        setHoveredId(null);
+        setHoveredStrip(null);
       }}
     >
       {/* Logo + DEMO */}
@@ -66,16 +68,15 @@ export default function StripsSectionV2({ language }: Props) {
 
       {/* Productos */}
       {strip.products.map((product) => {
-        const isHovered = hoveredId === product.id && activeStripIdx !== null && strips[activeStripIdx]?.id === strip.id;
+        const isHovered = hoveredId === product.id && hoveredStrip?.id === strip.id;
         return (
           <button
             key={product.id}
             type="button"
             onMouseEnter={() => {
-              if (activeStripIdx !== null && strips[activeStripIdx]?.id === strip.id) {
-                setPreviewSrc(product.preview);
-                setHoveredId(product.id);
-              }
+              setPreviewSrc(product.preview);
+              setHoveredId(product.id);
+              setHoveredStrip(strip);
             }}
             onClick={() => openProduct(product, strip)}
             className="group relative flex w-[120px] flex-none flex-col items-center rounded-[1rem] border border-slate-200 bg-white px-2 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
@@ -207,9 +208,9 @@ export default function StripsSectionV2({ language }: Props) {
                 Strips Supermarket
               </h2>
             </div>
-            {activeStrip.logo && (
+            {fichaStrip.logo && (
               <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                <img src={activeStrip.logo} alt={activeStrip.id} className="max-h-[120px] w-full object-cover" />
+                <img src={fichaStrip.logo} alt={fichaStrip.id} className="max-h-[120px] w-full object-cover" />
               </div>
             )}
           </div>
@@ -217,7 +218,7 @@ export default function StripsSectionV2({ language }: Props) {
           {/* Col 2: preview */}
           <div className="flex flex-col gap-3">
             <div className="relative flex min-h-[320px] flex-1 items-center justify-center px-4 py-6">
-              <div className="pointer-events-none absolute inset-x-8 inset-y-12 rounded-full opacity-20 blur-3xl transition-colors duration-500" style={{ backgroundColor: activeStrip.color }} />
+              <div className="pointer-events-none absolute inset-x-8 inset-y-12 rounded-full opacity-20 blur-3xl transition-colors duration-500" style={{ backgroundColor: fichaStrip.color }} />
               <div className="absolute bottom-6 h-8 w-40 rounded-full bg-black/10 blur-2xl" />
               <div className="relative h-[280px] w-full">
                 <AnimatePresence mode="sync">
@@ -247,7 +248,7 @@ export default function StripsSectionV2({ language }: Props) {
               style={{ pointerEvents: hoveredProduct ? "none" : "auto" }}
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white shadow-md" style={{ background: LEIVA_GREEN }}>
-                {activeStrip.label}
+                {fichaStrip.label}
               </div>
               <p className="text-[11px] font-medium leading-snug text-slate-400 dark:text-slate-500">{t.stripsHoverHint}</p>
             </motion.div>
@@ -264,23 +265,23 @@ export default function StripsSectionV2({ language }: Props) {
                 >
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">{t.stripsProductEyebrow}</p>
-                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>{activeStrip.label}</span>
+                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-black text-white shadow-sm" style={{ background: LEIVA_GREEN }}>{fichaStrip.label}</span>
                   </div>
                   <div>
                     <p className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">{t.stripsRef}</p>
                     <p className="mt-0.5 text-2xl font-black text-slate-900">{hoveredProduct.ref}</p>
                   </div>
-                  <div className="flex items-center justify-center rounded-xl p-3" style={{ backgroundColor: activeStrip.color + "12" }}>
+                  <div className="flex items-center justify-center rounded-xl p-3" style={{ backgroundColor: fichaStrip.color + "12" }}>
                     <img
                       src={hoveredProduct.image}
                       alt={hoveredProduct.name}
-                      onError={(e) => { e.currentTarget.src = STRIP_PRODUCT_DEMO(activeStrip.color, activeStrip.label); }}
+                      onError={(e) => { e.currentTarget.src = STRIP_PRODUCT_DEMO(fichaStrip.color, fichaStrip.label); }}
                       className="h-16 w-auto object-contain drop-shadow-md"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-[10px]">
                     {([
-                      [t.stripsSalePrice, activeStrip.label, true],
+                      [t.stripsSalePrice, fichaStrip.label, true],
                       [t.stripsUnitsPerStrip, "12 uds.", false],
                     ] as [string, string, boolean][]).map(([label, value, colored]) => (
                       <div key={label}>
