@@ -153,6 +153,21 @@ export default function StripsSectionV2({ language }: Props) {
           </h2>
         </div>
 
+        {/* Info envío */}
+        <div className="px-2 flex flex-col gap-2">
+          <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+            1 CAJA = 10 TIRAS = 100 UNIDADES
+          </p>
+          <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+            PEDIDO MÍNIMO 1 PALET (25 CAJAS)
+          </p>
+          <img
+            src={`${base}assets/tiras/imagen-envio.png`}
+            alt="Imagen envío"
+            className="w-full object-contain"
+          />
+        </div>
+
         {/* Selector */}
         <div className="px-2"><BrandSelector size={44} /></div>
 

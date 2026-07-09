@@ -86,8 +86,8 @@ export interface StripType {
 
 const MISTERZOO_REFS = ["51199", "51378", "51427", "51436", "92068", "92073"];
 
-function makeDemoProducts(stripId: string, color: string, label: string): StripProduct[] {
-  return Array.from({ length: 6 }, (_, i) => {
+function makeDemoProducts(stripId: string, color: string, label: string, count = 6): StripProduct[] {
+  return Array.from({ length: count }, (_, i) => {
     const ref = String(i + 1).padStart(2, "0");
     const svg = STRIP_PRODUCT_DEMO(color, label);
     return { id: `${stripId}-demo-${ref}`, name: ref, ref, image: svg, preview: svg };
@@ -117,7 +117,7 @@ export const strips: StripType[] = [
     gradient: "linear-gradient(135deg, #f08db8 0%, #D42B70 48%, #8a0d43 100%)",
     template: STRIP_DEMO("#8B4513", "—"),
     logo: `${base}assets/tiras/bariloche/logo.jpg`,
-    products: makeDemoProducts("bariloche", "#8B4513", "—"),
+    products: makeDemoProducts("bariloche", "#8B4513", "—", 20),
   },
   {
     id: "demilia",
