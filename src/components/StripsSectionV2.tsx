@@ -27,19 +27,30 @@ interface BrandRowProps {
 function BrandRow({ strip, hoveredId, hoveredStripId, onProductEnter, onRowLeave, onOpen }: BrandRowProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+  const leftArrowRef = useRef<HTMLDivElement>(null);
   const hasMore = strip.products.length > 7;
 
   const handleScroll = () => {
     const el = scrollRef.current;
-    const arrow = arrowRef.current;
-    if (!el || !arrow) return;
+    if (!el) return;
     const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10;
-    arrow.style.opacity = atEnd ? "0" : "1";
-    arrow.style.pointerEvents = atEnd ? "none" : "auto";
+    const atStart = el.scrollLeft <= 0;
+    if (arrowRef.current) {
+      arrowRef.current.style.opacity = atEnd ? "0" : "1";
+      arrowRef.current.style.pointerEvents = atEnd ? "none" : "auto";
+    }
+    if (leftArrowRef.current) {
+      leftArrowRef.current.style.opacity = atStart ? "0" : "1";
+      leftArrowRef.current.style.pointerEvents = atStart ? "none" : "auto";
+    }
   };
 
   const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: 600, behavior: "smooth" });
+  };
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -600, behavior: "smooth" });
   };
 
   return (
@@ -112,7 +123,27 @@ function BrandRow({ strip, hoveredId, hoveredStripId, onProductEnter, onRowLeave
           })}
         </div>
 
-        {/* Flecha scroll — solo si hay más de 7 productos */}
+        {/* Flecha izquierda — oculta al inicio, aparece al deslizar */}
+        {hasMore && (
+          <div
+            ref={leftArrowRef}
+            className="pointer-events-none absolute inset-y-0 left-0 flex items-center opacity-0 transition-opacity duration-200"
+          >
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 rounded-l-2xl bg-gradient-to-l from-transparent via-white/70 to-white dark:via-slate-900/70 dark:to-slate-900" />
+            <button
+              type="button"
+              onClick={scrollLeft}
+              className="relative z-10 ml-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/80 bg-white/90 shadow-lg backdrop-blur-sm transition-all duration-150 hover:scale-110 hover:bg-white hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 dark:hover:bg-slate-800"
+              aria-label="Ver productos anteriores"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-slate-500 dark:text-slate-400">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+          </div>
+        )}
+
+        {/* Flecha derecha — solo si hay más de 7 productos */}
         {hasMore && (
           <div
             ref={arrowRef}
