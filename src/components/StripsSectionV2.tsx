@@ -344,6 +344,7 @@ export default function StripsSectionV2({ language }: Props) {
             PEDIDO MÍNIMO 1 PALET = 27 CAJAS
           </p>
           <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
+          <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
         </div>
 
         {/* Selector */}
@@ -411,6 +412,7 @@ export default function StripsSectionV2({ language }: Props) {
                   PEDIDO MÍNIMO 1 PALET = 27 CAJAS
                 </p>
                 <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
+                <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
               </div>
             </div>
 
