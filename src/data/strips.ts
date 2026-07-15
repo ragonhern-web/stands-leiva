@@ -84,7 +84,17 @@ export interface StripType {
   products: StripProduct[];
 }
 
-const MISTERZOO_REFS = ["51199", "51378", "51427", "51436", "92068", "92073"];
+const MISTERZOO_REFS = [
+  "50631", "51018", "51199", "51334", "51378", "51409", "51427", "51436",
+  "51550", "51562", "51563", "51566", "92066", "92067", "92068", "92070",
+  "92071", "92073", "92075", "92121", "92125", "92128",
+];
+
+const DEMILIA_REFS = [
+  "32345", "41786", "41815", "41954", "41980", "42081", "42123", "42126",
+  "42488", "42653", "42818", "43072", "92058", "92061", "92062", "92063",
+  "92084", "92087", "92093", "92095",
+];
 
 function makeDemoProducts(stripId: string, color: string, label: string, count = 6): StripProduct[] {
   return Array.from({ length: count }, (_, i) => {
@@ -126,7 +136,13 @@ export const strips: StripType[] = [
     gradient: "linear-gradient(135deg, #e06070 0%, #A92833 48%, #5c0d15 100%)",
     template: STRIP_DEMO("#c0930a", "—"),
     logo: `${base}assets/tiras/demilia/logo.jpg`,
-    products: makeDemoProducts("demilia", "#c0930a", "—"),
+    products: DEMILIA_REFS.map((ref) => ({
+      id: `demilia-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/demilia/productos/${ref}.png`,
+      preview: `${base}assets/tiras/demilia/preview/${ref}.png`,
+    })),
   },
   {
     id: "leiva",
