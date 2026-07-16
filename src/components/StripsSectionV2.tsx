@@ -330,7 +330,7 @@ export default function StripsSectionV2({ language }: Props) {
       ══════════════════════════════════════════════ */}
       <div className="flex flex-col gap-5 md:hidden">
         <div className="px-2">
-          <span className="mb-2 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+          <span className="mb-2 inline-flex items-center text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
             El complemento perfecto
           </span>
           <h2 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white">
@@ -340,8 +340,8 @@ export default function StripsSectionV2({ language }: Props) {
 
         {/* Info envío */}
         <div className="flex flex-col gap-2 px-2">
-          <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
-            PEDIDO MÍNIMO 1 PALET = 27 CAJAS
+          <p className="inline-flex w-fit items-center rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+            PEDIDO MÍNIMO 1 PALET
           </p>
           <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
           <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
@@ -400,7 +400,7 @@ export default function StripsSectionV2({ language }: Props) {
             {/* Col 1 */}
             <div className="flex flex-col justify-center gap-6 p-4">
               <div>
-                <span className="mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                <span className="mb-3 inline-flex items-center text-xs font-black uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
                   El complemento perfecto
                 </span>
                 <h2 className="mt-2 text-6xl font-black tracking-tight text-slate-950 dark:text-white">
@@ -408,8 +408,8 @@ export default function StripsSectionV2({ language }: Props) {
                 </h2>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
-                  PEDIDO MÍNIMO 1 PALET = 27 CAJAS
+                <p className="inline-flex w-fit items-center rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                  PEDIDO MÍNIMO 1 PALET
                 </p>
                 <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
                 <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
