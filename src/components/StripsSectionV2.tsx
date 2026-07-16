@@ -343,8 +343,8 @@ export default function StripsSectionV2({ language }: Props) {
           <p className="inline-flex w-fit items-center rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
             PEDIDO MÍNIMO 1 PALET
           </p>
-          <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
-          <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
+          <img src={`${base}assets/tiras/imagen-envio.webp`} alt="Imagen envío" className="w-full object-contain" />
+          <img src={`${base}assets/tiras/imagen-envio-5-ref.webp`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
         </div>
 
         {/* Selector */}
@@ -411,8 +411,8 @@ export default function StripsSectionV2({ language }: Props) {
                 <p className="inline-flex w-fit items-center rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                   PEDIDO MÍNIMO 1 PALET
                 </p>
-                <img src={`${base}assets/tiras/imagen-envio.png`} alt="Imagen envío" className="w-full object-contain" />
-                <img src={`${base}assets/tiras/imagen-envio-5-ref.png`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
+                <img src={`${base}assets/tiras/imagen-envio.webp`} alt="Imagen envío" className="w-full object-contain" />
+                <img src={`${base}assets/tiras/imagen-envio-5-ref.webp`} alt="Imagen envío 5 referencias" className="w-full object-contain" />
               </div>
             </div>
 

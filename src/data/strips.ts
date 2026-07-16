@@ -110,14 +110,14 @@ export const strips: StripType[] = [
     label: "1,15€",
     color: "#1A8FB5",
     gradient: "linear-gradient(135deg, #8DC5D7 0%, #1A8FB5 48%, #0d5470 100%)",
-    template: `${base}assets/tiras/misterzoo/tira-preview.png`,
-    logo: `${base}assets/tiras/misterzoo/logo.jpg`,
+    template: `${base}assets/tiras/misterzoo/tira-preview.webp`,
+    logo: `${base}assets/tiras/misterzoo/logo.webp`,
     products: MISTERZOO_REFS.map((ref) => ({
       id: `misterzoo-${ref}`,
       name: ref,
       ref,
-      image:   `${base}assets/tiras/misterzoo/productos/${ref}.png`,
-      preview: `${base}assets/tiras/misterzoo/preview/${ref}.png`,
+      image:   `${base}assets/tiras/misterzoo/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/misterzoo/preview/${ref}.webp`,
     })),
   },
   {
@@ -126,7 +126,7 @@ export const strips: StripType[] = [
     color: "#D42B70",
     gradient: "linear-gradient(135deg, #f08db8 0%, #D42B70 48%, #8a0d43 100%)",
     template: STRIP_DEMO("#8B4513", "—"),
-    logo: `${base}assets/tiras/bariloche/logo.jpg`,
+    logo: `${base}assets/tiras/bariloche/logo.webp`,
     products: makeDemoProducts("bariloche", "#8B4513", "—", 20),
   },
   {
@@ -135,13 +135,13 @@ export const strips: StripType[] = [
     color: "#A92833",
     gradient: "linear-gradient(135deg, #e06070 0%, #A92833 48%, #5c0d15 100%)",
     template: STRIP_DEMO("#c0930a", "1,15€"),
-    logo: `${base}assets/tiras/demilia/logo.jpg`,
+    logo: `${base}assets/tiras/demilia/logo.webp`,
     products: DEMILIA_REFS.map((ref) => ({
       id: `demilia-${ref}`,
       name: ref,
       ref,
-      image:   `${base}assets/tiras/demilia/productos/${ref}.png`,
-      preview: `${base}assets/tiras/demilia/preview/${ref}.png`,
+      image:   `${base}assets/tiras/demilia/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/demilia/preview/${ref}.webp`,
     })),
   },
   {
@@ -150,7 +150,7 @@ export const strips: StripType[] = [
     color: "#BD4B08",
     gradient: "linear-gradient(135deg, #f0a060 0%, #BD4B08 48%, #6b2200 100%)",
     template: STRIP_DEMO("#169b22", "—"),
-    logo: `${base}assets/tiras/leiva/logo.jpg`,
+    logo: `${base}assets/tiras/leiva/logo.webp`,
     products: makeDemoProducts("leiva", "#169b22", "—"),
   },
   {
@@ -159,7 +159,7 @@ export const strips: StripType[] = [
     color: "#7C5C4E",
     gradient: "linear-gradient(135deg, #c09080 0%, #7C5C4E 48%, #3d2a22 100%)",
     template: STRIP_DEMO("#2962FF", "—"),
-    logo: `${base}assets/tiras/marcos-toys/logo.jpg`,
+    logo: `${base}assets/tiras/marcos-toys/logo.webp`,
     products: makeDemoProducts("marcos-toys", "#2962FF", "—"),
   },
 ];
