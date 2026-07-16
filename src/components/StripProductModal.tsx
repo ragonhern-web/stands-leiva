@@ -101,7 +101,7 @@ export default function StripProductModal({ product, strip, onClose, language }:
                 <div>
                   <p className="font-black uppercase tracking-wider text-slate-400">{t.stripsUnitsPerStrip}</p>
                   <div className="mt-1 flex h-8 items-center justify-center rounded-xl bg-slate-50 font-black text-slate-700">
-                    12 uds.
+                    10 uds.
                   </div>
                 </div>
                 <div>

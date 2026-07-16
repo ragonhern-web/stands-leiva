@@ -301,7 +301,7 @@ export default function StripsSectionV2({ language }: Props) {
             <div className="grid grid-cols-2 gap-2 text-[10px]">
               {([
                 [t.stripsSalePrice, fichaStrip.label, true],
-                [t.stripsUnitsPerStrip, "12 uds.", false],
+                [t.stripsUnitsPerStrip, "10 uds.", false],
               ] as [string, string, boolean][]).map(([label, value, colored]) => (
                 <div key={label}>
                   <p className="font-black uppercase tracking-wider text-slate-400">{label}</p>
