@@ -131,10 +131,10 @@ export const strips: StripType[] = [
   },
   {
     id: "demilia",
-    label: "—",
+    label: "1,15€",
     color: "#A92833",
     gradient: "linear-gradient(135deg, #e06070 0%, #A92833 48%, #5c0d15 100%)",
-    template: STRIP_DEMO("#c0930a", "—"),
+    template: STRIP_DEMO("#c0930a", "1,15€"),
     logo: `${base}assets/tiras/demilia/logo.jpg`,
     products: DEMILIA_REFS.map((ref) => ({
       id: `demilia-${ref}`,
