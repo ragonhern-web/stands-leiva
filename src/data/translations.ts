@@ -499,6 +499,7 @@ export const standText = ({
   stripsDescLabel: "Beschreibung",
   stripsProductDescription: "Einheitspreis-Produkt für Supermarkt-Displaystreifen.",
   stripsHoverHint: "Bewegen Sie den Cursor über ein Produkt, um sein Datenblatt zu sehen",
+  stripsMinOrder: "MINDESTBESTELLUNG 1 PALETTE",
 };
 (copy as unknown as Record<Language, TranslationCopy>).nl = {
   eyebrow: "Virtuele Showroom Novedades Leiva",
@@ -544,6 +545,7 @@ export const standText = ({
   stripsDescLabel: "Beschrijving",
   stripsProductDescription: "Product met vaste prijs voor supermarkt displaystrook.",
   stripsHoverHint: "Beweeg de cursor over een product om de fiche te zien",
+  stripsMinOrder: "MINIMALE BESTELLING 1 PALLET",
 };
 (copy as unknown as Record<Language, TranslationCopy>).pl = {
   eyebrow: "Wirtualny Showroom Novedades Leiva",
@@ -589,6 +591,7 @@ export const standText = ({
   stripsDescLabel: "Opis",
   stripsProductDescription: "Produkt z jedną ceną do paska ekspozytorowego supermarketu.",
   stripsHoverHint: "Najedź kursorem na produkt, aby zobaczyć jego kartę",
+  stripsMinOrder: "MINIMALNE ZAMÓWIENIE 1 PALETA",
 };
 
 (standText as unknown as Record<Language, Record<string, [string, string]>>).de = {
@@ -714,6 +717,7 @@ export const standText = ({
   stripsDescLabel: "Descriere",
   stripsProductDescription: "Produs cu preț unic pentru bandă expozitoare de supermarket.",
   stripsHoverHint: "Treceți cursorul peste un produs pentru a vedea fișa sa",
+  stripsMinOrder: "COMANDĂ MINIMĂ 1 PALET",
 };
 (standText as unknown as Record<Language, Record<string, [string, string]>>).ro = {
   ene: ["Expozitor Grădină", "Unelte de grădinărit, stropitori, ghivece și accesorii pentru a demara sezonul."],
