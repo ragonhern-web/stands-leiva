@@ -84,4 +84,5 @@ export interface TranslationCopy {
   stripsDescLabel: string;
   stripsProductDescription: string;
   stripsHoverHint: string;
+  stripsMinOrder: string;
 }

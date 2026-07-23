@@ -58,6 +58,7 @@ export const copy = {
     stripsDescLabel: "Descripción",
     stripsProductDescription: "Producto de precio único para tira expositora de supermercado.",
     stripsHoverHint: "Pasa el cursor sobre un producto para ver su ficha",
+    stripsMinOrder: "PEDIDO MÍNIMO 1 PALET",
   },
   en: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -104,6 +105,7 @@ export const copy = {
     stripsDescLabel: "Description",
     stripsProductDescription: "Single-price product for supermarket display strip.",
     stripsHoverHint: "Hover over a product to see its details",
+    stripsMinOrder: "MINIMUM ORDER 1 PALLET",
   },
   fr: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -150,6 +152,7 @@ export const copy = {
     stripsDescLabel: "Description",
     stripsProductDescription: "Produit à prix unique pour bandeau présentoir de supermarché.",
     stripsHoverHint: "Survolez un produit pour voir sa fiche",
+    stripsMinOrder: "COMMANDE MINIMUM 1 PALETTE",
   },
   it: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -196,6 +199,7 @@ export const copy = {
     stripsDescLabel: "Descrizione",
     stripsProductDescription: "Prodotto a prezzo unico per striscia espositiva di supermercato.",
     stripsHoverHint: "Passa il cursore su un prodotto per vedere la sua scheda",
+    stripsMinOrder: "ORDINE MINIMO 1 PALLET",
   },
   pt: {
     eyebrow: "Showroom Virtual Novedades Leiva",
@@ -242,6 +246,7 @@ export const copy = {
     stripsDescLabel: "Descrição",
     stripsProductDescription: "Produto de preço único para tira expositora de supermercado.",
     stripsHoverHint: "Passe o cursor sobre um produto para ver a sua ficha",
+    stripsMinOrder: "ENCOMENDA MÍNIMA 1 PALETE",
   },
 } as unknown as Record<Language, TranslationCopy>;
 
