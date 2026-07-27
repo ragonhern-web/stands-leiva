@@ -90,6 +90,14 @@ const MISTERZOO_REFS = [
   "92071", "92073", "92075", "92121", "92125", "92128",
 ];
 
+const BARILOCHE_REFS = [
+  "32296", "42273", "42506", "42509", "42510", "42694", "42716", "42812",
+  "42813", "42840", "42856", "42908", "42937", "42943", "42947", "42950",
+  "42958", "43016", "43017", "43035", "43036", "43074", "43081", "43082",
+  "43088", "43091", "43093", "43094", "43124", "43129", "43130", "43132",
+  "43133", "43155", "43210", "92035", "92106", "92109", "92122",
+];
+
 const DEMILIA_REFS = [
   "32345", "41786", "41815", "41954", "41980", "42081", "42123", "42126",
   "42488", "42653", "42818", "43072", "92058", "92061", "92062", "92063",
@@ -122,12 +130,18 @@ export const strips: StripType[] = [
   },
   {
     id: "bariloche",
-    label: "—",
+    label: "0,55€",
     color: "#D42B70",
     gradient: "linear-gradient(135deg, #f08db8 0%, #D42B70 48%, #8a0d43 100%)",
-    template: STRIP_DEMO("#8B4513", "—"),
+    template: STRIP_DEMO("#D42B70", "0,55€"),
     logo: `${base}assets/tiras/bariloche/logo.webp`,
-    products: makeDemoProducts("bariloche", "#8B4513", "—", 20),
+    products: BARILOCHE_REFS.map((ref) => ({
+      id: `bariloche-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/bariloche/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/bariloche/preview/${ref}.webp`,
+    })),
   },
   {
     id: "demilia",
