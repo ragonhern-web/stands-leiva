@@ -104,13 +104,27 @@ const DEMILIA_REFS = [
   "92084", "92087", "92093", "92095",
 ];
 
-function makeDemoProducts(stripId: string, color: string, label: string, count = 6): StripProduct[] {
-  return Array.from({ length: count }, (_, i) => {
-    const ref = String(i + 1).padStart(2, "0");
-    const svg = STRIP_PRODUCT_DEMO(color, label);
-    return { id: `${stripId}-demo-${ref}`, name: ref, ref, image: svg, preview: svg };
-  });
-}
+const LEIVA_REFS = [
+  "22188", "22191", "31624", "31627", "31628", "31674", "31731", "31759",
+  "31782", "31793", "31799", "31940", "31943", "32068", "32121", "32149",
+  "32157", "32226", "32229", "32283", "32294", "32295", "32326", "32329",
+  "32334", "32335",
+];
+
+const MARCOS_TOYS_REFS = [
+  "3065", "31910", "31912", "3223", "3296", "3335", "3430", "3432", "3513",
+  "3519", "3541", "3545", "3608", "3612", "60111", "60131", "60138", "60140",
+  "60163", "60164", "60197", "60198", "60207", "60241", "60390", "60435",
+  "60436", "60442", "60443", "60446", "60452", "60455",
+];
+
+const PAPELERIA_REFS = [
+  "30931", "31304", "31520", "31526", "31902", "31971", "31980", "31981",
+  "31984", "32010", "32072", "32075", "32076", "32077", "32079", "32081",
+  "32082", "32085", "32088", "32091", "32093", "32094", "32101", "32102",
+  "32103", "32104", "32243", "32246", "32247", "32248", "32253", "32256",
+  "32257", "32259", "32277", "32362", "40185", "92012", "92110",
+];
 
 export const strips: StripType[] = [
   {
@@ -160,20 +174,47 @@ export const strips: StripType[] = [
   },
   {
     id: "leiva",
-    label: "—",
+    label: "1,15€",
     color: "#BD4B08",
     gradient: "linear-gradient(135deg, #f0a060 0%, #BD4B08 48%, #6b2200 100%)",
-    template: STRIP_DEMO("#169b22", "—"),
+    template: STRIP_DEMO("#BD4B08", "1,15€"),
     logo: `${base}assets/tiras/leiva/logo.webp`,
-    products: makeDemoProducts("leiva", "#169b22", "—"),
+    products: LEIVA_REFS.map((ref) => ({
+      id: `leiva-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/leiva/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/leiva/preview/${ref}.webp`,
+    })),
   },
   {
     id: "marcos-toys",
-    label: "—",
+    label: "1,15€",
     color: "#7C5C4E",
     gradient: "linear-gradient(135deg, #c09080 0%, #7C5C4E 48%, #3d2a22 100%)",
-    template: STRIP_DEMO("#2962FF", "—"),
+    template: STRIP_DEMO("#7C5C4E", "1,15€"),
     logo: `${base}assets/tiras/marcos-toys/logo.webp`,
-    products: makeDemoProducts("marcos-toys", "#2962FF", "—"),
+    products: MARCOS_TOYS_REFS.map((ref) => ({
+      id: `marcos-toys-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/marcos-toys/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/marcos-toys/preview/${ref}.webp`,
+    })),
+  },
+  {
+    id: "papeleria",
+    label: "0,55€",
+    color: "#2E7D32",
+    gradient: "linear-gradient(135deg, #81C784 0%, #2E7D32 48%, #1b4d1e 100%)",
+    template: STRIP_DEMO("#2E7D32", "0,55€"),
+    logo: `${base}assets/tiras/papeleria/logo.webp`,
+    products: PAPELERIA_REFS.map((ref) => ({
+      id: `papeleria-${ref}`,
+      name: ref,
+      ref,
+      image:   `${base}assets/tiras/papeleria/productos/${ref}.webp`,
+      preview: `${base}assets/tiras/papeleria/preview/${ref}.webp`,
+    })),
   },
 ];
