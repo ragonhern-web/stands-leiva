@@ -485,7 +485,6 @@ export function downloadPDF(stand: Stand, language: Language = "es"): void {
   .photo { width: 58px; height: 58px; object-fit: contain; display: block; }
   @media print { body { padding: 16px; } }
 </style>
-<script>window.addEventListener('load', function() { window.print(); });<\/script>
 </head><body>
 <h1>${standTitle}</h1>
 <h2>${sectionLabel}</h2>
@@ -518,7 +517,13 @@ export function downloadPDF(stand: Stand, language: Language = "es"): void {
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
   const url  = URL.createObjectURL(blob);
   const win  = window.open(url, "_blank");
-  if (!win) {
+  if (win) {
+    // El documento blob: hereda el origin (y la CSP) de esta página, así que
+    // podemos engancharnos a su "load" desde aquí sin script inline en el blob.
+    win.addEventListener("load", () => {
+      try { win.print(); } catch { /* noop */ }
+    });
+  } else {
     const a = document.createElement("a");
     a.href = url; a.target = "_blank";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
